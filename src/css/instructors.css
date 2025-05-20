@@ -1,0 +1,96 @@
+﻿/* src/css/instructors.css */
+
+.instructors-section {
+    padding: 60px 20px;
+    background: linear-gradient(to right, #1f1f1f, #3a1f1d);
+    text-align: center;
+}
+
+.instructors-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: white;
+    font-family: 'Playfair Display', serif;
+}
+
+.instructor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.instructor-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.instructor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.instructor-photo {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+.instructor-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.instructor-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+
+.instructor-role {
+    font-style: italic;
+    color: #f26722;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.instructor-speciality {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+.instructor-levels{
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.instructor-description {
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.instructor-socials {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.instructor-socials a {
+    color: #f26722;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.instructor-socials a:hover {
+    color: #111;
+}

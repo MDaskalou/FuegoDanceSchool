@@ -1,0 +1,10 @@
+﻿
+
+@import './navbar.css';
+@import './hero.css';
+@import './FAQ.css';
+@import './courses.css';
+
+html {
+    scroll-behavior: smooth;
+}

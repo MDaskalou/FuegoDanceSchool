@@ -1,0 +1,93 @@
+﻿.courses-section {
+    padding: 80px 60px;
+    background: linear-gradient(to right, #1f1f1f, #3a1f1d);
+    color: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.courses-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #fff;
+    text-shadow: 0 0 10px #000;
+}
+
+.course-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.course-card {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+    transform: scale(1.03);
+}
+
+.course-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    
+}
+
+.course-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.course-toggle {
+    background-color: transparent;
+    color: #f26722;
+    border: 2px solid #f26722;
+    padding: 8px 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.course-toggle:hover {
+    background-color: #f26722;
+    color: white;
+}
+
+.course-info {
+    margin-top: 10px;
+    line-height: 1.6;
+    animation: fadeIn 0.4s ease;
+}
+
+.signup-button {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #f26722;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.signup-button:hover {
+    background-color: #e55715;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
