@@ -1,5 +1,8 @@
 ﻿// src/components/Events.jsx
 import "../css/events.css";
+import LinkButton from "./UI/Button/LinkButton";
+import Card from './UI/Card/Card';
+import Section from './UI/Section/Section';
 
 const events = [
     {
@@ -33,27 +36,21 @@ const events = [
 
 function Events() {
     return (
-        <section id="events" className="events-section">
+        <Section id="events" className="events-section">
             <h2 className="events-title">Kommande Event</h2>
             <div className="events-grid">
                 {events.map((event, index) => (
-                    <div key={index} className="event-card">
-                        <div className="event-image-wrapper">
-                            <img src={event.image} alt={event.title} className="event-image" />
-                        </div>
-                        <div className="event-details">
-                            <h3 className="event-title">{event.title}</h3>
+                    <Card image={event.image} title={event.title} className="card-event">
                             <p className="event-meta">{event.date} – {event.time}</p>
                             <p className="event-meta">{event.location}</p>
                             <p className="event-description">{event.description}</p>
-                            <a href={event.link} className="event-link" target="_blank" rel="noreferrer">
+                            <LinkButton href="#"  target="_blank" className="btn btn-small">
                                 Läs mer & boka
-                            </a>
-                        </div>
-                    </div>
+                            </LinkButton>
+                    </Card>
                 ))}
             </div>
-        </section>
+        </Section>
     );
 }
 

@@ -1,6 +1,10 @@
 ﻿// src/components/Courses.jsx
 import { useState } from "react";
 import "../css/courses.css";
+import Button from './UI/Button/Button';
+import LinkButton from "./UI/Button/LinkButton";
+import Card from './UI/Card/Card';
+import Section from './UI/Section/Section';
 
 const courseData = [
     {
@@ -69,30 +73,30 @@ function Courses() {
     };
 
     return (
-        <section id="courses" className="courses-section">
+        <Section id="courses" className="courses-section">
             <h2 className="courses-title">Våra Kurser</h2>
             <div className="course-cards">
                 {courseData.map((course, index) => (
-                    <div key={index} className="course-card">
-                        <img src={course.image} alt={course.title} className="course-image" />
-                        <h3>{course.title}</h3>
-                        <button onClick={() => toggleOpen(index)} className="course-toggle">
+                    <Card image={course.image} title={course.title}>
+                        
+                        <button onClick={() => toggleOpen(index)} className="btn-secondary-outline">
                             {openIndex === index ? "Stäng" : "Läs mer"}
                         </button>
+                        
                         {openIndex === index && (
                             <div className="course-info">
                                 <p>{course.description}</p>
                                 <p><strong>Tid:</strong> {course.times}</p>
                                 <p><strong>Krav:</strong> {course.requirements}</p>
-                                <a href={course.bookingLink} className="signup-button" target="_blank" rel="noopener noreferrer">
+                                <LinkButton href={course.bookingLink} className="btn btn-small" target="_blank" >
                                     Anmäl dig
-                                </a>
+                                </LinkButton>
                             </div>
                         )}
-                    </div>
+                    </Card>
                 ))}
             </div>
-        </section>
+        </Section>
     );
 }
 

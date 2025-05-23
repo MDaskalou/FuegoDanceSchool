@@ -1,59 +1,75 @@
 ﻿// src/components/Instructors.jsx
 import "../css/instructors.css";
+import Card from './UI/Card/Card';
+import Section from './UI/Section/Section';
+import React, {useState} from 'react';
+import mikaelImage from '../img/instruktörMikael.png';
+import mikaelImage1 from '../img/instruktörMikael1.jpg';
+import mikaelImage2 from '../img/instruktörMikael2.jpg';
+import Modal from './ModalComponent'; 
+
 
 const instructors = [
     {
-        name: "Mikael D.",
-        image: require("../img/instruktörMikael.png"),
+        name: "Mikael",
         role: "Instruktör",
-        levels: "Levels: 1 & 2",
-        specialty: "Teknik & musikalitet",
-        description: "Med 10 års erfarenhet inom dans, fokuserar Mikael på teknik, uttryck och kontakt.",
-        social: {
-            instagram: "https://instagram.com/mikael",
-            facebook: "https://facebook.com/mikael"
-        }
+        image: mikaelImage,
+        socials: {
+            instagram: "#",
+            facebook: "#"
+        },
+        description: "Mikael har undervisat i 6 år och är grundaren av Fuego Dance School.",
+        levels: "Nivå 1, Nivå 2, Nivå 3",
+        favoriteTeaching: "Teknik och musikalitet i bachata sensual.",
+        extraImages: [mikaelImage1, mikaelImage2]
     },
     {
-        name: "Georgia N.",
-        image: "#",
+        name: "Sanela",
         role: "Hjälpinstruktör",
-        specialty: "Styling & flow",
-        description: "Georgia brinner för musikalitet och att hjälpa elever hitta sitt flow.",
-        social: {
-            instagram: "https://instagram.com/georgia",
-            facebook: "https://facebook.com/georgia"
-        }
+        image: "#",
+        socials: {
+            instagram: "https://instagram.com/sara"
+        },
+        description: "Sara assisterar på nivå 1 och 2, och fokuserar mycket på teknik.",
+        extraImages: [
+            "#",
+        ]
     }
-    // Lägg till fler här
 ];
+    // Lägg till fler här
 
-function Instructors() {
-    return (
-        <section className="instructors-section">
-            <h2 className="instructors-title">Våra Instruktörer</h2>
-            <div className="instructor-grid">
-                {instructors.map((inst, index) => (
-                    <div key={index} className="instructor-card">
-                        <img src={inst.image} alt={inst.name} className="instructor-image" />
-                        <h3>{inst.name}</h3>
-                        <p className="instructor-role">{inst.role}</p>
-                        <p className="instructor-specialty">{inst.specialty}</p>
-                        <p className="instructor-levels">{inst.levels}</p>
-                        <p className="instructor-description">{inst.description}</p>
-                        <div className="instructor-socials">
-                            <a href={inst.social.instagram} target="_blank" rel="noreferrer">
-                                <i className="fab fa-instagram"></i>
-                            </a>
-                            <a href={inst.social.facebook} target="_blank" rel="noreferrer">
-                                <i className="fab fa-facebook"></i>
-                            </a>
-                        </div>
+export default function InstructorSection() {
+    const [selectedInstructor, setSelectedInstructor] = useState(null);
+
+    const openModal = (instructor) => setSelectedInstructor(instructor);
+    const closeModal = () => setSelectedInstructor(null);
+
+    const renderCards = (role) => (
+        <div className="instructor-grid">
+            {instructors.filter(i => i.role === role).map((i, index) => (
+                <div className="instructor-card" key={index}>
+                    <img src={i.image} alt={i.name} className="instructor-img" />
+                    <h3>{i.name}</h3>
+                    <div className="instructor-socials">
+                        {i.socials.instagram && <a href={i.socials.instagram} target="_blank" rel="noreferrer"><i className="fab fa-instagram"></i></a>}
+                        {i.socials.facebook && <a href={i.socials.facebook} target="_blank" rel="noreferrer"><i className="fab fa-facebook"></i></a>}
                     </div>
-                ))}
-            </div>
+                    <button className="btn-secondary-outline" onClick={() => openModal(i)}>Mer info</button>
+                </div>
+            ))}
+        </div>
+    );
+
+    return (
+        <section className="instructor-section">
+            <h2>Instruktörer</h2>
+            {renderCards("Instruktör")}
+            <h2>Hjälpinstruktörer</h2>
+            {renderCards("Hjälpinstruktör")}
+
+            <Modal isOpen={!!selectedInstructor} onClose={closeModal} instructor={selectedInstructor} />
+
         </section>
     );
 }
 
-export default Instructors;

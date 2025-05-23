@@ -1,10 +1,11 @@
 ﻿// src/components/About.jsx
 import "../css/aboutus.css";
 import BackgroundHero from "../img/BackgroundHero.png"; // eller .png
+import Section from "./UI/Section/Section";
 
 function About() {
     return (
-        <section className="about-section">
+        <Section className="about-section">
             <div className="about-container">
                 <h2 className="about-title">Om Fuego Dance School</h2>
                 <p className="about-description">
@@ -15,7 +16,7 @@ function About() {
                 </p>
                 <img src={BackgroundHero} alt="Danssal" className="about-image" />
             </div>
-        </section>
+        </Section>
     );
 }
 

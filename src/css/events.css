@@ -88,19 +88,25 @@
     margin-bottom: 12px;
 }
 
-.event-link {
-    display: inline-block;
-    background-color: #f26722;
-    color: white;
-    padding: 10px 16px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+.event-meta {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.event-link:hover {
-    background-color: #d45414;
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(242, 103, 34, 0.4);
+.event-meta::before {
+    content: "\f073";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 6px;
+    color: #f26722;
+}
+
+.event-description {
+    font-size: 0.9rem;
+    color: #444;
+    margin-bottom: 12px;
 }

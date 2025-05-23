@@ -14,14 +14,18 @@
 }
 
 .navbar {
-    background-color: #111;
+    height: 100px;
+    background: linear-gradient(to right, #1f1f1f, #3a1f1d);
     color: white;
     padding: 5px 0;
-    animation: fade-slide-in 0.8s ease-out forwards;
-    animation-delay: 0.1s;
-    transform: translateY(-30px);
-    z-index: 10;
-    position: relative;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    will-change: transform;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+
 }
 
 .navbar-container {
@@ -169,3 +173,34 @@
     text-shadow: 0 0 8px #f26722;
     transform: scale(1.2);
 }
+.nav-links .scroll-link {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+    transition: color 0.2s ease;
+}
+
+.nav-links .scroll-link:hover {
+    text-shadow:
+            0 0 5px #f26722,
+            0 0 10px #f26722,
+            0 0 15px #f26722;
+}
+
+
+.navbar.visible {
+    transform: translateY(0);
+    opacity: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* 👈 Lägger till skugga när navbaren visas */
+
+
+}
+
+.navbar.hidden {
+    transform: translateY(-100%) !important;
+    opacity: 0;
+
+}
+

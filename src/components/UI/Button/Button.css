@@ -1,0 +1,58 @@
+﻿.btn {
+    display: inline-block;
+    background-color: #f26722;
+    color: white;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+    background-color: #e9560e;
+    transform: scale(1.05);
+}
+
+/* 🔁 Variant med mindre padding */
+.btn-small {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+}
+
+/* 🔁 Kvadratisk variant för kontaktformulär */
+.btn-square {
+    border-radius: 8px;
+    padding: 12px;
+}
+
+/* 🔁 Sekundär stil (om du vill ha grå eller annan färg) */
+.btn-secondary {
+    background-color: #555;
+}
+
+.btn-secondary:hover {
+    background-color: #333;
+}
+
+/* src/components/UI/Button/Button.css */
+
+.btn-secondary-outline {
+    background-color: transparent;
+    color: #f26722;
+    border: 2px solid #f26722;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary-outline:hover {
+    background-color: #f26722;
+    color: white;
+}

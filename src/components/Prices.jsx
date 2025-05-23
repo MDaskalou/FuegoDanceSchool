@@ -1,5 +1,10 @@
 ﻿// src/components/Prices.jsx
 import "../css/prices.css";
+import LinkButton from './UI/Button/LinkButton';
+import Card from './UI/Card/Card';
+import Section from './UI/Section/Section';
+
+
 
 const prices = [
     { label: "1 kurs", price: "1600 kr", link: "https://dinbokning.se/1kurs" },
@@ -11,21 +16,20 @@ const prices = [
 
 function Prices() {
     return (
-        <section id="prices" className="prices-section">
+        <Section id="prices" className="prices-section">
             <h2 className="prices-title">Priser</h2>
             <p className="prices-note">Första gången är alltid gratis – kom och prova!</p>
             <div className="price-cards">
                 {prices.map((item, index) => (
-                    <div key={index} className="price-card">
-                        <h3>{item.label}</h3>
+                    <Card key={index} title={item.label} image={require("../img/FuegoLogoimg.png")}>
                         <p className="price-amount">{item.price}</p>
-                        <a href={item.link} className="price-button" target="_blank" rel="noopener noreferrer">
+                        <LinkButton href={item.link} target="_blank" className="btn btn-small">
                             Boka nu
-                        </a>
-                    </div>
+                        </LinkButton>
+                    </Card>
                 ))}
             </div>
-        </section>
+        </Section>
     );
 }
 

@@ -1,13 +1,16 @@
 ﻿import '../css/hero.css'
 import {useState} from 'react'
 import FAQ from './FAQ'
+import LinkButton from './UI/Button/LinkButton'
+import Button from './UI/Button/Button'
+import Section   from "./UI/Section/Section";
 
 function Hero() {
     const [showFAQ, setShowFAQ] = useState(false);
 
 
     return (
-        <section className="hero">
+        <Section id="hero" className="hero">
             <div className="hero-overlay">
                 <div className="hero-content">
                     <div className="hero-text-box">
@@ -16,16 +19,16 @@ function Hero() {
                     </p>
                     </div>
                     <div className="hero-buttons">
-                        <a href="#" className="hero-button">Anmäl er till öppet hus</a>
-                        <button className="hero-button faq-trigger" onClick={() => setShowFAQ(true)}>
+                        <LinkButton href="#" className="btn btn-small">Anmäl er till öppet hus</LinkButton>
+                        <Button onClick={() => setShowFAQ(true)} className="btn btn-small">
                             Vanliga frågor
-                        </button>
+                        </Button>
                     </div>
                 </div>
             </div>
             <FAQ visible={showFAQ} onClose={() => setShowFAQ(false)} />
 
-        </section>
+        </Section>
 
 )
 }

@@ -1,19 +1,37 @@
 ﻿/* src/css/contact.css */
 
 .contact-section {
-    background-color: #111;
     padding: 60px 20px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px; /* kan justeras efter behov */
 }
+.contact-wrapper{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+
+.contact-map {
+    flex: 1;
+    min-height: 300px;
+}
+
 
 .contact-container {
     max-width: 600px;
     margin: 0 auto;
-    background-color: #ffffff;
+    background-color: #ffffff; /* ← VIT */
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     position: relative;
+    color: #111; /* svart text i vit box */
+
 }
 
 .contact-title {
@@ -50,23 +68,13 @@
     resize: vertical;
 }
 
-.contact-form button {
-    padding: 12px;
-    background-color: #f26722;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+.contact-form-container {
+    flex: 1;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
-
-.contact-form button:hover {
-    background-color: #d5551c;
-    transform: scale(1.05);
-}
-
 .contact-info {
     font-size: 0.95rem;
     color: #333;
