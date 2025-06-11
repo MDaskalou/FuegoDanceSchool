@@ -1,13 +1,23 @@
-﻿.hero {
-    height: 100vh;
-    background-image: url('../img/BackgroundHero3.png'); /* Du byter till egen bild */
+﻿:root {
+    --primary-color: #fba638;
+    --primary-dark: #cc6a00;
+    --primary-light: #fdd87c;
+    --text-on-primary: #fff;
+}
+
+
+.hero {
+    padding-top: 80px;
+    height: auto;
+    background-image: url('../img/BackgroundHero3.png');
     background-size: cover;
-    background-position: center;
-    padding-top: 100px;
-    position: relative;
+    background-position: top;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    min-height: 100vh;
 }
 
 .hero-overlay {
@@ -16,42 +26,66 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1rem;
 }
 
 .hero-content {
+    width: 100%;
+    max-width: 900px;
+    padding: 20px;
+    border-radius: 12px;
     text-align: center;
     color: white;
     animation: fadeIn 1.5s ease-in-out forwards;
     opacity: 0;
 }
+
 .hero-title {
-    font-size: 3rem;
+    font-size: 2rem;
     margin-bottom: 10px;
     font-family: 'Playfair Display', serif;
-}
-
-
-.hero-title,
-.hero-subtitle {
+    color: var(--primary-color);
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 
 .hero-subtitle {
-    font-size: 1.4rem;
+    font-size: 1rem;
+    padding: 0 15px;
     margin-bottom: 20px;
     font-weight: 300;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .hero-buttons {
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    gap: 15px;
     justify-content: center;
-    margin-top: 2rem;
-    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.btn,
+.btn-small {
+    background-color: var(--primary-color);
+    color: var(--text-on-primary);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+}
+
+.btn:hover,
+.btn-small:hover {
+    background-color: var(--primary-dark);
 }
 
 
+/* ✨ Animation */
 @keyframes fadeIn {
     from {
         opacity: 0;

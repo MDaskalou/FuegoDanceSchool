@@ -56,3 +56,17 @@
     background-color: #f26722;
     color: white;
 }
+
+@media (max-width: 480px) {
+    .btn,
+    .btn-small,
+    .btn-secondary-outline {
+        width: 90%;
+        max-width: 300px;
+        display: block;
+        margin: 0 auto 15px;
+        font-size: 1rem;
+        padding: 12px 0;
+        text-align: center;
+    }
+}

@@ -2,49 +2,43 @@
 
 .contact-section {
     padding: 60px 20px;
+    background: linear-gradient(to right, #1f1f1f, #3a1f1d);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 300px; /* kan justeras efter behov */
+    align-items: flex-start;
 }
-.contact-wrapper{
+
+.contact-wrapper {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     gap: 40px;
-    max-width: 1200px;
     width: 100%;
+    max-width: 500px;
 }
-
-
-.contact-map {
-    flex: 1;
-    min-height: 300px;
-}
-
 
 .contact-container {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #ffffff; /* ← VIT */
-    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    position: relative;
-    color: #111; /* svart text i vit box */
-
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(3px);
+    color: white;
 }
 
 .contact-title {
-    font-size: 2.5rem;
-    color: #111;
+    font-size: 2rem;
+    color: white;
     font-family: 'Playfair Display', serif;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .contact-subtitle {
     font-size: 1rem;
-    color: #444;
+    color: #ddd;
     margin-bottom: 30px;
+    text-align: center;
 }
 
 .contact-form {
@@ -58,9 +52,11 @@
 .contact-form textarea {
     padding: 12px;
     border-radius: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #888;
     font-size: 1rem;
     font-family: inherit;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
 }
 
 .contact-form textarea {
@@ -68,17 +64,11 @@
     resize: vertical;
 }
 
-.contact-form-container {
-    flex: 1;
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-}
 .contact-info {
     font-size: 0.95rem;
-    color: #333;
+    color: #ccc;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .contact-icons {

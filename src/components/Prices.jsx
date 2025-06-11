@@ -1,36 +1,72 @@
-﻿// src/components/Prices.jsx
-import "../css/prices.css";
-import LinkButton from './UI/Button/LinkButton';
+﻿import React, { useEffect, useState } from 'react';
 import Card from './UI/Card/Card';
-import Section from './UI/Section/Section';
+import LinkButton from './UI/Button/LinkButton';
+import BgLeft from '../img/Pricesimg1.png';
+import BgCenter from '../img/Pricesimg2.png';
+import BgRight from '../img/Pricesimg3.png';
+import '../css/prices.css';
 
+export default function Prices() {
+    const mobileImages = [BgLeft, BgCenter, BgRight];
+    const [mobileBg, setMobileBg] = useState(0);
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setMobileBg(prev => (prev + 1) % mobileImages.length);
+        }, 4000); // Byt var 4:e sekund
 
-const prices = [
-    { label: "1 kurs", price: "1600 kr", link: "https://dinbokning.se/1kurs" },
-    { label: "2 kurser", price: "2600 kr", link: "https://dinbokning.se/2kurser" },
-    { label: "3 kurser", price: "3600 kr", link: "https://dinbokning.se/3kurser" },
-    { label: "4 kurser", price: "4600 kr", link: "https://dinbokning.se/4kurser" },
-    { label: "5 kurser", price: "5600 kr", link: "https://dinbokning.se/5kurser" }
-];
+        return () => clearInterval(interval);
+    }, []);
 
-function Prices() {
     return (
-        <Section id="prices" className="prices-section">
-            <h2 className="prices-title">Priser</h2>
-            <p className="prices-note">Första gången är alltid gratis – kom och prova!</p>
-            <div className="price-cards">
-                {prices.map((item, index) => (
-                    <Card key={index} title={item.label} image={require("../img/FuegoLogoimg.png")}>
-                        <p className="price-amount">{item.price}</p>
-                        <LinkButton href={item.link} target="_blank" className="btn btn-small">
-                            Boka nu
-                        </LinkButton>
-                    </Card>
+        <section id="prices" className="prices-section">
+            {/* Bakgrundsbilder */}
+            <div className="price-bg-wrapper" aria-hidden="true">
+                {mobileImages.map((img, index) => (
+                    <img
+                        key={index}
+                        src={img}
+                        alt=""
+                        className={`price-bg mobile ${index === mobileBg ? 'visible' : ''}`}
+                    />
                 ))}
             </div>
-        </Section>
+
+
+            <div className="prices-header">
+                <h2 className="prices-title">Priser & Rabatter</h2>
+                <p className="prices-note">Första gången är alltid gratis – kom och prova!</p>
+            </div>
+
+            <div className="prices-card-wrapper">
+                <Card title="Kurser" className="card-price">
+                    <ul>
+                        <li>1 kurs: 1600 kr</li>
+                        <li>2 kurser: 2600 kr</li>
+                        <li>3 kurser: 3600 kr</li>
+                        <li>4 kurser: 4600 kr</li>
+                        <li>5 kurser: 5600 kr</li>
+                    </ul>
+                </Card>
+
+                <Card title="Rabatter" className="card-price">
+                    <ul>
+                        <li>Studentrabatt: 10%</li>
+                        <li>Parrabatt: 15% per person</li>
+                        <li>Gruppbokning? Kontakta oss!</li>
+                    </ul>
+                </Card>
+            </div>
+
+            <div className="prices-cta">
+                <LinkButton
+                    href="https://dinbokningssida.se"
+                    className="btn btn-small"
+                    target="_blank"
+                >
+                    Boka nu
+                </LinkButton>
+            </div>
+        </section>
     );
 }
-
-export default Prices;

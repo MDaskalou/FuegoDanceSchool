@@ -1,109 +1,146 @@
-﻿    import '../css/navbar.css'; // eller './Navbar.css' om CSS ligger i samma mapp
-    import logo from '../img/FuegoLogoimg.png'; // Importera logotypen
-    import{ useEffect, useState, useRef } from 'react';
-    import { Link } from "react-router-dom";
-    import { Link as ScrollLink } from 'react-scroll';
-    import {useLocation} from 'react-router-dom';
-    
-    
-    
-    
-    function Navbar() {
-        const [isVisible, setIsVisible] = useState(true);
-        const lastScrollY = useRef(0);
-        const location = useLocation();
-        const isMainPage = location.pathname === '/'; // Kolla om vi är på startsidan
-    
-        // 👇 Det här är din scroll-lyssnare
-        useEffect(() => {
-            const handleScroll = () => {
-                const currentScrollY = window.scrollY;
-                console.log("ScrollY:", currentScrollY); // 👈 denna bör uppdateras vid scroll
+﻿import '../css/navbar.css';
+import logo from '../img/FuegoLogoimg.png';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { scroller } from 'react-scroll';
 
-                if (Math.abs(currentScrollY - lastScrollY.current) < 10) return;
+function Navbar() {
+    const [menuOpen, setMenuOpen] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
 
-                if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
-                    setIsVisible(false);
-                } else {
-                    setIsVisible(true);
+    const menuItems = [
+        { label: 'Hem', id: 'hero' },
+        { label: 'Kurser', id: 'courses' },
+        { label: 'Priser', id: 'prices' },
+        { label: 'Instruktörer', path: '/instructors' },
+        { label: 'Event', id: 'events' },
+        { label: 'Kontakt', id: 'contact' },
+    ];
+
+    const scrollToSection = (id) => {
+        console.log('Trying to scroll to:', id);
+
+        if (location.pathname !== '/') {
+            sessionStorage.setItem('scrollTo', id);
+            navigate('/');
+        } else {
+            const element = document.getElementById(id);
+            console.log('Found element:', element);
+
+            if (element) {
+                const navbarHeight = 70;
+                const elementPosition = element.offsetTop - navbarHeight;
+
+                console.log('Current scroll position:', window.scrollY);
+                console.log('Target position:', elementPosition);
+                console.log('Element offsetTop:', element.offsetTop);
+
+                // Använd både scrollTo och scrollIntoView för bättre kompatibilitet
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+
+                // Justera för navbar efter scrollIntoView
+                setTimeout(() => {
+                    window.scrollBy({
+                        top: -navbarHeight,
+                        behavior: 'smooth'
+                    });
+                }, 100);
+
+            } else {
+                console.error(`Element with id "${id}" not found`);
+            }
+        }
+        setMenuOpen(false);
+    };
+
+    // Hantera scroll efter navigation
+    useEffect(() => {
+        const scrollTarget = sessionStorage.getItem('scrollTo');
+        if (scrollTarget && location.pathname === '/') {
+            setTimeout(() => {
+                const element = document.getElementById(scrollTarget);
+                if (element) {
+                    console.log('Scrolling after navigation to:', scrollTarget);
+
+                    element.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+
+                    setTimeout(() => {
+                        window.scrollBy({
+                            top: -70,
+                            behavior: 'smooth'
+                        });
+                    }, 100);
                 }
+                sessionStorage.removeItem('scrollTo');
+            }, 500);
+        }
+    }, [location.pathname]);
 
-                lastScrollY.current = currentScrollY;
-            };
+    return (
+        <nav className="navbar">
+            <div className="logo-container">
+                <img
+                    src={logo}
+                    alt="Fuego Dance School Logo"
+                    className="logo-img"
+                />
 
-            window.addEventListener('scroll', handleScroll);
-            return () => window.removeEventListener('scroll', handleScroll);
-        }, []);
-
-        // 👇 Detta är för loggning – helt separat useEffect
-        useEffect(() => {
-            console.log("Navbar visibility:", isVisible);
-        }, [isVisible]);
-    
-    
-    
-        return (
-            <header className={`navbar ${isVisible ? 'visible' : 'hidden'}`}>
-                <div className="navbar-container">
-    
-                    {/* ✅ Allt detta ligger i logo-container */}
-                    <div className="logo-container">
-                        <img src={logo} alt="FuegoLogo" className="logo-img" />
-                        <h1 className="logo-heading-stacked">
-                            <span className="logo-text-serif">Fuego</span>
-                            <br/>
-                            <span className="handwrite-text"> 
-              {
-                  "Dance School".split("").map((char, i) => (
-                      <span key={i} className="char" style={{ animationDelay: `${i * 0.1}s` }}>
-                    {char}
-                  </span>
-                  ))
-              }
-            </span>
-                        </h1>
+                <div className="logo-heading-stacked">
+                    <div className="logo-text-serif">Fuego</div>
+                    <div className="handwrite-text">
+                        {"Dance School".split("").map((char, i) => (
+                            <span key={i}>{char}</span>
+                        ))}
                     </div>
-                    
-                    <nav className="nav-links">
-                        <ul>
-                            {isMainPage ? (
-                                <>
-                            <li><ScrollLink to="hero" smooth={true} duration={600} offset={-100} className="scroll-link">Hem</ScrollLink></li>
-                            <li><ScrollLink to="courses" smooth={true} duration={600} offset={-100} className="scroll-link">Kurser</ScrollLink></li>
-                            <li><ScrollLink to="prices" smooth={true} duration={600} offset={-100} className="scroll-link">Priser</ScrollLink></li>
-                            <li><Link to="/instrutors">Instruktörer</Link></li>
-                            <li><ScrollLink to="events" smooth={true} duration={600} offset={-100} className="scroll-link">Event</ScrollLink></li>
-                            <li><ScrollLink to="contact" smooth={true} duration={600} offset={-100} className="scroll-link">Kontakt</ScrollLink></li>
-                            </>
-                                ):(
-                                <>
-                                    <li><Link to="/">Tillbaka till startsidan</Link></li>
-                                </>
-                            )}
-                            </ul>
-                        
-                    </nav>
-    
-                    {/* ✅ Osynlig spacer för balans */}
-                    <div className="nav-spacer"></div>
-    
-                    <div className="icon-container">
-                        <a href="#" target="_blank" rel="noopener noreferrer">
-                            <i className="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" target="_blank" rel="noopener noreferrer">
-                            <i className="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" target="_blank" rel="noopener noreferrer">
-                            <i className="fab fa-tiktok"></i>
-                        </a>
-                    </div>
-    
                 </div>
-            </header>
-    
-    
-        );
-    }
-    
-    export default Navbar;
+            </div>
+
+            <button
+                className="menu-toggle"
+                onClick={() => setMenuOpen(!menuOpen)}
+            >
+                ☰
+            </button>
+
+            <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
+                <ul>
+                    {menuItems.map((item, i) => (
+                        <li key={i}>
+                            {item.path ? (
+                                <a
+                                    href={item.path}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        navigate(item.path);
+                                        setMenuOpen(false);
+                                    }}
+                                >
+                                    {item.label}
+                                </a>
+                            ) : (
+                                <a
+                                    href={`#${item.id}`}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        scrollToSection(item.id);
+                                    }}
+                                >
+                                    {item.label}
+                                </a>
+                            )}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </nav>
+    );
+}
+
+export default Navbar;

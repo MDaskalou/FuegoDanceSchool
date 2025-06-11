@@ -1,206 +1,118 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Great+Vibes&display=swap');
 
-
-@keyframes fade-slide-in {
-    from{
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to{
-        opacity: 1;
-        transform: translateY(0);
-    }
-   
-}
-
 .navbar {
-    height: 100px;
+    height: 70px;
     background: linear-gradient(to right, #1f1f1f, #3a1f1d);
     color: white;
-    padding: 5px 0;
-    z-index: 1000;
+    padding: 5px 15px;
+    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    will-change: transform;
-    transition: transform 0.6s ease, opacity 0.6s ease;
-
-}
-
-.navbar-container {
-    position: relative;
+    z-index: 1000;
     display: flex;
     align-items: center;
-    justify-content: center;
-}
--logo-container {
-    display: flex;
-    align-items: center;
-    margin-right: auto;
-    gap: 10px;
-}
-
-.logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #f26722;
-}
-.nav-links {
-    display: flex;
-    justify-content: center;
-    flex: none;
-}
-
-.nav-links ul {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-spacer {
-    width: 200px; /* Justera för att matcha logga+text-bredd */
-    margin-left: auto;
-}
-.nav-links ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: 700;
-    font-size: 1.5rem;
-    animation: glow-out 1s forwards;
-    transition: color 0.2s ease;
-}
-.nav-links ul li a:hover {
-    text-shadow:
-            0 0 5px #f26722,
-            0 0 10px #f26722,
-            0 0 15px #f26722;    
-    animation: glow-in 0.5s forwards;
-}
-
-@keyframes glow-in{
-    0%{
-        text-shadow: none;
-    }
-    100%{
-        text-shadow:
-            0 0 5px #f26722,
-            0 0 10px #f26722,
-            0 0 20px #f26722;
-    }
-}
-@keyframes glow-out{
-    from {
-        text-shadow:
-                0 0 5px #f26722,
-                0 0 10px #f26722,
-                0 0 20px #f26722
-    }
-    to {
-        text-shadow: none;
-    }
+    justify-content: space-between;
 }
 
 .logo-container {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-right: auto;
 }
+
 .logo-img {
-    height: 125px;
+    height: 60px;
     width: auto;
-    filter: drop-shadow(0 0 5px #f26722);
     border-radius: 50%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    padding:3px;
+    filter: drop-shadow(0 0 5px #f26722);
 }
+
 .logo-heading-stacked {
-    font-size: 2rem;
-    margin:0;
-    display: inline-block;
-    line-height:0.7;
-    position: relative;
+    font-size: 1.4rem;
+    line-height: 1;
 }
-.logo-text-serif{
+
+.logo-text-serif {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     color: #f26722;
-    display: block;
-    text-align: left;
-    
-}
-@keyframes fade-in {
-    0% { opacity: 0; transform: translateY(5px); }
-    100% { opacity: 1; transform: translateY(0); }
 }
 
 .handwrite-text {
-    display: inline-block;
     font-family: 'Great Vibes', cursive;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     color: white;
-    white-space: nowrap;
     position: relative;
-    left: 45px;
-    bottom: 4px;
+    left: 10px;
 }
 
-.char {
-    opacity: 0;
-    display: inline-block;
-    animation: fade-in 0.5s forwards;
+.menu-toggle {
+    display: block;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #1f1f1f;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+    animation: slideDown 0.3s ease-out;
+    z-index: 999;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.nav-links.open {
+    display: flex;
+}
+
+.nav-links ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 16px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links ul li {
+    width: 100%;
+    text-align: center;
+}
+
+.nav-links ul li a {
+    display: block;
+    padding: 12px 0;
+    font-size: 1.3rem;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+    border-radius: 6px;
+}
+
+.nav-links ul li a:hover {
+    background-color: #f26722;
+    color: white;
 }
 
 .icon-container {
-    position: absolute;
-    right: 40px;  /* ← flytta inåt från högerkant */
-    display: flex;
-    gap: 40px;
+    display: none; /* döljs på mobil */
 }
-
-.icon-container a {
-    color: white;
-    font-size: 1.4rem;
-    transition: transform 0.2s ease, text-shadow 0.3s ease;
-    
-}
-
-.icon-container a:hover {
-    color: #f26722;
-    text-shadow: 0 0 8px #f26722;
-    transform: scale(1.2);
-}
-.nav-links .scroll-link {
-    cursor: pointer;
-    text-decoration: none;
-    color: white;
-    font-weight: 700;
-    font-size: 1.5rem;
-    transition: color 0.2s ease;
-}
-
-.nav-links .scroll-link:hover {
-    text-shadow:
-            0 0 5px #f26722,
-            0 0 10px #f26722,
-            0 0 15px #f26722;
-}
-
-
-.navbar.visible {
-    transform: translateY(0);
-    opacity: 1;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* 👈 Lägger till skugga när navbaren visas */
-
-
-}
-
-.navbar.hidden {
-    transform: translateY(-100%) !important;
-    opacity: 0;
-
-}
-

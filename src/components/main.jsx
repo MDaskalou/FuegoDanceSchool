@@ -1,24 +1,43 @@
 ﻿// src/components/Main.jsx
+import { useEffect } from 'react';
+import { scroller } from 'react-scroll';
+
 import Hero from './Hero';
 import FAQ from './FAQ';
 import Courses from './Courses';
 import Prices from './Prices';
 import Events from './Events';
 import AboutUs from './AboutUs';
-
+import Contact from './Contact';
 
 function Main() {
-  return (
-    <>
-        <Hero />
-        <FAQ />
-        <AboutUs />
-        <Courses />
-        <Prices />
-        <Events />
-      
-    </>
-  );
+    useEffect(() => {
+        const scrollTo = sessionStorage.getItem('scrollTo');
+        if (scrollTo) {
+            setTimeout(() => {
+                console.log('Scrolling to:', scrollTo); // Debug
+                scroller.scrollTo(scrollTo, {
+                    smooth: true,
+                    duration: 600,
+                    offset: -70,
+                });
+                sessionStorage.removeItem('scrollTo');
+            }, 500); // Öka delay
+        }
+    }, []);
+
+    return (
+        <>
+            <Hero />
+            <FAQ />
+            <AboutUs />
+            <Courses />
+            <Prices />
+            <Events />
+            <Contact />
+            
+        </>
+    );
 }
 
 export default Main;

@@ -1,116 +1,255 @@
-﻿.modal-overlay {
+﻿/* src/components/Modal.css */
+
+.modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.5) !important; /* Ändrat från red till genomskinlig svart */
+    backdrop-filter: blur(4px);
     display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
+    align-items: center; /* Ändrat från flex-end till center för att centrera */
+    justify-content: center; /* Lagt till för att centrera horisontellt */
+    z-index: 9999 !important;
+    animation: fadeInOverlay 0.3s ease-out;
+    padding: 40px 0; /* Lagt till padding för att ge lite utrymme */
 }
 
 .modal-content {
     background: #fff;
     color: #111;
-    padding: 30px;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 700px;
-    max-height: 90vh;
+    width: 100%;
+    max-width: 500px; /* Lagt till max-width för desktop */
+    max-height: 80vh; /* Minskat från 85vh till 80vh */
     overflow-y: auto;
     position: relative;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    animation: fadeIn 0.3s ease-in-out;
-
-    margin-top: 50px; /* Lägg till detta för att sänka rutan */
+    border-radius: 24px; /* Ändrat från 24px 24px 0 0 till 24px runt om */
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    padding: 0;
+    margin: 0 20px; /* Lagt till marginal på sidorna */
 }
 
+/* Drag handle */
+.modal-content::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 4px;
+    background-color: #d1d5db;
+    border-radius: 2px;
+    z-index: 1;
+}
+
+/* Header area */
+.modal-header {
+    padding: 32px 24px 16px 24px;
+    border-bottom: 1px solid #f3f4f6;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 10;
+    border-radius: 24px 24px 0 0; /* Lagt till för att matcha den nya border-radius */
+}
 
 .modal-close {
     position: absolute;
-    top: 12px;
+    top: 24px;
     right: 20px;
-    font-size: 2rem;
+    width: 44px;
+    height: 44px;
+    font-size: 24px;
     background: none;
     border: none;
-    color: #f26722;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
     cursor: pointer;
-    transition: transform 0.2s ease;
 }
 
+.modal-close:active,
 .modal-close:hover {
-    transform: scale(1.2);
-    color: #d5551c;
+    background-color: #f3f4f6;
+    color: #f26722;
+    transform: scale(0.95);
 }
 
 .modal-content h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    margin-bottom: 10px;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0;
+    padding-right: 60px;
+    line-height: 1.2;
+    color: #111827;
+}
+
+/* Content area */
+.modal-body {
+    padding: 0 24px 32px 24px;
 }
 
 .modal-content p {
     font-size: 1rem;
     line-height: 1.6;
-    margin-bottom: 20px;
-}
-.modal-images {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    gap: 20px;
-    flex-wrap: wrap;
-    position: relative;
+    margin-bottom: 24px;
+    color: #374151;
 }
 
-.modal-images img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
-}
-
-.modal-images img:nth-child(1) {
-    transform: rotate(-5deg);
-
-}
-
-.modal-images img:nth-child(2) {
-    transform: rotate(4deg);
-
-}
-
-@media (max-width: 600px) {
-    .modal-images img {
-        position: static;
-        transform: none;
-        margin: 0 10px;
-    }
-}
-
-.modal-content p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 10px;
+.modal-content p:last-of-type {
+    margin-bottom: 32px;
 }
 
 .modal-content p strong {
     color: #f26722;
+    font-weight: 600;
+    display: block;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
 }
 
+/* Info tags */
+.info-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
+    color: #9a3412;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(251, 146, 60, 0.2);
+}
 
-@keyframes fadeIn {
+/* Images section */
+.modal-images {
+    margin-top: 40px; /* Ökat från 32px till 40px för mer avstånd */
+}
+
+.modal-images h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f3f4f6;
+}
+
+.images-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modal-images img {
+    width: 100%;
+    height: 280px; /* Ökat från 240px till 280px för att visa mer av bilden */
+    object-fit: cover;
+    object-position: center top; /* Lagt till för att fokusera på övre delen av bilden (ansiktet) */
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.modal-images img:active {
+    transform: scale(0.98);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Image overlay gradient */
+.image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.image-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.3) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+/* Smooth scrolling */
+.modal-content {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Animations */
+@keyframes fadeInOverlay {
     from {
         opacity: 0;
-        transform: scale(0.98);
     }
     to {
         opacity: 1;
-        transform: scale(1);
     }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95); /* Ändrat från translateY(100%) för mindre dramatisk animation */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Safe area for iPhones */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .modal-body {
+        padding-bottom: calc(32px + env(safe-area-inset-bottom));
+    }
+}
+
+/* Mobile specifik styling */
+@media (max-width: 768px) {
+    .modal-overlay {
+        align-items: flex-start; /* På mobil, placera längst upp istället */
+        padding: 60px 0 20px 0; /* Mer padding på toppen för mobilerna */
+    }
+
+    .modal-content {
+        max-height: 85vh; /* Lite mer höjd på mobil */
+        border-radius: 24px 24px 0 0; /* Tillbaka till den ursprungliga formen på mobil */
+        margin: 0; /* Ta bort marginal på mobil */
+    }
+
+    .modal-header {
+        border-radius: 24px 24px 0 0;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .modal-overlay,
+    .modal-content,
+    .modal-close,
+    .modal-images img {
+        animation: none;
+        transition: none;
+    }
+}
+
+/* Focus styles for keyboard navigation */
+.modal-close:focus {
+    outline: 2px solid #f26722;
+    outline-offset: 2px;
 }

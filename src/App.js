@@ -2,10 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './css/mainStyle.css';
 import Main from './components/main';
 import Navbar from './components/Navbar';
-import Instructors from "./components/Instructors"; // din nya sida
+import Instructors from "./components/Instructors";
 import Contact from "./components/Contact";
-
-
 
 function App() {
     return (
@@ -13,10 +11,11 @@ function App() {
             <Navbar />
             <Routes>
                 <Route path="/" element={<Main />} />
-                <Route path="/Instrutors" element={<Instructors />} />
+                <Route path="/instructors" element={<Instructors />} />
+                <Route path="/contact" element={<Contact />} />
+                {/* Fallback route för att fånga 404 */}
+                <Route path="*" element={<Main />} />
             </Routes>
-            
-            <Contact />
         </Router>
     );
 }

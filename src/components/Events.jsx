@@ -6,6 +6,7 @@ import Section from './UI/Section/Section';
 
 const events = [
     {
+        id: 1, // Lägg till unik ID
         title: "Sensual Weekend Intensive",
         date: "15–16 juni 2025",
         time: "12:00–18:00",
@@ -15,6 +16,7 @@ const events = [
         link: "https://example.com/anmalan-weekend"
     },
     {
+        id: 2, // Lägg till unik ID
         title: "Bachata Beach Party",
         date: "29 juni 2025",
         time: "16:00–22:00",
@@ -24,6 +26,7 @@ const events = [
         link: "https://example.com/anmalan-beach"
     },
     {
+        id: 3, // Lägg till unik ID
         title: "Warsaw Bachata Festival",
         date: "5–7 juli 2025",
         time: "Heldagar",
@@ -39,14 +42,23 @@ function Events() {
         <Section id="events" className="events-section">
             <h2 className="events-title">Kommande Event</h2>
             <div className="events-grid">
-                {events.map((event, index) => (
-                    <Card image={event.image} title={event.title} className="card-event">
-                            <p className="event-meta">{event.date} – {event.time}</p>
-                            <p className="event-meta">{event.location}</p>
-                            <p className="event-description">{event.description}</p>
-                            <LinkButton href="#"  target="_blank" className="btn btn-small">
-                                Läs mer & boka
-                            </LinkButton>
+                {events.map((event) => (
+                    <Card
+                        key={event.id} // Använd unik ID som key
+                        image={event.image}
+                        title={event.title}
+                        className="card-event"
+                    >
+                        <p className="event-meta">{event.date} – {event.time}</p>
+                        <p className="event-meta">{event.location}</p>
+                        <p className="event-description">{event.description}</p>
+                        <LinkButton
+                            href={event.link}  // Använd rätt länk
+                            target="_blank"
+                            className="btn btn-small"
+                        >
+                            Läs mer & boka
+                        </LinkButton>
                     </Card>
                 ))}
             </div>

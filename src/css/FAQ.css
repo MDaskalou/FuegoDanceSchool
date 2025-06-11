@@ -1,9 +1,9 @@
-﻿
+﻿/* src/css/faq.css */
 
 .faq-container {
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 100%;
     padding: 40px 20px;
+    margin: 0 auto;
 }
 
 .faq-title {
@@ -11,11 +11,13 @@
     font-size: 2rem;
     margin-bottom: 30px;
     color: #f26722;
+    font-family: 'Playfair Display', serif;
 }
 
 .faq-item {
     border-bottom: 1px solid #ccc;
     padding: 15px 0;
+    color: white;
 }
 
 .faq-question {
@@ -26,6 +28,7 @@
     align-items: center;
     font-size: 1.1rem;
     transition: color 0.3s;
+    color: black;
 }
 
 .faq-question:hover {
@@ -37,6 +40,12 @@
     color: #f26722;
 }
 
+.faq-toggle-icon.rotate {
+    transition: transform 0.3s ease;
+    display: inline-block;
+    transform: rotate(90deg);
+}
+
 .faq-answer {
     max-height: 0;
     overflow: hidden;
@@ -45,6 +54,7 @@
     font-weight: 300;
     line-height: 1.5;
     padding-right: 10px;
+    color: black;
 }
 
 .faq-answer.show {
@@ -52,31 +62,33 @@
     opacity: 1;
     margin-top: 10px;
 }
+
+/* Modal-bakgrund */
 .faq-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
+    inset: 0; /* samma som top: 0, left: 0, right: 0, bottom: 0 */
     background: rgba(0, 0, 0, 0.7);
     z-index: 1000;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    padding-top: 100px;
+    overflow-y: auto;
 }
-
 .faq-modal {
+    position: relative;
     background-color: white;
     padding: 2rem;
     border-radius: 10px;
-    max-width: 600px;
     width: 90%;
-    max-height: 80vh;
+    max-width: 600px;
+    max-height: 90vh;
     overflow-y: auto;
-    position: relative;
+    z-index: 1010;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
     animation: fadeIn 0.4s ease;
+    -webkit-overflow-scrolling: touch;
 }
-
 
 /* Själva modalfönstret */
 .faq-modal-content {
@@ -85,26 +97,23 @@
     border-radius: 10px;
     max-width: 600px;
     width: 90%;
-    max-height: 80vh;
+    max-height: 90vh;
     overflow-y: auto;
-    box-shadow: 0 0 30px rgba(0,0,0,0.4);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+    animation: fadeIn 0.4s ease;
+    -webkit-overflow-scrolling: touch;
 }
 
 .faq-close {
     position: absolute;
     top: 10px;
     right: 15px;
-    font-size: 1.8rem;
+    font-size: 2rem;
     background: none;
     border: none;
     color: #f26722;
     cursor: pointer;
-}
-
-.faq-toggle-icon.rotate {
-    transition: transform 0.3s ease;
-    display: inline-block;
-    transform: rotate(90deg);
+    z-index: 1100; /* 🧡 Garanterar att den syns över allt annat */
 }
 
 @keyframes fadeIn {

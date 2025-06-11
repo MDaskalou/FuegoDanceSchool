@@ -38,14 +38,26 @@ const instructors = [
 ];
     // Lägg till fler här
 
+// Debug version - lägg till console.log för att testa
 export default function InstructorSection() {
     const [selectedInstructor, setSelectedInstructor] = useState(null);
 
-    const openModal = (instructor) => setSelectedInstructor(instructor);
-    const closeModal = () => setSelectedInstructor(null);
+    const openModal = (instructor) => {
+        console.log('Trying to open modal for:', instructor.name); // DEBUG
+        setSelectedInstructor(instructor);
+        console.log('Selected instructor set to:', instructor); // DEBUG
+    };
+
+    const closeModal = () => {
+        console.log('Closing modal'); // DEBUG
+        setSelectedInstructor(null);
+    };
+
+    console.log('Current selectedInstructor:', selectedInstructor); // DEBUG
+    console.log('Modal should be open:', !!selectedInstructor); // DEBUG
 
     const renderCards = (role) => (
-        <div className="instructor-grid">
+        <div className="instructor-grid" id="instructors">
             {instructors.filter(i => i.role === role).map((i, index) => (
                 <div className="instructor-card" key={index}>
                     <img src={i.image} alt={i.name} className="instructor-img" />
@@ -54,7 +66,17 @@ export default function InstructorSection() {
                         {i.socials.instagram && <a href={i.socials.instagram} target="_blank" rel="noreferrer"><i className="fab fa-instagram"></i></a>}
                         {i.socials.facebook && <a href={i.socials.facebook} target="_blank" rel="noreferrer"><i className="fab fa-facebook"></i></a>}
                     </div>
-                    <button className="btn-secondary-outline" onClick={() => openModal(i)}>Mer info</button>
+                    <button
+                        className="btn-secondary-outline"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            console.log('Button clicked for:', i.name); // DEBUG
+                            openModal(i);
+                        }}
+                    >
+                        Mer info
+                    </button>
                 </div>
             ))}
         </div>
@@ -67,9 +89,18 @@ export default function InstructorSection() {
             <h2>Hjälpinstruktörer</h2>
             {renderCards("Hjälpinstruktör")}
 
-            <Modal isOpen={!!selectedInstructor} onClose={closeModal} instructor={selectedInstructor} />
+            {/* DEBUG: Visa modal status */}
+            {selectedInstructor && (
+                <div style={{position: 'fixed', top: 0, left: 0, background: 'red', color: 'white', padding: '10px', zIndex: 9999}}>
+                    DEBUG: Modal should show for {selectedInstructor.name}
+                </div>
+            )}
 
+            <Modal
+                isOpen={!!selectedInstructor}
+                onClose={closeModal}
+                instructor={selectedInstructor}
+            />
         </section>
     );
 }
-

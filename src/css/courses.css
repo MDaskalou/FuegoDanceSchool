@@ -1,28 +1,30 @@
 ﻿.courses-section {
-    padding: 80px 60px;
+    padding: 60px 20px;
     background: linear-gradient(to right, #1f1f1f, #3a1f1d);
     color: white;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    overflow-x: hidden;
 }
 
 .courses-title {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 40px;
+    font-size: 2rem;
+    margin-bottom: 30px;
     color: #fff;
     text-shadow: 0 0 10px #000;
 }
 
 .course-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     justify-content: center;
-    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 10px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .course-info {
@@ -31,6 +33,16 @@
     animation: fadeIn 0.4s ease;
 }
 
+.swiper {
+    padding-bottom: 40px; /* För pagination-bubblor */
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+}
+
+/* Animation */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }

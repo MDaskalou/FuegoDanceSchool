@@ -5,9 +5,15 @@ import Button from './UI/Button/Button';
 import LinkButton from "./UI/Button/LinkButton";
 import Card from './UI/Card/Card';
 import Section from './UI/Section/Section';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
 
 const courseData = [
     {
+        id: 1, // Lägg till unik ID
         title: "Nivå 1",
         image: require("../img/FuegoLogoimg.png"),
         description: "För dig som är helt ny till bachata. Vi går igenom grundläggande steg, takt och enkla turer.",
@@ -16,6 +22,7 @@ const courseData = [
         bookingLink: "https://dinbokningssida.se/niva1"
     },
     {
+        id: 2,
         title: "Nivå 2",
         image: "https://via.placeholder.com/300x180",
         description: "Vi bygger vidare på grunderna med mer variation, musikalitet och partnering.",
@@ -24,6 +31,7 @@ const courseData = [
         bookingLink: "https://dinbokningssida.se/niva2"
     },
     {
+        id: 3,
         title: "Nivå 3 Teknik",
         image: "https://via.placeholder.com/300x180",
         description: "Teknikkurs med fokus på kroppskontroll, styrning och kontakt.",
@@ -32,6 +40,7 @@ const courseData = [
         bookingLink: "https://dinbokningssida.se/niva3"
     },
     {
+        id: 4,
         title: "Nivå 3 ",
         image: "https://via.placeholder.com/300x180",
         description: "Teknikkurs med fokus på kroppskontroll, styrning och kontakt.",
@@ -40,6 +49,7 @@ const courseData = [
         bookingLink: "https://dinbokningssida.se/niva3"
     },
     {
+        id: 5,
         title: "Nivå 4",
         image: "https://via.placeholder.com/300x180",
         description: "Avancerad nivå med flytande rörelser, footwork och kombinationer.",
@@ -48,6 +58,7 @@ const courseData = [
         bookingLink: "https://dinbokningssida.se/niva4"
     },
     {
+        id: 6,
         title: "Nivå 4 Teknik",
         image: "https://via.placeholder.com/300x180",
         description: "Fördjupning i teknik, isoleringar och musikalitet.",
@@ -56,6 +67,7 @@ const courseData = [
         bookingLink: "https://dinbokningssida.se/niva4teknik"
     },
     {
+        id: 7,
         title: "Nivå 5",
         image: "https://via.placeholder.com/300x180",
         description: "Vår mest avancerade kurs för dig som vill finslipa stil och performance.",
@@ -75,27 +87,39 @@ function Courses() {
     return (
         <Section id="courses" className="courses-section">
             <h2 className="courses-title">Våra Kurser</h2>
-            <div className="course-cards">
+            <Swiper
+                modules={[Navigation, Pagination]}
+                spaceBetween={20}
+                slidesPerView={1}
+                navigation
+                pagination={{ clickable: true }}
+                breakpoints={{
+                    640: { slidesPerView: 1 },   // Mobil
+                    768: { slidesPerView: 2 },   // Surfplatta
+                    992: { slidesPerView: 3 },
+                }}
+            >
                 {courseData.map((course, index) => (
-                    <Card image={course.image} title={course.title}>
-                        
-                        <button onClick={() => toggleOpen(index)} className="btn-secondary-outline">
-                            {openIndex === index ? "Stäng" : "Läs mer"}
-                        </button>
-                        
-                        {openIndex === index && (
-                            <div className="course-info">
-                                <p>{course.description}</p>
-                                <p><strong>Tid:</strong> {course.times}</p>
-                                <p><strong>Krav:</strong> {course.requirements}</p>
-                                <LinkButton href={course.bookingLink} className="btn btn-small" target="_blank" >
-                                    Anmäl dig
-                                </LinkButton>
-                            </div>
-                        )}
-                    </Card>
+                    <SwiperSlide key={course.id}> {/* Använd unik ID som key */}
+                        <Card image={course.image} title={course.title}>
+                            <button onClick={() => toggleOpen(index)} className="btn-secondary-outline">
+                                {openIndex === index ? "Stäng" : "Läs mer"}
+                            </button>
+                            {openIndex === index && (
+                                <div className="course-info">
+                                    <p>{course.description}</p>
+                                    <p><strong>Tid:</strong> {course.times}</p>
+                                    <p><strong>Krav:</strong> {course.requirements}</p>
+                                    <LinkButton href={course.bookingLink} className="btn btn-small" target="_blank">
+                                        Anmäl dig
+                                    </LinkButton>
+                                </div>
+                            )}
+                        </Card>
+                    </SwiperSlide>
                 ))}
-            </div>
+            </Swiper>
+
         </Section>
     );
 }

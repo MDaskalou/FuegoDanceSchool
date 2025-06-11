@@ -2,15 +2,22 @@
     padding: 80px 20px;
     margin: 0 auto;
     width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    position: relative; /* ← viktigt för dekorativa element */
 }
-.section-inner{
+
+.section-inner {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    position: relative; /* ← så child-element med absolut position fungerar */
+    z-index: 1;
 }
+
 .section-content {
     max-width: 1200px;
     margin: 0 auto;
@@ -19,6 +26,7 @@
     align-items: center;
 }
 
+/* Rubrikstandard om du vill återanvända */
 .section-title {
     font-size: 2.5rem;
     text-align: center;
@@ -26,10 +34,11 @@
     color: white;
     font-family: 'Playfair Display', serif;
 }
+
+/* Alternativ färgad bakgrund */
 .section-dark {
     background-color: #111;
     padding: 80px 20px;
     width: 97%;
     text-align: center;
 }
-
