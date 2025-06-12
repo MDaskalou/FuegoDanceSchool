@@ -1,0 +1,128 @@
+﻿.reviews-section {
+    padding: 60px 20px;
+    background: linear-gradient(to right, #1f1f1f, #3a1f1d);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.reviews-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 8px #000;
+}
+
+.reviews-subtitle {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 2.5rem;
+}
+
+.review-card {
+    max-width: 340px;
+    margin: 0 auto;
+    padding: 80px 20px 20px; /* ⬅️ extra plats för större bild */
+    background: rgba(0, 0, 0, 0.65);
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    transition: transform 0.4s ease;
+}
+
+.review-card:hover {
+    transform: scale(1.03);
+}
+
+.review-img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--primary-color);
+    margin-bottom: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* valfritt för extra djup */
+}
+.review-card {
+    max-width: 340px;
+    margin: 50px auto 0;
+    padding: 60px 20px 20px;
+    background: rgba(0, 0, 0, 0.65);
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    position: relative;
+    text-align: center;
+}
+
+.review-img-wrapper {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--primary-color);
+    background: black;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+.review-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.review-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.review-text {
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: #eee;
+}
+
+/* Google & Trustpilot betyg */
+.review-sources {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.review-source {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 15px;
+    width: 220px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.review-source p {
+    margin: 10px 0 8px;
+    font-weight: 600;
+}
+
+.review-source a {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.source-logo {
+    width: 40px;
+    height: auto;
+    margin-bottom: 10px;
+}

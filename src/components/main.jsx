@@ -9,6 +9,7 @@ import Prices from './Prices';
 import Events from './Events';
 import AboutUs from './AboutUs';
 import Contact from './Contact';
+import Reviews from './Reviews';
 
 function Main() {
     useEffect(() => {
@@ -34,6 +35,7 @@ function Main() {
             <Courses />
             <Prices />
             <Events />
+            <Reviews />
             <Contact />
             
         </>

@@ -13,7 +13,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 
 const courseData = [
     {
-        id: 1, // Lägg till unik ID
+        id: 1,
         title: "Nivå 1",
         image: require("../img/FuegoLogoimg.png"),
         description: "För dig som är helt ny till bachata. Vi går igenom grundläggande steg, takt och enkla turer.",
@@ -87,39 +87,46 @@ function Courses() {
     return (
         <Section id="courses" className="courses-section">
             <h2 className="courses-title">Våra Kurser</h2>
-            <Swiper
-                modules={[Navigation, Pagination]}
-                spaceBetween={20}
-                slidesPerView={1}
-                navigation
-                pagination={{ clickable: true }}
-                breakpoints={{
-                    640: { slidesPerView: 1 },   // Mobil
-                    768: { slidesPerView: 2 },   // Surfplatta
-                    992: { slidesPerView: 3 },
-                }}
-            >
-                {courseData.map((course, index) => (
-                    <SwiperSlide key={course.id}> {/* Använd unik ID som key */}
-                        <Card image={course.image} title={course.title}>
-                            <button onClick={() => toggleOpen(index)} className="btn-secondary-outline">
-                                {openIndex === index ? "Stäng" : "Läs mer"}
-                            </button>
-                            {openIndex === index && (
-                                <div className="course-info">
-                                    <p>{course.description}</p>
-                                    <p><strong>Tid:</strong> {course.times}</p>
-                                    <p><strong>Krav:</strong> {course.requirements}</p>
-                                    <LinkButton href={course.bookingLink} className="btn btn-small" target="_blank">
-                                        Anmäl dig
-                                    </LinkButton>
-                                </div>
-                            )}
-                        </Card>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-
+            <div className="swiper-container">
+                <Swiper
+                    modules={[Navigation, Pagination]}
+                    spaceBetween={20}
+                    slidesPerView={1}
+                    centeredSlides={true}
+                    navigation
+                    pagination={{ clickable: true }}
+                    breakpoints={{
+                        768: {
+                            slidesPerView: 2,
+                            centeredSlides: false
+                        },
+                        992: {
+                            slidesPerView: 3,
+                            centeredSlides: false
+                        },
+                    }}
+                >
+                    {courseData.map((course, index) => (
+                        <SwiperSlide key={course.id} className="custom-swiper-slide">
+                            <Card image={course.image} title={course.title}>
+                                <button onClick={() => toggleOpen(index)} className="btn-secondary-outline">
+                                    {openIndex === index ? "Stäng" : "Läs mer"}
+                                </button>
+                                {openIndex === index && (
+                                    <div className="course-info">
+                                        <p>{course.description}</p>
+                                        <p><strong>Tid:</strong> {course.times}</p>
+                                        <p><strong>Krav:</strong> {course.requirements}</p>
+                                        <LinkButton href={course.bookingLink} className="btn btn-small" target="_blank">
+                                            Anmäl dig
+                                        </LinkButton>
+                                    </div>
+                                )}
+                            </Card>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
         </Section>
     );
 }

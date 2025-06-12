@@ -11,39 +11,82 @@
 .courses-title {
     text-align: center;
     font-size: 2rem;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     color: #fff;
     text-shadow: 0 0 10px #000;
 }
 
-.course-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: center;
-    margin: 0 auto;
-    padding: 0 10px;
+.swiper-container {
     width: 100%;
-    box-sizing: border-box;
-}
-
-.course-info {
-    margin-top: 10px;
-    line-height: 1.6;
-    animation: fadeIn 0.4s ease;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
 }
 
 .swiper {
-    padding-bottom: 40px; /* För pagination-bubblor */
-}
-
-.swiper-slide {
+    width: 100%;
+    padding-bottom: 40px;
     display: flex;
     justify-content: center;
+}
+
+.swiper-slide.custom-swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+.course-info {
+    margin-top: 15px;
+    line-height: 1.6;
+    animation: fadeIn 0.4s ease;
+    text-align: left;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+/* Swiper navigation buttons */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #f26722 !important;
+    background: rgba(0, 0, 0, 0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-size: 16px;
+}
+
+/* Swiper pagination */
+.swiper-pagination-bullet {
+    background: #f26722 !important;
+    opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1 !important;
 }
 
 /* Animation */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsiv anpassning */
+@media (max-width: 768px) {
+    .courses-section {
+        padding: 40px 15px;
+    }
+
+    .swiper-slide.custom-swiper-slide {
+        width: 90% !important;
+        max-width: 320px !important;
+    }
 }
