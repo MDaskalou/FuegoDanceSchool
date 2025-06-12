@@ -1,27 +1,31 @@
 {
   "files": {
-    "main.css": "/FuegoDanceSchool/static/css/main.50e303fd.css",
-    "main.js": "/FuegoDanceSchool/static/js/main.e50f528a.js",
+    "main.css": "/FuegoDanceSchool/static/css/main.33399e84.css",
+    "main.js": "/FuegoDanceSchool/static/js/main.d40144c5.js",
     "static/js/453.d072a949.chunk.js": "/FuegoDanceSchool/static/js/453.d072a949.chunk.js",
     "static/media/instruktörMikael1.jpg": "/FuegoDanceSchool/static/media/instruktörMikael1.e33fe69094090a62f360.jpg",
     "static/media/instruktörMikael2.jpg": "/FuegoDanceSchool/static/media/instruktörMikael2.4b2d4aab1db52a51e7e7.jpg",
+    "static/media/Review2.jpg": "/FuegoDanceSchool/static/media/Review2.03e146acccc40f7d8637.jpg",
+    "static/media/Review3.jpg": "/FuegoDanceSchool/static/media/Review3.851eda54c896b26aaf3a.jpg",
     "static/media/instruktörMikael.png": "/FuegoDanceSchool/static/media/instruktörMikael.fd3af08496d48e70c799.png",
     "static/media/Pricesimg3.png": "/FuegoDanceSchool/static/media/Pricesimg3.264bc53c02316e2b7ba0.png",
     "static/media/Pricesimg2.png": "/FuegoDanceSchool/static/media/Pricesimg2.aca8a47eefb06c011982.png",
     "static/media/Pricesimg1.png": "/FuegoDanceSchool/static/media/Pricesimg1.596ee24be1433e57136a.png",
     "static/media/BackgroundHero.png": "/FuegoDanceSchool/static/media/BackgroundHero.9215f0fc0208b126bd55.png",
+    "static/media/Review1.jpg": "/FuegoDanceSchool/static/media/Review1.41c75f79332ba1c0e6b2.jpg",
     "static/media/BackgroundHero3.png": "/FuegoDanceSchool/static/media/BackgroundHero3.ffc78e56d04c8e160ffc.png",
     "static/media/1.png": "/FuegoDanceSchool/static/media/1.2c57d26c525937ab8d2d.png",
     "static/media/2.png": "/FuegoDanceSchool/static/media/2.b814fb40f0fbbd59b7e7.png",
     "static/media/FuegoLogoimg.png": "/FuegoDanceSchool/static/media/FuegoLogoimg.ee91782085b91df0dbd2.png",
     "static/media/3.png": "/FuegoDanceSchool/static/media/3.85a599477b87f4277bd3.png",
+    "static/media/Google-Review-Logo.png": "/FuegoDanceSchool/static/media/Google-Review-Logo.899e2e926f73d490b673.png",
     "index.html": "/FuegoDanceSchool/index.html",
-    "main.50e303fd.css.map": "/FuegoDanceSchool/static/css/main.50e303fd.css.map",
-    "main.e50f528a.js.map": "/FuegoDanceSchool/static/js/main.e50f528a.js.map",
+    "main.33399e84.css.map": "/FuegoDanceSchool/static/css/main.33399e84.css.map",
+    "main.d40144c5.js.map": "/FuegoDanceSchool/static/js/main.d40144c5.js.map",
     "453.d072a949.chunk.js.map": "/FuegoDanceSchool/static/js/453.d072a949.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.50e303fd.css",
-    "static/js/main.e50f528a.js"
+    "static/css/main.33399e84.css",
+    "static/js/main.d40144c5.js"
   ]
 }
