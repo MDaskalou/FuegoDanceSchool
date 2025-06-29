@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/FuegoDanceSchool/static/css/main.33399e84.css",
-    "main.js": "/FuegoDanceSchool/static/js/main.d40144c5.js",
-    "static/js/453.d072a949.chunk.js": "/FuegoDanceSchool/static/js/453.d072a949.chunk.js",
+    "main.css": "/FuegoDanceSchool/static/css/main.22fc1bc7.css",
+    "main.js": "/FuegoDanceSchool/static/js/main.8e842636.js",
+    "static/js/453.5f111da3.chunk.js": "/FuegoDanceSchool/static/js/453.5f111da3.chunk.js",
     "static/media/instruktörMikael1.jpg": "/FuegoDanceSchool/static/media/instruktörMikael1.e33fe69094090a62f360.jpg",
     "static/media/instruktörMikael2.jpg": "/FuegoDanceSchool/static/media/instruktörMikael2.4b2d4aab1db52a51e7e7.jpg",
     "static/media/Review2.jpg": "/FuegoDanceSchool/static/media/Review2.03e146acccc40f7d8637.jpg",
@@ -19,13 +19,14 @@
     "static/media/FuegoLogoimg.png": "/FuegoDanceSchool/static/media/FuegoLogoimg.ee91782085b91df0dbd2.png",
     "static/media/3.png": "/FuegoDanceSchool/static/media/3.85a599477b87f4277bd3.png",
     "static/media/Google-Review-Logo.png": "/FuegoDanceSchool/static/media/Google-Review-Logo.899e2e926f73d490b673.png",
+    "static/media/trustpiloticon.png": "/FuegoDanceSchool/static/media/trustpiloticon.fce978e8bc862f8d9396.png",
     "index.html": "/FuegoDanceSchool/index.html",
-    "main.33399e84.css.map": "/FuegoDanceSchool/static/css/main.33399e84.css.map",
-    "main.d40144c5.js.map": "/FuegoDanceSchool/static/js/main.d40144c5.js.map",
-    "453.d072a949.chunk.js.map": "/FuegoDanceSchool/static/js/453.d072a949.chunk.js.map"
+    "main.22fc1bc7.css.map": "/FuegoDanceSchool/static/css/main.22fc1bc7.css.map",
+    "main.8e842636.js.map": "/FuegoDanceSchool/static/js/main.8e842636.js.map",
+    "453.5f111da3.chunk.js.map": "/FuegoDanceSchool/static/js/453.5f111da3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.33399e84.css",
-    "static/js/main.d40144c5.js"
+    "static/css/main.22fc1bc7.css",
+    "static/js/main.8e842636.js"
   ]
 }
