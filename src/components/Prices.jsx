@@ -30,11 +30,14 @@ export default function Prices() {
 
 
             <div className="price-bg-wrapper" aria-hidden="true">
-                <img
-                    src={mobileImages[mobileBg]}
-                    alt=""
-                    className="price-bg mobile visible"
-                />
+                {mobileImages.map((img, index) => (
+                    <img
+                        key={index}
+                        src={img}
+                        alt=""
+                        className={`price-bg mobile ${index === mobileBg ? 'visible' : ''}`}
+                    />
+                ))}
 
             </div>
 

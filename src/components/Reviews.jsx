@@ -2,6 +2,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import googleIcon from '../img/Icons/Google-Review-Logo.png';
+import trustpilotIcon from '../img/Icons/trustpiloticon.png';
 
 import '../css/reviews.css'; // Skapa denna sen
 
@@ -62,7 +63,12 @@ export default function Reviews() {
                     <p>⭐ 4.8 av 5 på Google</p>
                     <a href="https://g.page/YOUR-GOOGLE-LINK" target="_blank" rel="noreferrer">Se recensioner</a>
                 </div>
-               
+
+                <div className="review-source">
+                    <img src={trustpilotIcon} alt="Trustpilot" className="source-logo" />
+                    <p>⭐ 4.6 av 5 på Trustpilot</p>
+                    <a href="https://www.trustpilot.com/review/YOUR-LINK" target="_blank" rel="noreferrer">Se recensioner</a>
+                </div>
             </div>
         </section>
     );

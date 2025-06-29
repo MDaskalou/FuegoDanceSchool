@@ -94,22 +94,34 @@
 .review-sources {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    margin-top: 40px;
+    gap: 20px;
     flex-wrap: wrap;
+    margin-top: 40px;
 }
 
 .review-source {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex: 1 1 160px;
+    max-width: 180px;
     background: rgba(255, 255, 255, 0.05);
     padding: 20px;
     border-radius: 15px;
-    width: 220px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
+
+@media (max-width: 400px) {
+    .review-sources {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .review-source {
+        width: 100%;
+        max-width: 260px;
+    }
+}
+
 
 .review-source p {
     margin: 10px 0 8px;
@@ -125,4 +137,11 @@
     width: 40px;
     height: auto;
     margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+    .review-source {
+        width: 100%;
+        max-width: 280px;
+    }
 }

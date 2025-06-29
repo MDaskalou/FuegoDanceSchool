@@ -1,0 +1,47 @@
+﻿.values-page {
+    padding: 60px 20px;
+    background: linear-gradient(to right, #1f1f1f, #3a1f1d);
+    color: white;
+    min-height: 100vh;
+}
+
+.values-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.values-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+.values-header p {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.values-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.value-card {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+}
+
+.value-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
