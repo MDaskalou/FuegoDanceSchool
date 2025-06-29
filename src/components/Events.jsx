@@ -1,69 +1,45 @@
-﻿// src/components/Events.jsx
-import "../css/events.css";
-import LinkButton from "./UI/Button/LinkButton";
-import Card from './UI/Card/Card';
-import Section from './UI/Section/Section';
+﻿import React, { useState, useEffect } from 'react';
+import eventData from '../Data/eventData';
+import '../css/events.css';
+import EventModal from './EventModal';
 
-const events = [
-    {
-        id: 1, // Lägg till unik ID
-        title: "Sensual Weekend Intensive",
-        date: "15–16 juni 2025",
-        time: "12:00–18:00",
-        location: "Fuego Studio, Göteborg",
-        description: "En helg full av teknik, flow och kontaktövningar för nivå 2 och uppåt.",
-        image: require("../img/1.png"),
-        link: "https://example.com/anmalan-weekend"
-    },
-    {
-        id: 2, // Lägg till unik ID
-        title: "Bachata Beach Party",
-        date: "29 juni 2025",
-        time: "16:00–22:00",
-        location: "Aspholmen, Göteborg",
-        description: "Utomhusdans, DJ och social dans vid stranden!",
-        image: require("../img/2.png"),
-        link: "https://example.com/anmalan-beach"
-    },
-    {
-        id: 3, // Lägg till unik ID
-        title: "Warsaw Bachata Festival",
-        date: "5–7 juli 2025",
-        time: "Heldagar",
-        location: "Warszawa, Polen",
-        description: "Vi åker tillsammans! En fantastisk resa med workshops och socials i världsklass.",
-        image: require("../img/3.png"),
-        link: "https://example.com/anmalan-warsaw"
-    }
-];
 
-function Events() {
+export default function Events() {
+    const [selectedEvent, setSelectedEvent] = useState(null);
+
+    useEffect(() => {
+        console.log("Loaded events:", eventData);
+    }, []);
+
+    const openModal = (event) => {
+        console.log("Opening modal for event:", event.title);
+        setSelectedEvent(event);
+    };
+
+    const closeModal = () => {
+        console.log("Closing modal");
+        setSelectedEvent(null);
+    };
+
     return (
-        <Section id="events" className="events-section">
+        <section id="events" className="events-section">
             <h2 className="events-title">Kommande Event</h2>
             <div className="events-grid">
-                {events.map((event) => (
-                    <Card
-                        key={event.id} // Använd unik ID som key
-                        image={event.image}
-                        title={event.title}
-                        className="card-event"
-                    >
-                        <p className="event-meta">{event.date} – {event.time}</p>
-                        <p className="event-meta">{event.location}</p>
+                {eventData.length === 0 && (
+                    <p style={{ color: "white" }}>Inga event tillgängliga just nu.</p>
+                )}
+                {eventData.map((event) => (
+                    <div className="card-event" key={event.id}>
+                        <img src={event.image} alt={event.title} />
+                        <div className="event-meta">{event.date} – {event.time}</div>
+                        <h3>{event.title}</h3>
                         <p className="event-description">{event.description}</p>
-                        <LinkButton
-                            href={event.link}  // Använd rätt länk
-                            target="_blank"
-                            className="btn btn-small"
-                        >
-                            Läs mer & boka
-                        </LinkButton>
-                    </Card>
+                        <button className="btn" onClick={() => openModal(event)}>Läs mer</button>
+                    </div>
                 ))}
             </div>
-        </Section>
+
+            <EventModal isOpen={!!selectedEvent} event={selectedEvent} onClose={closeModal} />
+        </section>
     );
 }
-
-export default Events;

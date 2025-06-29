@@ -6,10 +6,11 @@
 }
 
 .instructor-section h2 {
-    font-size: 1.8rem;
-    margin: 30px 0 20px;
+    font-size: 2rem;
+    margin: 40px 0 30px;
     text-align: center;
     font-family: 'Playfair Display', serif;
+    color: #f26722;
 }
 
 .instructor-grid {
@@ -21,12 +22,22 @@
     padding: 0 10px;
 }
 
+.swiper {
+    padding: 0 20px 40px;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+}
+
 .instructor-card {
     background-color: white;
     color: #111;
     border-radius: 12px;
     overflow: hidden;
-    width: 100%;
+    width: 300px;
+    max-width: 100%;
     text-align: center;
     padding: 20px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
@@ -38,11 +49,10 @@
 
 .instructor-card img {
     width: 100%;
-    max-height: 300px;
+    height: 300px;
     object-fit: cover;
     object-position: top;
     border-radius: 10px;
-    margin-top: 10px;
 }
 
 .instructor-card h3 {
@@ -61,7 +71,7 @@
 .instructor-card .social-icons a {
     font-size: 1.5rem;
     color: #f26722;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .instructor-card .social-icons a:hover {
@@ -79,9 +89,43 @@
     cursor: pointer;
     transition: all 0.3s ease;
     width: 100%;
+    font-weight: bold;
 }
 
 .instructor-card .more-info-btn:hover {
     background-color: #f26722;
     color: white;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    width: 48px;
+    height: 48px;
+    background-color: white;
+    color: #f26722;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: #f26722;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* För mobilanpassning */
+@media (max-width: 768px) {
+    .instructor-card {
+        width: 90%;
+    }
 }
