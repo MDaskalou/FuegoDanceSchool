@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/FuegoDanceSchool/static/css/main.22fc1bc7.css",
-    "main.js": "/FuegoDanceSchool/static/js/main.8e842636.js",
-    "static/js/453.5f111da3.chunk.js": "/FuegoDanceSchool/static/js/453.5f111da3.chunk.js",
+    "main.css": "/FuegoDanceSchool/static/css/main.e4b4afef.css",
+    "main.js": "/FuegoDanceSchool/static/js/main.34f66616.js",
+    "static/js/453.11cb5c47.chunk.js": "/FuegoDanceSchool/static/js/453.11cb5c47.chunk.js",
+    "static/media/instruktörAdrian.jpg": "/FuegoDanceSchool/static/media/instruktörAdrian.e3ea5763ff9946030812.jpg",
     "static/media/instruktörMikael1.jpg": "/FuegoDanceSchool/static/media/instruktörMikael1.e33fe69094090a62f360.jpg",
     "static/media/instruktörMikael2.jpg": "/FuegoDanceSchool/static/media/instruktörMikael2.4b2d4aab1db52a51e7e7.jpg",
     "static/media/Review2.jpg": "/FuegoDanceSchool/static/media/Review2.03e146acccc40f7d8637.jpg",
@@ -11,22 +12,24 @@
     "static/media/Pricesimg3.png": "/FuegoDanceSchool/static/media/Pricesimg3.264bc53c02316e2b7ba0.png",
     "static/media/Pricesimg2.png": "/FuegoDanceSchool/static/media/Pricesimg2.aca8a47eefb06c011982.png",
     "static/media/Pricesimg1.png": "/FuegoDanceSchool/static/media/Pricesimg1.596ee24be1433e57136a.png",
+    "static/media/instruktörKarin.png": "/FuegoDanceSchool/static/media/instruktörKarin.5ff3870e4ebf33098d1f.png",
     "static/media/BackgroundHero.png": "/FuegoDanceSchool/static/media/BackgroundHero.9215f0fc0208b126bd55.png",
     "static/media/Review1.jpg": "/FuegoDanceSchool/static/media/Review1.41c75f79332ba1c0e6b2.jpg",
     "static/media/BackgroundHero3.png": "/FuegoDanceSchool/static/media/BackgroundHero3.ffc78e56d04c8e160ffc.png",
     "static/media/1.png": "/FuegoDanceSchool/static/media/1.2c57d26c525937ab8d2d.png",
     "static/media/2.png": "/FuegoDanceSchool/static/media/2.b814fb40f0fbbd59b7e7.png",
     "static/media/FuegoLogoimg.png": "/FuegoDanceSchool/static/media/FuegoLogoimg.ee91782085b91df0dbd2.png",
+    "static/media/instruktörSanela.jpg": "/FuegoDanceSchool/static/media/instruktörSanela.36abfbabb2e808d0428a.jpg",
     "static/media/3.png": "/FuegoDanceSchool/static/media/3.85a599477b87f4277bd3.png",
     "static/media/Google-Review-Logo.png": "/FuegoDanceSchool/static/media/Google-Review-Logo.899e2e926f73d490b673.png",
     "static/media/trustpiloticon.png": "/FuegoDanceSchool/static/media/trustpiloticon.fce978e8bc862f8d9396.png",
     "index.html": "/FuegoDanceSchool/index.html",
-    "main.22fc1bc7.css.map": "/FuegoDanceSchool/static/css/main.22fc1bc7.css.map",
-    "main.8e842636.js.map": "/FuegoDanceSchool/static/js/main.8e842636.js.map",
-    "453.5f111da3.chunk.js.map": "/FuegoDanceSchool/static/js/453.5f111da3.chunk.js.map"
+    "main.e4b4afef.css.map": "/FuegoDanceSchool/static/css/main.e4b4afef.css.map",
+    "main.34f66616.js.map": "/FuegoDanceSchool/static/js/main.34f66616.js.map",
+    "453.11cb5c47.chunk.js.map": "/FuegoDanceSchool/static/js/453.11cb5c47.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.22fc1bc7.css",
-    "static/js/main.8e842636.js"
+    "static/css/main.e4b4afef.css",
+    "static/js/main.34f66616.js"
   ]
 }
