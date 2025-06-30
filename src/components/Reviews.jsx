@@ -1,32 +1,11 @@
 ﻿import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
+import reviews from '../Data/studentreviewData';
+
 import googleIcon from '../img/Icons/Google-Review-Logo.png';
 import trustpilotIcon from '../img/Icons/trustpiloticon.png';
-
-import '../css/reviews.css'; // Skapa denna sen
-
-const reviews = [
-    {
-        id: 1,
-        name: "Sara M",
-        image: require("../img/Review1.jpg"),
-        text: "Jag älskar energin och gemenskapen här. Lärarna är fantastiska!",
-    },
-    {
-        id: 2,
-        name: "Ali K",
-        image: require("../img/Review2.jpg"),
-        text: "Fuego Dance School har hjälpt mig utvecklas både tekniskt och personligt.",
-    },
-    {
-        id: 3,
-        name: "Elin P",
-        image: require("../img/Review3.jpg"),
-        text: "Det bästa med kursen var hur roligt vi hade varje gång!",
-    },
-    // Lägg till fler elever upp till 10 st
-];
+import '../css/reviews.css';
 
 export default function Reviews() {
     return (
@@ -60,14 +39,14 @@ export default function Reviews() {
             <div className="review-sources">
                 <div className="review-source">
                     <img src={googleIcon} alt="Google" className="source-logo" />
-                    <p>⭐ 4.8 av 5 på Google</p>
-                    <a href="https://g.page/YOUR-GOOGLE-LINK" target="_blank" rel="noreferrer">Se recensioner</a>
+                    <p>⭐ 4.9 av 5 på Google</p>
+                    <a href="https://tinyurl.nu/googlereview" target="_blank" rel="noreferrer">Se recensioner</a>
                 </div>
 
                 <div className="review-source">
                     <img src={trustpilotIcon} alt="Trustpilot" className="source-logo" />
-                    <p>⭐ 4.6 av 5 på Trustpilot</p>
-                    <a href="https://www.trustpilot.com/review/YOUR-LINK" target="_blank" rel="noreferrer">Se recensioner</a>
+                    <p>⭐ 4.5 av 5 på Trustpilot</p>
+                    <a href="https://se.trustpilot.com/review/fuegodanceschool.com" target="_blank" rel="noreferrer">Se recensioner</a>
                 </div>
             </div>
         </section>

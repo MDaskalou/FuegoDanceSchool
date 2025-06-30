@@ -115,6 +115,44 @@
     cursor: pointer;
     z-index: 1100; /* 🧡 Garanterar att den syns över allt annat */
 }
+.faq-more-link {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.faq-more-link a {
+    color: #f26522;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.faq-more-link a:hover {
+    text-decoration: none;
+}
+.faq-more-button {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.faq-more-button p {
+    margin-bottom: 0.5rem;
+}
+
+.faq-more-button button {
+    background-color: #f26522;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.faq-more-button button:hover {
+    background-color: #d6531d;
+}
+
 
 @keyframes fadeIn {
     from { opacity: 0; transform: scale(0.95); }

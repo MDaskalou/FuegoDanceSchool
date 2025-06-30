@@ -15,7 +15,8 @@ function Navbar() {
         { label: 'Priser', id: 'prices' },
         { label: 'Instruktörer', path: '/instructors' },
         { label: 'Event', id: 'events' },
-        { label: 'Våra värderingar', path: '/values' }, 
+        { label: 'Våra värderingar', path: '/values' },
+        {label: 'Vanliga frågor', path: '/FAQpage' },
 
         { label: 'Kontakt', id: 'contact' },
     ];

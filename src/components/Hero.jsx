@@ -5,6 +5,7 @@ import LinkButton from './UI/Button/LinkButton'
 import Button from './UI/Button/Button'
 import Section   from "./UI/Section/Section";
 
+
 function Hero() {
     const [showFAQ, setShowFAQ] = useState(false);
 

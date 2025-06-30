@@ -34,7 +34,8 @@ export default function InstructorSection() {
                     <SwiperSlide key={index}>
                         <div className="instructor-card">
                             <img src={i.image} alt={i.name} className="instructor-img" />
-                            <h3>{i.name}</h3>
+                            <h2>{i.name}</h2>
+                            <h4>{i.title}</h4>
                             <div className="social-icons">
                                 {i.socials.instagram && (
                                     <a href={i.socials.instagram} target="_blank" rel="noreferrer">

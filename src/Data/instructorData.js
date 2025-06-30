@@ -37,7 +37,7 @@ const instructors = [
     {
         name: "Karin Andersson",
         role: "Instruktör",
-        title: "Grundare", 
+        title: "", 
         image: karinImage,
         socials: {
             instagram: "https://www.instagram.com/sofia.bachata",

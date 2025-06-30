@@ -32,10 +32,10 @@ function Contact() {
                 
                 <div className="contact-icons">
                     
-                    <a href="https://instagram.com/fuegodance" target="_blank" rel="noreferrer">
+                    <a href="https://www.instagram.com/fuegodanceschool/" target="_blank" rel="noreferrer">
                         <i className="fab fa-instagram"></i>
                     </a>
-                    <a href="https://facebook.com/fuegodance" target="_blank" rel="noreferrer">
+                    <a href="https://www.facebook.com/FuegoDSchool" target="_blank" rel="noreferrer">
                         <i className="fab fa-facebook"></i>
                     </a>  
                     
