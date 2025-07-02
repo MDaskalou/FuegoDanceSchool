@@ -31,13 +31,13 @@ const instructors = [
         
         certificates: ["Bachata Sensual instruktörskurs Level 1 & 2, Utbildad pedagog"], // Ny rad!
         levels: ["Nivå 1, Nivå 2, Nivå 3"],
-        favoriteTeaching: "Teknik och musikalitet i bachata sensual.",
+        favoriteTeaching: ["Teknik och musikalitet i bachata sensual."],
         extraImages: [mikaelImage1, mikaelImage2]
     },
     {
         name: "Karin Andersson",
         role: "Instruktör",
-        title: "", 
+        title: "Safe Dance Scene", 
         image: karinImage,
         socials: {
             instagram: "https://www.instagram.com/sofia.bachata",

@@ -76,7 +76,7 @@ const courseData = [
 
 function Courses() {
     return (
-        <section className="courses-section">
+        <section className="courses-section" id ="courses">
             <div className="courses-container">
                 <h2 className="courses-title">Våra Kurser</h2>
                 <Swiper

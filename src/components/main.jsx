@@ -5,6 +5,7 @@ import { scroller } from 'react-scroll';
 import Hero from './Hero';
 import FAQ from './FAQ';
 import Courses from './Courses';
+import Schedule from './Schedule';    
 import Prices from './Prices';
 import Events from './Events';
 import AboutUs from './AboutUs';
@@ -31,6 +32,7 @@ function Main() {
         <>
             <Hero />
             <FAQ />
+            <Schedule/>
             <AboutUs />
             <Courses />
             <Prices />

@@ -116,3 +116,61 @@
 .icon-container {
     display: none; /* döljs på mobil */
 }
+@media (min-width: 768px) {
+    .navbar {
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 0 2rem;
+    }
+
+    .logo-container {
+        position: absolute;
+        left: 2rem;
+        display: flex;
+        align-items: center;
+        z-index: 1001;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex !important;
+        justify-content: center;
+        flex-direction: row;
+        background-color: transparent;
+        position: static;
+        padding: 0;
+        box-shadow: none;
+    }
+
+    .nav-links ul {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links ul li a {
+        padding: 10px 16px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: white;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: background-color 0.2s, color 0.2s;
+    }
+
+    .nav-links ul li a:hover,
+    .nav-links ul li a.active {
+        background-color: #f26722;
+        color: white;
+    }
+}

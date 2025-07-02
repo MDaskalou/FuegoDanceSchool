@@ -20,7 +20,7 @@ function Hero() {
                     </p>
                     </div>
                     <div className="hero-buttons">
-                        <LinkButton href="#" className="btn btn-small">Anmäl er till öppet hus</LinkButton>
+                        <LinkButton href="#" className="btn btn-small">Anmäl dig till öppet hus</LinkButton>
                         <Button onClick={() => setShowFAQ(true)} className="btn btn-small">
                             Vanliga frågor
                         </Button>

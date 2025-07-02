@@ -8,35 +8,40 @@ export default function InstructorModal({ isOpen, onClose, instructor }) {
     return (
         <ModalComponent isOpen={isOpen} onClose={onClose} className="instructor-modal">
             <div className="instructor-modal-content">
-                <img
-                    src={instructor.image}
-                    alt={instructor.name}
-                    className="modal-image"
-                />
+               
                 <h2 className="modal-title">{instructor.name}</h2>
                 <p className="modal-description">{instructor.description}</p>
 
                 {/* Favoritdel */}
                 {instructor.favoriteTeaching && (
-                    <p><strong>Favorit att undervisa:</strong> {instructor.favoriteTeaching}</p>
+                    <div className="modal-section">
+                    <p className="modal-highlight">🧡 <strong>Favorit att undervisa:</strong> </p>
+                        <ul>
+                            {instructor.favoriteTeaching.map((item, index) => (
+                                <li key={index}>{item}</li>
+                            ))}
+                        </ul>
+                    </div>
                 )}
+
 
                 {/* Nivåer */}
                 {instructor.levels && instructor.levels.length > 0 && (
-                    <div>
-                        <strong>Undervisar i:</strong>
+                    <div className="modal-section">
+                        <p className="modal-highlight">🎯 <strong>Undervisar i:</strong></p>
                         <ul>
                             {instructor.levels.map((level, index) => (
                                 <li key={index}>{level}</li>
                             ))}
                         </ul>
                     </div>
+
                 )}
 
                 {/* Certifikat */}
                 {instructor.certificates && instructor.certificates.length > 0 && (
-                    <div>
-                        <strong>Certifikat:</strong>
+                    <div className="modal-section">
+                        <p className="modal-highlight">📜 <strong>Certifikat:</strong></p>
                         <ul>
                             {instructor.certificates.map((cert, index) => (
                                 <li key={index}>{cert}</li>

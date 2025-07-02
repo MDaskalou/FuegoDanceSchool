@@ -37,7 +37,7 @@ function FAQ({ visible, onClose }) {
                                 onClick={() => toggleAnswer(index)}
                             >
                                 {item.question}
-                            </div>
+                           </div>
                             <div className={`faq-answer ${activeIndex === index ? "show" : ""}`}>
                                 {item.answer}
                             </div>

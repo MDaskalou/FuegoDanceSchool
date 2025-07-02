@@ -12,9 +12,19 @@ const reviews = [
     },
     {
         id: 2,
-        name: "Ali K",
-        image: require("../img/Review2.jpg"),
-        text: "Fuego Dance School har hjälpt mig utvecklas både tekniskt och personligt.",
+        name: "Amanda W",
+        image: require("../img/Students/AmandaW.jpeg"),
+        text: "Fuego är en dansskola där man redan från start känner sig välkommen. Lärarna är kunniga och hjälpsamma. " +
+            "För mig har dans inte alltid varit en självklarhet, när jag började på fuego var jag väldigt osäker i danssammanhang, " +
+            "jag var rädd för att göra fel vilket gjorde mig spänd och motivationen fanns inte riktigt där. \n" +
+            "\n" +
+            "Fuego har hjälpt mig att växa som dansare, man får feedback på en mer personlig nivå, både från instruktörerna " +
+            "men även från hjälpinstruktörerna vilket är guld värt. Instruktörerna är också lyhörda och anpassar lektionsuppläggen " +
+            "efter kunnande men tar även hänsyn till önskemål. På Fuego läggs mycket fokus på teknik, att veta hur man gör en rörelse " +
+            "korrekt innan man utför den samt att nöta grunderna. Detta något jag själv haft stor nytta av vid socialdanser. \n" +
+            "\n" +
+            "Kort och gott rekommenderar jag verkligen Fuego, oavsett om du är " +
+            "nybörjare eller erfaren dansare så är detta en skola för dig.",
     },
     {
         id: 3,

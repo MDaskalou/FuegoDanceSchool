@@ -1,40 +1,103 @@
-﻿/* src/css/about.css */
-
-.about-section {
-    background: linear-gradient(to right, #1f1f1f, #3a1f1d); /* 🔥 behåller din dansiga bakgrund */
+﻿.about-section {
+    background: linear-gradient(to right, #1f1f1f, #3a1f1d);
     padding: 40px 20px;
     text-align: center;
 }
 
 .about-container {
+    display: flex;
+    flex-direction: column; /* Mobile first: kolumnlayout */
+    align-items: center;
+    gap: 2rem;
     width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 2rem;
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
 }
 
+.about-left {
+    width: 100%;
+    text-align: left;
+}
+
 .about-title {
     font-size: 2rem;
     color: #111;
     font-family: 'Playfair Display', serif;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
 }
 
 .about-description {
     font-size: 1rem;
     color: #444;
-    margin-bottom: 20px;
+    margin-bottom: 1.2rem;
     line-height: 1.6;
-    text-align: left;
 }
 
+.about-right {
+    width: 100%;
+    margin-top: 1rem;
+
+}
+
+.about-carousel {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Bildstil – mobil först */
 .about-image {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-top: 20px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    aspect-ratio: 16 / 9; /* eller testa 4 / 3 */
+
+}
+@media (min-width: 1024px) {
+    .about-container {
+        flex-direction: row;
+        gap: 3rem;
+        padding: 3rem;
+    }
+
+    .about-left {
+        flex: 1.5;
+    }
+
+    .about-right {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .about-title {
+        font-size: 2.5rem;
+    }
+
+    .about-description {
+        font-size: 1.1rem;
+    }
+
+    .about-carousel {
+        width: 100%;
+        max-width: 600px;
+        aspect-ratio: 16 / 9;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .about-image {
+        width: 100%;
+        height: 250px;
+        object-fit: contain; /* visar hela bilden utan att beskära */
+        border-radius: 10px;
+    }
 }

@@ -96,3 +96,31 @@
         transform: translateY(0);
     }
 }
+@media (min-width: 768px) {
+    .hero {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.25rem;
+        max-width: 700px;
+        margin: 0 auto 30px auto;
+    }
+
+    .hero-buttons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .btn,
+    .btn-small {
+        max-width: none;
+        padding: 14px 36px;
+    }
+}
