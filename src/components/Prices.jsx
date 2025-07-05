@@ -71,7 +71,7 @@ export default function Prices() {
 
                 <div className="prices-cta">
                     <LinkButton
-                        href="https://dinbokningssida.se"
+                        href="https://app.coursely.se/activities/FuegoDance"
                         className="btn btn-small"
                         target="_blank"
                         >

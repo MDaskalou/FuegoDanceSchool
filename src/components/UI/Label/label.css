@@ -1,0 +1,35 @@
+.label {
+    display: block;
+    font-size: 16px; /* Mobilvänlig storlek, förhindrar zoom på iOS */
+    font-weight: 500;
+    color: #1f2937; /* neutral-gray-800 */
+    margin-bottom: 8px;
+    line-height: 1.5;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    transition: color 0.2s ease;
+}
+
+/* Obligatoriskt fält – asterisk */
+.label--required::after {
+    content: '*';
+    color: #ef4444; /* röd */
+    margin-left: 4px;
+    font-weight: 600;
+}
+
+/* Felmeddelande */
+.label--error {
+    color: #dc2626; /* röd-600 */
+}
+
+/* Inaktiverad */
+.label--disabled {
+    color: #9ca3af; /* grå-400 */
+    cursor: not-allowed;
+}
+
+/* Om label ska användas med radio/checkbox */
+.label--clickable {
+    cursor: pointer;
+}

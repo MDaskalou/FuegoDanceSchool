@@ -13,8 +13,8 @@ function Navbar() {
         { label: 'Hem', id: 'hero' },
         { label: 'Kurser', id: 'courses' },
         { label: 'Priser', id: 'prices' },
-        { label: 'Instruktörer', path: '/instructors' },
         { label: 'Event', id: 'events' },
+        { label: 'Instruktörer', path: '/instructors' },
         { label: 'Våra värderingar', path: '/values' },
         {label: 'Vanliga frågor', path: '/FAQpage' },
 

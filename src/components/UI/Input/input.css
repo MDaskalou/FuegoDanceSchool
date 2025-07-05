@@ -1,0 +1,25 @@
+.input {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 16px; /* Förhindrar zoom på iOS */
+    border: 1px solid #d1d5db; /* light gray */
+    border-radius: 6px;
+    outline: none;
+    background-color: #fff;
+    color: #111827;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus {
+    border-color: #6366f1; /* blå/lila ton */
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.input:disabled {
+    background-color: #f3f4f6;
+    cursor: not-allowed;
+    color: #9ca3af;
+}

@@ -1,0 +1,81 @@
+/* Sektionens bakgrund och padding */
+#oppet-hus {
+    padding: 6rem 1rem 2rem; /* mer padding-top för att undvika krock med navbar */
+    background-color: #2c1b1b; /* Matchar navbarens färg */
+    color: #f9fafb; /* Ljus text för kontrast */}
+
+/* Formulärlayout med spacing */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Rubrikstil */
+h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #1f2937;
+}
+
+/* Formfältgruppering */
+form > div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Knappen – spacing nedåt */
+form button {
+    margin-top: 1rem;
+}
+
+/* Info under formuläret */
+.signup-info {
+    font-size: 0.875rem;
+    text-align: center;
+    color: #4b5563;
+    margin-top: 1.5rem;
+    line-height: 1.4;
+    padding: 0 1rem;
+}
+
+/* Bokningsknapp efter info */
+.signup-book {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.signup-book a {
+    background-color: #ef5b0c;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.signup-book a:hover {
+    background-color: #d34700;
+}
+
+/* --- RESPONSIV FÖRBÄTTRINGAR --- */
+@media (min-width: 640px) {
+    form {
+        gap: 1.25rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .signup-info {
+        font-size: 1rem;
+    }
+
+    .signup-book a {
+        font-size: 1rem;
+    }
+}

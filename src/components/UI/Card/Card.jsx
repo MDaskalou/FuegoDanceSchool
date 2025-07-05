@@ -1,12 +1,15 @@
-﻿import './Card.css'
-
-
-export default function Card({ image, title, children, className = "" }) {
+﻿export default function Card({ image, title, children, className = "" }) {
     return (
-        <div className={`card ${className}`}>
-            {image && <img src={image} alt={title} className="card-image" />}
-            <div className="card-body">
-                <h3 className="card-title">{title}</h3>
+        <div className={`bg-white rounded-2xl shadow-md overflow-hidden ${className}`}>
+            {image && (
+                <img
+                    src={image}
+                    alt={title}
+                    className="w-full h-48 object-cover"
+                />
+            )}
+            <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">{title}</h3>
                 {children}
             </div>
         </div>

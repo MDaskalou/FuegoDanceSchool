@@ -3,6 +3,8 @@ import mikaelImage from '../img/Instructors/instruktörMikael.png';
 import mikaelImage1 from '../img/Instructors/instruktörMikael1.jpg';
 import mikaelImage2 from '../img/Instructors/instruktörMikael2.jpg';
 import karinImage from '../img/Instructors/instruktörKarin.png';
+import tomasImage from '../img/Instructors/instruktörTomas.png'; // Lägg till Tomas bild här
+import ramintaImage from '../img/Instructors/instruktörRaminta.png'; // Lägg till Raminta bild här
 
 const instructors = [
     {
@@ -52,7 +54,50 @@ const instructors = [
 
         certificates: ["Workshops med Korke & Judith, Pedagogisk utbildning"],
         levels: ["Nivå 1, Nivå 2"],
-        favoriteTeaching: "Fokus och energi i grundteknik och connection.",
+        favoriteTeaching: ["Teknik och musikalitet i bachata sensual."],
+        extraImages: []
+    },
+
+    {
+        name: "Tomas Steifo",
+        role: "Instruktör",
+        title: "Event Cordinator",
+        image: tomasImage,
+        socials: {
+            instagram: "https://www.instagram.com/sofia.bachata",
+            facebook: "https://www.facebook.com/sofia.andersson"
+        },
+        description: "Sofias dansresa började med en förälskelse i rytmerna från Karibien. " +
+            "Hon har dansat bachata i över 6 år och är särskilt intresserad av samspelet i pardansen. " +
+            "Med en bakgrund inom både dans och pedagogik har hon ett naturligt sätt att vägleda elever steg för steg.\n" +
+            "\n" +
+            "Sofia undervisar främst i nivå 1 och 2, och brinner för att skapa en välkomnande atmosfär där alla känner sig inkluderade. " +
+            "Hennes styrka ligger i att förklara tekniska moment på ett enkelt och pedagogiskt sätt.",
+
+        certificates: ["Workshops med Korke & Judith, Pedagogisk utbildning"],
+        levels: ["Nivå 1, Nivå 2"],
+        favoriteTeaching: ["Teknik och musikalitet i bachata sensual."],
+        extraImages: []
+    },
+    {
+        name: "Raminta Staskute",
+        role: "Instruktör",
+        title: "Social Media Marketing",
+        image: ramintaImage,
+        socials: {
+            instagram: "https://www.instagram.com/sofia.bachata",
+            facebook: "https://www.facebook.com/sofia.andersson"
+        },
+        description: "Sofias dansresa började med en förälskelse i rytmerna från Karibien. " +
+            "Hon har dansat bachata i över 6 år och är särskilt intresserad av samspelet i pardansen. " +
+            "Med en bakgrund inom både dans och pedagogik har hon ett naturligt sätt att vägleda elever steg för steg.\n" +
+            "\n" +
+            "Sofia undervisar främst i nivå 1 och 2, och brinner för att skapa en välkomnande atmosfär där alla känner sig inkluderade. " +
+            "Hennes styrka ligger i att förklara tekniska moment på ett enkelt och pedagogiskt sätt.",
+
+        certificates: ["Workshops med Korke & Judith, Pedagogisk utbildning"],
+        levels: ["Nivå 1, Nivå 2"],
+        favoriteTeaching: ["Teknik och musikalitet i bachata sensual."],
         extraImages: []
     }
 

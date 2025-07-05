@@ -22,8 +22,17 @@ export default function Reviews() {
                 loop={true}
                 autoplay={{ delay: 5000 }}
                 pagination={{ clickable: true }}
+                breakpoints={{
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    },
+                }}
             >
-                {reviews.map((review) => (
+
+            {reviews.map((review) => (
                     <SwiperSlide key={review.id}>
                         <div className="review-card">
                             <div className="review-img-wrapper">

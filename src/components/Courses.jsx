@@ -16,7 +16,7 @@ const courseData = [
         description: "För dig som är helt ny till bachata. Vi går igenom grundläggande steg, takt och enkla turer.",
         times: "Onsdagar kl 18:00 – 19:30",
         requirements: "Inga förkunskaper krävs",
-        bookingLink: "https://dinbokningssida.se/niva1"
+        bookingLink: "https://app.coursely.se/activity/4e2309bd-e426-4e34-8b81-c43f15d9d12e"
     },
     {
         id: 2,

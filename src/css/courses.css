@@ -171,7 +171,7 @@
     height: 60px;
     border-radius: 50%;
     cursor: pointer;
-    display: flex;
+    display: flex; /* default synlig */
     align-items: center;
     justify-content: center;
     font-size: 28px;
@@ -316,5 +316,12 @@
     .course-slide {
         padding: 0 5px;
         flex: 0 0 calc(100% / 7);
+    }
+}
+
+/* Hide navigation buttons on mobile (<769px) */
+@media (max-width: 768px) {
+    .nav-btn {
+        display: none !important;
     }
 }

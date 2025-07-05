@@ -31,29 +31,7 @@ const ScheduleSwiper = () => {
                 <p className="swipe-hint mobile-only">⬅️ Swipe för att se nästa dag ➡️</p>
             )}
 
-            <Swiper
-                spaceBetween={20}
-                slidesPerView={1}
-                modules={[Navigation, Pagination, A11y]}
-                navigation
-                pagination={{ clickable: true }}
-                className="fade-swiper mobile-only"
-            >
-                {scheduleData.map((day, index) => (
-                    <SwiperSlide key={index}>
-                        <div className="day-card">
-                            <h3>{day.day}</h3>
-                            {day.classes.map((c, i) => (
-                                <div key={i} className="class-item">
-                                    <strong>{c.time}</strong><br />
-                                    {c.course}<br />
-                                    <em>{c.teachers}</em>
-                                </div>
-                            ))}
-                        </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
+
         </section>
     );
 };

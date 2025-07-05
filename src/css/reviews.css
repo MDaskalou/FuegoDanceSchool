@@ -20,15 +20,20 @@
 }
 
 .review-card {
-    max-width: 340px;
-    margin: 0 auto;
-    padding: 100px 20px 20px; /* eller t.o.m. 110px om du vill ha extra luft */
+    padding: 100px 20px 20px;
     background: rgba(0, 0, 0, 0.65);
     border-radius: 20px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
     transition: transform 0.4s ease;
+    text-align: center;
+    position: relative;
+
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
 }
+
 
 .review-card:hover {
     transform: scale(1.03);
@@ -109,39 +114,60 @@
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-@media (max-width: 400px) {
-    .review-sources {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
+@media (min-width: 768px) {
+    .reviews-wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        padding: 0 40px;
     }
 
-    .review-source {
-        width: 100%;
-        max-width: 260px;
+    .review-card {
+        margin: 80px 0 0;
+        max-width: 600px;     /* eller t.ex. 700px */
+        padding: 100px 40px 30px;    }
+
+    .review-img-wrapper {
+        width: 140px;
+        height: 140px;
+        top: -50px;
+    }
+
+
+    .review-name {
+        margin-top: 70px;
     }
 }
 
+@media (min-width: 1024px) {
+    .reviews-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px; /* 🔸 Minskad från 40px → gör mer plats för bredare kort */
+        padding: 0 20px; /* 🔸 Minskad inre padding → mer utrymme för korten */
+    }
 
-.review-source p {
-    margin: 10px 0 8px;
-    font-weight: 600;
-}
+    .review-card {
+        flex: 0 1 calc(33.333% - 30px);
+        /* 🔹 3 kort per rad minus gap (30px mellan varje) */
 
-.review-source a {
-    color: var(--primary-color);
-    text-decoration: underline;
-}
+        max-width: none;
+        /* 🔹 Ger ett absolut max om skärmen är väldigt bred */
 
-.source-logo {
-    width: 40px;
-    height: auto;
-    margin-bottom: 10px;
-}
+        padding: 100px 40px 30px;
+        margin: 80px 0 0;
+    }
 
-@media (max-width: 600px) {
-    .review-source {
-        width: 100%;
-        max-width: 280px;
+    .review-img-wrapper {
+        width: 140px;
+        height: 140px;
+        top: -50px;
+    }
+
+    .review-name {
+        margin-top: 70px;
     }
 }
+
