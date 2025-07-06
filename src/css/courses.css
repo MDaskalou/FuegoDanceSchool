@@ -1,4 +1,12 @@
-﻿/* courses.css */
+﻿:root {
+    --slides: 7;
+    --accent: #f26722;
+    --accent-dark: #d94d1a;
+    --bg-dark: rgba(0, 0, 0, 0.8);
+    --text-light: #e0e0e0;
+    --text-muted: #ccc;
+}
+
 .courses-section {
     padding: 60px 20px;
     background: linear-gradient(to right, #1f1f1f, #3a1f1d);
@@ -20,7 +28,6 @@
     position: relative;
 }
 
-/* Custom slider implementation */
 .courses-slider {
     position: relative;
     display: block;
@@ -34,11 +41,11 @@
 
 .courses-track {
     display: flex;
-    width: calc(100% * 7); /* 7 kort totalt */
+    width: calc(100% * var(--slides));
 }
 
 .course-slide {
-    flex: 0 0 calc(100% / 7); /* Varje slide är 1/7 av total bredd */
+    flex: 0 0 calc(100% / var(--slides));
     padding: 0 10px;
     box-sizing: border-box;
     display: flex;
@@ -47,7 +54,7 @@
 }
 
 .course-card {
-    background: rgba(0, 0, 0, 0.8);
+    background: var(--bg-dark);
     border: 1px solid rgba(242, 103, 34, 0.3);
     border-radius: 12px;
     overflow: hidden;
@@ -100,8 +107,8 @@
 
 .toggle-btn {
     background: transparent;
-    border: 2px solid #f26722;
-    color: #f26722;
+    border: 2px solid var(--accent);
+    color: var(--accent);
     padding: 10px 20px;
     border-radius: 25px;
     cursor: pointer;
@@ -112,7 +119,7 @@
 }
 
 .toggle-btn:hover {
-    background: #f26722;
+    background: var(--accent);
     color: white;
     transform: scale(1.02);
 }
@@ -127,21 +134,21 @@
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 15px;
-    color: #e0e0e0;
+    color: var(--text-light);
 }
 
 .course-details p {
     margin: 8px 0;
     font-size: 0.9rem;
-    color: #ccc;
+    color: var(--text-muted);
 }
 
 .course-details strong {
-    color: #f26722;
+    color: var(--accent);
 }
 
 .booking-btn {
-    background: #f26722;
+    background: var(--accent);
     color: white;
     border: none;
     padding: 12px 24px;
@@ -157,21 +164,21 @@
 }
 
 .booking-btn:hover {
-    background: #d94d1a;
+    background: var(--accent-dark);
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(242, 103, 34, 0.4);
 }
 
 /* Navigation buttons */
 .nav-btn {
-    background: rgba(0, 0, 0, 0.8);
+    background: var(--bg-dark);
     border: 2px solid rgba(242, 103, 34, 0.5);
-    color: #f26722;
+    color: var(--accent);
     width: 60px;
     height: 60px;
     border-radius: 50%;
     cursor: pointer;
-    display: flex; /* default synlig */
+    display: flex;
     align-items: center;
     justify-content: center;
     font-size: 28px;
@@ -186,7 +193,7 @@
 
 .nav-btn:hover:not(.disabled) {
     background: rgba(242, 103, 34, 0.2);
-    border-color: #f26722;
+    border-color: var(--accent);
     transform: translateY(-50%) scale(1.1);
 }
 
@@ -221,13 +228,10 @@
     transition: all 0.3s ease;
 }
 
-.dot.active {
-    background: #f26722;
-    transform: scale(1.3);
-}
-
+.dot.active,
 .dot:hover {
-    background: #f26722;
+    background: var(--accent);
+    transform: scale(1.3);
 }
 
 /* Animations */
@@ -242,64 +246,32 @@
     }
 }
 
+.slide-down {
+    animation: slideDown 0.3s ease;
+}
+
 /* Responsive design */
-@media (max-width: 1024px) {
-    .courses-track {
-        width: calc(100% * 7); /* Samma för alla skärmstorlekar */
-    }
-
-    .course-slide {
-        flex: 0 0 calc(100% / 7);
-    }
-}
-
-@media (max-width: 768px) {
-    .courses-section {
-        padding: 40px 15px;
-    }
-
-    .courses-title {
-        font-size: 2rem;
-        margin-bottom: 30px;
-    }
-
-    .courses-track {
-        width: calc(100% * 7);
-    }
-
-    .course-slide {
-        flex: 0 0 calc(100% / 7);
-    }
-
-    .nav-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 22px;
-    }
-
-    .prev-btn {
-        left: 15px;
-    }
-
-    .next-btn {
-        right: 15px;
-    }
-
-    .course-content {
-        padding: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .courses-title {
-        font-size: 1.8rem;
-    }
-
+@media (max-width: 1024px), (max-width: 768px), (max-width: 480px) {
     .courses-section {
         padding: 30px 10px;
     }
 
+    .courses-title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+
+    .courses-track {
+        width: calc(100% * var(--slides));
+    }
+
+    .course-slide {
+        flex: 0 0 calc(100% / var(--slides));
+        padding: 0 5px;
+    }
+
     .nav-btn {
+        display: none !important;
         width: 45px;
         height: 45px;
         font-size: 20px;
@@ -313,15 +285,7 @@
         right: 10px;
     }
 
-    .course-slide {
-        padding: 0 5px;
-        flex: 0 0 calc(100% / 7);
-    }
-}
-
-/* Hide navigation buttons on mobile (<769px) */
-@media (max-width: 768px) {
-    .nav-btn {
-        display: none !important;
+    .course-content {
+        padding: 15px;
     }
 }

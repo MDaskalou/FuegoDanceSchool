@@ -3,7 +3,7 @@
 .modal-overlay {
     position: fixed;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.8);
     z-index: 9999;
     display: flex;
     justify-content: center;
@@ -12,26 +12,26 @@
 }
 
 .modal-content {
-    background-color: #1e0f0a; /* Mörk men varm brunton */
-    color: #fefefe;
+    background-color: #2a120f; /* djupare brun */
+    color: #fff;
     border-radius: 16px;
-    padding: 1.25rem;
+    padding: 1.5rem;
     width: 100%;
     max-width: 95%;
     max-height: 90vh;
     overflow-y: auto;
     position: relative;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
 }
 
 .modal-close {
     position: absolute;
-    top: 12px;
-    right: 16px;
+    top: 14px;
+    right: 18px;
     font-size: 1.5rem;
     background: none;
     border: none;
-    color: #ffffff;
+    color: #fff;
     cursor: pointer;
     transition: transform 0.2s ease;
 }
@@ -39,63 +39,72 @@
     transform: scale(1.2);
 }
 
-/* === MODAL BODY === */
+/* === BODY === */
 .modal-body {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
-    font-family: 'Helvetica Neue', sans-serif;
+    gap: 1.5rem;
+    font-family: 'Segoe UI', sans-serif;
 }
 
+/* === IMAGE === */
 .modal-image {
     width: 100%;
     border-radius: 12px;
     object-fit: cover;
-    height: 200px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+
 }
 
 /* === TITLE === */
 .modal-title {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
     text-align: center;
     margin: 0;
     line-height: 1.3;
+    color: #f26722;
 }
 
-/* === EVENT INFO === */
+/* === INFO BLOCK === */
 .event-info {
+    font-size: 0.95rem;
+    color: #e2e2e2;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    font-size: 0.95rem;
-    color: #d1d5db;
 }
 
+.event-info p {
+    margin: 0;
+    line-height: 1.4;
+}
 .event-info p strong {
     color: #ff6b00;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 0.1rem;
+    font-weight: 600;
 }
 
 /* === DESCRIPTION === */
 .modal-description {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1rem 1.25rem;
+    border-radius: 10px;
     font-size: 1rem;
     color: #f3f4f6;
-    line-height: 1.5;
-    white-space: pre-line;
+    line-height: 1.6;
+    margin-top: 1rem;
     text-align: center;
+
 }
 
 /* === BUTTON === */
 .btn-small {
     align-self: center;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
     font-weight: 600;
     background-color: #ff6b00;
-    color: white;
+    color: #fff;
     border: none;
     border-radius: 999px;
     cursor: pointer;
@@ -105,8 +114,72 @@
     background-color: #e65c00;
 }
 
+/* === QUICK INFO LIST === */
+.event-quick-info {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: 1rem;
+    color: #e5e5e5;
+}
+
+.event-quick-info li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.event-quick-info li span {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    color: #ff6b00;
+}
+.modal-body {
+    display: flex;
+    flex-direction: column; /* Default för mobil */
+}
+/* === DEFAULT === */
+.modal-left {
+    width: 100%;
+}
+
+.modal-info {
+    width: 100%;
+}
+
 /* === RESPONSIVE – LARGER SCREENS === */
 @media (min-width: 768px) {
+
+    .event-modal {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+
+
+    .modal-body {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 2rem;
+        flex-wrap: nowrap;
+    }
+
+    .modal-left {
+        width: 50%;
+    }
+
+    .modal-info {
+        width: 50%;
+    }
+
+
+
     .modal-content {
         max-width: 600px;
         padding: 2rem;
@@ -117,8 +190,13 @@
     }
 
     .modal-image {
-        height: 280px;
+        width: 100%;
+        border-radius: 12px;
+        object-fit: cover;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        margin-top: 3.5rem; /* Lägg till detta */
     }
+
 
     .btn-small {
         font-size: 1.1rem;

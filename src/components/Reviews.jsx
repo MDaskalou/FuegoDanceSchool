@@ -2,6 +2,8 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import reviews from '../Data/studentreviewData';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 import googleIcon from '../img/Icons/Google-Review-Logo.png';
 import trustpilotIcon from '../img/Icons/trustpiloticon.png';
@@ -20,7 +22,7 @@ export default function Reviews() {
                 spaceBetween={30}
                 slidesPerView={1}
                 loop={true}
-                autoplay={{ delay: 5000 }}
+                autoplay={{ delay: 5000, disableOnInteraction: false }}
                 pagination={{ clickable: true }}
                 breakpoints={{
                     768: {

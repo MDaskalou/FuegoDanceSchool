@@ -10,6 +10,12 @@
         question: "Är kurserna öppna för alla åldrar?",
         answer: "Ja! Vi har elever från 18 till 60+. Alla är välkomna!"
     },
+    {
+        category: "Allmänt",
+        question: "Erbjuder ni privatlektioner?",
+        answer: "Ja! Du kan boka privatlektioner med våra instruktörer – perfekt om du vill utvecklas snabbare eller gå igenom specifika saker."
+    },
+
 
     // 🔵 PRAKTISKT
     {
@@ -22,6 +28,12 @@
         question: "Behöver jag komma med partner?",
         answer: "Nej! Du kan komma själv. Vi roterar partners så att alla får dansa med alla."
     },
+    {
+        category: "Praktiskt",
+        question: "Vad händer om det är ojämnt antal följare och förare?",
+        answer: "Vi gör vårt bästa för att balansera grupperna. Ibland får man vänta något byte, men vi har ofta hjälpinstruktörer som kliver in."
+    },
+
 
     // 🟢 KURSER OCH TIDER
     {
@@ -34,6 +46,12 @@
         question: "Har ni drop-in?",
         answer: "Nej, men första lektionen är alltid gratis så att du kan prova på innan du bestämmer dig."
     },
+    {
+        category: "Kurser och tider",
+        question: "Kan jag ta igen en missad lektion?",
+        answer: "Ja, om det finns plats i en annan grupp på samma nivå kan du hoppa in där den veckan. Kontakta oss så hjälper vi dig."
+    },
+
 
     // 🟣 PRISER OCH RABATTER
     {
@@ -44,7 +62,7 @@
     {
         category: "Priser och rabatter",
         question: "Jag är student – får jag rabatt?",
-        answer: "Ja! Vi erbjuder 15% rabatt för studenter. Ta med giltigt student-ID."
+        answer: "Ja! Vi erbjuder 10% rabatt för studenter. Ta med giltigt student-ID."
     },
     {
         category: "Priser och rabatter",
@@ -62,6 +80,12 @@
         question: "Kan man kombinera rabatter?",
         answer: "Nej, rabatter kan tyvärr inte kombineras. Du väljer den rabatt som passar dig bäst."
     },
+    {
+        category: "Priser och rabatter",
+        question: "Kan jag ångra min betalning?",
+        answer: "Ja, enligt distansavtalslagen har du 14 dagars ångerrätt från köpet – förutsatt att du inte har påbörjat kursen. Om du anmäler dig och ångrar dig inom 14 dagar *innan kursstart*, kan du få full återbetalning. Men om kursen redan har börjat, eller om du har deltagit i första lektionen (som är gratis prova-på), gäller inte ångerrätten."
+    },
+
 
 
     // 🔴 ANMÄLAN

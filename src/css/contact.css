@@ -92,8 +92,36 @@
 .send-animation {
     animation: fadeOut 1s ease forwards;
 }
+.contact-map {
+    width: 100%;
+    height: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
 
 @keyframes fadeOut {
     0% { opacity: 1; }
     100% { opacity: 0; transform: translateY(-10px); }
+}
+
+@media (min-width: 1024px) {
+    .contact-wrapper {
+        flex-direction: row; /* bredvid varandra */
+        justify-content: center;
+        align-items: flex-start;
+        gap: 60px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .contact-map {
+        height: 450px;
+        flex: 1.3; /* gör den lite bredare än formuläret */
+    }
+
+    .contact-form-container {
+        flex: 1;
+        max-width: 600px;
+    }
 }

@@ -1,57 +1,32 @@
-﻿.reviews-section {
+﻿
+
+/* Basversion - mobil */
+
+.reviews-section {
     padding: 60px 20px;
-    background: linear-gradient(to right, #1f1f1f, #3a1f1d);
-    color: white;
     text-align: center;
-    position: relative;
-    overflow: hidden;
 }
 
 .reviews-title {
     font-size: 2rem;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 0 8px #000;
+    color: white;
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+    padding: 0 20px;
 }
 
 .reviews-subtitle {
-    font-size: 1.1rem;
-    color: #f26722;
-    margin-bottom: 2.5rem;
+    font-size: 1rem;
+    color: #ddd;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
 }
 
 .review-card {
-    padding: 100px 20px 20px;
-    background: rgba(0, 0, 0, 0.65);
-    border-radius: 20px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(2px);
-    transition: transform 0.4s ease;
-    text-align: center;
-    position: relative;
-
-    width: 100%;
-    max-width: 340px;
-    margin: 0 auto;
-}
-
-
-.review-card:hover {
-    transform: scale(1.03);
-}
-
-.review-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid #000000;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.review-card {
-    max-width: 340px;
+    max-width: 400px;  /* Ökat från 340px till 400px */
     margin: 50px auto 0;
-    padding: 60px 20px 20px;
+    padding: 60px 30px 30px;  /* Ökat sidopadding från 20px till 30px */
     background: rgba(0, 0, 0, 0.65);
     border-radius: 20px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
@@ -61,32 +36,25 @@
 }
 
 .review-img-wrapper {
-    /* ⬇️ Här ändrar du storleken på cirkeln */
-    width: 160px;   /* t.ex. öka från 130px till 160px */
-    height: 160px;
-
-    /* ⬇️ Justera detta också om du vill flytta ned bilden lite */
-    top: -60px;     /* tidigare -50px, för att kompensera höjden */
-
-    /* resten kan vara oförändrat */
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 230px;
+    height: 230px;
+    margin: 0 auto 20px;
+    border: 4px solid #f26722;
     border-radius: 50%;
     overflow: hidden;
-    border: 4px solid #f26722;
-    background: black;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-
-.review-name {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    margin-top: 80px; /* 🔸 Lägg till detta eller öka från ev. 0 */
-    color: #f26722;
+.review-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
 }
+
 
 .review-text {
     font-size: 1rem;
@@ -94,8 +62,6 @@
     line-height: 1.5;
     color: #eee;
 }
-
-/* Google & Trustpilot betyg */
 .review-sources {
     display: flex;
     justify-content: center;
@@ -114,19 +80,13 @@
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
+/* Tablet version */
 @media (min-width: 768px) {
-    .reviews-wrapper {
-        display: flex;
-        justify-content: center;
-        gap: 40px;
-        flex-wrap: wrap;
-        padding: 0 40px;
-    }
-
     .review-card {
         margin: 80px 0 0;
-        max-width: 600px;     /* eller t.ex. 700px */
-        padding: 100px 40px 30px;    }
+        max-width: 450px;     /* Ökat från 600px till 450px för bättre proportioner */
+        padding: 100px 50px 40px;    /* Ökat sidopadding från 40px till 50px */
+    }
 
     .review-img-wrapper {
         width: 140px;
@@ -134,29 +94,18 @@
         top: -50px;
     }
 
-
     .review-name {
         margin-top: 70px;
     }
 }
 
+/* Desktop version */
 @media (min-width: 1024px) {
-    .reviews-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 30px; /* 🔸 Minskad från 40px → gör mer plats för bredare kort */
-        padding: 0 20px; /* 🔸 Minskad inre padding → mer utrymme för korten */
-    }
-
     .review-card {
-        flex: 0 1 calc(33.333% - 30px);
-        /* 🔹 3 kort per rad minus gap (30px mellan varje) */
-
-        max-width: none;
-        /* 🔹 Ger ett absolut max om skärmen är väldigt bred */
-
-        padding: 100px 40px 30px;
+        flex: 0 1 calc(33.333% - 20px);  /* Minskad gap från 30px till 20px */
+        min-width: 350px;  /* Lägg till min-width för att garantera bredd */
+        max-width: 450px;  /* Sätt en max-width för att begränsa på stora skärmar */
+        padding: 100px 50px 40px;  /* Ökat sidopadding för mer innehåll */
         margin: 80px 0 0;
     }
 
@@ -169,5 +118,22 @@
     .review-name {
         margin-top: 70px;
     }
+    .reviews-title {
+        font-size: 2.5rem;
+    }
+    .reviews-subtitle {
+        font-size: 1.2rem;
+    }
 }
 
+/* För extra stora skärmar */
+@media (min-width: 1400px) {
+    .reviews-wrapper {
+        max-width: 1200px;  /* Begränsa total bredd */
+        margin: 0 auto;
+    }
+
+    .review-card {
+        max-width: 380px;  /* Begränsa max-bredd på stora skärmar */
+    }
+}

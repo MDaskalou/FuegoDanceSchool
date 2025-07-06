@@ -33,7 +33,11 @@ export default function Events() {
                         <img src={event.image} alt={event.title} />
                         <div className="event-meta">{event.date} – {event.time}</div>
                         <h3>{event.title}</h3>
-                        <p className="event-description">{event.description}</p>
+                        <p className="event-description">
+                            {event.description.length > 120
+                                ? `${event.description.slice(0, 120)}...`
+                                : event.description}
+                        </p>
                         <button className="btn" onClick={() => openModal(event)}>Läs mer</button>
                     </div>
                 ))}

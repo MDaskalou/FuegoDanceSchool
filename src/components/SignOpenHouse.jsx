@@ -143,7 +143,7 @@ export default function OpenHouseSignup() {
                     Det är först till kvarn som gäller.
                 </p>
                 <div className="signup-book">
-                    <a href="#boka" aria-label="Boka en plats">
+                    <a href="https://app.coursely.se/activities/FuegoDance" aria-label="Boka en plats">
                         Boka en plats
                     </a>
                 </div>

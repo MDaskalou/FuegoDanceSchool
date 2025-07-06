@@ -28,9 +28,17 @@ const reviews = [
     },
     {
         id: 3,
-        name: "Elin P",
-        image: require("../img/Review3.jpg"),
-        text: "Det bästa med kursen var hur roligt vi hade varje gång!",
+        name: "Alessandro U",
+        image: require("../img/Students/AlessandroU.jpeg"),
+        text: "Rekommenderar strakt!! Fuego dansskola erbjuder en trygg och inspirerande miljö till " +
+            "både nybörjare och erfarna dansare får möjligheten att utvecklas. " +
+            "Skolan är en trygg, välkomnade och lärarna är otroligt kunniga, pedagogiska och tydlig Passionerad.",
+    },
+    {
+        id: 4,
+        name: "Elvir D",
+        image: require("../img/Students/ElvirD.jpeg"),
+        text: "Har gett mig bättre förståelse i flera olika tekniska aspekter mer än att bara lära mig sekvenser ",
     },
     // Lägg gärna till fler här...
 ];

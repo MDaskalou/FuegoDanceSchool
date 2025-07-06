@@ -29,7 +29,7 @@
     },
     {
         question: "Jag är är student – får jag rabatt?",
-        answer: "Ja! Vi erbjuder 15% rabatt på alla kurser för studenter. Glöm inte att ta med studentlegitimation."
+        answer: "Ja! Vi erbjuder 10% rabatt på alla kurser för studenter. Glöm inte att ta med studentlegitimation."
     },
     {
         question: "Jag kan bara komma varannan vecka – kan jag ändå anmäla mig?",
