@@ -1,7 +1,6 @@
 // src/components/Instructors.jsx
 import "../css/instructors.css";
 import React, { useState } from 'react';
-import Instructors from "./Instructors";
 import instructors from '../Data/instructorData';
 import { helpInstructors } from "../Data/helpinstruktorData";
 import { Swiper, SwiperSlide } from 'swiper/react';

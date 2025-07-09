@@ -5,7 +5,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "../css/courses.css";
-import FuegoLogo from "../img/FuegoLogoimg.png";
 import SectionTitle from "./UI/SectionTitle";
 import courses from "../Data/coursesData";
 

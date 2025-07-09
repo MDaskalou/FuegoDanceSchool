@@ -7,8 +7,10 @@ import BgRight from '../img/Pricesimg3.png';
 import '../css/prices.css';
 import SectionTitle from "./UI/SectionTitle";
 
+// Flytta utanför komponenten så den inte återskapas varje gång
+const mobileImages = [BgLeft, BgCenter, BgRight];
+
 export default function Prices() {
-    const mobileImages = [BgLeft, BgCenter, BgRight];
     const [mobileBg, setMobileBg] = useState(0);
 
     useEffect(() => {
@@ -23,13 +25,10 @@ export default function Prices() {
         }, 4000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, []); // ✅ Nu är dependency-listan korrekt och inga varningar
 
     return (
         <section id="prices" className="prices-section">
-            {/* Bakgrundsbilder */}
-
-
             <div className="price-bg-wrapper" aria-hidden="true">
                 {mobileImages.map((img, index) => (
                     <img
@@ -39,21 +38,17 @@ export default function Prices() {
                         className={`price-bg mobile ${index === mobileBg ? 'visible' : ''}`}
                     />
                 ))}
-
             </div>
-
-
 
             <div className="price-overlay">
                 <div className="prices-header">
                     <SectionTitle color="white">Priser & Rabatter</SectionTitle>
-
                     <p className="prices-note">Första gången är alltid gratis – kom och prova!</p>
-                 </div>
+                </div>
 
                 <div className="prices-card-wrapper">
                     <Card title="Kurser" className="card-price">
-                         <ul>
+                        <ul>
                             <li>1 kurs: 1600 kr</li>
                             <li>2 kurser: 2600 kr</li>
                             <li>3 kurser: 3600 kr</li>
@@ -66,7 +61,7 @@ export default function Prices() {
                         <ul>
                             <li>Studentrabatt: 10%</li>
                             <li>Parrabatt: 15% per person</li>
-                         </ul>
+                        </ul>
                     </Card>
                 </div>
 
@@ -75,11 +70,10 @@ export default function Prices() {
                         href="https://app.coursely.se/activities/FuegoDance"
                         className="btn btn-small"
                         target="_blank"
-                        >
+                    >
                         Boka nu
                     </LinkButton>
                 </div>
-                
             </div>
         </section>
     );

@@ -2,7 +2,6 @@
 import React from "react";
 import ModalComponent from "./ModalComponent";
 import "../css/eventModal.css";
-import events from "../Data/eventData"; // ✅ rätt sätt
 
 
 export default function EventModal({ isOpen, onClose, event }) {
