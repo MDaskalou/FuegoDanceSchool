@@ -1,4 +1,4 @@
-﻿// src/data/reviewData.js
+// src/data/reviewData.js
 const reviews = [
     {
         id: 1,

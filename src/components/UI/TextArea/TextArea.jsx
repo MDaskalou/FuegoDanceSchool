@@ -1,4 +1,4 @@
-﻿import './textarea.css';
+import './textarea.css';
 
 export default function Textarea({ id, value, onChange, rows = 4 }) {
     return (

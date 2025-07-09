@@ -1,4 +1,4 @@
-﻿// src/data/scheduleData.js
+// src/data/scheduleData.js
 export const scheduleData = [
     {
         day: "Måndag",

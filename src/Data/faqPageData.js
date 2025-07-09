@@ -1,4 +1,4 @@
-﻿const faqPageData = [
+const faqPageData = [
     // 🟠 ALLMÄNT
     {
         category: "Allmänt",

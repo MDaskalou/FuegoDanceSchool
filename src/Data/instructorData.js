@@ -1,4 +1,4 @@
-﻿// src/data/instructorsData.js
+// src/data/instructorsData.js
 import mikaelImage from '../img/Instructors/instruktörMikael.png';
 import mikaelImage1 from '../img/Instructors/instruktörMikael1.jpg';
 import mikaelImage2 from '../img/Instructors/instruktörMikael2.jpg';

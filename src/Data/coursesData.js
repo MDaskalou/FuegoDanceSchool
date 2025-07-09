@@ -1,4 +1,4 @@
-﻿import FuegoLogo from "../img/FuegoLogoimg.png";
+import FuegoLogo from "../img/FuegoLogoimg.png";
 
 const courses = [
     {

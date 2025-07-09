@@ -1,4 +1,4 @@
-﻿import sanelaImage from '../img/Instructors/instruktörSanela.jpg';
+import sanelaImage from '../img/Instructors/instruktörSanela.jpg';
 import adrianImage from '../img/Instructors/instruktörAdrian.jpg'
 
 export const helpInstructors = [

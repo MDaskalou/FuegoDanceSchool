@@ -1,4 +1,4 @@
-﻿// src/components/Main.jsx
+// src/components/Main.jsx
 import { useEffect } from 'react';
 import { scroller } from 'react-scroll';
 
