@@ -88,7 +88,18 @@ const instructors = [
             instagram: "https://www.instagram.com/sofia.bachata",
             facebook: "https://www.facebook.com/sofia.andersson"
         },
-        description: "Mer information om Tomas kommer snart. ",
+        description: "Tomas Steifo är född och uppvuxen i Sverige. Han upptäckte bachata på ett ganska oväntat sätt, efter att ha skadat armbågen under en kampsportstävling. Under sin rehabilitering råkade han en dag se människor som dansade bachata utomhus." +
+            " Det fångade genast hans intresse, och han tänkte: \"Varför inte testa?\" " +
+            "Sedan september 2021 har han inte slutat dansa.\n" +
+            "\n" +
+            "Genom åren har Tomas deltagit i många tävlingar, rest, undervisat på " +
+            "festivaler och till och med agerat domare i danstävlingar. Mycket av" +
+            " hans inspiration kommer från hans bakgrund inom MMA, särskilt sättet man " +
+            "där bryter ner och lär ut tekniker.\n" +
+            "\n" +
+            "Det tankesättet har starkt påverkat hur han själv undervisar i dans idag. För " +
+            "Tomas är den bästa delen att se sina elever utvecklas och överraska sig själva – " +
+            "det där ögonblicket när något plötsligt klickar för dem är det som betyder mest för honom. ",
 
         certificates: [],
         levels: ["Nivå 2, Nivå 3"],

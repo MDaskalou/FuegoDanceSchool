@@ -40,7 +40,19 @@ const reviews = [
         image: require("../img/Students/ElvirD.jpeg"),
         text: "Har gett mig bättre förståelse i flera olika tekniska aspekter mer än att bara lära mig sekvenser ",
     },
-    // Lägg gärna till fler här...
+    {
+        id: 5,
+        name: "My R",
+        image: require("../img/Students/myR.jpeg"),
+        text: "Det jag uppskattar med Fuego är att man känner sig sedd och får specifik feedback utifrån den nivån man dansar på." +
+            " Med fantastiska lärare och hjälplärare finns det alltid någon där med uppmuntrande ord och konstruktiv feedback.\n" +
+            "Kurserna blandas med teori och övning. Vilket gör att man också får en bättre förståelse för " +
+            "dansen istället för att bara lära sig en koreografi." +
+            "På kurserna är det väldigt fin stämning och man känner sig fort som en del i en större gemenskap. \n" +
+            "Jag har bara gott att säga om Mikael och hans team! Rekommenderar Fuego till alla som vill utvecklas som " +
+            "dansare oavsett nivå.",
+    },
+
 ];
 
 export default reviews;
