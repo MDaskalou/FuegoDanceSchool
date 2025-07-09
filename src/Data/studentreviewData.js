@@ -43,7 +43,7 @@ const reviews = [
     {
         id: 5,
         name: "My R",
-        image: require("../img/Students/myR.jpeg"),
+        image: require("../img/Students/MyR.jpeg"),
         text: "Det jag uppskattar med Fuego är att man känner sig sedd och får specifik feedback utifrån den nivån man dansar på." +
             " Med fantastiska lärare och hjälplärare finns det alltid någon där med uppmuntrande ord och konstruktiv feedback.\n" +
             "Kurserna blandas med teori och övning. Vilket gör att man också får en bättre förståelse för " +
