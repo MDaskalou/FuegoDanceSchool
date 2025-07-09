@@ -1,4 +1,4 @@
-﻿const faqData = [
+const faqData = [
     {
         question: "Jag har aldrig dansat förut – passar era kurser mig?",
         answer: "Absolut! Våra nybörjarkurser är utformade för dig som aldrig tagit ett danssteg tidigare. Vi guidar dig steg för steg."
