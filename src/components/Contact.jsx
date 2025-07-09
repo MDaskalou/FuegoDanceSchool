@@ -1,4 +1,4 @@
-﻿// src/components/Contact.jsx
+// src/components/Contact.jsx
 import "../css/contact.css";
 import Button from './UI/Button/Button';
 import Section from './UI/Section/Section';

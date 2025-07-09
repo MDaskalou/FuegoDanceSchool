@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import "../css/Modal.css"; // gemensam stil för modaler
 
 export default function ModalComponent({ isOpen, onClose, children, className = "" }) {

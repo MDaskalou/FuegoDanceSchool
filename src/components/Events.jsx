@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import eventData from '../Data/eventData';
 import '../css/events.css';
 import EventModal from './EventModal';

@@ -1,4 +1,4 @@
-﻿import './input.css';
+import './input.css';
 
 export default function Input({ id, type = "text", value, onChange, placeholder, required, pattern }) {
     return (

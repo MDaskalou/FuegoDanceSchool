@@ -1,4 +1,4 @@
-﻿import '../css/navbar.css';
+import '../css/navbar.css';
 import logo from '../img/FuegoLogoimg.png';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';

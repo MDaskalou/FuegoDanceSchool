@@ -1,4 +1,4 @@
-﻿export default function Card({ image, title, children, className = "" }) {
+export default function Card({ image, title, children, className = "" }) {
     return (
         <div className={`bg-white rounded-2xl shadow-md overflow-hidden ${className}`}>
             {image && (

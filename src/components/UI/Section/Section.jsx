@@ -1,4 +1,4 @@
-﻿import './Section.css';
+import './Section.css';
 
 export default function Section({ id, className = "", children }) {
     return (

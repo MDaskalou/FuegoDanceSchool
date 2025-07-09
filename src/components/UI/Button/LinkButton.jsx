@@ -1,4 +1,4 @@
-﻿// src/components/UI/LinkButton.jsx
+// src/components/UI/LinkButton.jsx
 import './Button.css';
 
 export default function LinkButton({ href, children, className = "", target = "_self", rel = "noopener noreferrer" }) {

@@ -1,4 +1,4 @@
-﻿// src/components/EventModal.jsx
+// src/components/EventModal.jsx
 import React from "react";
 import ModalComponent from "./ModalComponent";
 import "../css/eventModal.css";

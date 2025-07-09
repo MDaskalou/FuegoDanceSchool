@@ -1,4 +1,4 @@
-﻿// src/components/About.jsx
+// src/components/About.jsx
 import "../css/aboutus.css";
 import AboutUs1 from "../img/About/About1.png";
 import AboutUs2 from "../img/About/About2.png";

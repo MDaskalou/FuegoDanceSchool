@@ -1,4 +1,4 @@
-﻿import '../css/hero.css'
+import '../css/hero.css'
 import {useState} from 'react'
 import FAQ from './FAQ'
 import { useNavigate } from 'react-router-dom'

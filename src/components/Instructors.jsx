@@ -1,4 +1,4 @@
-﻿// src/components/Instructors.jsx
+// src/components/Instructors.jsx
 import "../css/instructors.css";
 import React, { useState } from 'react';
 import Instructors from "./Instructors";

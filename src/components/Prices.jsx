@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from './UI/Card/Card';
 import LinkButton from './UI/Button/LinkButton';
 import BgLeft from '../img/Pricesimg1.png';

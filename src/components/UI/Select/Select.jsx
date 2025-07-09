@@ -1,4 +1,4 @@
-﻿import './select.css';
+import './select.css';
 
 export default function Select({ id, value, onChange, options, placeholder = "Välj...", required }) {
     return (

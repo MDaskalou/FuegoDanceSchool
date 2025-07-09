@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import ModalComponent from "./ModalComponent";
 import '../css/instructorModal.css';
 

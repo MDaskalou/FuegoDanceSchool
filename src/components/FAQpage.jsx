@@ -1,4 +1,4 @@
-﻿// src/pages/FAQPage.jsx
+// src/pages/FAQPage.jsx
 import React, { useState } from 'react';
 import "../css/FAQpage.css";
 import faqPageData from '../Data/faqPageData';

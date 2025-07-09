@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../css/FAQ.css";
 import faqData from "../Data/faqModalData"; // ✅ om du har flyttat ut frågorna

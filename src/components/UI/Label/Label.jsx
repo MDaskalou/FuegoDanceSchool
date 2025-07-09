@@ -1,4 +1,4 @@
-﻿import './label.css';
+import './label.css';
 
 export default function Label({
                                   children,
