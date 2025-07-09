@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../css/schedule.css";
 import scheduleImg from "../img/Schedule/Schedule1.png";
-import { scheduleData } from "../Data/scheduleData";
 import SectionTitle from "./UI/SectionTitle";
 
 const ScheduleSwiper = () => {
