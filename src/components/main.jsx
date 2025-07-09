@@ -11,7 +11,6 @@ import Events from './Events';
 import AboutUs from './AboutUs';
 import Contact from './Contact';
 import Reviews from './Reviews';
-import CoursesSection from "./CoursesSection";
 
 function Main() {
     useEffect(() => {
@@ -36,7 +35,6 @@ function Main() {
             <AboutUs />
             <Schedule/>
             <Courses />
-            <CoursesSection/>
             <Prices />
             <Events />
             <Reviews />

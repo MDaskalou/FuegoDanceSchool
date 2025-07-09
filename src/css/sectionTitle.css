@@ -1,0 +1,15 @@
+﻿.section-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 2rem 0;
+    font-family: 'Playfair Display', serif;
+}
+
+.section-title.text-black {
+    color: black !important;
+}
+
+.section-title.text-white {
+    color: white;
+}

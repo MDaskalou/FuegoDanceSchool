@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import "../css/schedule.css";
 import scheduleImg from "../img/Schedule/Schedule1.png";
 import { scheduleData } from "../Data/scheduleData";
+import SectionTitle from "./UI/SectionTitle";
 
 const ScheduleSwiper = () => {
     const [showHint, setShowHint] = useState(true);
@@ -19,7 +20,8 @@ const ScheduleSwiper = () => {
 
     return (
         <section id="schedule">
-            <h2 style={{ textAlign: "center", margin: "1.5rem 0" }}>Schema – Vecka 17–24</h2>
+            <SectionTitle color="white">Schema - Vecka....</SectionTitle>
+
 
             <img
                 src={scheduleImg}

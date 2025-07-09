@@ -5,6 +5,7 @@ import BgLeft from '../img/Pricesimg1.png';
 import BgCenter from '../img/Pricesimg2.png';
 import BgRight from '../img/Pricesimg3.png';
 import '../css/prices.css';
+import SectionTitle from "./UI/SectionTitle";
 
 export default function Prices() {
     const mobileImages = [BgLeft, BgCenter, BgRight];
@@ -45,7 +46,8 @@ export default function Prices() {
 
             <div className="price-overlay">
                 <div className="prices-header">
-                    <h2 className="prices-title">Priser & Rabatter</h2>
+                    <SectionTitle color="white">Priser & Rabatter</SectionTitle>
+
                     <p className="prices-note">Första gången är alltid gratis – kom och prova!</p>
                  </div>
 
@@ -64,7 +66,6 @@ export default function Prices() {
                         <ul>
                             <li>Studentrabatt: 10%</li>
                             <li>Parrabatt: 15% per person</li>
-                            <li>Gruppbokning? Kontakta oss!</li>
                          </ul>
                     </Card>
                 </div>

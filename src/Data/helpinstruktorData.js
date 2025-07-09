@@ -9,7 +9,7 @@ export const helpInstructors = [
         socials: {
             instagram: "https://instagram.com/sara"
         },
-        description: "Sanela assisterar på nivå 1 och 2, och fokuserar mycket på teknik.",
+        description: "Mer information om Sanela kommer snart.",
         extraImages: ["#"]
     },
     {
@@ -19,7 +19,7 @@ export const helpInstructors = [
         socials: {
             instagram: "https://instagram.com/adrianhedstrom"
         },
-        description: "Adrian är hjälpinstruktör med fokus på musikalitet och kroppskontroll.",
+        description: "Mer information om Sanela kommer snart.",
         extraImages: ["#"]
     }
 ];

@@ -3,6 +3,13 @@
     margin: 0 auto;
     padding: 2rem 1rem;
 }
+.event-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 2rem;
+}
 
 
 .schedule-image {

@@ -23,7 +23,7 @@ export default function Events() {
 
     return (
         <section id="events" className="events-section">
-            <h2 className="events-title">Kommande Event</h2>
+            <h2 className="main-title">Kommande Event</h2>
             <div className="events-grid">
                 {eventData.length === 0 && (
                     <p style={{ color: "white" }}>Inga event tillgängliga just nu.</p>

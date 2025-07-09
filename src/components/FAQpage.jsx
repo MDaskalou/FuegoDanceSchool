@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import "../css/FAQpage.css";
 import faqPageData from '../Data/faqPageData';
+import SectionTitle from "./UI/SectionTitle";
 
 function FAQPage() {
     const [activeIndex, setActiveIndex] = useState(null);
@@ -15,7 +16,7 @@ function FAQPage() {
 
     return (
         <div className="faq-page-container">
-            <h1 className="faq-page-title">Vanliga frågor</h1>
+            <SectionTitle color="white">Vanliga frågor</SectionTitle>
             {categories.map((category) => (
                 <div key={category} className="faq-category-block">
                     <h2 className="faq-category-title">{category}</h2>

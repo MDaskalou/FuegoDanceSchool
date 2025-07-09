@@ -9,6 +9,7 @@ import AboutUs6 from "../img/About/About6.jpg";
 import AboutUs7 from "../img/About/About7.jpg";
 import  AboutUs8 from "../img/About/About8.jpg";
 import AboutUs9 from "../img/About/About9.jpg";
+import SectionTitle from "./UI/SectionTitle";
 
 import Section from "./UI/Section/Section";
 
@@ -23,7 +24,7 @@ function About() {
         <Section className="about-section">
             <div className="about-container">
                 <div className="about-left">
-                    <h2 className="about-title">Om Fuego Dance School</h2>
+                    <SectionTitle color="black">Om Fuego Dance School</SectionTitle>
                     <p className="about-description">
                         Fuego Dance School grundades ur en djup kärlek till Bachata Sensual – en dansstil som uttrycker känsla, 
                         närvaro och musikalitet. Vi erbjuder mer än bara danslektioner –
