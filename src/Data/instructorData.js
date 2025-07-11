@@ -49,16 +49,16 @@ const instructors = [
             instagram: "https://www.instagram.com/sofia.bachata",
             facebook: "https://www.facebook.com/sofia.andersson"
         },
-        description: "Sofias dansresa började med en förälskelse i rytmerna från Karibien. " +
-            "Hon har dansat bachata i över 6 år och är särskilt intresserad av samspelet i pardansen. " +
-            "Med en bakgrund inom både dans och pedagogik har hon ett naturligt sätt att vägleda elever steg för steg.\n" +
-            "\n" +
-            "Sofia undervisar främst i nivå 1 och 2, och brinner för att skapa en välkomnande atmosfär där alla känner sig inkluderade. " +
-            "Hennes styrka ligger i att förklara tekniska moment på ett enkelt och pedagogiskt sätt.",
+        description: "Irina började dansa ballroom och latinodans i fem års åldern samtidigt som hon utövade gymnastik blandat med balett. " +
+            "Sedan dess har dans varit en stor del av hennes liv.\n" +
+            "Bachata blev en stor förälskelse efter att Irina tog en prova-på lektion och sedan 2017 har hon undervisat. 2020 blev Irina och Mikael ett danspar och undervisar nu på Fuego Dance School.\n" +
+            "Under 1,5 år har Irina tillsammans med Mikael ingått i ett mentorsprogram för Korke och Judith, som är grundare till bachata sensual.\n" +
+            "Irinas undervisningsstil kännetecknas av struktur, teknik och pedagogik, som hon också fått från sitt dagliga arbete som lärare."
+            ,
 
         certificates: ["Workshops med Korke & Judith, Pedagogisk utbildning"],
-        levels: ["Nivå 1, Nivå 2"],
-        favoriteTeaching: ["Teknik och musikalitet i bachata sensual."],
+        levels: ["Mammaledig"],
+        favoriteTeaching: ["Utbildad lärare,speciallärare, utbildad i dansteknik"],
         extraImages: []
     },
 
@@ -68,8 +68,7 @@ const instructors = [
         title: "Safe Dance Scene", 
         image: karinImage,
         socials: {
-            instagram: "https://www.instagram.com/sofia.bachata",
-            facebook: "https://www.facebook.com/sofia.andersson"
+            instagram: "https://www.instagram.com/sensualstyling/",
         },
         description: "Mer information om Karin kommer snart. ",
 

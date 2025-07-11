@@ -2,22 +2,26 @@ import '../css/navbar.css';
 import logo from '../img/FuegoLogoimg.png';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    const { t, i18n } = useTranslation();
+
 
     const menuItems = [
-        { label: 'Hem', id: 'hero' },
-        { label: 'Kurser', id: 'courses' },
-        { label: 'Priser', id: 'prices' },
-        { label: 'Event', id: 'events' },
-        { label: 'Instruktörer', path: '/instructors' },
-        { label: 'Våra värderingar', path: '/values' },
-        { label: 'Vanliga frågor', path: '/FAQpage' },
-        { label: 'Kontakt', id: 'contact' },
+        { label: t('nav.home'), id: 'hero' },
+        { label: t('nav.courses'), id: 'courses' },
+        { label: t('nav.prices'), id: 'prices' },
+        { label: t('nav.events'), id: 'events' },
+        { label: t('nav.instructors'), path: '/instructors' },
+        { label: t('nav.values'), path: '/values' },
+        { label: t('nav.faq'), path: '/FAQpage' },
+        { label: t('nav.contact'), id: 'contact' },
     ];
 
     useEffect(() => {
@@ -129,6 +133,28 @@ function Navbar() {
                         </ul>
                     </div>
                 </div>
+
+                {/* 🌍 Språkväxlare */}
+                <div className="language-switcher">
+                    {i18n.language === 'sv' ? (
+                        <img
+                            src="/flag/us.svg"
+                            alt="Switch to English"
+                            className="flag-icon"
+                            onClick={() => i18n.changeLanguage('en')}
+                            title="Switch to English"
+                        />
+                    ) : (
+                        <img
+                            src="/flag/se.svg"
+                            alt="Byt till svenska"
+                            className="flag-icon"
+                            onClick={() => i18n.changeLanguage('sv')}
+                            title="Byt till svenska"
+                        />
+                    )}
+                </div>
+
             </div>
         </nav>
     );

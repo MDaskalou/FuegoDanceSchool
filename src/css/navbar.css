@@ -149,6 +149,32 @@ body {
     transform: scale(1.04);
 }
 
+.language-switcher {
+    position: absolute;
+    top: 2.5rem;
+    right: 5rem; /* justera efter hamburgarens position */
+    z-index: 20;
+}
+
+
+
+
+.flag-icon {
+    width: 28px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+}
+
+.flag-icon:hover {
+    transform: scale(1.1);
+}
+
+
+
+
+
 
 /* Dölj ikoner på mobil */
 .icon-container {

@@ -1,9 +1,12 @@
-export default function Button({ onClick, children, className = "", type = "button" }) {
+import './Button.css'; // Se till att detta finns!
+
+export default function Button({ onClick, children, className = "", type = "button", disabled }) {
     return (
         <button
             onClick={onClick}
             type={type}
-            className={`px-4 py-2 rounded bg-orange-600 text-white hover:bg-orange-700 transition ${className}`}
+            disabled={disabled}
+            className={`btn ${className}`}
         >
             {children}
         </button>

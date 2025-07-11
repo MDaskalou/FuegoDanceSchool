@@ -1,16 +1,18 @@
 // src/components/Main.jsx
 import { useEffect } from 'react';
 import { scroller } from 'react-scroll';
+import './i18n';
 
-import Hero from './Hero';
-import FAQ from './FAQ';
-import Courses from './Courses';
-import Schedule from './Schedule';    
-import Prices from './Prices';
-import Events from './Events';
-import AboutUs from './AboutUs';
-import Contact from './Contact';
-import Reviews from './Reviews';
+
+import Hero from './components/Hero';
+import FAQ from './components/FAQ';
+import Courses from './components/Courses';
+import Schedule from './components/Schedule';
+import Prices from './components/Prices';
+import Events from './components/Events';
+import AboutUs from './components/AboutUs';
+import Contact from './components/Contact';
+import Reviews from './components/Reviews';
 
 function Main() {
     useEffect(() => {

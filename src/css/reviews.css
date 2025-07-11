@@ -23,6 +23,7 @@
     padding: 0 20px;
 }
 
+
 .review-card {
     max-width: 400px;  /* Ökat från 340px till 400px */
     margin: 50px auto 0;
@@ -79,6 +80,12 @@
     text-align: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
+.source-logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
 
 /* Tablet version */
 @media (min-width: 768px) {
