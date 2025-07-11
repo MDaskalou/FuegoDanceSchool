@@ -1,4 +1,4 @@
-﻿
+
 // valueData.js
 
 const valueData = [
