@@ -1,0 +1,68 @@
+﻿{
+  "ourCoursesTitle": "Våra Kurser",
+
+  "course_1_title": "Nivå 1",
+  "course_1_description": "För dig som är helt ny till bachata. Vi går igenom grundläggande steg, takt och enkla turer.",
+  "course_1_times": "Onsdagar kl 18:00 – 19:30",
+  "course_1_requirements": "Inga förkunskaper krävs",
+  "course_1_instructors": "Andris & Emma",
+
+  "course_2_title": "Nivå 2",
+  "course_2_description": "Vi bygger vidare på grunderna med mer variation, musikalitet och partnering.",
+  "course_2_times": "Måndag kl 18:00 – 19:30 eller Onsdag kl 19:40 – 21:10",
+  "course_2_requirements": "Du bör ha gått nivå 1 eller motsvarande",
+  "course_2_instructors": "Tomas & Jennifer",
+
+  "course_3_title": "Nivå 3 Teknik",
+  "course_3_description": "Teknikkurs med fokus på kroppskontroll, styrning och kontakt.",
+  "course_3_times": "Tisdagar kl 18:00 – 19:30",
+  "course_3_requirements": "Minst 2 terminer erfarenhet",
+  "course_3_instructors": "Mikael & Jennifer",
+
+  "course_4_title": "Nivå 3",
+  "course_4_description": "Teknikkurs med fokus på kroppskontroll, styrning och kontakt.",
+  "course_4_times": "Tisdagar kl 19:40 – 21:10",
+  "course_4_requirements": "Minst 2 terminer erfarenhet",
+  "course_4_instructors": "Tomas & Jennifer",
+
+  "course_5_title": "Nivå 4",
+  "course_5_description": "Avancerad nivå med flytande rörelser, footwork och kombinationer.",
+  "course_5_times": "Torsdagar kl 19:40 – 21:10",
+  "course_5_requirements": "Du har dansat minst 1 år regelbundet",
+  "course_5_instructors": "Mikael & Karin",
+
+  "course_6_title": "Nivå 4 Teknik",
+  "course_6_description": "Fördjupning i teknik, isoleringar och musikalitet.",
+  "course_6_times": "Torsdagar kl 18:00 – 19:30",
+  "course_6_requirements": "Nivå 4 eller motsvarande erfarenhet",
+  "course_6_instructors": "Mikael & Karin",
+
+  "course_7_title": "Nivå 5",
+  "course_7_description": "Vår mest avancerade kurs för dig som vill finslipa stil och performance.",
+  "course_7_times": "Söndagar kl 12:00 – 14:00",
+  "course_7_requirements": "Inbjudan krävs",
+  "course_7_instructors": "Mikael & Jennifer",
+
+  "course_8_title": "RoleRotation",
+  "course_8_description": "Vår mest avancerade kurs för dig som vill finslipa stil och performance.",
+  "course_8_times": "Söndagar kl 12:00 – 14:00",
+  "course_8_requirements": "Inbjudan krävs",
+  "course_8_instructors": "Nora & Sisco",
+
+  "course_9_title": "Avancerade Grunder",
+  "course_9_description": "Vår mest avancerade kurs för dig som vill finslipa stil och performance.",
+  "course_9_times": "Söndagar kl 12:00 – 14:00",
+  "course_9_requirements": "Inbjudan krävs",
+  "course_9_instructors": "Mikael",
+
+  "course_10_title": "Styling för följare",
+  "course_10_description": "Vår mest avancerade kurs för dig som vill finslipa stil och performance.",
+  "course_10_times": "Söndagar kl 12:00 – 14:00",
+  "course_10_requirements": "Inbjudan krävs",
+  "course_10_instructors": "Raminta",
+
+  "timeLabel": "Tid:",
+  "requirementsLabel": "Krav:",
+  "instructorsLabel": "Instruktörer:",
+  "bookNowBtn": "Anmäl dig"
+}

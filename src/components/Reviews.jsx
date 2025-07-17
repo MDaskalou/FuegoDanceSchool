@@ -1,7 +1,6 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
-import reviews from '../Data/studentreviewData';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
@@ -9,13 +8,41 @@ import googleIcon from '../img/Icons/Google-Review-Logo.png';
 import trustpilotIcon from '../img/Icons/trustpiloticon.png';
 import '../css/reviews.css';
 
+import {useTranslation} from "react-i18next";
+
 export default function Reviews() {
+
+    const {t} = useTranslation("reviewsTranslation");
+
+    const reviews = [
+        {
+            id: 1,
+            image: require("../img/Students/LisaB.jpeg")
+        },
+        {
+            id: 2,
+            image: require("../img/Students/AmandaW.jpeg")
+        },
+        {
+            id: 3,
+            image: require("../img/Students/AlessandroU.jpeg")
+        },
+        {
+            id: 4,
+            image: require("../img/Students/ElvirD.jpeg")
+        },
+        {
+            id: 5,
+            image: require("../img/Students/MyR.jpeg")
+        }
+    ];
+
+
+
     return (
         <section id="reviews" className="reviews-section">
-            <h2 className="reviews-title">Vad våra elever säger</h2>
-            <p className="reviews-subtitle">
-                Här är några röster från våra dansare – samt våra betyg online!
-            </p>
+            <h2 className="reviews-title">{t("reviewsTitle", { ns: 'reviewsTranslation' })}</h2>
+            <p className="reviews-subtitle">{t("reviewsSubtitle")}</p>
 
             <Swiper
                 modules={[Autoplay, Pagination]}
@@ -34,14 +61,22 @@ export default function Reviews() {
                 }}
             >
 
-            {reviews.map((review) => (
+                {reviews.map((review) => (
                     <SwiperSlide key={review.id}>
                         <div className="review-card">
                             <div className="review-img-wrapper">
-                                <img src={review.image} alt={review.name} className="review-img" />
+                                <img src={review.image} alt={t(`review_${review.id}_name`, { ns: 'reviewsTranslation' })} className="review-img" />
                             </div>
-                            <h3 className="review-name">{review.name}</h3>
-                            <p className="review-text">“{review.text}”</p>
+                            {/* Använd t() för namn och text */}
+                            <h3 className="review-name">{t(`review_${review.id}_name`, { ns: 'reviewsTranslation' })}</h3>
+                            <p className="review-text">
+                                “{t(`review_${review.id}_text`, { ns: 'reviewsTranslation' }).split('\n').map((line, index) => (
+                                <React.Fragment key={index}>
+                                    {line}
+                                    {index < t(`review_${review.id}_text`, { ns: 'reviewsTranslation' }).split('\n').length - 1 && <br />}
+                                </React.Fragment>
+                            ))}”
+                            </p>
                         </div>
                     </SwiperSlide>
                 ))}
@@ -50,14 +85,18 @@ export default function Reviews() {
             <div className="review-sources">
                 <div className="review-source">
                     <img src={googleIcon} alt="Google" className="source-logo" />
-                    <p>⭐ 4.9 av 5 på Google</p>
-                    <a href="https://tinyurl.nu/googlereview" target="_blank" rel="noreferrer">Se recensioner</a>
+                    <p>{t("googleRating", { ns: 'reviewsTranslation' })}</p>
+                    <a href="https://tinyurl.nu/googlereview" target="_blank" rel="noreferrer">
+                        {t("seeReviewsButton", { ns: 'translation' })}
+                    </a>
                 </div>
 
                 <div className="review-source">
                     <img src={trustpilotIcon} alt="Trustpilot" className="source-logo" />
-                    <p>⭐ 4.5 av 5 på Trustpilot</p>
-                    <a href="https://se.trustpilot.com/review/fuegodanceschool.com" target="_blank" rel="noreferrer">Se recensioner</a>
+                    <p>{t("trustpilotRating", { ns: 'reviewsTranslation' })}</p>
+                    <a href="https://se.trustpilot.com/review/fuegodanceschool.com" target="_blank" rel="noreferrer">
+                        {t("seeReviewsButton", { ns: 'reviewsTranslation' })}
+                    </a>
                 </div>
             </div>
         </section>

@@ -1,101 +1,37 @@
-﻿#schedule {
+﻿/* schedule.css - Rensa version */
+
+#schedule {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem 1rem;
 }
-.event-title {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #fff;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
 
 .schedule-image {
     width: 100%;
-    max-width: 900px;
+    max-width: 900px; /* Standard max-width för mobil */
     display: block;
     margin: 0 auto 1.5rem;
 }
-
-.swipe-hint {
+.schedule-description {
     text-align: center;
-    font-size: 0.9rem;
-    color: #ccc;
-    margin-bottom: 1rem;
-    animation: fadeOut 0.5s ease 2.5s forwards;
-}
-
-@keyframes fadeOut {
-    to {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
-.day-card {
-    background-color: #1a1a1a;
-    color: white;
-    padding: 1.5rem;
-    border-radius: 10px;
-    text-align: center;
-    animation: fadeIn 0.5s ease;
-}
-
-.class-item {
-    margin-top: 1rem;
-    border-top: 1px solid #444;
-    padding-top: 1rem;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-weight: 400;
+    font-family: 'Playfair Display', serif;
 }
 
 /* För surfplattor och uppåt (≥768px) */
 @media (min-width: 768px) {
-    .day-card {
-        padding: 2rem;
-        border-radius: 12px;
-        margin: 0 auto;
-    }
-
-    .class-item {
-        font-size: 1rem;
-    }
-
-    .swipe-hint {
-        font-size: 1rem;
-    }
+    /* Inga specifika ändringar för .schedule-image här om inte behövs */
 }
-/* Visa endast på mobil, dölj på större skärmar */
-.mobile-only {
-    display: block;
-}
-
-
 
 /* För större skärmar / desktop (≥1024px) */
 @media (min-width: 1024px) {
     .schedule-image {
-        max-width: 1000px;
+        max-width: 1000px; /* Max-width för desktop */
         margin-bottom: 2rem;
         border-radius: 12px;
         box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
     }
-    .mobile-only {
-        display: none;
-    }
-    .day-card {
-        min-height: 320px;
-        max-width: 400px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-    }
-
-    .day-card h3 {
-        font-size: 1.8rem;
-    }
-
 }

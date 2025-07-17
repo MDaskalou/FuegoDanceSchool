@@ -1,25 +1,24 @@
-import sanelaImage from '../img/Instructors/instruktörSanela.jpg';
-import adrianImage from '../img/Instructors/instruktörAdrian.jpg'
+// src/Data/helpinstruktorData.js
 
-export const helpInstructors = [
+import sanelaImage from '../img/Instructors/instruktörSanela.jpg';
+import adrianImage from '../img/Instructors/instruktörAdrian.jpg';
+
+// Notera att vi döper den exporterade listan till 'helpInstructorsData' för tydlighetens skull
+export const helpInstructorsData = [
     {
-        name: "Sanela",
-        role: "Hjälpinstruktör",
+        id: "sanela", // <-- ID är nyckeln!
         image: sanelaImage,
         socials: {
             instagram: "https://instagram.com/sara"
         },
-        description: "Mer information om Sanela kommer snart.",
-        extraImages: ["#"]
+        extraImages: [] // Tom array om inga extra bilder finns
     },
     {
-        name: "Adrian Hedström",
-        role: "Hjälpinstruktör",
+        id: "adrian", // <-- ID är nyckeln!
         image: adrianImage,
         socials: {
             instagram: "https://instagram.com/adrianhedstrom"
         },
-        description: "Mer information om Sanela kommer snart.",
-        extraImages: ["#"]
+        extraImages: []
     }
 ];

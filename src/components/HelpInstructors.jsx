@@ -1,21 +1,21 @@
-// src/components/InstructorsSection.jsx
+﻿// src/components/HelpInstructorsSection.jsx
 import React from 'react';
 import { useTranslation } from "react-i18next";
-import instructorsData from '../Data/instructorsData'; // Notera korrekt sökväg!
+// Importera den nya, rena datan
+import { helpInstructorsData } from '../Data/helpinstruktorData';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import '../css/instructors.css';
+import '../css/instructors.css'; // Använd samma CSS-fil för styling
 
-export default function Instructors({ openModal }) {
-    const { t } = useTranslation("instructorsTranslation");
-
-    // Ingen mer lokal data här, vi använder den importerade direkt!
+export default function HelpInstructors({ openModal }) {
+    // Byt till rätt namespace för översättningar
+    const { t } = useTranslation("helpInstructorsTranslation");
 
     return (
         <section className="instructor-section">
-            <h2 className="instructor-title">{t("mainInstructorsTitle")}</h2>
+            <h2 className="instructor-title">{t("assistantInstructorsTitle")}</h2>
             <Swiper
                 modules={[Navigation]}
                 navigation
@@ -27,15 +27,13 @@ export default function Instructors({ openModal }) {
                     1024: { slidesPerView: 3 }
                 }}
             >
-                {instructorsData.map((instructor) => (
+                {helpInstructorsData.map((instructor) => (
                     <SwiperSlide key={instructor.id}>
                         <div className="instructor-card">
-                            <img src={instructor.image} alt={t(`instructor_${instructor.id}_name`)} className="instructor-img" />
-
-                            {/* All text hämtas från JSON via 'id' */}
-                            <h2>{t(`instructor_${instructor.id}_name`)}</h2>
-                            <h4>{t(`instructor_${instructor.id}_title`)}</h4>
-
+                            <img src={instructor.image} alt={t(`help_${instructor.id}_name`)} className="instructor-img" />
+                            <h2>{t(`help_${instructor.id}_name`)}</h2>
+                            {/* Använder roll som titel för hjälpinstruktörer */}
+                            <h4>{t(`help_${instructor.id}_role`)}</h4>
                             <div className="social-icons">
                                 {instructor.socials?.instagram && (
                                     <a href={instructor.socials.instagram} target="_blank" rel="noreferrer">
@@ -53,9 +51,8 @@ export default function Instructors({ openModal }) {
                                 onClick={(e) => {
                                     e.preventDefault();
                                     e.stopPropagation();
-                                    // Skicka BARA med instruktörs-objektet från vår datakälla.
-                                    // Modalen kommer själv att hämta texterna.
-                                    openModal(instructor);
+                                    // Skicka med flaggan 'help' så modalen vet vilken typ det är
+                                    openModal({ ...instructor, type: 'help' });
                                 }}
                             >
                                 {t("moreInfoButton")}

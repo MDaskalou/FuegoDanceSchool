@@ -11,7 +11,9 @@ i18n
         lng: 'sv', // standard språk, kan ändras till 'en' eller annat
         fallbackLng: 'sv',
         debug: true,
-        ns: ["navbarTranslation","heroTranslation", "aboutusTranslation"], // lägg till fler t.ex. ['navbarTranslation', 'coursesTranslation']
+        ns: ["navbarTranslation","heroTranslation", "aboutusTranslation",
+            "eventTranslation", "reviewsTranslation", "contactTranslation",
+            "instructorsTranslation", "helpInstructorsTranslation", "valuesTranslation","openHouseTranslation"], // lägg till fler t.ex. ['navbarTranslation', 'coursesTranslation']
         defaultNS: 'navbarTranslation',
         interpolation: {
             escapeValue: false,

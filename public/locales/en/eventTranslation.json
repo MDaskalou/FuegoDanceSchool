@@ -1,0 +1,34 @@
+﻿{
+
+  "eventsMainTitle": "Upcoming Events",
+  "noEventsAvailable": "No events available right now.",
+  "readMoreButton": "Read More",
+  "eventLevelLabel": "Level:",
+  "eventBringLabel": "Bring:",
+  "readMoreAndBookButton": "Read more & book",
+
+  "event_1_title": "RoleRotation Workshop",
+  "event_1_date": "July 20, 2025",
+  "event_1_time": "12:30 PM – 3:30 PM",
+  "event_1_location": "Fuego Studio, Gothenburg",
+  "event_1_level": "Open – basic bachata steps are all you need",
+  "event_1_bring": "Indoor shoes, a water bottle, and an open mind",
+  "event_1_shortDescription": "Discover how much more fun bachata becomes when you learn both leading and following. In this high-energy workshop, Nora & Sisco guide you step by step through techniques that make role rotation smooth, musical, musical, and playful.",
+  "event_1_description": "Bachata RoleRotation Workshop\n\nSwitch Roles, Elevate Your Bachata!\n\nDiscover how much more fun bachata becomes when you learn both leading and following. In this high-energy workshop, Nora & Sisco guide you step by step through techniques that make role rotation smooth, musical, and playful.\n\n📅 Date: 20th of July\n⏰ Time: 12:30 PM – 3:30 PM\n📍 Venue: Fuego Dance School\n🎟 Level: Open – basic bachata steps are all you need\n👟 Bring: Indoor shoes, a water bottle, and an open mind\n\nSpaces are limited—book your spot today!\nDance more equally, dance more creatively—see you on the floor!",
+
+
+
+  "event_2_title": "Bachata Beach Party",
+  "event_2_date": "June 29, 2025",
+  "event_2_time": "4:00 PM – 10:00 PM",
+  "event_2_location": "Aspholmen, Gothenburg",
+  "event_2_shortDescription": "Outdoor dance, DJ, and social dancing by the beach!",
+  "event_2_description": "Bachata Beach Party",
+
+  "event_3_title": "Warsaw Bachata Festival",
+  "event_3_date": "July 5–7, 2025",
+  "event_3_time": "Full days",
+  "event_3_location": "Warsaw, Poland",
+  "event_3_shortDescription": "We're going together! A fantastic trip with world-class workshops and socials.",
+  "event_3_description": "Warsaw Bachata Festival"
+}

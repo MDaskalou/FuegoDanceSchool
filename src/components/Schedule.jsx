@@ -1,19 +1,17 @@
-import React, { useState, useEffect } from "react";
 import "../css/schedule.css";
-import scheduleImg from "../img/Schedule/Schedule1.png";
+import scheduleImg from "../img/Schedule/Schema.png";
 import SectionTitle from "./UI/SectionTitle";
+import { useTranslation } from "react-i18next";
 
-const ScheduleSwiper = () => {
-    const [showHint, setShowHint] = useState(true);
 
-    useEffect(() => {
-        const timer = setTimeout(() => setShowHint(false), 3000);
-        return () => clearTimeout(timer);
-    }, []);
+function Schedule() {
+    const { t } = useTranslation("scheduleTranslation");
+
 
     return (
         <section id="schedule">
-            <SectionTitle color="white">Schema - Vecka....</SectionTitle>
+            <SectionTitle color="white">{t("scheduleTitle")}</SectionTitle>
+            <h2 className="schedule-description">{t("scheduleDescription")}</h2>
 
             <img
                 src={scheduleImg}
@@ -21,11 +19,10 @@ const ScheduleSwiper = () => {
                 className="schedule-image"
             />
 
-            {showHint && (
-                <p className="swipe-hint mobile-only">⬅️ Swipe för att se nästa dag ➡️</p>
-            )}
+
         </section>
     );
-};
 
-export default ScheduleSwiper;
+
+}
+export default Schedule;

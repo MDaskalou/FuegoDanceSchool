@@ -6,11 +6,12 @@ import BgCenter from '../img/Pricesimg2.png';
 import BgRight from '../img/Pricesimg3.png';
 import '../css/prices.css';
 import SectionTitle from "./UI/SectionTitle";
-
+import { useTranslation } from 'react-i18next';
 // Flytta utanför komponenten så den inte återskapas varje gång
 const mobileImages = [BgLeft, BgCenter, BgRight];
 
 export default function Prices() {
+    const {t} = useTranslation("pricesTranslation");
     const [mobileBg, setMobileBg] = useState(0);
 
     useEffect(() => {
@@ -42,25 +43,25 @@ export default function Prices() {
 
             <div className="price-overlay">
                 <div className="prices-header">
-                    <SectionTitle color="white">Priser & Rabatter</SectionTitle>
-                    <p className="prices-note">Första gången är alltid gratis – kom och prova!</p>
+                    <SectionTitle color="white">{t("pricesTitle")}</SectionTitle>
+                    <p className="prices-note">{t("pricesNote")}</p>
                 </div>
 
                 <div className="prices-card-wrapper">
                     <Card title="Kurser" className="card-price">
                         <ul>
-                            <li>1 kurs: 1600 kr</li>
-                            <li>2 kurser: 2600 kr</li>
-                            <li>3 kurser: 3600 kr</li>
-                            <li>4 kurser: 4600 kr</li>
-                            <li>5 kurser: 5600 kr</li>
+                            <li> {t("course1Price")}</li>
+                            <li> {t("course2Price")}</li>
+                            <li> {t("course3Price")}</li>
+                            <li> {t("course4Price")}</li>
+                            <li> {t("course5Price")}</li>
                         </ul>
                     </Card>
 
-                    <Card title="Rabatter" className="card-price">
+                    <Card title={t("discountsCardTitle")} className="card-price">
                         <ul>
-                            <li>Studentrabatt: 10%</li>
-                            <li>Parrabatt: 15% per person</li>
+                            <li>{t("studentDiscount")}</li>
+                            <li>{t("coupleDiscount")}</li>
                         </ul>
                     </Card>
                 </div>
@@ -71,7 +72,7 @@ export default function Prices() {
                         className="btn btn-small"
                         target="_blank"
                     >
-                        Boka nu
+                        {t("bookNowButton")}
                     </LinkButton>
                 </div>
             </div>

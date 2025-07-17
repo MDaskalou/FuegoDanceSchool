@@ -1,0 +1,111 @@
+﻿{
+  "mainInstructorsTitle": "Instruktörer",
+  "moreInfoButton": "Mer info",
+
+  "modalFavoriteTeachingLabel": "Favorit att undervisa:",
+  "modalTeachingLevelsLabel": "Undervisar i:",
+  "modalCertificatesLabel": "Certifikat:",
+
+  "instructor_mikael_name": "Mikael Daskalou",
+  "instructor_mikael_role": "Instruktör",
+  "instructor_mikael_title": "Grundare",
+  "instructor_mikael_description": "Mikaels dansresa började oväntat under en resa till Kuba, där han från början reste för att träna boxning. Där upptäckte han salsan – en dans full av energi, känsla och gemenskap – och något klickade. Det blev startskottet för en passion som skulle forma de kommande åren av hans liv.\n\nSedan dess har Mikael dansat i över 12 år med fokus på bachata, men även med erfarenhet av salsa, kizomba och souk. Han har undervisat i dans i cirka 7 år och är grundaren av Fuego Dance School.\n\nUtöver dansen har Mikael även instruerat i thaiboxning i 9 år och har en utbildning som gymnasielärare i grunden. Denna kombination har format hans undervisningsstil – tydlig, metodisk och inspirerande – med fokus på teknik, musikalitet och trygghet i pardans.\n\nHan har dessutom lärt bachata sensual i över 1,5 år med Korke & Judith och tävlat framgångsrikt i Jack & Jill-formatet. Hans drivkraft är att hjälpa varje elev att växa och våga uttrycka sig genom dans.",
+  "instructor_mikael_certificates": [
+    "Bachata Sensual instruktörskurs Level 1 & 2",
+    "Utbildad pedagog"
+  ],
+  "instructor_mikael_levels": [
+    "Nivå 1",
+    "Nivå 2",
+    "Nivå 3"
+  ],
+  "instructor_mikael_favoriteTeaching": [
+    "Teknik och musikalitet i bachata sensual."
+  ],
+
+  "instructor_irina_name": "Irina Korochkina",
+  "instructor_irina_role": "Instruktör",
+  "instructor_irina_title": "Staff Manager",
+  "instructor_irina_description": "Irina började dansa ballroom och latinodans i fem års åldern samtidigt som hon utövade gymnastik blandat med balett. Sedan dess har dans varit en stor del av hennes liv.\nBachata blev en stor förälskelse efter att Irina tog en prova-på lektion och sedan 2017 har hon undervisat. 2020 blev Irina och Mikael ett danspar och undervisar nu på Fuego Dance School.\nUnder 1,5 år har Irina tillsammans med Mikael ingått i ett mentorsprogram för Korke och Judith, som är grundare till bachata sensual.\nIrinas undervisningsstil kännetecknas av struktur, teknik och pedagogik, som hon också fått från sitt dagliga arbete som lärare.",
+  "instructor_irina_certificates": [
+    "Workshops med Korke & Judith",
+    "Pedagogisk utbildning"
+  ],
+  "instructor_irina_levels": [
+    "Mammaledig"
+  ],
+  "instructor_irina_favoriteTeaching": [
+    "Utbildad lärare,speciallärare, utbildad i dansteknik"
+  ],
+
+  "instructor_karin_name": "Karin Andersson",
+  "instructor_karin_role": "Instruktör",
+  "instructor_karin_title": "Safe Dance Scene",
+  "instructor_karin_description": "Mer information om Karin kommer snart.",
+  "instructor_karin_certificates": [],
+  "instructor_karin_levels": [
+    "Nivå 4",
+    "Nivå 4 Teknik"
+  ],
+  "instructor_karin_favoriteTeaching": [],
+
+  "instructor_tomas_name": "Tomas Steifo",
+  "instructor_tomas_role": "Instruktör",
+  "instructor_tomas_title": "Event Cordinator",
+  "instructor_tomas_description": "Tomas Steifo är född och uppvuxen i Sverige. Han upptäckte bachata på ett ganska oväntat sätt, efter att ha skadat armbågen under en kampsportstävling. Under sin rehabilitering råkade han en dag se människor som dansade bachata utomhus. Det fångade genast hans intresse, och han tänkte: \"Varför inte testa?\" Sedan september 2021 har han inte slutat dansa.\n\nGenom åren har Tomas deltagit i många tävlingar, rest, undervisat på festivaler och till och med agerat domare i danstävlingar. Mycket av hans inspiration kommer från hans bakgrund inom MMA, särskilt sättet man där bryter ner och lär ut tekniker.\n\nDet tankesättet har starkt påverkat hur han själv undervisar i dans idag. För Tomas är den bästa delen att se sina elever utvecklas och överraska sig själva – det där ögonblicket när något plötsligt klickar för dem är det som betyder mest för honom.",
+  "instructor_tomas_certificates": [],
+  "instructor_tomas_levels": [
+    "Nivå 2",
+    "Nivå 3"
+  ],
+  "instructor_tomas_favoriteTeaching": [],
+
+  "instructor_raminta_name": "Raminta Staskute",
+  "instructor_raminta_role": "Instruktör",
+  "instructor_raminta_title": "Social Media Marketing",
+  "instructor_raminta_description": "Mer information om Raminta kommer snart.",
+  "instructor_raminta_certificates": [],
+  "instructor_raminta_levels": [
+    "Styling Class för Följare"
+  ],
+  "instructor_raminta_favoriteTeaching": [],
+
+  "instructor_jennifer_name": "Jennifer Tornstierna",
+  "instructor_jennifer_role": "Instruktör",
+  "instructor_jennifer_title": "Event Cordinator",
+  "instructor_jennifer_description": "Mer information om Jennifer kommer snart.",
+  "instructor_jennifer_certificates": [],
+  "instructor_jennifer_levels": [
+    "Nivå 2",
+    "Nivå 3",
+    "Nivå 3 Teknik",
+    "Nivå 5"
+  ],
+  "instructor_jennifer_favoriteTeaching": [],
+
+  "instructor_sisco_name": "Fransisco (Sisco) Morales",
+  "instructor_sisco_role": "Instruktör",
+  "instructor_sisco_title": "Social Media Marketing",
+  "instructor_sisco_description": "Sisco snubblade in i bachatan med två vänsterfötter och föll pladask. Åtta år senare är han en certifierad instruktör och tekniknörd med skarpt öga för detaljer i dansen.\nMed över 20 års erfarenhet från gym- och träningsvärlden har Sisco stenkoll på hur kroppen funkar och hur man aktiverar sin danskropp. Den kunskapen delar han generöst med sina elever.\nHans största engagemang är elevernas utveckling och han är petig på bästa sätt. Han älskar att coacha fram trygga och säkra dansare från grunden, gärna genom humor och egenpåhittade metaforer.\nSisco både för, följer och rollroterar i bachata, vilket enligt honom är det smartaste sättet att fatta hur hela dansen hänger ihop.",
+  "instructor_sisco_certificates": [
+    "Rolerotationsinstruktör",
+    "Bachata sensual level 1-instruktör"
+  ],
+  "instructor_sisco_levels": [
+    "Rolerotation"
+  ],
+  "instructor_sisco_favoriteTeaching": [],
+
+  "instructor_nora_name": "Nora Andersdotter",
+  "instructor_nora_role": "Instruktör",
+  "instructor_nora_title": "Safe Dance Scene",
+  "instructor_nora_description": "Nora är en varm och närvarande instruktör som blandar noggrannhet med lekfullhet.\nHon hittade bachata när hon bodde i Barcelona och åker ofta tillbaka för att fylla på med inspiration. I hennes klasser får både takt, teknik och humor plats i en inkluderande miljö. Genom kreativitet och en deltagarcentrerad stil vill hon guida sina elever mot aha-upplevelser.\nMed sin bakgrund som sexolog och lång erfarenhet av socialt arbete har Nora ett starkt fokus på trygghet, samspel och respekt i dansen. Eftersom hon dansar både som följare och förare och roterar mellan rollerna är hennes fokus att eleverna förstår lyhördhet, samarbete och valfrihet.",
+  "instructor_nora_certificates": [
+    "Rolerotationsinstruktör",
+    "Bachata sensual level 1-instruktör"
+  ],
+  "instructor_nora_levels": [
+    "Rolerotation"
+  ],
+  "instructor_nora_favoriteTeaching": []
+}

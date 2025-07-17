@@ -2,7 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './css/mainStyle.css';
 import Main from './main';
 import Navbar from './components/Navbar';
-import Instructors from "./components/Instructors";
+// IMPORTÄNDRING: Nu importerar vi InstructorsPage istället
+import InstructorsPage from "./components/instructorsPage"; // <--- Ändrad import!
 import Contact from "./components/Contact";
 import Values from "./components/Values";
 import FAQpage from "./components/FAQpage";
@@ -15,7 +16,8 @@ function App() {
             <Navbar />
             <Routes>
                 <Route path="/" element={<Main />} />
-                <Route path="/instructors" element={<Instructors />} />
+                {/* RUTTÄNDRING: Använd InstructorsPage här */}
+                <Route path="/instructors" element={<InstructorsPage />} /> {/* <--- Ändrad rutt! */}
                 <Route path="/values" element={<Values />} />
                 <Route path="/FAQpage" element={<FAQpage />} />
                 <Route path="/open-house-signup" element={<OpenHouseSignup />} />

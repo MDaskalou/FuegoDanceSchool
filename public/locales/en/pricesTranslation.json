@@ -1,0 +1,15 @@
+﻿{
+
+  "pricesTitle": "Prices & Discounts",
+  "pricesNote": "First time is always free - come and try!",
+  "coursesCardTitle": "Courses",
+  "course1Price": "1 course: 1600 SEK",
+  "course2Price": "2 courses: 2600 SEK",
+  "course3Price": "3 courses: 3600 SEK",
+  "course4Price": "4 courses: 4600 SEK",
+  "course5Price": "5 courses: 5600 SEK",
+  "discountsCardTitle": "Discounts",
+  "studentDiscount": "Student Discount: 10%",
+  "coupleDiscount": "Couple Discount: 15% per person",
+  "bookNowButton": "Book Now"
+}
