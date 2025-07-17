@@ -1,4 +1,4 @@
-﻿// src/components/InstructorsPage.jsx (NY FIL)
+// src/components/InstructorsPage.jsx (NY FIL)
 import React, { useState } from 'react';
 import Instructors from './Instructors'; // Importera huvudinstruktörssektionen
 import HelpInstructors from './HelpInstructors'; // Importera hjälpinstruktörssektionen
