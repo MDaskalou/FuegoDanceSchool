@@ -1,4 +1,3 @@
-// src/components/OpenHouseSignup.jsx
 import React, { useState } from "react";
 import { useTranslation } from 'react-i18next';
 import Card from "./UI/Card/Card";
@@ -51,7 +50,6 @@ export default function OpenHouseSignup() {
         }
     };
 
-    // Hämta listor från JSON för att göra koden renare
     const roleOptions = t('roleOptions', { returnObjects: true }) || [];
     const sourceOptions = t('sourceOptions', { returnObjects: true }) || [];
 
@@ -104,7 +102,6 @@ export default function OpenHouseSignup() {
                 </Card>
             </section>
 
-            // I OpenHouseSignup.jsx
 
             <ConfirmationModal
                 isOpen={isModalOpen}

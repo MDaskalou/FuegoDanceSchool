@@ -10,23 +10,6 @@ export default function Events() {
     const [selectedEvent, setSelectedEvent] = useState(null);
     const { t } = useTranslation("eventtranslation");
 
-    const events = [
-        {
-            id: 1,
-            image: require("../img/Events/Sisco&NoraEvent.png"),
-            link: "https://app.coursely.se/activity/ea84c52e-ccc0-4938-adca-29212e16c383"
-        },
-        {
-            id: 2,
-            image: require("../img/2.png"),
-            link: "https://example.com/anmalan-beach"
-        },
-        {
-            id: 3,
-            image: require("../img/3.png"),
-            link: "https://example.com/anmalan-warsaw"
-        }
-    ];
 
     useEffect(() => {
         console.log("Loaded events (non-localized data):", eventData);

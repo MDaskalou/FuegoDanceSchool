@@ -1,4 +1,4 @@
-﻿// src/components/HelpInstructorsSection.jsx
+// src/components/HelpInstructorsSection.jsx
 import React from 'react';
 import { useTranslation } from "react-i18next";
 // Importera den nya, rena datan

@@ -1,4 +1,4 @@
-﻿// src/components/UI/ConfirmationModal.jsx
+// src/components/UI/ConfirmationModal.jsx
 import React from 'react';
 import './confirmationModal.css'; // Vi skapar denna CSS-fil strax
 
