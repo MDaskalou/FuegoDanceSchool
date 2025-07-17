@@ -4,16 +4,7 @@ import Instructors from './Instructors'; // Importera huvudinstruktörssektionen
 import HelpInstructors from './HelpInstructors'; // Importera hjälpinstruktörssektionen
 import InstructorModal from './InstructorModal'; // Importera modalen
 import '../css/instructors.css'; // Antar att din CSS för instruktörer också ska gälla här
-import mikaelImage from '../img/Instructors/instruktörMikael.png';
-import mikaelImage1 from '../img/Instructors/instruktörMikael1.jpg';
-import mikaelImage2 from '../img/Instructors/instruktörMikael2.jpg';
-import karinImage from '../img/Instructors/instruktörKarin.png';
-import tomasImage from '../img/Instructors/instruktörTomas.png';
-import ramintaImage from '../img/Instructors/instruktörRaminta.png';
-import jenniferImage from '../img/Instructors/instruktörJennifer.png';
-import siscoImage from '../img/Instructors/instruktörSisco.jpg';
-import noraImage from '../img/Instructors/instruktörNora.jpg';
-import irinaImage from '../img/Instructors/instruktörIrina.jpg';
+
 
 export default function InstructorsPage() {
     const [selectedInstructor, setSelectedInstructor] = useState(null);
