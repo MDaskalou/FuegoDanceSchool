@@ -1,0 +1,12 @@
+﻿{
+  "nav": {
+    "home": "Hem",
+    "courses": "Kurser",
+    "prices": "Priser",
+    "events": "Event",
+    "instructors": "Instruktörer",
+    "values": "Våra värderingar",
+    "faq": "FAQ",
+    "contact": "Kontakt"
+  }
+}

@@ -1,0 +1,36 @@
+﻿{
+  "signupTitle": "Pre-register for our Open House",
+  "labelName": "Name *",
+  "labelEmail": "Email *",
+  "labelSsn": "Social Security Number *",
+  "placeholderSsn": "YYMMDD-XXXX",
+  "labelRole": "Leader or Follower *",
+  "roleOptions": [
+    "leader",
+    "follower"
+  ],
+  "placeholderSelect": "Select an option",
+  "labelSource": "How did you find us? *",
+  "sourceOptions": [
+    "facebook",
+    "instagram",
+    "google",
+    "a friend",
+    "other"
+  ],
+  "labelMessage": "Other",
+  "buttonSubmitting": "Sending…",
+  "buttonSubmit": "Submit",
+  "infoFirstComeLine1": "Pre-registration does not guarantee a spot.",
+  "infoFirstComeLine2": "It's first come, first served.",
+  "infoBookButton": "Book a spot",
+
+  "modalTitle": "Thank you for your registration!",
+  "modalSuccessMessage": "We have received your pre-registration for our open house. We're excited to see you!",
+  "eventDetailsTitle": "Information about the event:",
+  "date": "Date: Sunday, August 25, 2025",
+  "time": "Time: 13:00 - 15:00",
+  "location": "Location: Fuego Dance Studio, Example Street 12, Malmö",
+  "whatToWear": "Dress code: Comfortable clothes and indoor shoes.",
+  "modalClosingMessage": "You don't need to do anything else, just show up. See you there!"
+}

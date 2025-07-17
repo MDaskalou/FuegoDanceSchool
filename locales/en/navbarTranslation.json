@@ -1,0 +1,12 @@
+﻿{
+  "nav": {
+    "home": "Home",
+    "courses": "Courses",
+    "prices": "Prices",
+    "events": "Events",
+    "instructors": "Instructors",
+    "values": "Our Values",
+    "faq": "FAQ",
+    "contact": "Contact"
+  }
+}

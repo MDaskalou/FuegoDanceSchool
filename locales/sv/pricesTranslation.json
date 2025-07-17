@@ -1,0 +1,15 @@
+﻿{
+
+  "pricesTitle": "Priser & Rabatter",
+  "pricesNote": "Första gången är alltid gratis – kom och prova!",
+  "coursesCardTitle": "Kurser",
+  "course1Price": "1 kurs: 1600 kr",
+  "course2Price": "2 kurser: 2600 kr",
+  "course3Price": "3 kurser: 3600 kr",
+  "course4Price": "4 kurser: 4600 kr",
+  "course5Price": "5 kurser: 5600 kr",
+  "discountsCardTitle": "Rabatter",
+  "studentDiscount": "Studentrabatt: 10%",
+  "coupleDiscount": "Parrabatt: 15% per person",
+  "bookNowButton": "Boka nu"
+}

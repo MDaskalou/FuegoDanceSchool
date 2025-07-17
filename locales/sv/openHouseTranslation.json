@@ -1,0 +1,36 @@
+﻿{
+  "signupTitle": "Föranmäl dig till öppet hus",
+  "labelName": "Namn *",
+  "labelEmail": "E-post *",
+  "labelSsn": "Personnummer *",
+  "placeholderSsn": "ÅÅMMDD-XXXX",
+  "labelRole": "Förare eller Följare *",
+  "roleOptions": [
+    "förare",
+    "följare"
+  ],
+  "placeholderSelect": "Välj ett alternativ",
+  "labelSource": "Hur hittade du oss? *",
+  "sourceOptions": [
+    "facebook",
+    "instagram",
+    "google",
+    "vän",
+    "annat"
+  ],
+  "labelMessage": "Övrigt",
+  "buttonSubmitting": "Skickar…",
+  "buttonSubmit": "Skicka",
+  "infoFirstComeLine1": "En föranmälan garanterar inte en plats.",
+  "infoFirstComeLine2": "Det är först till kvarn som gäller.",
+  "infoBookButton": "Boka en plats",
+
+  "modalTitle": "Tack för din anmälan!",
+  "modalSuccessMessage": "Vi har tagit emot din föranmälan till vårt öppet hus. Vad kul att du vill komma!",
+  "eventDetailsTitle": "Information om dagen:",
+  "date": "Datum: Söndag 25:e augusti, 2025",
+  "time": "Tid: 13:00 - 15:00",
+  "location": "Plats: Dansstudio Fuego, Exempelgatan 12, Malmö",
+  "whatToWear": "Klädsel: Bekväma kläder och inneskor.",
+  "modalClosingMessage": "Du behöver inte göra något mer, det är bara att dyka upp. Vi ses där!"
+}
