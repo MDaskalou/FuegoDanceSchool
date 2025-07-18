@@ -14,6 +14,8 @@ function App() {
     return (
         <Router>
             <Navbar />
+            <div className ="app-container">
+
             <Routes>
                 <Route path="/" element={<Main />} />
                 {/* RUTTÄNDRING: Använd InstructorsPage här */}
@@ -26,7 +28,9 @@ function App() {
                 {/* Fallback route för att fånga 404 */}
                 <Route path="*" element={<Main />} />
             </Routes>
-        </Router>
+        </div>
+
+</Router>
     );
 }
 

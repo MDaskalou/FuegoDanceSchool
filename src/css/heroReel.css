@@ -1,0 +1,85 @@
+﻿/* src/css/HeroReel.css (Förenklad och robust version) */
+.hero-reel-container {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background-color: #000;
+    overflow: hidden;
+}
+
+.hero-reel-container .swiper {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.hero-reel-container .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 65%;
+    height: 80%;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+}
+
+.hero-reel-container .swiper-slide:not(.swiper-slide-active) {
+    transform: scale(0.8);
+    opacity: 0.4;
+}
+
+.slide-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #000; /* Svart bakgrund för eventuellt tomrum */
+}
+
+/* NYA, FÖRENKLADE REGLER FÖR VIDEON */
+.hero-video {
+    width: 100%;
+    height: 100%;
+    /* DETTA ÄR DEN VIKTIGASTE REGELN: */
+    /* Den ser till att hela videon syns, utan att beskäras eller zoomas in. */
+    /* Den lägger till svarta kanter om formatet inte matchar perfekt. */
+    object-fit: contain !important; /* <-- Lägg till !important här */
+    z-index: 1;
+}
+
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.15);
+    z-index: 3;
+    pointer-events: none; /* Gör så man kan klicka "genom" overlayen */
+}
+
+.slide-title {
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    z-index: 4;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    position: absolute; /* Placerar texten ovanpå videon */
+}
+
+.hero-reel-container .swiper-button-next,
+.hero-reel-container .swiper-button-prev {
+    color: rgba(255, 255, 255, 0.8);
+    z-index: 10; /* Se till att pilarna alltid är klickbara */
+}
+
+@media (max-width: 768px) {
+    .hero-reel-container .swiper-slide {
+        width: 85%;
+        height: 75%;
+    }
+    .slide-title {
+        font-size: 2rem;
+    }
+}

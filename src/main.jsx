@@ -13,6 +13,7 @@ import Events from './components/Events';
 import AboutUs from './components/AboutUs';
 import Contact from './components/Contact';
 import Reviews from './components/Reviews';
+import HeroReel from "./components/HeroReel";
 
 function Main() {
     useEffect(() => {
@@ -32,16 +33,17 @@ function Main() {
 
     return (
         <>
-            <Hero />
-            <FAQ />
-            <AboutUs />
-            <Schedule/>
-            <Courses />
-            <Prices />
-            <Events />
-            <Reviews />
-            <Contact />
-            
+            <HeroReel />
+            <main className="main-content">
+                <FAQ />
+                <AboutUs />
+                <Schedule/>
+                <Courses />
+                <Prices />
+                <Events />
+                <Reviews />
+                <Contact />
+            </main>
         </>
     );
 }

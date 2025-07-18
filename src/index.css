@@ -34,7 +34,22 @@ body::after {
 * {
   max-width: 100vw;
 }
+.hero-reel-container {
+  height: 100vh; /* Fyller hela skärmens höjd */
+  width: 100%;
+  /* Viktigt: Se till att position inte är 'absolute' eller 'fixed' här */
+  position: relative;
+}
+.main-content {
+  /* Använder samma mörka bakgrundsfärg som du har på resten av sidan.
+     Här använder jag CSS-variabeln vi skapade tidigare. */
+  background-color: var(--color-background);
 
+  /* Dessa två rader är viktiga för att säkerställa att innehållet
+     renderas korrekt och inte är genomskinligt över videon. */
+  position: relative;
+  z-index: 5;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -42,4 +57,6 @@ code {
 }
 #root {
   width: 100%;
+  --color-background: #1a1a1a;  /* <-- DENNA RAD SAKNAS TROLIGTVIS */
+
 }
