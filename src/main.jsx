@@ -4,7 +4,6 @@ import { scroller } from 'react-scroll';
 import './i18n';
 
 
-import Hero from './components/Hero';
 import FAQ from './components/FAQ';
 import Courses from './components/Courses';
 import Schedule from './components/Schedule';

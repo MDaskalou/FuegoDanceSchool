@@ -1,85 +1,194 @@
-﻿/* src/css/HeroReel.css (Förenklad och robust version) */
+﻿/* src/css/HeroReel.css (Slutgiltig version) */
 .hero-reel-container {
     height: 100vh;
     width: 100%;
     position: relative;
     background-color: #000;
-    overflow: hidden;
 }
-
-.hero-reel-container .swiper {
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-
-.hero-reel-container .swiper-slide {
-    background-position: center;
-    background-size: cover;
-    width: 65%;
-    height: 80%;
-    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
-}
-
-.hero-reel-container .swiper-slide:not(.swiper-slide-active) {
-    transform: scale(0.8);
-    opacity: 0.4;
-}
-
 .slide-content {
     position: relative;
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
     overflow: hidden;
-    border-radius: 8px;
-    background-color: #000; /* Svart bakgrund för eventuellt tomrum */
+    align-items: flex-end;
+    padding-bottom: 12vh;
 }
-
-/* NYA, FÖRENKLADE REGLER FÖR VIDEON */
-.hero-video {
-    width: 100%;
-    height: 100%;
-    /* DETTA ÄR DEN VIKTIGASTE REGELN: */
-    /* Den ser till att hela videon syns, utan att beskäras eller zoomas in. */
-    /* Den lägger till svarta kanter om formatet inte matchar perfekt. */
-    object-fit: contain !important; /* <-- Lägg till !important här */
+.hero-video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
     z-index: 1;
+    filter: blur(25px) brightness(0.8);
 }
-
+.hero-video-fg {
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    max-height: 90vh;
+    width: auto;
+    height: 100%;
+}
 .slide-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.15);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.7) 100%);
     z-index: 3;
-    pointer-events: none; /* Gör så man kan klicka "genom" overlayen */
 }
-
-.slide-title {
-    color: white;
-    font-size: 3rem;
+.slide-text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
     z-index: 4;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-    position: absolute; /* Placerar texten ovanpå videon */
+    padding: 1rem;
+    position: absolute;
+}
+.slide-title {
+    color: white;
+    font-family: var(--font-headings);
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    margin: 0;
+}
+.hero-quote {
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin: -0.5rem 0 1.5rem 0;
+    max-width: 500px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+.slide-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    max-width: 600px;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
+/* --- MOBIL-FÖRST STILAR (visar mobil-layouten) --- */
+.hero-buttons-desktop {
+    display: none; /* Dölj desktop-knapparna som standard */
+}
+.hero-buttons-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 350px;
+}
+.hero-buttons-mobile .button {
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border-radius: 50px;
+    font-weight: bold;
+}
+.hero-secondary-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.hero-secondary-actions a,
+.hero-secondary-actions a:visited {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.hero-secondary-actions a:hover {
+    color: #FFFFFF;
+}
+.hero-secondary-actions span {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* --- DESKTOP-ANPASSNINGAR (visar desktop-layouten) --- */
+@media (min-width: 769px) {
+    .slide-content {
+        align-items: flex-end;
+        padding-bottom: 15vh;
+    }
+    .slide-title { font-size: 5rem; }
+    .slide-subtitle { font-size: 1.3rem; }
+    .hero-quote { font-size: 1.25rem; }
+
+    .hero-buttons-mobile {
+        display: none; /* Dölj mobil-knapparna på desktop */
+    }
+    .hero-buttons-desktop {
+        display: flex; /* Visa desktop-knapparna */
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 700px;
+    }
+    .hero-buttons-desktop .button {
+        padding: 0.9rem 2.4rem;
+        font-size: 1.1rem;
+    }
+    .hero-buttons-desktop .hero-secondary-action,
+    .hero-buttons-desktop .hero-secondary-action:visited {
+        color: #FFFFFF;
+        background-color: rgba(242, 103, 34, 0.15);
+        backdrop-filter: blur(5px);
+        padding: 0.7rem 1.4rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: background-color 0.2s ease-in-out;
+    }
+    .hero-buttons-desktop .hero-secondary-action:hover {
+        background-color: rgba(242, 103, 34, 0.3);
+    }
+}
+
+
+/* SWIPER & SCROLL-INDIKATOR (oförändrad) */
 .hero-reel-container .swiper-button-next,
 .hero-reel-container .swiper-button-prev {
     color: rgba(255, 255, 255, 0.8);
-    z-index: 10; /* Se till att pilarna alltid är klickbara */
+    transition: color 0.2s;
 }
-
-@media (max-width: 768px) {
-    .hero-reel-container .swiper-slide {
-        width: 85%;
-        height: 75%;
-    }
-    .slide-title {
-        font-size: 2rem;
-    }
+.hero-reel-container .swiper-button-next:hover,
+.hero-reel-container .swiper-button-prev:hover {
+    color: white;
+}
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+.arrow {
+    width: 20px;
+    height: 20px;
+    border: 3px solid white;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+    animation: bounce 2s infinite;
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); }
+    40% { transform: translateY(-20px) rotate(45deg); }
+    60% { transform: translateY(-10px) rotate(45deg); }
 }

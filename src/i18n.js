@@ -13,7 +13,8 @@ i18n
         debug: true,
         ns: ["navbarTranslation","heroTranslation", "aboutusTranslation",
             "eventTranslation", "reviewsTranslation", "contactTranslation",
-            "instructorsTranslation", "helpInstructorsTranslation", "valuesTranslation","openHouseTranslation"], // lägg till fler t.ex. ['navbarTranslation', 'coursesTranslation']
+            "instructorsTranslation", "helpInstructorsTranslation", "valuesTranslation","openHouseTranslation",
+        "heroReelsTranslation"], // lägg till fler t.ex. ['navbarTranslation', 'coursesTranslation']
         defaultNS: 'navbarTranslation',
         interpolation: {
             escapeValue: false,

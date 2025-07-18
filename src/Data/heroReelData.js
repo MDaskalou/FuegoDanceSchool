@@ -15,12 +15,12 @@ const heroReelData = [
         title: "Lär dig från grunden"
     },
     {
-        id: 2,
+        id: 3,
         videoSrc: video3,
         title: "Upplev glädjen i dansen"
     },
     {
-        id: 2,
+        id: 4,
         videoSrc: video4,
         title: "Följ med i våra evenemang"
     },
