@@ -1,4 +1,4 @@
-﻿// src/components/HeroReel.jsx
+// src/components/HeroReel.jsx
 import React from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';

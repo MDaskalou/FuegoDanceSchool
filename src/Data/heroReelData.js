@@ -1,4 +1,4 @@
-﻿import video1 from '../videos/Herovideo1.mp4';
+import video1 from '../videos/Herovideo1.mp4';
 import video2 from '../videos/Herovideo2.mp4';
 import video3 from '../videos/Herovideo3.mp4';
 import video4 from '../videos/Herovideo4.mp4';
