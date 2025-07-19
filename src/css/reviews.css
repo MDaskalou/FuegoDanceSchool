@@ -5,6 +5,8 @@
 .reviews-section {
     padding: 60px 20px;
     text-align: center;
+    background: linear-gradient(to right, #1f1f1f, #3a1f1d);
+
 }
 
 .reviews-title {

@@ -46,7 +46,7 @@ export default function HeroReel() {
 
                                 {/* --- LAYOUT FÖR MOBIL --- */}
                                 <div className="hero-buttons-mobile">
-                                    <Button onClick={() => console.log("Navigera till kurser!")}>
+                                    <Button onClick={() => window.open('https://app.coursely.se/activities/FuegoDance')}>
                                         {t('coursesButton')}
                                     </Button>
                                     <div className="hero-secondary-actions">
@@ -65,7 +65,7 @@ export default function HeroReel() {
                                     <a href="/open-house-signup" className="hero-secondary-action" onClick={(e) => { e.preventDefault(); navigate("/open-house-signup"); }}>
                                         {t('openHouseButton')}
                                     </a>
-                                    <Button onClick={() => console.log("Navigera till kurser!")}>
+                                    <Button onClick={() => window.open('https://app.coursely.se/activities/FuegoDance')}>
                                         {t('coursesButton')}
                                     </Button>
                                     <a href="FAQ.jsx" className="hero-secondary-action" onClick={(e) => { e.preventDefault(); setShowFAQ(true); }}>

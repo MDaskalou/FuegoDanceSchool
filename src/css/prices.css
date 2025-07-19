@@ -62,6 +62,37 @@
     padding: 0;
 }
 
+.favorite-option {
+    position: relative; /* Nödvändigt för att kunna positionera 'stämpeln' */
+    background-color: rgba(242, 103, 34, 0.1); /* Subtil orange bakgrundsfärg */
+    border: 1px solid rgba(242, 103, 34, 0.5); /* Tydligare orange ram */
+    border-radius: 8px;
+    padding: 8px 12px;
+    /* Negativ marginal för att kompensera för paddingen så den inte blir för bred */
+    margin-left: -12px;
+    margin-right: -12px;
+    transform: scale(1.05); /* Gör den lite större för att den ska "poppa" */
+    font-weight: bold;
+    color: #FFFFFF; /* Säkerställer att texten förblir vit och tydlig */
+    transition: all 0.2s ease-in-out;
+}
+
+/* Skapar en liten "Populärast"-stämpel med CSS */
+.favorite-option::after {
+    content: 'Populärast'; /* Texten i stämpeln */
+    position: absolute;
+    top: -10px; /* Positionera den lite ovanför raden */
+    right: 12px;
+    background-color: var(--color-accent, #f26722); /* Använder din globala accentfärg */
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 /* Kortutseende */
 .card-price {
     border: 2px solid rgba(255, 255, 255, 0.15);

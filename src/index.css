@@ -1,4 +1,22 @@
+:root {
+  /* FÄRGER */
+  --color-background: #1a1a1a;
+  --color-surface: #3B2A2A;      /* Din bruna färg för kort och ytor */
+  --color-primary: #ffffff;      /* Primär textfärg (vit) */
+  --color-secondary: #a0a0a0;   /* Sekundär textfärg (gråaktig) */
 
+  /* ACCENTFÄRG (Den som troligtvis saknas) */
+  --color-accent: #f26722;       /* Din "brand"-färg, orange */
+  --color-accent-hover: #ffaf4d; /* En ljusare variant för hover-effekter */
+
+  /* TYPSNITT */
+  --font-primary: 'Montserrat', sans-serif; /* ERSÄTT med ditt typsnitt */
+  --font-headings: 'Roboto Slab', serif;  /* ERSÄTT med ditt rubrik-typsnitt */
+
+  /* ANDRA VARIABLER */
+  --border-radius: 8px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
 *,*::before,*::after {
   box-sizing: border-box;
 }
@@ -55,8 +73,5 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-#root {
-  width: 100%;
-  --color-background: #1a1a1a;  /* <-- DENNA RAD SAKNAS TROLIGTVIS */
+/* Lägg till/ersätt detta högst upp i src/index.css */
 
-}

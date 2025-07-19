@@ -51,7 +51,7 @@ export default function Prices() {
                     <Card title="Kurser" className="card-price">
                         <ul>
                             <li> {t("course1Price")}</li>
-                            <li> {t("course2Price")}</li>
+                            <li className="favorite-option">{t("course2Price")}</li> {/* <-- LÄGG TILL KLASSNAMNET HÄR */}
                             <li> {t("course3Price")}</li>
                             <li> {t("course4Price")}</li>
                             <li> {t("course5Price")}</li>
