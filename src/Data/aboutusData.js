@@ -1,4 +1,4 @@
-﻿// src/Data/aboutUsImageData.js
+// src/Data/aboutUsImageData.js
 import AboutUs1 from "../img/About/About1.jpg";
 import AboutUs2 from "../img/About/About2.jpg";
 import AboutUs3 from "../img/About/About3.jpg";
