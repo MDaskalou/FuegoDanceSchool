@@ -1,9 +1,5 @@
-// src/components/Main.jsx
-import { useEffect } from 'react';
-import { scroller } from 'react-scroll';
-import './i18n';
 
-
+// Importera bara de komponenter du faktiskt använder här
 import FAQ from './components/FAQ';
 import Courses from './components/Courses';
 import Schedule from './components/Schedule';
@@ -15,25 +11,11 @@ import Reviews from './components/Reviews';
 import HeroReel from "./components/HeroReel";
 
 function Main() {
-    useEffect(() => {
-        const scrollTo = sessionStorage.getItem('scrollTo');
-        if (scrollTo) {
-            setTimeout(() => {
-                console.log('Scrolling to:', scrollTo); // Debug
-                scroller.scrollTo(scrollTo, {
-                    smooth: true,
-                    duration: 600,
-                    offset: -70,
-                });
-                sessionStorage.removeItem('scrollTo');
-            }, 500); // Öka delay
-        }
-    }, []);
-
     return (
         <>
             <HeroReel />
             <main className="main-content">
+
                 <FAQ />
                 <AboutUs />
                 <Schedule/>

@@ -1,4 +1,4 @@
-// src/components/Navbar.jsx (Komplett och korrigerad version)
+// src/components/Navbar.jsx (Komplett och fungerande version)
 import '../css/navbar.css';
 import logo from '../img/FuegoLogoimg.png';
 import { useNavigate, useLocation, NavLink } from 'react-router-dom';
@@ -12,9 +12,8 @@ function Navbar() {
     const navigate = useNavigate();
     const { t, i18n } = useTranslation("navbarTranslation");
 
-    // I Navbar.jsx
     const menuItems = [
-        { label: t('nav.home'), id: 'hero' },
+        { label: t('nav.home'), id: 'heroreel' },
         { label: t('nav.courses'), id: 'courses' },
         { label: t('nav.prices'), id: 'prices' },
         { label: t('nav.events'), id: 'events' },
@@ -26,11 +25,8 @@ function Navbar() {
 
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth >= 768) {
-                setMenuOpen(false);
-            }
+            if (window.innerWidth >= 768) setMenuOpen(false);
         };
-
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
@@ -55,15 +51,16 @@ function Navbar() {
         }
     };
 
+    // Denna useEffect hanterar scrollningen efter att man har navigerat hem
     useEffect(() => {
         const scrollTarget = sessionStorage.getItem('scrollTo');
         if (scrollTarget && location.pathname === '/') {
             setTimeout(() => {
                 smoothScrollTo(scrollTarget);
                 sessionStorage.removeItem('scrollTo');
-            }, 100);
+            }, 100); // Liten delay för att sidan ska hinna rendera
         }
-    }, [location.pathname]);
+    }, [location.pathname]); // VIKTIGT: Körs varje gång sidans sökväg ändras
 
     const changeLanguage = (lang) => {
         i18n.changeLanguage(lang);
@@ -72,7 +69,6 @@ function Navbar() {
     return (
         <nav className="navbar">
             <div className="nav-inner">
-                {/* FIX: Här är din korrekta logo-kod, tillbakalagd */}
                 <div className="logo-container">
                     <img src={logo} alt="Fuego Dance School Logo" className="logo-img" />
                     <div className="logo-heading-stacked">
@@ -99,19 +95,11 @@ function Navbar() {
                         {menuItems.map((item, i) => (
                             <li key={i}>
                                 {item.path ? (
-                                    <NavLink
-                                        to={item.path}
-                                        className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
-                                        onClick={() => setMenuOpen(false)}
-                                    >
+                                    <NavLink to={item.path} className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setMenuOpen(false)}>
                                         {item.label}
                                     </NavLink>
                                 ) : (
-                                    <a
-                                        href={`#${item.id}`}
-                                        className="nav-link"
-                                        onClick={(e) => handleScrollLinkClick(e, item.id)}
-                                    >
+                                    <a href={`#${item.id}`} className="nav-link" onClick={(e) => handleScrollLinkClick(e, item.id)}>
                                         {item.label}
                                     </a>
                                 )}

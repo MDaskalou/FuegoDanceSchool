@@ -1,8 +1,8 @@
-/* src/index.css (Städad och korrekt version) */
+/* src/index.css (Städad och komplett version) */
 
 :root {
-  /* FÄRGER - Alltid definierade här */
-  --color-background: linear-gradient(to right, #1f1f1f, #3a1f1d); /* ✅ Gradienten är nu den globala bakgrunden */
+  /* FÄRGER */
+  --color-background: linear-gradient(to right, #1f1f1f, #3a1f1d);
   --color-surface: #3B2A2A;
   --color-primary: #ffffff;
   --color-secondary: #a0a0a0;
@@ -35,10 +35,8 @@ html, body {
 
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale; /* <-- Korrigerad rad */
 }
-
-
 
 #root {
   width: 100%;
@@ -46,4 +44,10 @@ html, body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* Dölj Netlify-formuläret som endast används för igenkänning */
+/* Dölj ENDAST det dolda Netlify-formuläret som har "hidden"-attributet */
+form[netlify][hidden] {
+  display: none !important;
 }

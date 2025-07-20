@@ -96,7 +96,7 @@ function Contact() {
                     </div>
 
                     <div className="contact-info">
-                        <p><strong>{t("emailInfo")}</strong> info@fuegodanceschool.com</p>
+                        <p><strong>{t("emailInfo")}</strong> info@fuegodanceschool.se</p>
                         <p><strong>{t("addressInfo")}</strong> Doktor Westrings Gata 14D, Göteborg</p>
                     </div>
                 </div>

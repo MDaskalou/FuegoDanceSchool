@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ToastProvider } from "./components/UI/Toast/ToastContext";
+import './i18n'; // <-- DENNA RAD STARTAR HELA ÖVERSÄTTNINGSSYSTEMET
 
 
 

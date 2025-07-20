@@ -21,7 +21,7 @@ export default function HeroReel() {
     const { t } = useTranslation('heroReelsTranslation');
 
     return (
-        <div className="hero-reel-container">
+        <div id= "heroreel" className="hero-reel-container">
             <Swiper
                 modules={[Autoplay, EffectFade, Navigation]}
                 spaceBetween={0}

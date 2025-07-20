@@ -14,7 +14,7 @@ export default function HelpInstructors({ openModal }) {
     const { t } = useTranslation("helpInstructorsTranslation");
 
     return (
-        <section className="instructor-section">
+        <section  className="instructor-section">
             <h2 className="instructor-title">{t("assistantInstructorsTitle")}</h2>
             <Swiper
                 modules={[Navigation]}

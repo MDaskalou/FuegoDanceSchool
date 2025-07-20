@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @import './navbar.css';
-@import './hero.css';
+@import './heroReel.css';
 @import './FAQ.css';
 @import './courses.css';
 

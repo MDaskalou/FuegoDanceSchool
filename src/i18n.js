@@ -1,3 +1,4 @@
+// src/i18n.js (Komplett och korrekt version)
 import i18n from 'i18next';
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
@@ -8,14 +9,24 @@ i18n
     .use(LanguageDetector)
     .use(initReactI18next)
     .init({
-        lng: 'sv', // standard språk, kan ändras till 'en' eller annat
         fallbackLng: 'sv',
         debug: true,
-        ns: ["navbarTranslation","heroTranslation", "aboutusTranslation",
-            "eventTranslation", "reviewsTranslation", "contactTranslation",
-            "instructorsTranslation", "helpInstructorsTranslation", "valuesTranslation","openHouseTranslation",
-        "heroReelsTranslation"], // lägg till fler t.ex. ['navbarTranslation', 'coursesTranslation']
-        defaultNS: 'navbarTranslation',
+
+        ns: [
+            'navbarTranslation',
+            'heroReelTranslation',
+            'openhouse',
+            'coursesTranslation',
+            'pricesTranslation',
+            'eventTranslation',
+            'instructorsTranslation',
+            'helpInstructorsTranslation',
+            'values',
+            'faq',
+            'contactTranslation',
+            'aboutusTranslation' // Se till att denna finns med
+        ],
+
         interpolation: {
             escapeValue: false,
         },
@@ -23,6 +34,5 @@ i18n
             loadPath: '/locales/{{lng}}/{{ns}}.json',
         },
     });
-
 
 export default i18n;
