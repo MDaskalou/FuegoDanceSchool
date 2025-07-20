@@ -1,37 +1,29 @@
-﻿/* schedule.css - Rensa version */
+﻿/* schedule.css (Korrigerad och städad version) */
 
 #schedule {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: 4rem 1rem; /* Lite mer luft för en snyggare look */
+
+    background: var(--color-background);
+    color: var(--color-primary, white);
 }
+
 
 .schedule-image {
     width: 100%;
-    max-width: 900px; /* Standard max-width för mobil */
+    max-width: 1000px; /* Sätter en enhetlig max-bredd */
     display: block;
     margin: 0 auto 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
 }
+
 .schedule-description {
     text-align: center;
     color: #fff;
-    margin-bottom: 1.5rem;
-    font-size: 2rem;
+    margin-bottom: 2rem; /* Mer utrymme under texten */
+    font-size: 1.5rem; /* Justerad storlek */
     font-weight: 400;
     font-family: 'Playfair Display', serif;
-}
-
-/* För surfplattor och uppåt (≥768px) */
-@media (min-width: 768px) {
-    /* Inga specifika ändringar för .schedule-image här om inte behövs */
-}
-
-/* För större skärmar / desktop (≥1024px) */
-@media (min-width: 1024px) {
-    .schedule-image {
-        max-width: 1000px; /* Max-width för desktop */
-        margin-bottom: 2rem;
-        border-radius: 12px;
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-    }
 }

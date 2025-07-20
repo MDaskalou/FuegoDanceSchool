@@ -1,18 +1,18 @@
+// src/components/Navbar.jsx (Komplett och korrigerad version)
 import '../css/navbar.css';
 import logo from '../img/FuegoLogoimg.png';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-
+import { scroller } from 'react-scroll';
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-    const { t, i18n } = useTranslation();
+    const { t, i18n } = useTranslation("navbarTranslation");
 
-
+    // I Navbar.jsx
     const menuItems = [
         { label: t('nav.home'), id: 'hero' },
         { label: t('nav.courses'), id: 'courses' },
@@ -26,9 +26,7 @@ function Navbar() {
 
     useEffect(() => {
         const handleResize = () => {
-            const newIsMobile = window.innerWidth < 768;
-            setIsMobile(newIsMobile);
-            if (!newIsMobile) {
+            if (window.innerWidth >= 768) {
                 setMenuOpen(false);
             }
         };
@@ -37,54 +35,44 @@ function Navbar() {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const scrollToSection = (id) => {
+    const smoothScrollTo = (elementId) => {
+        scroller.scrollTo(elementId, {
+            duration: 800,
+            delay: 0,
+            smooth: 'easeInOutQuart',
+            offset: -70 // Offset för navbarens höjd
+        });
+        setMenuOpen(false);
+    };
+
+    const handleScrollLinkClick = (e, id) => {
+        e.preventDefault();
         if (location.pathname !== '/') {
             sessionStorage.setItem('scrollTo', id);
             navigate('/');
         } else {
-            const element = document.getElementById(id);
-            const navbarHeight = 70;
-            if (element) {
-                element.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                setTimeout(() => {
-                    window.scrollBy({
-                        top: -navbarHeight,
-                        behavior: 'smooth'
-                    });
-                }, 100);
-            }
+            smoothScrollTo(id);
         }
-        setMenuOpen(false);
     };
 
     useEffect(() => {
         const scrollTarget = sessionStorage.getItem('scrollTo');
         if (scrollTarget && location.pathname === '/') {
             setTimeout(() => {
-                const element = document.getElementById(scrollTarget);
-                if (element) {
-                    element.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    setTimeout(() => {
-                        window.scrollBy({
-                            top: -70,
-                            behavior: 'smooth'
-                        });
-                    }, 100);
-                }
+                smoothScrollTo(scrollTarget);
                 sessionStorage.removeItem('scrollTo');
-            }, 500);
+            }, 100);
         }
     }, [location.pathname]);
+
+    const changeLanguage = (lang) => {
+        i18n.changeLanguage(lang);
+    };
 
     return (
         <nav className="navbar">
             <div className="nav-inner">
+                {/* FIX: Här är din korrekta logo-kod, tillbakalagd */}
                 <div className="logo-container">
                     <img src={logo} alt="Fuego Dance School Logo" className="logo-img" />
                     <div className="logo-heading-stacked">
@@ -97,64 +85,52 @@ function Navbar() {
                     </div>
                 </div>
 
-                <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+                <button
+                    className="menu-toggle"
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    aria-label={menuOpen ? "Stäng menyn" : "Öppna menyn"}
+                    aria-expanded={menuOpen}
+                >
                     ☰
                 </button>
 
-                <div className="nav-wrapper">
-                    <div className={`nav-links ${menuOpen && isMobile ? 'open' : ''}`}>
-                        <ul>
-                            {menuItems.map((item, i) => (
-                                <li key={i}>
-                                    {item.path ? (
-                                        <a
-                                            href={item.path}
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                navigate(item.path);
-                                                setMenuOpen(false);
-                                            }}
-                                        >
-                                            {item.label}
-                                        </a>
-                                    ) : (
-                                        <a
-                                            href={`#${item.id}`}
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                scrollToSection(item.id);
-                                            }}
-                                        >
-                                            {item.label}
-                                        </a>
-                                    )}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
+                    <ul>
+                        {menuItems.map((item, i) => (
+                            <li key={i}>
+                                {item.path ? (
+                                    <NavLink
+                                        to={item.path}
+                                        className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                                        onClick={() => setMenuOpen(false)}
+                                    >
+                                        {item.label}
+                                    </NavLink>
+                                ) : (
+                                    <a
+                                        href={`#${item.id}`}
+                                        className="nav-link"
+                                        onClick={(e) => handleScrollLinkClick(e, item.id)}
+                                    >
+                                        {item.label}
+                                    </a>
+                                )}
+                            </li>
+                        ))}
+                    </ul>
                 </div>
 
-                {/* 🌍 Språkväxlare */}
                 <div className="language-switcher">
                     {i18n.language === 'sv' ? (
-                        <img
-                            src="/flag/us.svg"
-                            alt="Switch to English"
-                            className="flag-icon"
-                            onClick={() => i18n.changeLanguage('en')}
-                            title="Switch to English"
-                        />
+                        <button className="lang-button" onClick={() => changeLanguage('en')} title="Switch to English" aria-label="Switch to English">
+                            <img src="/flag/us.svg" alt="USA Flag" className="flag-icon" />
+                        </button>
                     ) : (
-                        <img
-                            src="/flag/se.svg"
-                            alt="Byt till svenska"
-                            className="flag-icon"
-                            onClick={() => i18n.changeLanguage('sv')}
-                            title="Byt till svenska"
-                        />
+                        <button className="lang-button" onClick={() => changeLanguage('sv')} title="Byt till svenska" aria-label="Byt till svenska">
+                            <img src="/flag/se.svg" alt="Swedish Flag" className="flag-icon" />
+                        </button>
                     )}
                 </div>
-
             </div>
         </nav>
     );

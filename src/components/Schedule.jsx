@@ -9,7 +9,7 @@ function Schedule() {
 
 
     return (
-        <section id="schedule">
+        <section  id="schedule">
             <SectionTitle color="white">{t("scheduleTitle")}</SectionTitle>
             <h2 className="schedule-description">{t("scheduleDescription")}</h2>
 

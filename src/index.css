@@ -1,23 +1,24 @@
-:root {
-  /* FÄRGER */
-  --color-background: #1a1a1a;
-  --color-surface: #3B2A2A;      /* Din bruna färg för kort och ytor */
-  --color-primary: #ffffff;      /* Primär textfärg (vit) */
-  --color-secondary: #a0a0a0;   /* Sekundär textfärg (gråaktig) */
+/* src/index.css (Städad och korrekt version) */
 
-  /* ACCENTFÄRG (Den som troligtvis saknas) */
-  --color-accent: #f26722;       /* Din "brand"-färg, orange */
-  --color-accent-hover: #ffaf4d; /* En ljusare variant för hover-effekter */
+:root {
+  /* FÄRGER - Alltid definierade här */
+  --color-background: linear-gradient(to right, #1f1f1f, #3a1f1d); /* ✅ Gradienten är nu den globala bakgrunden */
+  --color-surface: #3B2A2A;
+  --color-primary: #ffffff;
+  --color-secondary: #a0a0a0;
+  --color-accent: #f26722;
+  --color-accent-hover: #ffaf4d;
 
   /* TYPSNITT */
-  --font-primary: 'Montserrat', sans-serif; /* ERSÄTT med ditt typsnitt */
-  --font-headings: 'Roboto Slab', serif;  /* ERSÄTT med ditt rubrik-typsnitt */
+  --font-primary: 'Montserrat', sans-serif;
+  --font-headings: 'Roboto Slab', serif;
 
   /* ANDRA VARIABLER */
   --border-radius: 8px;
   --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
-*,*::before,*::after {
+
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
@@ -25,53 +26,24 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-    height: 100%;
-  min-height: 100%;
+  height: 100%;
 
-  box-sizing: border-box;
+  /* Använd den globala variabeln här */
+  background: var(--color-background);
+  color: var(--color-primary);
+  font-family: var(--font-primary);
 
-  background: linear-gradient(to right, #1f1f1f, #3a1f1d); /* <-- Ändra denna om du vill ha en annan */
-  color: white;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-body::after {
-  content: '';
-  display: block;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  pointer-events: none;
-}
-* {
-  max-width: 100vw;
-}
-.hero-reel-container {
-  height: 100vh; /* Fyller hela skärmens höjd */
-  width: 100%;
-  /* Viktigt: Se till att position inte är 'absolute' eller 'fixed' här */
-  position: relative;
-}
-.main-content {
-  /* Använder samma mörka bakgrundsfärg som du har på resten av sidan.
-     Här använder jag CSS-variabeln vi skapade tidigare. */
-  background-color: var(--color-background);
 
-  /* Dessa två rader är viktiga för att säkerställa att innehållet
-     renderas korrekt och inte är genomskinligt över videon. */
-  position: relative;
-  z-index: 5;
+
+
+#root {
+  width: 100%;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
-/* Lägg till/ersätt detta högst upp i src/index.css */
-

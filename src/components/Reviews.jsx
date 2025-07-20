@@ -34,6 +34,10 @@ export default function Reviews() {
         {
             id: 5,
             image: require("../img/Students/MyR.jpeg")
+        },
+        {
+            id: 6,
+            image: require("../img/Students/RicardoR.jpg")
         }
     ];
 

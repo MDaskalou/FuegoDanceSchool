@@ -120,7 +120,7 @@ form button {
 
 /* 7. Ändra utseende när en tagg är vald (ikryssad) */
 .checkbox-item input[type="checkbox"]:checked + label {
-    background-color: rgba(242, 103, 34, 0.15); /* Orange "pill"-färg */
+    background-color: rgba(242, 103, 34, 0.15);
     border-color: #f26722;
     color: #FFFFFF;
 }
