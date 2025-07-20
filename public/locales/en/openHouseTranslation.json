@@ -2,8 +2,17 @@
   "signupTitle": "Pre-register for our Open House",
   "labelName": "Name *",
   "labelEmail": "Email *",
-  "labelSsn": "Social Security Number *",
-  "placeholderSsn": "YYMMDD-XXXX",
+  "labelInterestedCourses": "Which courses are you interested in?",
+  "interestedCoursesOptions": [
+    "Level 1",
+    "Level 2",
+    "Level 3",
+    "Level 3 Technique",
+    "Level 4",
+    "Level 4 Technique",
+    "Styling Class",
+    "Role Rotation"
+  ],
   "labelRole": "Leader or Follower *",
   "roleOptions": [
     "leader",
@@ -28,9 +37,9 @@
   "modalTitle": "Thank you for your registration!",
   "modalSuccessMessage": "We have received your pre-registration for our open house. We're excited to see you!",
   "eventDetailsTitle": "Information about the event:",
-  "date": "Date: Sunday, August 25, 2025",
-  "time": "Time: 13:00 - 15:00",
-  "location": "Location: Fuego Dance Studio, Example Street 12, Malmö",
+  "date": "Date: Open House Week 35",
+  "time": "Time: 18:00 - 21:00",
+  "location": "Location: Doktor Westrings gata 14D, Gothenburg",
   "whatToWear": "Dress code: Comfortable clothes and indoor shoes.",
   "modalClosingMessage": "You don't need to do anything else, just show up. See you there!"
 }
