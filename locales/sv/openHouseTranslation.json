@@ -2,8 +2,17 @@
   "signupTitle": "Föranmäl dig till öppet hus",
   "labelName": "Namn *",
   "labelEmail": "E-post *",
-  "labelSsn": "Personnummer *",
-  "placeholderSsn": "ÅÅMMDD-XXXX",
+  "labelInterestedCourses": "Vilka kurser är du intresserad av?",
+  "interestedCoursesOptions": [
+    "Nivå 1",
+    "Nivå 2",
+    "Nivå 3",
+    "Nivå 3 Teknik",
+    "Nivå 4",
+    "Nivå 4 Teknik",
+    "Styling Class",
+    "Role Rotation"
+  ],
   "labelRole": "Förare eller Följare *",
   "roleOptions": [
     "förare",
@@ -28,9 +37,9 @@
   "modalTitle": "Tack för din anmälan!",
   "modalSuccessMessage": "Vi har tagit emot din föranmälan till vårt öppet hus. Vad kul att du vill komma!",
   "eventDetailsTitle": "Information om dagen:",
-  "date": "Datum: Söndag 25:e augusti, 2025",
-  "time": "Tid: 13:00 - 15:00",
-  "location": "Plats: Dansstudio Fuego, Exempelgatan 12, Malmö",
+  "date": "Datum: Öppet hus Vecka 35",
+  "time": "Tid: 18:00 - 21:00",
+  "location": "Plats: Doktor Westrings gata 14D, Göteborg",
   "whatToWear": "Klädsel: Bekväma kläder och inneskor.",
   "modalClosingMessage": "Du behöver inte göra något mer, det är bara att dyka upp. Vi ses där!"
 }

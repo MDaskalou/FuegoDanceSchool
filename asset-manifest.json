@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.63d4f45b.css",
-    "main.js": "./static/js/main.bace6ecb.js",
+    "main.css": "./static/css/main.e2fa1bf7.css",
+    "main.js": "./static/js/main.75f943e7.js",
     "static/js/38.f1b245ee.chunk.js": "./static/js/38.f1b245ee.chunk.js",
     "static/js/488.e42db887.chunk.js": "./static/js/488.e42db887.chunk.js",
     "static/media/About9.jpg": "./static/media/About9.bc7399b583fc82f6aa45.jpg",
@@ -23,7 +23,6 @@
     "static/media/Schema.png": "./static/media/Schema.270c4f55bcbabfe73f96.png",
     "static/media/Herovideo3.mp4": "./static/media/Herovideo3.76b6cec9aa71caf66a79.mp4",
     "static/media/Pricesimg3.png": "./static/media/Pricesimg3.264bc53c02316e2b7ba0.png",
-    "static/media/Sisco&NoraEvent.png": "./static/media/Sisco&NoraEvent.a32d4d79fc9ad7542e6e.png",
     "static/media/instruktörRaminta.png": "./static/media/instruktörRaminta.6508a75fffd295d6a8ad.png",
     "static/media/Pricesimg2.png": "./static/media/Pricesimg2.aca8a47eefb06c011982.png",
     "static/media/Pricesimg1.png": "./static/media/Pricesimg1.596ee24be1433e57136a.png",
@@ -34,7 +33,6 @@
     "static/media/instruktörJennifer.png": "./static/media/instruktörJennifer.48ec059c4f757b3144e0.png",
     "static/media/Herovideo1.mp4": "./static/media/Herovideo1.ad1f032da30163646917.mp4",
     "static/media/BackgroundHero3.png": "./static/media/BackgroundHero3.ffc78e56d04c8e160ffc.png",
-    "static/media/2.png": "./static/media/2.b814fb40f0fbbd59b7e7.png",
     "static/media/ElvirD.jpeg": "./static/media/ElvirD.8a3f3c0e7253f55c069d.jpeg",
     "static/media/FuegoLogoimg.png": "./static/media/FuegoLogoimg.ee91782085b91df0dbd2.png",
     "static/media/LisaB.jpeg": "./static/media/LisaB.5f4e50e34060c665f201.jpeg",
@@ -42,17 +40,16 @@
     "static/media/MyR.jpeg": "./static/media/MyR.a356fa3573de4c931cd4.jpeg",
     "static/media/AmandaW.jpeg": "./static/media/AmandaW.ade894178d768caef9eb.jpeg",
     "static/media/AlessandroU.jpeg": "./static/media/AlessandroU.964ec7b963a91508e1be.jpeg",
-    "static/media/3.png": "./static/media/3.85a599477b87f4277bd3.png",
     "static/media/Google-Review-Logo.png": "./static/media/Google-Review-Logo.899e2e926f73d490b673.png",
     "static/media/trustpiloticon.png": "./static/media/trustpiloticon.fce978e8bc862f8d9396.png",
     "index.html": "./index.html",
-    "main.63d4f45b.css.map": "./static/css/main.63d4f45b.css.map",
-    "main.bace6ecb.js.map": "./static/js/main.bace6ecb.js.map",
+    "main.e2fa1bf7.css.map": "./static/css/main.e2fa1bf7.css.map",
+    "main.75f943e7.js.map": "./static/js/main.75f943e7.js.map",
     "38.f1b245ee.chunk.js.map": "./static/js/38.f1b245ee.chunk.js.map",
     "488.e42db887.chunk.js.map": "./static/js/488.e42db887.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.63d4f45b.css",
-    "static/js/main.bace6ecb.js"
+    "static/css/main.e2fa1bf7.css",
+    "static/js/main.75f943e7.js"
   ]
 }
