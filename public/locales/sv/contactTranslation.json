@@ -1,6 +1,7 @@
 ﻿
 {
-  "formSuccess": "Tack för ditt meddelande! Vi återkommer snart.",
+  "formSuccess": "Ditt meddelande har skickats!",
+  "formSuccessText": "Tack för att du kontaktade oss. Vi hör av oss så snart vi kan!",
   "formError": "Något gick fel. Försök igen.",
   "contactTitle": "Kontakta oss",
   "contactSubtitle": "Har du frågor? Tveka inte att höra av dig!",
@@ -11,4 +12,6 @@
   "emailInfo": "E-post:",
   "addressInfo": "Adress:",
   "mapTitle": "Karta till Fuego Dance School"
+
+
 }

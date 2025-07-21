@@ -29,7 +29,7 @@ const reviews = [
     {
         id: 3,
         name: "Alessandro U",
-        image: require("../img/Students/AlessandroU.jpeg"),
+        image: require("../img/Students/AlessandroU.jpg"),
         text: "Rekommenderar strakt!! Fuego dansskola erbjuder en trygg och inspirerande miljö till " +
             "både nybörjare och erfarna dansare får möjligheten att utvecklas. " +
             "Skolan är en trygg, välkomnade och lärarna är otroligt kunniga, pedagogiska och tydlig Passionerad.",

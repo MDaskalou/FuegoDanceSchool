@@ -1,7 +1,8 @@
 import "../css/schedule.css";
-import scheduleImg from "../img/Schedule/Schema.png";
+import scheduleImg from "../img/Schedule/Schema.jpg";
 import SectionTitle from "./UI/SectionTitle";
 import { useTranslation } from "react-i18next";
+import React from "react";
 
 
 function Schedule() {
@@ -18,6 +19,17 @@ function Schedule() {
                 alt="Fuego Dance School schema vecka 17 till 24"
                 className="schedule-image"
             />
+            <div className="schedule-cta">
+                <a
+                    href="https://app.coursely.se/activities/FuegoDance"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="book-now-button"
+                >
+                    Boka nu
+                </a>
+            </div>
+
 
 
         </section>

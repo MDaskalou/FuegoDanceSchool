@@ -15,7 +15,12 @@
     padding: 0 1.5rem;
     text-align: center;
 }
-
+.about-layout-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
 .about-text-container .section-title h2 {
     font-size: 3rem;
     color: var(--color-primary, white);
@@ -66,6 +71,26 @@
     object-fit: cover;
     display: block;
 }
+.schedule-cta {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.book-now-button {
+    background-color: #f26722;
+    color: white;
+    padding: 14px 28px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.book-now-button:hover {
+    background-color: #d5551c;
+}
+
 
 /* ============================================= */
 /* DESKTOP-ANPASSNINGAR (RESPONSIVT)         */

@@ -1,12 +1,5 @@
-﻿/* src/css/contact.css */
-
-.contact-section {
-    padding: 60px 20px;
-    background: linear-gradient(to right, #1f1f1f, #3a1f1d);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+﻿.contact-section {
+    padding: 4rem 1rem;
 }
 
 .contact-wrapper {
@@ -14,114 +7,82 @@
     flex-direction: column;
     gap: 40px;
     width: 100%;
-    max-width: 500px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.contact-container {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(3px);
-    color: white;
+.contact-form-container {
+    flex: 1;
+    min-width: 300px;
 }
 
 .contact-title {
     font-size: 2rem;
-    color: white;
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 10px;
-    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 0.5rem;
 }
 
 .contact-subtitle {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #ddd;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 1.5rem;
 }
 
 .contact-form input,
 .contact-form textarea {
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #888;
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: none;
     font-size: 1rem;
-    font-family: inherit;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
 }
 
 .contact-form textarea {
-    min-height: 120px;
     resize: vertical;
+    min-height: 120px;
 }
 
-.contact-info {
-    font-size: 0.95rem;
-    color: #ccc;
-    margin-bottom: 10px;
+.booking-button {
+    display: inline-block;
+    margin-top: 1rem;
+    background-color: #f15a24;
+    color: #fff;
+    padding: 0.75rem 2rem;
+    border-radius: 30px;
     text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
-.contact-icons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 10px;
+.booking-button:hover {
+    background-color: #d04d1d;
 }
 
-.contact-icons a {
-    font-size: 2rem;
-    color: #f26722;
-    transition: transform 0.3s ease;
-}
-
-.contact-icons a:hover {
-    transform: scale(1.3);
-    color: #d5551c;
-}
-
-.send-animation {
-    animation: fadeOut 1s ease forwards;
-}
 .contact-map {
-    width: 100%;
+    flex: 1;
     height: 300px;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
-@keyframes fadeOut {
-    0% { opacity: 1; }
-    100% { opacity: 0; transform: translateY(-10px); }
-}
-
 @media (min-width: 1024px) {
     .contact-wrapper {
-        flex-direction: row; /* bredvid varandra */
-        justify-content: center;
+        flex-direction: row;
         align-items: flex-start;
         gap: 60px;
-        max-width: 1200px;
-        margin: 0 auto;
     }
 
     .contact-map {
         height: 450px;
-        flex: 1.3; /* gör den lite bredare än formuläret */
+        margin-top: 0;
     }
 
     .contact-form-container {
-        flex: 1;
         max-width: 600px;
     }
 }

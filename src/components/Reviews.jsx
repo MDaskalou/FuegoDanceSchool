@@ -25,7 +25,7 @@ export default function Reviews() {
         },
         {
             id: 3,
-            image: require("../img/Students/AlessandroU.jpeg")
+            image: require("../img/Students/AlessandroU.jpg")
         },
         {
             id: 4,

@@ -1,13 +1,13 @@
 // src/data/instructorsData.js
 
 // 1. Importera alla bilder
-import mikaelImage from '../img/Instructors/instruktörMikael.png';
+import mikaelImage from '../img/Instructors/instruktörMikael.jpg';
 import mikaelImage1 from '../img/Instructors/instruktörMikael1.jpg';
 import mikaelImage2 from '../img/Instructors/instruktörMikael2.jpg';
-import karinImage from '../img/Instructors/instruktörKarin.png';
-import tomasImage from '../img/Instructors/instruktörTomas.png';
-import ramintaImage from '../img/Instructors/instruktörRaminta.png';
-import jenniferImage from '../img/Instructors/instruktörJennifer.png';
+import karinImage from '../img/Instructors/instruktörKarin.jpg';
+import tomasImage from '../img/Instructors/instruktörTomas.jpg';
+import ramintaImage from '../img/Instructors/instruktörRaminta.jpg';
+import jenniferImage from '../img/Instructors/instruktörJennifer.jpg';
 import siscoImage from '../img/Instructors/instruktörSisco.jpg';
 import noraImage from '../img/Instructors/instruktörNora.jpg';
 import irinaImage from '../img/Instructors/instruktörIrina.jpg';
