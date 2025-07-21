@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import './successmessangerModal.css';
 import { useTranslation } from 'react-i18next';
 
