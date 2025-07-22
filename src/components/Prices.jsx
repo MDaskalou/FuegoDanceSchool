@@ -7,15 +7,14 @@ import BgRight from '../img/Pricesimg3.png';
 import '../css/prices.css';
 import SectionTitle from "./UI/SectionTitle";
 import { useTranslation } from 'react-i18next';
-// Flytta utanför komponenten så den inte återskapas varje gång
+
 const mobileImages = [BgLeft, BgCenter, BgRight];
 
 export default function Prices() {
-    const {t} = useTranslation("pricesTranslation");
+    const { t } = useTranslation("pricesTranslation");
     const [mobileBg, setMobileBg] = useState(0);
 
     useEffect(() => {
-        // Förladda alla bakgrundsbilder
         mobileImages.forEach((img) => {
             const preloadImg = new Image();
             preloadImg.src = img;
@@ -26,7 +25,7 @@ export default function Prices() {
         }, 4000);
 
         return () => clearInterval(interval);
-    }, []); // ✅ Nu är dependency-listan korrekt och inga varningar
+    }, []);
 
     return (
         <section id="prices" className="prices-section">
@@ -36,28 +35,31 @@ export default function Prices() {
                         key={index}
                         src={img}
                         alt=""
-                        className={`price-bg mobile ${index === mobileBg ? 'visible' : ''}`}
+                        className={`price-bg ${index === mobileBg ? 'visible' : ''}`}
                     />
                 ))}
             </div>
 
-            <div className="price-overlay">
+
+            <div className="price-overlay section-inner">
                 <div className="prices-header">
                     <SectionTitle color="white">{t("pricesTitle")}</SectionTitle>
-                    <p className="prices-note">{t("pricesNote")}</p>
+                    <p className="prices-note fade-in">{t("pricesNote")}</p>
                 </div>
 
                 <div className="prices-card-wrapper">
-                    <Card title="Kurser" className="card-price">
+                    {/* Kurspriser */}
+                    <Card title={t("coursesCardTitle")} className="card-price">
                         <ul>
-                            <li> {t("course1Price")}</li>
-                            <li className="favorite-option">{t("course2Price")}</li> {/* <-- LÄGG TILL KLASSNAMNET HÄR */}
-                            <li> {t("course3Price")}</li>
-                            <li> {t("course4Price")}</li>
-                            <li> {t("course5Price")}</li>
+                            <li>{t("course1Price")}</li>
+                            <li className="favorite-option">{t("course2Price")}</li>
+                            <li>{t("course3Price")}</li>
+                            <li>{t("course4Price")}</li>
+                            <li>{t("course5Price")}</li>
                         </ul>
                     </Card>
 
+                    {/* Rabatter */}
                     <Card title={t("discountsCardTitle")} className="card-price">
                         <ul>
                             <li>{t("studentDiscount")}</li>

@@ -1,36 +1,56 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import './css/mainStyle.css';
-import Main from './main';
-import Navbar from './components/Navbar';
-// IMPORTÄNDRING: Nu importerar vi InstructorsPage istället
-import InstructorsPage from "./components/instructorsPage"; // <--- Ändrad import!
-import Contact from "./components/Contact";
-import Values from "./components/Values";
+import { Routes, Route, useLocation } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Main from "./main";
 import FAQpage from "./components/FAQpage";
-import OpenHouseSignup from "./components/SignOpenHouse";
+import Instructors from './components/Instructors';
+import Values from './components/Values';
+import HelpInstructors from "./components/HelpInstructors";
 
 
 function App() {
+    const location = useLocation();
+
     return (
-        <Router>
-            <Navbar />
-            <div className ="app-container">
+        <Routes>
+            <Route
+                path="/"
+                element={
+                    <>
+                        <Navbar />
+                        <Main key={location.key} />
+                    </>
+                }
+            />
+            <Route
+                path="/FAQpage"
+                element={
+                    <>
+                        <Navbar />
+                        <FAQpage />
+                    </>
+                }
+            />
+            <Route
+                path="/instructors"
+                element={
+                    <>
+                        <Navbar />
+                        <Instructors />
+                        <HelpInstructors />
+                    </>
+                }
+            />
 
-            <Routes>
-                <Route path="/" element={<Main />} />
-                {/* RUTTÄNDRING: Använd InstructorsPage här */}
-                <Route path="/instructors" element={<InstructorsPage />} /> {/* <--- Ändrad rutt! */}
-                <Route path="/values" element={<Values />} />
-                <Route path="/FAQpage" element={<FAQpage />} />
-                <Route path="/open-house-signup" element={<OpenHouseSignup />} />
-                <Route path="/contact" element={<Contact />} />
-
-                {/* Fallback route för att fånga 404 */}
-                <Route path="*" element={<Main />} />
-            </Routes>
-        </div>
-
-</Router>
+            <Route
+                path="/values"
+                element={
+                    <>
+                        <Navbar />
+                        <Values />
+                    </>
+                }
+            />
+        </Routes>
     );
 }
 

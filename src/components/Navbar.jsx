@@ -1,124 +1,145 @@
-// src/components/Navbar.jsx (Komplett och fungerande version)
-import '../css/navbar.css';
-import logo from '../img/FuegoLogoimg.png';
-import { useNavigate, useLocation, NavLink } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { scroller } from 'react-scroll';
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import "../css/navbar.css"; // Justera sökvägen vid behov
+import logoImg from "../img/FuegoLogoimg.png";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { FaHome, FaCalendarAlt, FaBook, FaTags, FaStar, FaUsers, FaHeart, FaQuestion } from 'react-icons/fa';
 
 function Navbar() {
-    const [menuOpen, setMenuOpen] = useState(false);
-    const location = useLocation();
-    const navigate = useNavigate();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { t, i18n } = useTranslation("navbarTranslation");
+    const currentLang = i18n.language;
 
-    const menuItems = [
-        { label: t('nav.home'), id: 'heroreel' },
-        { label: t('nav.courses'), id: 'courses' },
-        { label: t('nav.prices'), id: 'prices' },
-        { label: t('nav.events'), id: 'events' },
-        { label: t('nav.instructors'), path: '/instructors' },
-        { label: t('nav.values'), path: '/values' },
-        { label: t('nav.faq'), path: '/FAQpage' },
-        { label: t('nav.contact'), id: 'contact' },
-    ];
-
-    useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth >= 768) setMenuOpen(false);
-        };
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
-    const smoothScrollTo = (elementId) => {
-        scroller.scrollTo(elementId, {
-            duration: 800,
-            delay: 0,
-            smooth: 'easeInOutQuart',
-            offset: -70 // Offset för navbarens höjd
-        });
-        setMenuOpen(false);
+    const handleLanguageChange = (lng) => {
+        i18n.changeLanguage(lng);
     };
 
-    const handleScrollLinkClick = (e, id) => {
-        e.preventDefault();
-        if (location.pathname !== '/') {
-            sessionStorage.setItem('scrollTo', id);
-            navigate('/');
-        } else {
-            smoothScrollTo(id);
-        }
-    };
+    const navigate = useNavigate();
+    const location = useLocation();
 
-    // Denna useEffect hanterar scrollningen efter att man har navigerat hem
-    useEffect(() => {
-        const scrollTarget = sessionStorage.getItem('scrollTo');
-        if (scrollTarget && location.pathname === '/') {
+    const scrollToSection = (sectionId) => {
+        console.log("KNAPP KLICKAD: Försöker scrolla till ->", sectionId);
+        console.log("Nuvarande sökväg:", location.pathname);
+
+        setIsMenuOpen(false);
+
+        // Om vi redan är på startsidan, scrolla direkt
+        if (location.pathname === "/") {
+            console.log("Scrollar direkt på startsidan");
+
             setTimeout(() => {
-                smoothScrollTo(scrollTarget);
-                sessionStorage.removeItem('scrollTo');
-            }, 100); // Liten delay för att sidan ska hinna rendera
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    console.log("Element hittades! Scrollar nu...");
+                    console.log("Element position:", element.offsetTop);
+
+                    // Testa först med scrollIntoView (enklare metod)
+                    element.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+
+                    // Backup: justera för navbar efter scrolling
+                    setTimeout(() => {
+                        const navbarHeight = 70;
+                        const currentScroll = window.pageYOffset;
+                        window.scrollTo({
+                            top: currentScroll - navbarHeight,
+                            behavior: 'smooth'
+                        });
+                    }, 500);
+
+                } else {
+                    console.error(`Element med id="${sectionId}" hittades inte!`);
+                }
+            }, 100);
+
+        } else {
+            console.log("Navigerar till startsidan först");
+            navigate('/', { state: { scrollTo: sectionId } });
         }
-    }, [location.pathname]); // VIKTIGT: Körs varje gång sidans sökväg ändras
-
-    const changeLanguage = (lang) => {
-        i18n.changeLanguage(lang);
     };
-
     return (
         <nav className="navbar">
-            <div className="nav-inner">
-                <div className="logo-container">
-                    <img src={logo} alt="Fuego Dance School Logo" className="logo-img" />
-                    <div className="logo-heading-stacked">
-                        <div className="logo-text-serif">Fuego</div>
-                        <div className="handwrite-text">
-                            {"Dance School".split("").map((char, i) => (
-                                <span key={i}>{char}</span>
-                            ))}
-                        </div>
-                    </div>
+            <div className="logo-container">
+                <img src={logoImg} alt="Logo" className="logo-img" />
+                <div className="logo-heading-stacked">
+                    <div className="logo-text-serif">Fuego </div>
+                    <div className="handwrite-text">Dance School</div>
                 </div>
+            </div>
 
-                <button
-                    className="menu-toggle"
-                    onClick={() => setMenuOpen(!menuOpen)}
-                    aria-label={menuOpen ? "Stäng menyn" : "Öppna menyn"}
-                    aria-expanded={menuOpen}
-                >
-                    ☰
-                </button>
+            <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                ☰
+            </button>
 
-                <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
+            <div className={`nav-wrapper`}>
+                <div className={`nav-links ${isMenuOpen ? "open" : ""}`}>
                     <ul>
-                        {menuItems.map((item, i) => (
-                            <li key={i}>
-                                {item.path ? (
-                                    <NavLink to={item.path} className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={() => setMenuOpen(false)}>
-                                        {item.label}
-                                    </NavLink>
-                                ) : (
-                                    <a href={`#${item.id}`} className="nav-link" onClick={(e) => handleScrollLinkClick(e, item.id)}>
-                                        {item.label}
-                                    </a>
-                                )}
-                            </li>
-                        ))}
+                        {/* UPPDATERAD: Tillbaka till <button> för tillgänglighet */}
+                        <li>
+                            <button className="nav-link" onClick={() => scrollToSection("heroreel")}>
+                                <FaHome className="icon" /> {t("nav.home")}
+                            </button>
+                        </li>
+
+                        {/* UPPDATERAD: Tillbaka till <button> */}
+                        <li>
+                            <button className="nav-link" onClick={() => scrollToSection("schedule")}>
+                                <FaCalendarAlt className="icon" /> {t("nav.schedule")}
+                            </button>
+                        </li>
+
+                        {/* UPPDATERAD: Tillbaka till <button> med CTA-klass */}
+                        <li>
+                            <button className="nav-link nav-link-cta" onClick={() => scrollToSection("courses")}>
+                                <FaBook className="icon" /> {t("nav.courses")}
+                            </button>
+                        </li>
+
+                        {/* UPPDATERAD: Tillbaka till <button> */}
+                        <li>
+                            <button className="nav-link" onClick={() => scrollToSection("prices")}>
+                                <FaTags className="icon" /> {t("nav.prices")}
+                            </button>
+                        </li>
+
+                        {/* UPPDATERAD: Tillbaka till <button> */}
+                        <li>
+                            <button className="nav-link" onClick={() => scrollToSection("events")}>
+                                <FaStar className="icon" /> {t("nav.events")}
+                            </button>
+                        </li>
+
+                        {/* Dessa använder NavLink och är korrekta som de är */}
+                        <li>
+                            <NavLink to="/instructors" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
+                                <FaUsers className="icon" /> {t("nav.instructors")}
+                            </NavLink>
+                        </li>
+
+                        <li>
+                            <NavLink to="/values" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
+                                <FaHeart className="icon" /> {t("nav.values")}
+                            </NavLink>
+                        </li>
+
+                        <li>
+                            <NavLink to="/FAQpage" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
+                                <FaQuestion className="icon" /> {t("nav.faq")}
+                            </NavLink>
+                        </li>
                     </ul>
                 </div>
+            </div>
 
-                <div className="language-switcher">
-                    {i18n.language === 'sv' ? (
-                        <button className="lang-button" onClick={() => changeLanguage('en')} title="Switch to English" aria-label="Switch to English">
-                            <img src="/flag/us.svg" alt="USA Flag" className="flag-icon" />
-                        </button>
-                    ) : (
-                        <button className="lang-button" onClick={() => changeLanguage('sv')} title="Byt till svenska" aria-label="Byt till svenska">
-                            <img src="/flag/se.svg" alt="Swedish Flag" className="flag-icon" />
-                        </button>
-                    )}
-                </div>
+            <div className="language-switcher">
+                {currentLang === "sv" && (
+                    <img src="/flag/us.svg" alt="English" className="flag-icon" onClick={() => handleLanguageChange("en")} />
+                )}
+                {currentLang === "en" && (
+                    <img src="/flag/se.svg" alt="Svenska" className="flag-icon" onClick={() => handleLanguageChange("sv")} />
+                )}
             </div>
         </nav>
     );

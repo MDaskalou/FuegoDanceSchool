@@ -1,16 +1,17 @@
-import "../css/schedule.css";
+// Fil: Schedule.js (KORREKT VERSION)
+
+import "../css/schedule.css"; // Denna import är korrekt och viktig!
 import scheduleImg from "../img/Schedule/Schema.jpg";
 import SectionTitle from "./UI/SectionTitle";
 import { useTranslation } from "react-i18next";
 import React from "react";
 
-
 function Schedule() {
     const { t } = useTranslation("scheduleTranslation");
 
-
     return (
-        <section  id="schedule">
+        // ÄNDRINGEN ÄR HÄR: Från <section id=".."> till <div className="..">
+        <div className="schedule-section">
             <SectionTitle color="white">{t("scheduleTitle")}</SectionTitle>
             <h2 className="schedule-description">{t("scheduleDescription")}</h2>
 
@@ -29,12 +30,8 @@ function Schedule() {
                     Boka nu
                 </a>
             </div>
-
-
-
-        </section>
+        </div>
     );
-
-
 }
+
 export default Schedule;

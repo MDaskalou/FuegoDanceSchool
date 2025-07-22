@@ -91,7 +91,7 @@ export default function Reviews() {
                     <img src={googleIcon} alt="Google" className="source-logo" />
                     <p>{t("googleRating", { ns: 'reviewsTranslation' })}</p>
                     <a href="https://tinyurl.nu/googlereview" target="_blank" rel="noreferrer">
-                        {t("seeReviewsButton", { ns: 'translation' })}
+                        {t("seeReviewsButton", { ns: 'reviewsTranslation' })}
                     </a>
                 </div>
 

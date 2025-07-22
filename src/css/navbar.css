@@ -1,18 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Great+Vibes&display=swap');
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
+
 body {
     max-width: 100vw;
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: 'Playfair Display', serif;
+    background-color: #1a1a1a;
+}
+html {
+    scroll-behavior: smooth;
 }
 
-/* === BAS === */
+
+/* === NAVBAR BAS === */
 .navbar {
-    height: 70px;
+    height: 80px;
     background: linear-gradient(to right, #1f1f1f, #3a1f1d);
     color: white;
-    padding: 5px 15px;
+    padding: 0 16px;
     width: 100%;
     position: fixed;
     top: 0;
@@ -23,147 +33,55 @@ body {
     justify-content: space-between;
 }
 
-.navbar a {
-    white-space: nowrap;
-}
-
 /* === LOGO === */
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 12px;
-    position: relative;
-    top: 4px;
-    left: 10px;
-    z-index: 1001;
+    gap: 10px;
 }
 
 .logo-img {
     height: 60px;
     width: auto;
     border-radius: 50%;
-    filter: drop-shadow(0 0 5px #f26722);
+    filter: drop-shadow(0 0 4px #f26722);
 }
 
 .logo-heading-stacked {
-    font-size: 1.6rem;
-    line-height: 1;
+    font-size: 1.5rem;
+    line-height: 1.1;
 }
 
 .logo-text-serif {
-    font-family: 'Playfair Display', serif;
     font-weight: 700;
     color: #f26722;
+    font-family: 'Playfair Display', serif;
 }
 
 .handwrite-text {
     font-family: 'Great Vibes', cursive;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: white;
-    position: relative;
-    left: 12px;
+    margin-left: 6px;
 }
 
-/* === MOBILE FIRST - DEFAULT STYLING === */
-
-/* Menu toggle - visas som standard (mobil) */
-.menu-toggle {
-    position: absolute;
-    right: 1rem;
-    top: 1.5rem;
-    font-size: 2rem;
-    color: white;
-    background: none;
-    border: none;
-    z-index: 1001;
-}
-
-
-
-/* Nav wrapper - enkel som standard */
-.nav-wrapper {
-    position: relative;
-}
-
-/* Nav links - dold som standard (mobil) */
-.nav-links {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-
-    background-color: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(10px);
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.7));
-
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    z-index: 999;
-    box-sizing: border-box;
-    padding-top: 80px;
-
-    animation: fadeSlideDown 0.3s ease-out;
-}
-
-
-.nav-links.open {
-    display: flex;
-}
-
-.nav-links ul {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    width: 100%;
-    max-width: 280px;
-}
-
-
-.nav-links ul li {
-    width: 100%;
-}
-
-.nav-links ul li a {
-    display: block;
-    padding: 12px 18px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: white;
-    background-color: rgba(30, 30, 30, 0.85);
-    border-radius: 12px;
-    text-align: center;
-    text-decoration: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.nav-links ul li a:hover {
-    background-color: #f26722;
-    transform: scale(1.04);
-}
-
+/* === LANGUAGE SWITCHER (höger justerad) === */
 .language-switcher {
     position: absolute;
-    top: 2.5rem;
-    right: 5rem; /* justera efter hamburgarens position */
-    z-index: 20;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-
-
-
 .flag-icon {
-    width: 28px;
-    height: auto;
+    width: 26px;
+    height: 26px;
     cursor: pointer;
     border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.5);
     transition: transform 0.2s ease;
 }
 
@@ -171,21 +89,115 @@ body {
     transform: scale(1.1);
 }
 
+/* === MENU TOGGLE === */
+.menu-toggle {
+    font-size: 2rem;
+    color: white;
+    background: none;
+    border: none;
+    z-index: 1001;
+}
 
+/* === NAV LINKS (mobilmeny) === */
+/* ALL KOD HÄR ÄR UPPDATERAD */
 
+.nav-wrapper {
+    position: relative;
+}
 
-
-
-/* Dölj ikoner på mobil */
-.icon-container {
+.nav-links {
     display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(8px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    padding-top: 80px; /* lite utrymme från toppen */
+    animation: fadeSlideUp 0.4s ease-out forwards;
+}
+
+.nav-links.open {
+    display: flex;
+}
+
+.nav-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-links ul li {
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-link {
+    background: none;
+    border: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #e0e0e0;
+    text-decoration: none;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: auto;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-link:hover {
+    color: #f26722;
+    transform: translateX(8px);
+    background-color: transparent;
+}
+
+.nav-link.active {
+    color: #f26722;
+    font-weight: 700;
+}
+
+.nav-link .icon {
+    font-size: 1.6rem;
+    vertical-align: middle;
+}
+
+/* Valfri CTA-knapp för "Kurser" */
+.nav-link-cta {
+    background-color: #f26722;
+    color: white !important; /* Säkerställ att texten är vit */
+    border-radius: 30px;
+    padding: 12px 24px;
+}
+
+.nav-link-cta:hover {
+    color: white !important; /* Behåll vit text */
+    transform: scale(1.05) translateX(0); /* Zooma istället för att flytta */
+}
+
+.nav-link-cta.active {
+    color: white !important;
 }
 
 /* === ANIMATION === */
-@keyframes fadeSlideDown {
+@keyframes fadeSlideUp {
     from {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(10px);
     }
     to {
         opacity: 1;
@@ -193,90 +205,69 @@ body {
     }
 }
 
-/* === DESKTOP LAYOUT (min-width: 768px) === */
+/* === DESKTOP === */
+/* Denna del är oförändrad och ser till att desktop-vyn fungerar som förut */
 @media (min-width: 768px) {
-    /* Dölj hamburgermenyn */
     .menu-toggle {
         display: none;
     }
 
-    /* Justera navbar layout */
     .navbar {
-        height: 80px;
-        padding: 0 32px;
-        display: flex;
-        align-items: center;
-    }
-
-    .logo-container {
-        position: static;
-        gap: 16px;
-        top: auto;
-        left: auto;
+        padding: 0 40px;
     }
 
     .nav-wrapper {
         display: flex;
-        justify-content: flex-end;
         flex: 1;
-        text-align: center;
-        height: 100%;
+        justify-content: center;
     }
 
     .nav-links {
         display: flex !important;
         position: static;
+        height: auto;
+        width: auto;
         flex-direction: row;
         align-items: center;
-        justify-content: center;
         background: none;
-        backdrop-filter: none;         /* 🔥 tar bort suddighet */
-        background-image: none;
+        backdrop-filter: none;
         padding: 0;
-        height: 100%;
-        box-shadow: none;
+        animation: none;
     }
 
     .nav-links ul {
         flex-direction: row;
-        gap: 1.5rem;
-        max-width: none;
-        width: auto;
+        gap: 20px;
+        padding: 0;
     }
 
     .nav-links ul li {
         width: auto;
     }
 
-        .nav-links ul li a {
-            padding: 8px 16px; /* Sänkt vertikal padding */
-            font-size: 1.2rem;
-            border-radius: 12px;
-            background-color: rgba(255, 255, 255, 0.07);
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: none;
-            margin-top: -16px;
-
-            display: flex;
-            align-items: center;
-            height: 100%;
-        }
-
-
-    .nav-links ul li a:hover {
-        background-color: #f26722;
+    .nav-link {
+        font-size: 1.1rem; /* Återställ fontstorlek för desktop */
+        font-weight: 600;
         color: white;
-        box-shadow: 0 4px 8px rgba(242, 103, 34, 0.3);
-        transform: none;
+        background: rgba(255, 255, 255, 0.08);
+        padding: 10px 16px;
+        border-radius: 12px;
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     }
 
-    /* Visa ikoner (t.ex. login) om du har det i desktop */
-    .icon-container {
-        display: flex;
-        align-items: center;
-        gap: 12px;
+    .nav-link:hover {
+        background-color: #f26722;
+        box-shadow: 0 4px 10px rgba(242, 103, 34, 0.3);
+        transform: scale(1.05) translateX(0);
+    }
+
+    .nav-link.active {
+        background-color: #f26722;
+        color: #fff;
+    }
+
+    .nav-link-cta {
+        /* Se till att CTA ser bra ut på desktop också */
+        box-shadow: 0 0 15px rgba(242, 103, 34, 0.5);
     }
 }

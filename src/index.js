@@ -1,24 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { ToastProvider } from "./components/UI/Toast/ToastContext";
-import './i18n'; // <-- DENNA RAD STARTAR HELA ÖVERSÄTTNINGSSYSTEMET
-
+import { BrowserRouter } from 'react-router-dom'; // 👈 viktigt!
+import { ToastProvider } from './components/UI/Toast/ToastContext'; // justera om sökvägen skiljer sig
+import './i18n';
+import './index.css'; // 👈 LÄGG TILL DENNA RAD
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
-        <ToastProvider>
-            <App />
-        </ToastProvider>
+        <BrowserRouter> {/* 👈 detta behövs för routing */}
+            <ToastProvider> {/* 👈 detta fixar toast-felet också */}
+                <App />
+            </ToastProvider>
+        </BrowserRouter>
     </React.StrictMode>
 );
-
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

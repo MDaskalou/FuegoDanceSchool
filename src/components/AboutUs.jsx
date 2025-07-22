@@ -1,5 +1,4 @@
-// src/components/About.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import '../css/aboutus.css';
@@ -14,6 +13,16 @@ function About() {
     const { t } = useTranslation("aboutusTranslation");
     const navigate = useNavigate();
     const [lightboxIndex, setLightboxIndex] = useState(-1);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 769);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     const slides = aboutUsImages.map(({ src, width, height, alt }) => ({
         src,
@@ -22,50 +31,49 @@ function About() {
         alt,
     }));
 
-    return (
-        <>
-            <section id="about-us" className="about-section">
-                <div className="about-layout-wrapper">
-                    <div className="about-text-container">
-                        <SectionTitle>{t("aboutTitle")}</SectionTitle>
-                        <p className="about-description">{t("aboutText")}</p>
-                        <div className="about-cta">
-                            <Button onClick={() => navigate('/instructors')}>
-                                {t("meetInstructorsButton")}
-                            </Button>
-                        </div>
-                    </div>
+    const imagesToShow = isMobile ? aboutUsImages : [...aboutUsImages, ...aboutUsImages, ...aboutUsImages];
 
-                    <div className="about-image-wrapper">
-                        <div className="scroller-wrapper">
-                            <div className="scroller-inner">
-                                {aboutUsImages.map((photo, index) => (
-                                    <div
-                                        key={`first-${index}-${photo.src}`}
-                                        className="photo-item"
-                                        onClick={() => setLightboxIndex(index)}
-                                    >
-                                        <img
-                                            src={photo.src}
-                                            alt={photo.alt}
-                                            style={{ aspectRatio: `${photo.width} / ${photo.height}` }}
-                                        />
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
+    return (
+        <section id="about-us" className="about-section">
+            <div className="about-layout-wrapper">
+                <div className="about-text-container">
+                    <SectionTitle>{t("aboutTitle")}</SectionTitle>
+                    <p className="about-description">{t("aboutText")}</p>
+                    <div className="about-cta">
+                        <Button onClick={() => navigate('/instructors')}>
+                            {t("meetInstructorsButton")}
+                        </Button>
                     </div>
                 </div>
 
-                <Lightbox
-                    open={lightboxIndex >= 0}
-                    index={lightboxIndex}
-                    close={() => setLightboxIndex(-1)}
-                    slides={slides}
-                />
-            </section>
+                <div className="about-image-wrapper">
+                    <div className="scroller-wrapper">
+                        <div className="scroller-inner">
+                            {imagesToShow.map((photo, index) => (
+                                <div
+                                    key={`photo-${index}-${photo.src}`}
+                                    className="photo-item"
+                                    onClick={() => setLightboxIndex(index % aboutUsImages.length)}
+                                >
+                                    <img
+                                        src={photo.src}
+                                        alt={photo.alt}
+                                        style={{ aspectRatio: `${photo.width} / ${photo.height}` }}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        </>
+            <Lightbox
+                open={lightboxIndex >= 0}
+                index={lightboxIndex}
+                close={() => setLightboxIndex(-1)}
+                slides={slides}
+            />
+        </section>
     );
 }
 

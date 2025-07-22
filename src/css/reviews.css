@@ -109,40 +109,60 @@
 }
 
 /* Desktop version */
+/* Desktop version */
 @media (min-width: 1024px) {
-    .review-card {
-        flex: 0 1 calc(33.333% - 20px);  /* Minskad gap från 30px till 20px */
-        min-width: 350px;  /* Lägg till min-width för att garantera bredd */
-        max-width: 450px;  /* Sätt en max-width för att begränsa på stora skärmar */
-        padding: 100px 50px 40px;  /* Ökat sidopadding för mer innehåll */
-        margin: 80px 0 0;
+    .review-sources {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 60px;
     }
 
-    .review-img-wrapper {
-        width: 140px;
-        height: 140px;
-        top: -50px;
+    .review-source {
+        flex: 1 1 220px;
+        max-width: 240px;
+        background: rgba(255, 255, 255, 0.07);
+        padding: 28px 24px;
+        border-radius: 20px;
+        backdrop-filter: blur(6px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
     }
 
-    .review-name {
-        margin-top: 70px;
+    .review-source:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
     }
-    .reviews-title {
-        font-size: 2.5rem;
+
+    .source-logo {
+        width: 100px;
+        height: auto;
+        margin-bottom: 16px;
+        filter: none; /* Ta bort eventuell dimming */
     }
-    .reviews-subtitle {
-        font-size: 1.2rem;
+
+    .review-source p {
+        font-size: 1rem;
+        color: #fff;
+        margin-bottom: 14px;
+        font-weight: 500;
+    }
+
+    .review-source a {
+        font-size: 0.9rem;
+        color: #f26722;
+        text-decoration: none;
+        border-bottom: 2px solid transparent;
+        transition: all 0.3s ease;
+        font-weight: 600;
+    }
+
+    .review-source a:hover {
+        border-bottom-color: #f26722;
+        color: #fff;
     }
 }
 
-/* För extra stora skärmar */
-@media (min-width: 1400px) {
-    .reviews-wrapper {
-        max-width: 1200px;  /* Begränsa total bredd */
-        margin: 0 auto;
-    }
 
-    .review-card {
-        max-width: 380px;  /* Begränsa max-bredd på stora skärmar */
-    }
-}

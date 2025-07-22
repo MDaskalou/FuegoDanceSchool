@@ -1,56 +1,71 @@
-﻿/* === Allmänt (mobil först) === */
-
-.prices-section {
+﻿.prices-section {
     position: relative;
-    width: 100vw;
-    margin: 0;
+    width: 100%;
     padding: 60px 20px;
     min-height: 100vh;
     overflow: hidden;
-    z-index: 1;
     background-color: #1f1f1f;
 }
 
-.prices-section::before {
-    content: "";
+.price-bg-wrapper {
     position: absolute;
     top: 0; left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
     z-index: 0;
 }
+
+.price-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: 0;
+}
+
+.price-bg.visible {
+    opacity: 1;
+}
+
 
 .section-inner {
     position: relative;
     z-index: 2;
     max-width: 1200px;
     margin: 0 auto;
-}
-
-.prices-header {
-    position: relative;
-    z-index: 3;
-    padding: 10px 20px;
-    border-radius: 10px;
+    text-align: center;
 }
 
 .prices-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: white;
-    text-align: center;
-    margin-bottom: 0.5rem;
     font-weight: 700;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    margin-bottom: 0.8rem;
 }
 
 .prices-note {
-    font-size: 1.1rem;
-    text-align: center;
-    color: var(--primary-color);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #f26722;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
+    display: inline-block;
     margin-bottom: 2rem;
-    font-weight: 500;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
+    animation: bounceIn 0.8s ease-out both;
+}
+
+@keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.9) translateY(-20px); }
+    60% { opacity: 1; transform: scale(1.05) translateY(8px); }
+    100% { transform: scale(1) translateY(0); }
 }
 
 .prices-card-wrapper {
@@ -59,52 +74,19 @@
     gap: 30px;
     justify-content: center;
     align-items: center;
-    padding: 0;
 }
 
-.favorite-option {
-    position: relative; /* Nödvändigt för att kunna positionera 'stämpeln' */
-    background-color: rgba(242, 103, 34, 0.1); /* Subtil orange bakgrundsfärg */
-    border: 1px solid rgba(242, 103, 34, 0.5); /* Tydligare orange ram */
-    border-radius: 8px;
-    padding: 8px 12px;
-    /* Negativ marginal för att kompensera för paddingen så den inte blir för bred */
-    margin-left: -12px;
-    margin-right: -12px;
-    transform: scale(1.05); /* Gör den lite större för att den ska "poppa" */
-    font-weight: bold;
-    color: #FFFFFF; /* Säkerställer att texten förblir vit och tydlig */
-    transition: all 0.2s ease-in-out;
-}
-
-/* Skapar en liten "Populärast"-stämpel med CSS */
-.favorite-option::after {
-    content: 'Populärast'; /* Texten i stämpeln */
-    position: absolute;
-    top: -10px; /* Positionera den lite ovanför raden */
-    right: 12px;
-    background-color: var(--color-accent, #f26722); /* Använder din globala accentfärg */
-    color: white;
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-size: 0.7rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* Kortutseende */
 .card-price {
     border: 2px solid rgba(255, 255, 255, 0.15);
     background-color: rgba(0, 0, 0, 0.75);
     border-radius: 20px;
     padding: 20px;
     color: white;
+    max-width: 340px;
     width: 100%;
-    max-width: 320px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(2px);
     text-align: center;
+    backdrop-filter: blur(3px);
     transition: transform 0.3s ease;
 }
 
@@ -114,121 +96,96 @@
 }
 
 .card-price h3 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
+    font-size: 1.4rem;
     color: #f26722;
+    margin-bottom: 12px;
 }
 
 .card-price ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    line-height: 1.6;
+    line-height: 1.8;
 }
 
 .card-price ul li {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    padding: 6px 0;
+    transition: background 0.2s;
 }
 
-.prices-cta {
-    text-align: center;
-    margin-top: 40px;
-    z-index: 2;
+.card-price ul li:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-radius: 6px;
+}
+
+/* Populärast-stämpel */
+.favorite-option {
     position: relative;
+    background-color: rgba(242, 103, 34, 0.12);
+    border: 1px solid rgba(242, 103, 34, 0.5);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-weight: bold;
+    color: white;
+    transform: scale(1.05);
+}
+.favorite-option::after {
+    content: 'Populärast';
+    position: absolute;
+    top: -16px;         /* Höj den lite mer ovanför texten */
+    left: 50%;          /* Centrera */
+    transform: translateX(-50%); /* Gör så den är centrerad */
+    background-color: var(--color-accent, #f26722);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+
+.prices-cta {
+    margin-top: 40px;
 }
 
 .prices-cta .btn {
-    display: inline-block;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
-    padding: 14px 32px;
-    border-radius: 40px;
-    background-color: #f26722;
+    padding: 16px 36px;
+    border-radius: 50px;
+    background: linear-gradient(145deg, #f26722, #d45200);
     color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
     text-decoration: none;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-    max-width: 300px;
-    width: 100%;
+    transition: transform 0.3s, background 0.3s;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .prices-cta .btn:hover {
-    background-color: #d45200;
+    background: linear-gradient(145deg, #d45200, #f26722);
+    transform: scale(1.05);
 }
 
-
-/* === Bakgrundsbilder === */
-
-.price-bg-wrapper {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.price-bg.mobile {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 1.8s ease-in-out;
-    z-index: 0;
-}
-
-.price-bg.mobile.visible {
-    opacity: 1;
-    z-index: 1;
-}
-
-/* === Animationer === */
-
-.prices-overlay {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 1s ease-in-out forwards;
-}
-
-/* === DESKTOP-VY === */
-
+/* === Responsivitet === */
 @media screen and (min-width: 768px) {
     .prices-card-wrapper {
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: nowrap; /* ändra från wrap till nowrap */
         gap: 40px;
         justify-content: center;
         align-items: stretch;
     }
 
     .card-price {
-        flex: 1 1 280px;
-        max-width: 300px;
-        height: auto;
+        flex: 1 1 300px;
+        max-width: 400px;
     }
 
     .prices-title {
-        font-size: 2.5rem;
-    }
-
-    .prices-note {
-        font-size: 1.2rem;
+        font-size: 2.8rem;
     }
 }

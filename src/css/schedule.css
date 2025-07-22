@@ -1,13 +1,21 @@
 ﻿/* schedule.css (Korrigerad och städad version) */
 
-#schedule {
+/* Fil: schedule.css (DENNA ÄR REDAN KORREKT) */
+
+.schedule-section {
+    min-height: 100vh;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 4rem 1rem; /* Lite mer luft för en snyggare look */
+    padding: 4rem 1rem;
 
-    background: var(--color-background);
-    color: var(--color-primary, white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+/* ... resten av din css ... */
 
 
 .schedule-image {
