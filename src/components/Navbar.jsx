@@ -4,6 +4,9 @@ import "../css/navbar.css"; // Justera sökvägen vid behov
 import logoImg from "../img/FuegoLogoimg.png";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { FaHome, FaCalendarAlt, FaBook, FaTags, FaStar, FaUsers, FaHeart, FaQuestion } from 'react-icons/fa';
+import usFlag from "../img/Flags/us.svg";
+import seFlag from "../img/Flags/se.svg";
+
 
 function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -135,10 +138,10 @@ function Navbar() {
 
             <div className="language-switcher">
                 {currentLang === "sv" && (
-                    <img src="/flag/us.svg" alt="English" className="flag-icon" onClick={() => handleLanguageChange("en")} />
+                    <img src={usFlag} alt="English" className="flag-icon" onClick={() => handleLanguageChange("en")} />
                 )}
                 {currentLang === "en" && (
-                    <img src="/flag/se.svg" alt="Svenska" className="flag-icon" onClick={() => handleLanguageChange("sv")} />
+                    <img src={seFlag} alt="Svenska" className="flag-icon" onClick={() => handleLanguageChange("sv")} />
                 )}
             </div>
         </nav>
