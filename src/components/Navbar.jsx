@@ -4,8 +4,6 @@ import "../css/navbar.css"; // Justera sökvägen vid behov
 import logoImg from "../img/FuegoLogoimg.png";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { FaHome, FaCalendarAlt, FaBook, FaTags, FaStar, FaUsers, FaHeart, FaQuestion } from 'react-icons/fa';
-import usFlag from "../img/Flags/us.svg";
-import seFlag from "../img/Flags/se.svg";
 
 
 function Navbar() {
@@ -138,10 +136,22 @@ function Navbar() {
 
             <div className="language-switcher">
                 {currentLang === "sv" && (
-                    <img src={usFlag} alt="English" className="flag-icon" onClick={() => handleLanguageChange("en")} />
+                    <span
+                        className="flag-emoji"
+                        onClick={() => handleLanguageChange("en")}
+                        title="Switch to English"
+                    >
+            🇺🇸
+        </span>
                 )}
                 {currentLang === "en" && (
-                    <img src={seFlag} alt="Svenska" className="flag-icon" onClick={() => handleLanguageChange("sv")} />
+                    <span
+                        className="flag-emoji"
+                        onClick={() => handleLanguageChange("sv")}
+                        title="Byt till Svenska"
+                    >
+            🇸🇪
+        </span>
                 )}
             </div>
         </nav>

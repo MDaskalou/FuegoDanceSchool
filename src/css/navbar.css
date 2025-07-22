@@ -193,6 +193,21 @@ html {
     color: white !important;
 }
 
+/* === Flag ikon === */
+
+.flag-emoji {
+    font-size: 26px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    display: inline-block;
+    padding: 2px;
+    border-radius: 50%;
+    line-height: 1;
+}
+
+.flag-emoji:hover {
+    transform: scale(1.1);
+}
 /* === ANIMATION === */
 @keyframes fadeSlideUp {
     from {
@@ -205,8 +220,6 @@ html {
     }
 }
 
-/* === DESKTOP === */
-/* Denna del är oförändrad och ser till att desktop-vyn fungerar som förut */
 @media (min-width: 768px) {
     .menu-toggle {
         display: none;
@@ -237,7 +250,8 @@ html {
 
     .nav-links ul {
         flex-direction: row;
-        gap: 20px;
+        align-items: center; /* Centrera på höjden */
+        gap: 28px; /* Lite större gap för ett luftigare intryck */
         padding: 0;
     }
 
@@ -245,29 +259,48 @@ html {
         width: auto;
     }
 
+    /* Standardlänken - nu en ren textlänk */
     .nav-link {
-        font-size: 1.1rem; /* Återställ fontstorlek för desktop */
-        font-weight: 600;
-        color: white;
-        background: rgba(255, 255, 255, 0.08);
-        padding: 10px 16px;
-        border-radius: 12px;
+        font-size: 1.1rem;
+        font-weight: 500; /* Något tunnare fontvikt */
+        color: var(--color-secondary, #a0a0a0); /* Gråare färg för inaktiva länkar */
+        background: none; /* Ingen bakgrund! */
+        padding: 8px 4px; /* Minimal padding */
+        border-radius: 0;
+        border: none;
+        transition: color 0.3s ease, transform 0.2s ease;
+    }
+
+    /* Hover-effekt för textlänkar */
+    .nav-link:hover {
+        color: var(--color-primary, white); /* Blir vit vid hover */
+        transform: translateY(-2px); /* Liten lyft-effekt */
+        background: none;
+        box-shadow: none;
+    }
+
+    /* Stil för den aktiva sidan */
+    .nav-link.active {
+        color: var(--color-accent, #f26722); /* Orange text */
+        font-weight: 700; /* Fetare text */
+        background: none;
+    }
+
+    /* Stil för vår Call-to-Action knapp (Kurser) */
+    .nav-link-cta {
+        background: var(--color-accent, #f26722);
+        color: white !important; /* Säkerställ vit text */
+        font-weight: 700;
+        padding: 12px 24px;
+        border-radius: 50px; /* Mer rundad för en modern känsla */
         transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     }
 
-    .nav-link:hover {
-        background-color: #f26722;
-        box-shadow: 0 4px 10px rgba(242, 103, 34, 0.3);
-        transform: scale(1.05) translateX(0);
-    }
-
-    .nav-link.active {
-        background-color: #f26722;
-        color: #fff;
-    }
-
-    .nav-link-cta {
-        /* Se till att CTA ser bra ut på desktop också */
-        box-shadow: 0 0 15px rgba(242, 103, 34, 0.5);
+    /* Hover-effekt för CTA-knappen */
+    .nav-link-cta:hover {
+        background-color: var(--color-accent-hover, #ffaf4d);
+        color: white !important;
+        transform: translateY(-2px) scale(1.03);
+        box-shadow: 0 6px 15px rgba(242, 103, 34, 0.4);
     }
 }
