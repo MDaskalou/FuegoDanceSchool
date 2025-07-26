@@ -1,0 +1,8 @@
+﻿# Fil: netlify.toml
+
+[build]
+# Kommandot för att bygga din React-app
+command = "npm run build"
+
+# Mappen där de färdiga filerna hamnar
+publish = "build"
