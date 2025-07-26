@@ -43,9 +43,6 @@ function Contact() {
     return (
         <Section id="contact" className="contact-section">
             <div className="contact-wrapper">
-
-                {/* --- ÄNDRINGEN ÄR HÄR --- */}
-                {/* Kartan FÖRST */}
                 <div className="contact-map">
                     <iframe
                         title="Google Maps"
@@ -53,14 +50,13 @@ function Contact() {
                         height="100%"
                         frameBorder="0"
                         style={{ border: 0 }}
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2134.197022137151!2d11.942735677353174!3d57.69747207402124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ff5a7703310e7%3A0x23d0b764a43b2f81!2sFuego%20Dance%20School!5e0!3m2!1ssv!2sse!4v1722005085448!5m2!1ssv!2sse"
+                        src= "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d68262.12540741275!2d11.894052670130037!3d57.67922592869809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ff333fb246001%3A0x4dac4bbc34026a14!2sBachata%20I%20Dansskola%20I%20Fuego%20Dance%20School!5e0!3m2!1ssv!2sse!4v1753542122522!5m2!1ssv!2sse"
                         allowFullScreen
                     ></iframe>
                 </div>
-
-                {/* Formuläret SEDAN */}
                 <div className="contact-form-container">
                     <SectionTitle color="white">{t("contactTitle")}</SectionTitle>
+                    {/* DEN KORRIGERADE RADEN ÄR HÄR */}
                     <p className="contact-subtitle">{t("contactSubtitle")}</p>
 
                     <form ref={formRef} onSubmit={handleSubmit} className="contact-form">
@@ -93,8 +89,6 @@ function Contact() {
 
                     {showModal && <SuccessMessangerModal onClose={() => setShowModal(false)} />}
                 </div>
-                {/* --- SLUT PÅ ÄNDRING --- */}
-
             </div>
         </Section>
     );

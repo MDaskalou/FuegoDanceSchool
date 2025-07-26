@@ -1,43 +1,69 @@
-﻿.contact-section {
+﻿/* Fil: contact.css (Komplett och slutgiltig version) */
+
+/* ================================== */
+/* MOBIL-FÖRST (Allt i en kolumn)     */
+/* ================================== */
+
+.contact-section {
     padding: 4rem 1rem;
+    min-height: 100vh;
+    display: flex; /* Används för att centrera innehållet på sidan */
+    align-items: center;
 }
 
 .contact-wrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Allt ligger i en kolumn på mobilen */
     gap: 40px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1200px; /* En bra standard-maxbredd för innehåll */
     margin: 0 auto;
-    padding: 0 20px;
 }
 
-.contact-form-container {
-    flex: 1;
-    min-width: 300px;
-}
-
-.contact-title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #fff;
-    margin-bottom: 0.5rem;
+.contact-form-container,
+.contact-map {
+    width: 100%; /* Fyller hela bredden på mobilen */
 }
 
 .contact-subtitle {
     font-size: 1.1rem;
     color: #ddd;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
+.contact-map {
+    min-height: 350px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Styling för formulärfälten */
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border-radius: 5px;
-    border: none;
+    padding: 14px 18px;
+    margin-bottom: 1.5rem;
     font-size: 1rem;
+    font-family: inherit;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border: 1px solid #444;
+    border-radius: 8px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--color-accent, #f26722);
+    box-shadow: 0 0 0 3px rgba(242, 103, 34, 0.3);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: white;
+    opacity: 1;
 }
 
 .contact-form textarea {
@@ -45,47 +71,25 @@
     min-height: 120px;
 }
 
-.booking-button {
-    display: inline-block;
-    margin-top: 1rem;
-    background-color: #f15a24;
-    color: #fff;
-    padding: 0.75rem 2rem;
-    border-radius: 30px;
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
 
-.booking-button:hover {
-    background-color: #d04d1d;
-}
-
-.contact-map {
-    flex: 1;
-    height: 300px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-}
-
+/* ================================== */
+/* DESKTOP-ANPASSNINGAR               */
+/* ================================== */
 @media (min-width: 1024px) {
+
     .contact-wrapper {
-        flex-direction: row;
-        /* ÄNDRING: Centrerar innehållet vertikalt */
-        align-items: center;
+        flex-direction: row; /* Lägg elementen i rad */
+        align-items: center; /* Centrera dem vertikalt */
         gap: 60px;
     }
 
-    .contact-map {
-        height: 500px; /* Lite högre karta för bättre balans */
-        margin-top: 0;
+    /* Båda kolumnerna får nu lika mycket utrymme */
+    .contact-map,
+    .contact-form-container {
+        flex: 1; /* Detta betyder "dela på utrymmet lika" */
     }
 
-    .contact-form-container {
-        max-width: 600px;
-        /* ÄNDRING: Vänsterställer all text och rubriker */
-        text-align: left;
+    .contact-map {
+        height: 600px;
     }
 }
