@@ -37,8 +37,25 @@ function About() {
         <section id="about-us" className="about-section">
             <div className="about-layout-wrapper">
                 <div className="about-text-container">
-                    <SectionTitle>{t("aboutTitle")}</SectionTitle>
-                    <p className="about-description">{t("aboutText")}</p>
+                    <SectionTitle color="white">{t("aboutTitle")}</SectionTitle>
+                    <div className="about-description">
+                        {t('aboutText', { returnObjects: true }).map((paragraph, index) => {
+                            // Om paragrafen slutar med ':', styla den som en underrubrik
+                            if (paragraph.endsWith(':')) {
+                                return <p key={index} className="about-subheading">{paragraph}</p>;
+                            }
+                            // Om paragrafen är en listpunkt (identifierad genom att den följer en rubrik)
+                            // Detta är en förenklad logik. Förutsätter att listpunkter inte slutar på ':'.
+                            const previousParagraph = t('aboutText', { returnObjects: true })[index - 1] || '';
+                            if (previousParagraph.endsWith(':') || paragraph.startsWith('•')) {
+                                // Vi tar bort eventuellt • som kan finnas kvar och trimmar
+                                const text = paragraph.replace('•', '').trim();
+                                return <p key={index} className="about-list-item">{text}</p>;
+                            }
+                            // Annars, rendera som en vanlig paragraf
+                            return <p key={index}>{paragraph}</p>;
+                        })}
+                    </div>
                     <div className="about-cta">
                         <Button onClick={() => navigate('/instructors')}>
                             {t("meetInstructorsButton")}

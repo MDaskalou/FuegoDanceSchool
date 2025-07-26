@@ -1,5 +1,18 @@
 ﻿{
   "aboutTitle": "Om Fuego Dance School",
-  "aboutText": "Fuego Dance School grundades ur en djup kärlek till Bachata Sensual – en dansstil som uttrycker känsla, närvaro och musikalitet. Vi erbjuder mer än bara danslektioner – vi skapar en trygg, energifylld och inkluderande miljö där du får växa, oavsett erfarenhetsnivå.",
+    "aboutText": [
+      "Fuego Dance School öppnade sina portar hösten 2021, lett av Mikael Daskalou och Irina Kurochkina. Vårt främsta fokus är Bachata Sensual, som vi undervisar på flera olika nivåer – anpassade för alla, från rena nybörjare till erfarna dansare.",
+      "Skolan drivs av en passion för dansens förmåga att förena människor och uttrycka känslor. För oss är detta mer än bara danssteg; det är en plats för gemenskap, glädje och personlig utveckling. Vi strävar efter att skapa en trygg och inkluderande atmosfär där varje elev känner sig sedd och uppmuntrad.",
+      "Oavsett om du vill lära dig grunderna, finslipa din teknik eller bara hitta en ny gemenskap, så är du varmt välkommen att bli en del av vår Fuego-familj."
+    ,
+    "Det som gör vår skola unik:",
+    "• Vi har hjälpinstruktörer på våra klasser för att ge dig mer personlig feedback.",
+    "• Vi lägger stor vikt vid teknik och förståelsen för dansens grundprinciper.",
+    "Vårt mål är att du som student ska:",
+    "• Känna dig som en del av Fuego-familjen.",
+    "• Uppleva en trygg och välkomnande atmosfär.",
+    "• Utveckla din dansteknik och ditt självförtroende.",
+    "• Bli en respektfull och musikalisk dansare, oavsett roll."
+  ],
   "meetInstructorsButton": "Möt våra instruktörer"
 }

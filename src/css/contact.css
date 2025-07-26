@@ -73,16 +73,19 @@
 @media (min-width: 1024px) {
     .contact-wrapper {
         flex-direction: row;
-        align-items: flex-start;
+        /* ÄNDRING: Centrerar innehållet vertikalt */
+        align-items: center;
         gap: 60px;
     }
 
     .contact-map {
-        height: 450px;
+        height: 500px; /* Lite högre karta för bättre balans */
         margin-top: 0;
     }
 
     .contact-form-container {
         max-width: 600px;
+        /* ÄNDRING: Vänsterställer all text och rubriker */
+        text-align: left;
     }
 }

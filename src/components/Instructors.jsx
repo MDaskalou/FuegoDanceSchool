@@ -7,6 +7,7 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import '../css/instructors.css';
+import SectionTitle from "./UI/SectionTitle"; // Importera din SectionTitle-komponent
 
 export default function Instructors({ openModal }) {
     const { t } = useTranslation("instructorsTranslation");
@@ -15,7 +16,7 @@ export default function Instructors({ openModal }) {
 
     return (
         <section className="instructor-section">
-            <h2 className="instructor-title">{t("mainInstructorsTitle")}</h2>
+            <SectionTitle color="white">{t("mainInstructorsTitle")}</SectionTitle>
             <Swiper
                 modules={[Navigation]}
                 navigation
@@ -50,13 +51,7 @@ export default function Instructors({ openModal }) {
                             </div>
                             <button
                                 className="more-info-btn"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    e.stopPropagation();
-                                    // Skicka BARA med instruktörs-objektet från vår datakälla.
-                                    // Modalen kommer själv att hämta texterna.
-                                    openModal(instructor);
-                                }}
+                                onClick={() => openModal(instructor)} // Använder openModal här
                             >
                                 {t("moreInfoButton")}
                             </button>

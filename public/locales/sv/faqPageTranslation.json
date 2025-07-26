@@ -11,11 +11,11 @@
   "category_prices": "Priser och rabatter",
   "category_registration": "Anmälan",
   "faq_what_is_sensual_question": "Vad är Bachata Sensual?",
-  "faq_what_is_sensual_answer": "Bachata Sensual är en modern stil av bachata med mjuka, flytande rörelser och starkt fokus på kontakt och musikalitet.",
+  "faq_what_is_sensual_answer": "Bachata Sensual är en modern och uttrycksfull stil av bachata som skapades i Spanien av Korke och Judith. Den kännetecknas av mjuka, flytande rörelser som kroppsvågor och isoleringar, där starkt fokus ligger på musiktolkning och en nära kontakt mellan danspartners. Målet är inte bara att utföra steg, utan att använda hela kroppen för att visuellt uttrycka känslorna och nyanserna i musiken. Det är en teknisk men väldigt kommunikativ dans som har blivit otroligt populär världen över.",
   "faq_all_ages_question": "Är kurserna öppna för alla åldrar?",
   "faq_all_ages_answer": "Ja! Vi har elever från 18 till 60+. Alla är välkomna!",
   "faq_private_lessons_question": "Erbjuder ni privatlektioner?",
-  "faq_private_lessons_answer": "Ja! Du kan boka privatlektioner med våra instruktörer – perfekt om du vill utvecklas snabbare eller gå igenom specifika saker.",
+  "faq_private_lessons_answer": "Ja! Du kan boka privatlektioner med våra instruktörer, vilket är perfekt om du vill utvecklas snabbare eller gå igenom specifika saker. Gå till fliken 'Instruktörer' för att läsa mer och kontakta den instruktör du är intresserad av att boka en tid med.",
   "faq_what_to_wear_question": "Vad ska jag ha på mig?",
   "faq_what_to_wear_answer": "Bekväma kläder du kan röra dig fritt i. Sneakers eller dansskor med glid fungerar bra – inget krav på speciella skor.",
   "faq_need_partner_question": "Behöver jag komma med partner?",
@@ -41,9 +41,20 @@
   "faq_cancellation_policy_question": "Kan jag ångra min betalning?",
   "faq_cancellation_policy_answer": "Ja, enligt distansavtalslagen har du 14 dagars ångerrätt från köpet – förutsatt att du inte har påbörjat kursen. Om du anmäler dig och ångrar dig inom 14 dagar *innan kursstart*, kan du få full återbetalning. Men om kursen redan har börjat, eller om du har deltagit i första lektionen (som är gratis prova-på), gäller inte ångerrätten.",
   "faq_how_to_register_question": "Hur anmäler jag mig?",
-  "faq_how_to_register_answer": "Via knappen på hemsidan – fyll i formuläret så får du en bekräftelse via mail inom 24 timmar.",
+  "faq_how_to_register_answer": [
+    "Du kan anmäla dig på två huvudsakliga sätt:",
+    "1) Gå till vår 'Schema'-sida för en komplett översikt av alla klasser och klicka på 'Boka nu' där.",
+    "2) Gå till sidan 'Våra Kurser' för att läsa mer i detalj om en specifik kurs och använda bokningsknappen som finns på varje kurssida."
+  ],
+
+  "faq_open_house_registration_question": "Hur anmäler jag mig till öppet hus?",
+  "faq_open_house_registration_answer": [
+    "Du anmäler dig via knappen 'Anmäl dig till Öppet Hus' som du hittar högst upp på startsidan.",
+    "VIKTIGT: En anmälan garanterar inte en plats. Vi har begränsade platser och det är 'först till kvarn' som gäller."
+  ],
+
   "faq_multiple_courses_question": "Kan jag anmäla mig till flera kurser?",
   "faq_multiple_courses_answer": "Absolut! Du väljer enkelt flera kurser i anmälningsformuläret.",
-  "faq_never_danced_before_answer": "Absolut! Våra nybörjarkurser är utformade för dig som aldrig tagit ett danssteg tidigare. Vi guidar dig steg för steg.",
-  "faq_never_danced_before_question": "I've never danced before – are your courses suitable for me?"
+  "faq_never_danced_before_question": "Jag har aldrig dansat förut – passar era kurser för mig?",
+  "faq_never_danced_before_answer": "Absolut! Våra nybörjarkurser är utformade för dig som aldrig har tagit ett danssteg tidigare. Vi guidar dig steg för steg."
 }

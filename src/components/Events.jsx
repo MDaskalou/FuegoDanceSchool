@@ -3,6 +3,7 @@ import eventData from '../Data/eventData';
 import '../css/events.css';
 import EventModal from './EventModal';
 import {useTranslation} from 'react-i18next';
+import SectionTitle from './UI/SectionTitle';
 
 
 
@@ -27,7 +28,7 @@ export default function Events() {
 
     return (
         <section id="events" className="events-section">
-            <h2 className="main-title">{t("eventsMainTitle")}</h2>
+            <SectionTitle color="white">{t("eventsMainTitle")}</SectionTitle>
             <div className="events-grid">
                 {eventData.length === 0 && (
                     <p style={{ color: "white" }}>{t("noEventsAvailable")}</p>

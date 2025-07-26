@@ -7,6 +7,7 @@ import 'swiper/css/pagination';
 import googleIcon from '../img/Icons/Google-Review-Logo.png';
 import trustpilotIcon from '../img/Icons/trustpiloticon.png';
 import '../css/reviews.css';
+import SectionTitle from './UI/SectionTitle';
 
 import {useTranslation} from "react-i18next";
 
@@ -45,7 +46,7 @@ export default function Reviews() {
 
     return (
         <section id="reviews" className="reviews-section">
-            <h2 className="reviews-title">{t("reviewsTitle", { ns: 'reviewsTranslation' })}</h2>
+            <SectionTitle color="white">{t("reviewsTitle", { ns: 'reviewsTranslation' })}</SectionTitle>
             <p className="reviews-subtitle">{t("reviewsSubtitle")}</p>
 
             <Swiper

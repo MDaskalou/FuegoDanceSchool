@@ -1,72 +1,100 @@
 ﻿{
   "mainInstructorsTitle": "Instructors",
-  "moreInfoButton": "More info",
+  "moreInfoButton": "More Info",
+
   "modalFavoriteTeachingLabel": "Favorite to teach:",
-  "modalTeachingLevelsLabel": "Teaching in:",
+  "modalTeachingLevelsLabel": "Teaches in:",
   "modalCertificatesLabel": "Certificates:",
+
   "instructor_mikael_name": "Mikael Daskalou",
   "instructor_mikael_role": "Instructor",
   "instructor_mikael_title": "Founder",
-  "instructor_mikael_description": "Mikael's dance journey began unexpectedly during a trip to Cuba, where he initially traveled to train boxing. There he discovered salsa – a dance full of energy, feeling, and community – and something clicked. It became the starting point for a passion that would shape the coming years of his life.\n\nSince then, Mikael has danced for over 12 years with a focus on bachata, but also with experience in salsa, kizomba, and zouk. He has taught dance for approximately 7 years and is the founder of Fuego Dance School.\n\nIn addition to dance, Mikael has also instructed in Muay Thai for 9 years and has a background as a high school teacher. This combination has shaped his teaching style – clear, methodical, and inspiring – with a focus on technique, musicality, and confidence in partner dance.\n\nHim has also learned bachata sensual for over 1.5 years with Korke & Judith and competed successfully in the Jack & Jill format. His driving force is to help every student grow and dare to express themselves through dance.",
+  "instructor_mikael_description": [
+    "Mikael's dance journey began unexpectedly during a trip to Cuba, where he originally went to train in boxing. There he discovered salsa – a dance full of energy, feeling, and community – and something clicked. It was the start of a passion that would shape the coming years of his life.",
+    "Since then, Mikael has been dancing for over 12 years with a focus on bachata, but also with experience in salsa, kizomba, and zouk. He has been teaching dance for about 7 years and is the founder of Fuego Dance School.",
+    "In addition to dance, Mikael has also instructed in Thai boxing for 9 years and has a background as a high school teacher. This combination has shaped his teaching style – clear, methodical, and inspiring – with a focus on technique, musicality, and safety in partner dancing.",
+    "Furthermore, he has trained in Bachata Sensual for over 1.5 years with Korke & Judith and has competed successfully in the Jack & Jill format. His driving force is to help every student grow and dare to express themselves through dance."
+  ],
   "instructor_mikael_certificates": [
     "Bachata Sensual Instructor Course Level 1 & 2",
-    "Trained Pedagogue"
+    "Certified Pedagogue"
   ],
   "instructor_mikael_levels": [
-    "Level 1",
-    "Level 2",
-    "Level 3"
+    "Level 3 Technique",
+    "Level 4",
+    "Level 4 Technique",
+    "Level 5",
+    "Advanced Foundations"
   ],
   "instructor_mikael_favoriteTeaching": [
-    "Technique and musicality in bachata sensual."
+    "Technique and musicality in Bachata Sensual."
   ],
-  "instructor_irina_name": "Irina Korochkina",
+
+  "instructor_irina_name": "Irina Kurochkina",
   "instructor_irina_role": "Instructor",
   "instructor_irina_title": "Staff Manager",
-  "instructor_irina_description": "Irina started dancing ballroom and Latin dance at the age of five while also practicing gymnastics mixed with ballet. Since then, dance has been a big part of her life.\nBachata became a great passion after Irina took a trial lesson, and since 2017, she has been teaching. In 2020, Irina and Mikael became a dance couple and now teach at Fuego Dance School.\nFor 1.5 years, Irina, along with Mikael, has been part of a mentorship program for Korke and Judith, who are founders of bachata sensual.\nIrina's teaching style is characterized by structure, technique, and pedagogy, which she has also gained from her daily work as a teacher.",
+  "instructor_irina_description": [
+    "Irina started with ballroom and Latin dance at the age of five, while also practicing gymnastics mixed with ballet. Since then, dance has been a major part of her life.",
+    "Bachata became a great love after Irina took a trial lesson, and she has been teaching since 2017. In 2020, Irina and Mikael became a dance couple and now teach at Fuego Dance School.",
+    "For 1.5 years, Irina and Mikael have been part of a mentorship program with Korke and Judith, the founders of Bachata Sensual. Irina's teaching style is characterized by structure, technique, and pedagogy, which she has also gained from her daily work as a teacher."
+  ],
   "instructor_irina_certificates": [
     "Workshops with Korke & Judith",
-    "Pedagogical training"
+    "Pedagogical Education"
   ],
   "instructor_irina_levels": [
-    "Maternity Leave"
+    "On maternity leave"
   ],
   "instructor_irina_favoriteTeaching": [
-    "Trained teacher, special education teacher, trained in dance technique"
+    "Certified teacher, special education teacher, trained in dance technique"
   ],
+
   "instructor_karin_name": "Karin Andersson",
   "instructor_karin_role": "Instructor",
   "instructor_karin_title": "Safe Dance Scene",
-  "instructor_karin_description": "More information about Karin coming soon.",
+  "instructor_karin_description": [
+    "More information about Karin coming soon."
+  ],
   "instructor_karin_certificates": [],
   "instructor_karin_levels": [
     "Level 4",
     "Level 4 Technique"
   ],
   "instructor_karin_favoriteTeaching": [],
+
   "instructor_tomas_name": "Tomas Steifo",
   "instructor_tomas_role": "Instructor",
   "instructor_tomas_title": "Event Coordinator",
-  "instructor_tomas_description": "Tomas Steifo was born and raised in Sweden. He discovered bachata in a rather unexpected way, after injuring his elbow during a martial arts competition. During his rehabilitation, he one day happened to see people dancing bachata outdoors. It immediately caught his interest, and he thought: 'Why not try?' Since September 2021, he hasn't stopped dancing.\n\nOver the years, Tomas has participated in many competitions, traveled, taught at festivals, and even judged dance competitions. Much of his inspiration comes from his background in MMA, especially the way techniques are broken down and taught there.\n\nThat mindset has strongly influenced how he teaches dance today. For Tomas, the best part is seeing his students develop and surprise themselves – that moment when something suddenly clicks for them is what means most to him.",
+  "instructor_tomas_description": [
+    "Tomas Steifo was born and raised in Sweden. He discovered bachata in a rather unexpected way, after injuring his elbow during a martial arts competition. During his rehabilitation, he happened to see people dancing bachata outdoors. It immediately caught his interest, and he thought, 'Why not give it a try?' Since September 2021, he hasn't stopped dancing.",
+    "Over the years, Tomas has participated in many competitions, traveled, taught at festivals, and even served as a judge in dance competitions. Much of his inspiration comes from his background in MMA, especially the way techniques are broken down and taught there.",
+    "That mindset has strongly influenced how he teaches dance today. For Tomas, the best part is seeing his students develop and surprise themselves – that moment when something suddenly clicks for them is what means the most to him."
+  ],
   "instructor_tomas_certificates": [],
   "instructor_tomas_levels": [
     "Level 2",
     "Level 3"
   ],
   "instructor_tomas_favoriteTeaching": [],
+
   "instructor_raminta_name": "Raminta Staskute",
   "instructor_raminta_role": "Instructor",
   "instructor_raminta_title": "Social Media Marketing",
-  "instructor_raminta_description": "More information about Raminta coming soon.",
+  "instructor_raminta_description": [
+    "More information about Raminta coming soon."
+  ],
   "instructor_raminta_certificates": [],
   "instructor_raminta_levels": [
-    "Followers Styling Class"
+    "Styling Class for Followers"
   ],
   "instructor_raminta_favoriteTeaching": [],
+
   "instructor_jennifer_name": "Jennifer Tornstierna",
   "instructor_jennifer_role": "Instructor",
   "instructor_jennifer_title": "Event Coordinator",
-  "instructor_jennifer_description": "More information about Jennifer coming soon.",
+  "instructor_jennifer_description": [
+    "More information about Jennifer coming soon."
+  ],
   "instructor_jennifer_certificates": [],
   "instructor_jennifer_levels": [
     "Level 2",
@@ -75,20 +103,69 @@
     "Level 5"
   ],
   "instructor_jennifer_favoriteTeaching": [],
+
   "instructor_sisco_name": "Fransisco (Sisco) Morales",
   "instructor_sisco_role": "Instructor",
   "instructor_sisco_title": "Social Media Marketing",
-  "instructor_sisco_description": "Sisco stumbled into bachata with two left feet and fell head over heels. Eight years later, he is a certified instructor and technique nerd with a sharp eye for detail in dance.\nWith over 20 years of experience from the gym and fitness world, Sisco has a solid understanding of how the body works and how to activate your dance body. He generously shares that knowledge with his students.\nHis biggest commitment is his students' development, and he is meticulous in the best way. He loves coaching confident and secure dancers from scratch, often through humor and self-invented metaphors.\nSisco both leads, follows, and role-rotates in bachata, which according to him is the smartest way to understand how the entire dance connects.",
+  "instructor_sisco_description": [
+    "Sisco stumbled into bachata with two left feet and fell head over heels. Eight years later, he is a certified instructor and a technique nerd with a sharp eye for detail in the dance.",
+    "With over 20 years of experience in the gym and fitness world, Sisco has a rock-solid understanding of how the body works and how to activate one's dance physique. He generously shares this knowledge with his students.",
+    "His greatest commitment is to his students' development, and he is meticulous in the best way. He loves to coach safe and confident dancers from the ground up, often using humor and his own invented metaphors.",
+    "Sisco both leads, follows, and role-rotates in bachata, which he believes is the smartest way to understand how the entire dance fits together."
+  ],
   "instructor_sisco_certificates": [
-    "Role Rotation Instructor",
+    "Rolerotation Instructor",
     "Bachata Sensual Level 1 Instructor"
   ],
   "instructor_sisco_levels": [
-    "Role Rotation"
+    "Rolerotation"
   ],
   "instructor_sisco_favoriteTeaching": [],
+
   "instructor_nora_name": "Nora Andersdotter",
   "instructor_nora_role": "Instructor",
   "instructor_nora_title": "Safe Dance Scene",
-  "instructor_nora_description": "Nora is a warm and present instructor who blends thoroughness with playfulness.\nShe found bachata when living in Barcelona and often returns to gain inspiration. In her classes, rhythm, technique, and humor all have a place in an inclusive environment. Through creativity and a participant-centered style, she aims to guide her students toward 'aha!' moments.\nWith her background as a sexologist and long experience in social work, Nora has a strong focus on safety, interaction, and respect in dance. Since she dances as both a follower and leader and rotates between roles, her focus is on students understanding"
+  "instructor_nora_description": [
+    "Nora is a warm and present instructor who blends meticulousness with playfulness.",
+    "She found bachata while living in Barcelona and often returns to gather more inspiration. In her classes, rhythm, technique, and humor all find a place in an inclusive environment. Through creativity and a participant-centered style, she aims to guide her students toward 'aha' moments.",
+    "With her background as a sexologist and extensive experience in social work, Nora has a strong focus on safety, interaction, and respect in dance. Since she dances both as a follower and a leader and rotates between roles, her focus is on ensuring students understand responsiveness, cooperation, and freedom of choice."
+  ],
+  "instructor_nora_certificates": [
+    "Rolerotation Instructor",
+    "Bachata Sensual Level 1 Instructor"
+  ],
+  "instructor_nora_levels": [
+    "Rolerotation"
+  ],
+  "instructor_nora_favoriteTeaching": [],
+
+  "instructor_emma_name": "Emma",
+  "instructor_emma_role": "Instructor",
+  "instructor_emma_title": "Social Media Marketing",
+  "instructor_emma_description": [
+    "Emma found her love for dance through salsa and also explored Zouk, Kizomba, and West Coast Swing. When she started with bachata as a student at Fuego Dance School at the end of 2022, she was instantly hooked. Since then, she has focused on refining her technique, flow, body control, and body awareness — always striving to grow as a dancer, instructor, and person. She became a help instructor in May 2024, and is now thrilled to teach Level 1.",
+    "For Emma, dance isn’t just about steps — it’s about connection, confidence, self-expression, and joy. She wants it to feel as natural and effortless as walking.",
+    "Her goal with the classes is to share that joy, encourage natural movement, and help you sharpen your technique — so you leave inspired to keep learning and evolving as a dancer.",
+    "She looks forward to continuing to develop together with her students — one step at a time."
+  ],
+  "instructor_emma_certificates": [],
+  "instructor_emma_levels": [
+    "Level 1"
+  ],
+  "instructor_emma_favoriteTeaching": [],
+
+  "instructor_andris_name": "Andris",
+  "instructor_andris_role": "Instructor",
+  "instructor_andris_title": "Event Coordinator",
+  "instructor_andris_description": [
+    "Andris tried out both salsa and bachata in July 2018 while in Latvia. But it wasn’t until March 2022 that his obsession with bachata really took off — while salsa stayed firmly in the past.",
+    "Since then, it's been a journey of blood, sweat, and tears, with countless returns to the basics. Along the way, he's also explored other solo dance styles, mainly hip-hop, to broaden his knowledge and keep growing.",
+    "But more than anything, Andris is all about the challenge. He loves pushing himself, learning new things, and seeing how far he can go.",
+    "No matter where you’re starting from, every dancer begins with a first step. Come and take it with us — there's space for you at Fuego."
+  ],
+  "instructor_andris_certificates": [],
+  "instructor_andris_levels": [
+    "Level 1"
+  ],
+  "instructor_andris_favoriteTeaching": []
 }

@@ -1,14 +1,20 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Main from "./main";
-import FAQpage from "./components/FAQpage";
-import Instructors from './components/Instructors';
 import Values from './components/Values';
-import HelpInstructors from "./components/HelpInstructors";
+import ThemedFAQ from "./components/ThemedFAQ";
+import { useEffect } from "react";
+import SignOpenHouse from "./components/SignOpenHouse";
+import InstructorsPage from "./components/Page/InstructorsPage";
+
 
 
 function App() {
     const location = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location.pathname]);
 
     return (
         <Routes>
@@ -26,7 +32,7 @@ function App() {
                 element={
                     <>
                         <Navbar />
-                        <FAQpage />
+                        <ThemedFAQ/>
                     </>
                 }
             />
@@ -35,8 +41,7 @@ function App() {
                 element={
                     <>
                         <Navbar />
-                        <Instructors />
-                        <HelpInstructors />
+                        <InstructorsPage />
                     </>
                 }
             />
@@ -47,6 +52,15 @@ function App() {
                     <>
                         <Navbar />
                         <Values />
+                    </>
+                }
+            />
+            <Route
+                path="/open-house-signup"
+                element={
+                    <>
+                        <Navbar />
+                        <SignOpenHouse />
                     </>
                 }
             />

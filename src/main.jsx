@@ -8,7 +8,6 @@ import Courses from './components/Courses';
 import Prices from './components/Prices';
 import Events from './components/Events';
 import Reviews from './components/Reviews';
-import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Schedule from './components/Schedule';
 
@@ -87,9 +86,6 @@ function Main() {
                 <Reviews />
             </div>
 
-            <div id="faq">
-                <FAQ />
-            </div>
 
             <div id="contact">
                 <Contact />

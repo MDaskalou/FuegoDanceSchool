@@ -1,0 +1,182 @@
+﻿/* Fil: src/components/ThemedFAQ.css (Mobile-First & Responsiv) */
+
+/* ================================== */
+/* MOBIL-FÖRST STILAR (GRUNDLÄGGANDE) */
+/* ================================== */
+
+.themed-faq-container {
+    max-width: 100%; /* Tar upp hela bredden på mobilen */
+    margin: 90px auto 3rem; /* Mindre marginal i toppen för mobil-navbaren */
+    padding: 0 1rem; /* Padding på sidorna */
+}
+
+.themed-faq-title {
+    text-align: center;
+    font-family: var(--font-headings, serif);
+    font-size: 2rem; /* Lite mindre titel på mobilen */
+    color: var(--color-primary, white);
+    margin-bottom: 2rem;
+}
+
+/* --- Nivå 1: Kategori-korten (Mobil) --- */
+.category-card {
+    background: #282828;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    border: 1px solid #3a3a3a;
+    transition: all 0.4s ease;
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1rem; /* Mindre padding på mobilen */
+    cursor: pointer;
+}
+
+.category-header h3 {
+    margin: 0;
+    font-family: var(--font-headings, serif);
+    font-size: 1.2rem; /* Mindre kategorititel */
+    color: var(--color-primary, white);
+}
+
+.category-icon {
+    font-size: 1.1rem; /* Något mindre ikon */
+    color: var(--color-primary, white);
+    transition: transform 0.4s ease;
+}
+
+.category-card.open {
+    border-color: var(--color-accent, #f26722);
+}
+
+.category-card.open .category-icon {
+    transform: rotate(180deg);
+    color: var(--color-accent, #f26722);
+}
+
+/* Behållare för frågekorten */
+.question-list-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+.category-card.open .question-list-container {
+    max-height: 1500px;
+    /* Mindre padding på mobilen */
+    padding: 0 1rem 1rem 1rem;
+}
+
+
+/* --- Nivå 2: Fråge-korten (Mobil) --- */
+.question-card {
+    background: #333;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem; /* Mindre padding */
+    cursor: pointer;
+    font-size: 1rem; /* Något mindre font */
+    font-weight: 500;
+}
+
+.question-icon {
+    transition: transform 0.3s ease;
+}
+
+.question-card.active .question-icon {
+    transform: rotate(45deg);
+}
+
+.question-answer {
+    padding: 0 1.25rem;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    color: var(--color-secondary, #a0a0a0);
+    line-height: 1.6;
+}
+
+.question-answer p {
+    margin: 0;
+    padding-bottom: 1rem;
+}
+
+.question-card.active .question-answer {
+    max-height: 500px;
+    opacity: 1;
+    padding-top: 0.5rem;
+}
+
+.question-card.active {
+    border-left-color: var(--color-accent, #f26722);
+}
+
+
+/* ================================== */
+/* DESKTOP-ANPASSNINGAR               */
+/* ================================== */
+@media (min-width: 768px) {
+    /* Körs bara på skärmar bredare än 768px */
+
+    .themed-faq-container {
+        max-width: 900px; /* Sätt max-bredd för desktop */
+        margin: 120px auto 4rem; /* Större marginal från toppen */
+    }
+
+    .themed-faq-title {
+        font-size: 2.5rem; /* Större titel på desktop */
+        margin-bottom: 3rem;
+    }
+
+    .category-card {
+        margin-bottom: 1.5rem;
+    }
+    .category-card.open {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .category-header {
+        padding: 1.5rem 2rem; /* Mer padding på desktop */
+    }
+
+    .category-header h3 {
+        font-size: 1.5rem; /* Större kategorititel */
+    }
+
+    .category-icon {
+        font-size: 1.3rem; /* Större ikon */
+    }
+
+    .category-card.open .question-list-container {
+        padding: 0 2rem 1.5rem 2rem; /* Mer padding för frågelistan */
+    }
+
+    .question-card {
+        margin-bottom: 1rem;
+    }
+
+    .question-header {
+        padding: 1.25rem 1.5rem; /* Mer padding */
+        font-size: 1.1rem; /* Lite större font */
+    }
+
+    .question-answer {
+        padding: 0 1.5rem;
+        line-height: 1.7;
+    }
+    .question-answer p {
+        padding-bottom: 1.25rem;
+    }
+}

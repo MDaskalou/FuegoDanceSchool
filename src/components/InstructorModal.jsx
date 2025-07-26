@@ -26,38 +26,46 @@ export default function InstructorModal({ isOpen, onClose, instructor }) {
 
     return (
         <ModalComponent isOpen={isOpen} onClose={onClose} className="instructor-modal">
+            {/* Huvud-containern förblir en flex-container */}
             <div className="instructor-modal-content">
 
+                {/* Titeln ligger utanför det scrollbara området */}
                 <h2 className="modal-title">{t(key('name'))}</h2>
-                <p className="modal-description" style={{ whiteSpace: 'pre-line' }}>
-                    {t(key('description'))}
-                </p>
 
-                {/* Favoritdel */}
-                {Array.isArray(favoriteTeaching) && favoriteTeaching.length > 0 && favoriteTeaching[0] && (
-                    <div className="modal-section">
-                        <p className="modal-highlight">🧡 <strong>{main_t('modalFavoriteTeachingLabel')}</strong></p>
-                        <ul>{favoriteTeaching.map((item, index) => <li key={index}>{item}</li>)}</ul>
+                {/* NYTT: En container för allt innehåll som ska kunna scrollas */}
+                <div className="modal-scrollable-content">
+                    <div className="modal-description">
+                        {t(key('description'), { returnObjects: true }).map((paragraph, index) => (
+                            <p key={index}>{paragraph}</p>
+                        ))}
                     </div>
-                )}
 
-                {/* Nivåer */}
-                {Array.isArray(levels) && levels.length > 0 && (
-                    <div className="modal-section">
-                        <p className="modal-highlight">🎯 <strong>{main_t('modalTeachingLevelsLabel')}</strong></p>
-                        <ul>{levels.map((level, index) => <li key={index}>{level}</li>)}</ul>
-                    </div>
-                )}
+                    {/* Favoritdel */}
+                    {Array.isArray(favoriteTeaching) && favoriteTeaching.length > 0 && favoriteTeaching[0] && (
+                        <div className="modal-section">
+                            <p className="modal-highlight">🧡 <strong>{main_t('modalFavoriteTeachingLabel')}</strong></p>
+                            <ul>{favoriteTeaching.map((item, index) => <li key={index}>{item}</li>)}</ul>
+                        </div>
+                    )}
 
-                {/* Certifikat */}
-                {Array.isArray(certificates) && certificates.length > 0 && (
-                    <div className="modal-section">
-                        <p className="modal-highlight">📜 <strong>{main_t('modalCertificatesLabel')}</strong></p>
-                        <ul>{certificates.map((cert, index) => <li key={index}>{cert}</li>)}</ul>
-                    </div>
-                )}
+                    {/* Nivåer */}
+                    {Array.isArray(levels) && levels.length > 0 && (
+                        <div className="modal-section">
+                            <p className="modal-highlight">🎯 <strong>{main_t('modalTeachingLevelsLabel')}</strong></p>
+                            <ul>{levels.map((level, index) => <li key={index}>{level}</li>)}</ul>
+                        </div>
+                    )}
 
-                {/* Sociala länkar (dessa kommer fortfarande från instructor-objektet) */}
+                    {/* Certifikat */}
+                    {Array.isArray(certificates) && certificates.length > 0 && (
+                        <div className="modal-section">
+                            <p className="modal-highlight">📜 <strong>{main_t('modalCertificatesLabel')}</strong></p>
+                            <ul>{certificates.map((cert, index) => <li key={index}>{cert}</li>)}</ul>
+                        </div>
+                    )}
+                </div>
+
+                {/* Sociala länkar ligger utanför det scrollbara området */}
                 <div className="social-links">
                     {instructor.socials?.instagram && (
                         <a href={instructor.socials.instagram} target="_blank" rel="noreferrer">Instagram</a>
@@ -67,19 +75,7 @@ export default function InstructorModal({ isOpen, onClose, instructor }) {
                     )}
                 </div>
 
-                {/* Extra bilder */}
-                {instructor.extraImages && instructor.extraImages.length > 0 && (
-                    <div className="extra-images">
-                        {instructor.extraImages.map((img, index) => (
-                            <img
-                                key={index}
-                                src={img}
-                                alt={`${t(key('name'))} extra ${index + 1}`}
-                                className="extra-image"
-                            />
-                        ))}
-                    </div>
-                )}
+                {/* ... extra bilder kan ligga kvar här eller flyttas in i det scrollbara området ... */}
             </div>
         </ModalComponent>
     );

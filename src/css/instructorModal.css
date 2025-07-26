@@ -1,94 +1,107 @@
-﻿/* === MOBILE-FIRST MODAL LAYOUT === */
+﻿/* Fil: instructorModal.css (Komplett och uppdaterad version) */
 
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-}
-
-.modal-content {
-    background-color: #2c1b17;
-    color: white;
-    border-radius: 12px;
-    padding: 1rem;
-    width: 100%;
-    max-width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.modal-close {
-    position: absolute;
-    top: 8px;
-    right: 12px;
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-}
-
+/* Grundläggande stil för hela modal-fönstret.
+   VIKTIGT: Ingen overflow här! */
 .instructor-modal {
     width: 90%;
-    max-width: 500px;
+    max-width: 550px;
+    max-height: 85vh; /* Fönstret kan max vara 85% av skärmens höjd */
     background-color: #1a1a1a;
     color: white;
-    padding: 1.5rem;
     border-radius: 12px;
-    overflow-y: auto;
+    /* Använd flexbox för att positionera innehållet */
+    display: flex;
 }
 
-.instructor-modal .modal-body {
+/* Huvud-containern inuti modalen.
+   Detta blir en flex-kolumn som fyller utrymmet. */
+.instructor-modal-content {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-    align-items: center;
-}
-
-.instructor-modal .modal-image {
     width: 100%;
-    max-width: 320px;
-    max-height: 200px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin: 0 auto;
+    height: 100%;
+    padding: 1.5rem;
 }
 
-.instructor-modal .modal-title {
+.modal-title {
     font-size: 1.6rem;
-    color: #ff6b2d;
+    color: var(--color-accent, #f26722);
+    text-align: center;
+    flex-shrink: 0; /* Hindra titeln från att krympa */
 }
 
-.instructor-modal .modal-description {
+/* HUVUDFIXEN: Detta block blir scrollbart */
+.modal-scrollable-content {
+    flex-grow: 1; /* Tillåt detta block att ta upp allt ledigt utrymme */
+    overflow-y: auto; /* Lägg till scrollbar ENDAST om innehållet är för högt */
+    margin: 1rem 0;
+    padding: 0 1rem; /* Padding på sidorna för att scrollbaren inte ska ligga klistrad */
+
+    /* Snyggare scrollbar för webkit-baserade webbläsare (Chrome, Safari) */
+    scrollbar-width: thin;
+    scrollbar-color: #555 #333;
+}
+.modal-scrollable-content::-webkit-scrollbar {
+    width: 8px;
+}
+.modal-scrollable-content::-webkit-scrollbar-track {
+    background: #333;
+}
+.modal-scrollable-content::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 4px;
+}
+
+/* Beskrivningen inuti det scrollbara området */
+.modal-description {
     font-size: 1rem;
     color: #e5e5e5;
     text-align: left;
-    line-height: 1.5;
+    line-height: 1.7;
 }
 
-/* Social links */
+.modal-description p {
+    margin-bottom: 1rem;
+}
+
+/* Sektionerna för listor (Favorit, Nivåer, etc.) */
+.modal-section {
+    margin-top: 1.5rem;
+}
+
+.modal-highlight {
+    font-weight: 600;
+    color: var(--color-accent-hover, #ffa36c);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-section ul {
+    padding-left: 1.5rem;
+    text-align: left;
+    margin-top: 0.5rem;
+    list-style-type: disc; /* Tydligare punktlista */
+}
+
+.modal-section li {
+    margin-bottom: 0.5rem;
+}
+
+/* Se till att sociala länkar stannar i botten */
 .social-links {
     display: flex;
     gap: 1.5rem;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: auto; /* Detta knuffar ner länkarna */
+    padding-top: 1rem;
+    border-top: 1px solid #333;
+    flex-shrink: 0; /* Hindra från att krympa */
 }
 
 .social-links a {
-    color: #ff6b2d;
+    color: var(--color-accent, #f26722);
     font-weight: bold;
     text-decoration: none;
     transition: color 0.3s;
@@ -98,53 +111,18 @@
     color: #ffa36c;
 }
 
-.extra-images {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.extra-image {
-    width: 100%;
-    max-width: 180px;
-    border-radius: 10px;
-    object-fit: cover;
-}
-.modal-highlight {
-    font-weight: 600;
-    margin-top: 1rem;
-    color: #ffa36c;
-}
-
-.modal-section ul {
-    padding-left: 1.2rem;
-    text-align: left;
-    margin-top: 0.3rem;
-}
-
-.modal-section li {
-    margin-bottom: 0.3rem;
-}
-
-
-/* === DESKTOP ENHANCEMENTS === */
+/* === DESKTOP-ANPASSNINGAR === */
 @media (min-width: 768px) {
     .instructor-modal {
         padding: 2rem;
+        max-width: 650px;
     }
 
-    .instructor-modal .modal-image {
-        max-width: 400px;
-        max-height: 250px;
-    }
-
-    .instructor-modal .modal-title {
+    .modal-title {
         font-size: 2rem;
     }
 
-    .instructor-modal .modal-description {
+    .modal-description {
         font-size: 1.1rem;
     }
 }

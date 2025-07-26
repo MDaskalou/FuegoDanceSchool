@@ -11,6 +11,8 @@ import jenniferImage from '../img/Instructors/instruktörJennifer.jpg';
 import siscoImage from '../img/Instructors/instruktörSisco.jpg';
 import noraImage from '../img/Instructors/instruktörNora.jpg';
 import irinaImage from '../img/Instructors/instruktörIrina.jpg';
+import emmaImage from '../img/Instructors/instruktörEmma.jpg';
+import andrisImage from '../img/Instructors/instruktörAndris.jpeg';
 
 // 2. Definiera listan med ID, bilder och sociala länkar
 const instructorsData = [
@@ -19,7 +21,6 @@ const instructorsData = [
         image: mikaelImage,
         socials: {
             instagram: "https://www.instagram.com/mikael.bachata/",
-            facebook: "https://www.facebook.com/mikael.daskalou"
         },
         extraImages: [mikaelImage1, mikaelImage2]
     },
@@ -27,8 +28,7 @@ const instructorsData = [
         id: "irina",
         image: irinaImage,
         socials: {
-            instagram: "https://www.instagram.com/sofia.bachata",
-            facebook: "https://www.facebook.com/sofia.andersson"
+            instagram: "https://www.instagram.com/sensualstyling/"
         },
         extraImages: []
     },
@@ -36,7 +36,7 @@ const instructorsData = [
         id: "karin",
         image: karinImage,
         socials: {
-            instagram: "https://www.instagram.com/sensualstyling/"
+            instagram: "https://www.instagram.com/karin.moves/"
         },
         extraImages: []
     },
@@ -44,8 +44,7 @@ const instructorsData = [
         id: "tomas",
         image: tomasImage,
         socials: {
-            instagram: "https://www.instagram.com/sofia.bachata",
-            facebook: "https://www.facebook.com/sofia.andersson"
+            instagram: "https://www.instagram.com/tomas.steifo/",
         },
         extraImages: []
     },
@@ -53,8 +52,7 @@ const instructorsData = [
         id: "raminta",
         image: ramintaImage,
         socials: {
-            instagram: "https://www.instagram.com/sofia.bachata",
-            facebook: "https://www.facebook.com/sofia.andersson"
+            instagram: "https://www.instagram.com/raminta_staskute/",
         },
         extraImages: []
     },
@@ -62,8 +60,7 @@ const instructorsData = [
         id: "jennifer",
         image: jenniferImage,
         socials: {
-            instagram: "https://www.instagram.com/sofia.bachata",
-            facebook: "https://www.facebook.com/sofia.andersson"
+            instagram: "https://www.instagram.com/tornstierna/",
         },
         extraImages: []
     },
@@ -79,8 +76,23 @@ const instructorsData = [
         id: "nora",
         image: noraImage,
         socials: {
-            instagram: "https://www.instagram.com/sofia.bachata",
-            facebook: "https://www.facebook.com/sofia.andersson"
+            instagram: "https://www.instagram.com/noraysisco.bachata/",
+        },
+        extraImages: []
+    },
+    {
+        id: "emma",
+        image: emmaImage,
+        socials: {
+            instagram: "https://www.instagram.com/harjuthomasson/",
+        },
+        extraImages: []
+    },
+    {
+        id: "andris",
+        image: andrisImage,
+        socials: {
+            instagram: "https://www.instagram.com/andris.freeman/",
         },
         extraImages: []
     }

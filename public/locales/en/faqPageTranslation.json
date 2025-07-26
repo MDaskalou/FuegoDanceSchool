@@ -10,11 +10,11 @@
   "category_prices": "Prices and Discounts",
   "category_registration": "Registration",
   "faq_what_is_sensual_question": "What is Bachata Sensual?",
-  "faq_what_is_sensual_answer": "Bachata Sensual is a modern style of bachata with soft, fluid movements and a strong focus on connection and musicality.",
+  "faq_what_is_sensual_answer": "Bachata Sensual is a modern and expressive style of bachata created in Spain by Korke and Judith. It is characterized by soft, flowing movements like body waves and isolations, with a strong focus on musical interpretation and a close connection between dance partners. The goal is not just to perform steps, but to use the entire body to visually express the emotions and nuances in the music. It is a technical yet highly communicative dance that has become incredibly popular worldwide.",
   "faq_all_ages_question": "Are the courses open to all ages?",
   "faq_all_ages_answer": "Yes! We have students from 18 to 60+. Everyone is welcome!",
   "faq_private_lessons_question": "Do you offer private lessons?",
-  "faq_private_lessons_answer": "Yes! You can book private lessons with our instructors – perfect if you want to progress faster or work on specific things.",
+  "faq_private_lessons_answer": "Yes! You can book private lessons with our instructors, which is perfect if you want to progress faster or work on specific techniques. Go to the 'Instructors' tab to read more and contact the instructor you are interested in booking a session with.",
   "faq_what_to_wear_question": "What should I wear?",
   "faq_what_to_wear_answer": "Comfortable clothes you can move freely in. Sneakers or dance shoes with some slide work well – no special shoes required.",
   "faq_need_partner_question": "Do I need to come with a partner?",
@@ -40,7 +40,16 @@
   "faq_cancellation_policy_question": "Can I cancel my payment?",
   "faq_cancellation_policy_answer": "Yes, according to the Distance Selling Act, you have a 14-day right of withdrawal from the date of purchase – provided you have not started the course. If you register and cancel within 14 days *before the course starts*, you can get a full refund. However, if the course has already begun, or if you have attended the first lesson (which is a free trial), the right of withdrawal does not apply.",
   "faq_how_to_register_question": "How do I register?",
-  "faq_how_to_register_answer": "Via the button on the website – fill out the form, and you will receive a confirmation by email within 24 hours.",
+  "faq_how_to_register_answer": [
+    "You can register in two main ways:",
+    "1) Go to our 'Schedule' page for a complete overview of all classes and click 'Book Now' there.",
+    "2) Go to the 'Our Courses' page to read more details about a specific course and use the booking button found on each course page."
+  ]  ,
+  "faq_open_house_registration_question": "How do I register for the open house?",
+  "faq_open_house_registration_answer": [
+    "You can register by clicking the 'Register for Open House' button located at the top of the homepage.",
+    "IMPORTANT: Registration does not guarantee a spot. We have limited availability, and spots are allocated on a 'first-come, first-served' basis."
+  ],
   "faq_multiple_courses_question": "Can I register for multiple courses?",
   "faq_multiple_courses_answer": "Absolutely! You can easily select multiple courses in the registration form.",
   "faq_never_danced_before_question": "I've never danced before – are your courses suitable for me?",

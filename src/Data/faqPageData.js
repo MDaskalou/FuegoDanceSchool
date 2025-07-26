@@ -37,5 +37,6 @@ export const faqPageData = [
 
     // Kategori: registration
     { id: 'how_to_register', category: 'registration' },
-    { id: 'multiple_courses', category: 'registration' }
+    { id: 'multiple_courses', category: 'registration' },
+    {id: 'open_house_registration', category: 'registration' }
 ];

@@ -32,6 +32,38 @@
     margin: 1.5rem 0 2.5rem 0;
 }
 
+/* Fil: aboutus.css (lägg till detta) */
+
+/* Stil för underrubriker som "Det som gör vår skola unik:" */
+.about-subheading {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-primary, white);
+    margin-top: 2.5rem; /* Mer utrymme ovanför rubriken */
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+}
+
+/* Stil för varje punkt i listorna */
+.about-list-item {
+    position: relative;
+    padding-left: 25px; /* Skapa utrymme för punkten */
+    line-height: 1.8;
+    color: var(--color-secondary, #a0a0a0);
+    margin-bottom: 0.75rem; /* Mindre avstånd mellan listpunkter */
+}
+
+/* Skapa själva punkten med CSS för en snygg och konsekvent look */
+.about-list-item::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--color-accent, #f26722); /* Ge punkten en accentfärg */
+    font-size: 1.5rem;
+    line-height: 1.7;
+}
+
 /* Yttre "fönstret" för bilderna */
 .scroller-wrapper {
     width: 100%;
