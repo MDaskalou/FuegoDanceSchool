@@ -1,4 +1,4 @@
-﻿// Fil: src/components/ThemedFAQ.js
+// Fil: src/components/ThemedFAQ.js
 
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
