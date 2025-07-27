@@ -4,7 +4,9 @@
 
   "help_sanela_name": "Sanela",
   "help_sanela_role": "Hjälpinstruktör",
-  "help_sanela_description": "Mer information om Sanela kommer snart.",
+  "help_sanela_description": [
+    "Mer information om Sanela kommer snart."
+  ],
 
   "help_feras_name": "Feras Khousrof",
   "help_feras_role": "Hjälpinstruktör",
@@ -16,17 +18,25 @@
 
   "help_ines_name": "Inès Nstrmrnf",
   "help_ines_role": "Hjälpinstruktör",
-  "help_ines_description": "Mer information om Inès kommer snart.",
+  "help_ines_description": [
+    "Mer information om Inès kommer snart."
+  ],
 
   "help_sofie_name": "Sofie Andersson",
   "help_sofie_role": "Hjälpinstruktör",
-  "help_sofie_description": "Mer information om Sofie kommer snart.",
+  "help_sofie_description": [
+    "Mer information om Sofie kommer snart."
+  ],
 
   "help_adrian_name": "Adrian Hedström",
   "help_adrian_role": "Hjälpinstruktör",
-  "help_adrian_description": "Mer information om Adrian kommer snart.",
+  "help_adrian_description": [
+    "Mer information om Adrian kommer snart."
+  ],
 
   "help_filip_name": "Filip Lo",
   "help_filip_role": "Hjälpinstruktör",
-  "help_filip_description": "Mer information om Filip kommer snart."
+  "help_filip_description": [
+    "Mer information om Filip kommer snart."
+  ]
 }

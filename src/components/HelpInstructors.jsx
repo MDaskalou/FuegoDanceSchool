@@ -1,24 +1,28 @@
-// src/components/HelpInstructorsSection.jsx
 import React from 'react';
 import { useTranslation } from "react-i18next";
-// Importera den nya, rena datan
 import { helpInstructorsData } from '../Data/helpinstruktorData';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+// 1. Importera Pagination-modulen
+import { Navigation, Pagination } from 'swiper/modules';
+
+// 2. Importera CSS för både navigation och pagination
 import 'swiper/css';
 import 'swiper/css/navigation';
-import '../css/instructors.css'; // Använd samma CSS-fil för styling
+import 'swiper/css/pagination';
+
+import '../css/instructors.css';
 
 export default function HelpInstructors({ openModal }) {
-    // Byt till rätt namespace för översättningar
     const { t } = useTranslation("helpInstructorsTranslation");
 
     return (
         <section  className="instructor-section">
             <h2 className="instructor-title">{t("assistantInstructorsTitle")}</h2>
             <Swiper
-                modules={[Navigation]}
+                // 3. Lägg till Pagination i modullistan och konfigurera den
+                modules={[Navigation, Pagination]}
                 navigation
+                pagination={{ clickable: true }}
                 spaceBetween={20}
                 slidesPerView={1}
                 breakpoints={{
@@ -32,7 +36,6 @@ export default function HelpInstructors({ openModal }) {
                         <div className="instructor-card">
                             <img src={instructor.image} alt={t(`help_${instructor.id}_name`)} className="instructor-img" />
                             <h2>{t(`help_${instructor.id}_name`)}</h2>
-                            {/* Använder roll som titel för hjälpinstruktörer */}
                             <h4>{t(`help_${instructor.id}_role`)}</h4>
                             <div className="social-icons">
                                 {instructor.socials?.instagram && (
@@ -51,7 +54,6 @@ export default function HelpInstructors({ openModal }) {
                                 onClick={(e) => {
                                     e.preventDefault();
                                     e.stopPropagation();
-                                    // Skicka med flaggan 'help' så modalen vet vilken typ det är
                                     openModal({ ...instructor, type: 'help' });
                                 }}
                             >

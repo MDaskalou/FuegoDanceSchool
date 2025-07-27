@@ -1,25 +1,29 @@
-// src/components/InstructorsSection.jsx
 import React from 'react';
 import { useTranslation } from "react-i18next";
-import instructorsData from '../Data/instructorsData'; // Notera korrekt sökväg!
+import instructorsData from '../Data/instructorsData';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+// 1. Importera Pagination-modulen
+import { Navigation, Pagination } from 'swiper/modules';
+
+// 2. Importera CSS för både navigation och pagination
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 import '../css/instructors.css';
-import SectionTitle from "./UI/SectionTitle"; // Importera din SectionTitle-komponent
+import SectionTitle from "./UI/SectionTitle";
 
 export default function Instructors({ openModal }) {
     const { t } = useTranslation("instructorsTranslation");
-
-    // Ingen mer lokal data här, vi använder den importerade direkt!
 
     return (
         <section className="instructor-section">
             <SectionTitle color="white">{t("mainInstructorsTitle")}</SectionTitle>
             <Swiper
-                modules={[Navigation]}
+                // 3. Lägg till Pagination i modullistan och konfigurera den
+                modules={[Navigation, Pagination]}
                 navigation
+                pagination={{ clickable: true }}
                 spaceBetween={20}
                 slidesPerView={1}
                 breakpoints={{
@@ -32,11 +36,8 @@ export default function Instructors({ openModal }) {
                     <SwiperSlide key={instructor.id}>
                         <div className="instructor-card">
                             <img src={instructor.image} alt={t(`instructor_${instructor.id}_name`)} className="instructor-img" />
-
-                            {/* All text hämtas från JSON via 'id' */}
                             <h2>{t(`instructor_${instructor.id}_name`)}</h2>
                             <h4>{t(`instructor_${instructor.id}_title`)}</h4>
-
                             <div className="social-icons">
                                 {instructor.socials?.instagram && (
                                     <a href={instructor.socials.instagram} target="_blank" rel="noreferrer">
@@ -51,7 +52,7 @@ export default function Instructors({ openModal }) {
                             </div>
                             <button
                                 className="more-info-btn"
-                                onClick={() => openModal(instructor)} // Använder openModal här
+                                onClick={() => openModal(instructor)}
                             >
                                 {t("moreInfoButton")}
                             </button>

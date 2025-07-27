@@ -28,31 +28,7 @@
     position: relative;
 }
 
-.courses-slider {
-    position: relative;
-    display: block;
-}
-
-.courses-wrapper {
-    overflow: hidden;
-    border-radius: 12px;
-    position: relative;
-}
-
-.courses-track {
-    display: flex;
-    width: calc(100% * var(--slides));
-}
-
-.course-slide {
-    flex: 0 0 calc(100% / var(--slides));
-    padding: 0 10px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-}
-
+/* Behåll all din existerande styling för korten */
 .course-card {
     background: var(--bg-dark);
     border: 1px solid rgba(242, 103, 34, 0.3);
@@ -105,36 +81,16 @@
     text-align: center;
 }
 
-.toggle-btn {
-    background: transparent;
-    border: 2px solid var(--accent);
-    color: var(--accent);
-    padding: 10px 20px;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 500;
-    width: 100%;
-    margin-bottom: 15px;
-}
-
-.toggle-btn:hover {
-    background: var(--accent);
-    color: white;
-    transform: scale(1.02);
-}
-
-.course-details {
-    animation: slideDown 0.3s ease;
-    padding-top: 15px;
-    border-top: 1px solid rgba(242, 103, 34, 0.3);
-}
-
 .course-description {
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 15px;
     color: var(--text-light);
+}
+
+.course-details {
+    padding-top: 15px;
+    border-top: 1px solid rgba(242, 103, 34, 0.3);
 }
 
 .course-details p {
@@ -159,7 +115,7 @@
     font-weight: 500;
     transition: all 0.3s ease;
     cursor: pointer;
-    margin-top: 15px;
+    margin-top: auto; /* Knappen hålls i botten */
     width: 100%;
 }
 
@@ -169,48 +125,35 @@
     box-shadow: 0 4px 15px rgba(242, 103, 34, 0.4);
 }
 
-/* Navigation buttons */
-.nav-btn {
-    background: var(--bg-dark);
-    border: 2px solid rgba(242, 103, 34, 0.5);
-    color: var(--accent);
-    width: 60px;
-    height: 60px;
+
+/* === NYA REGLER FÖR SWIPER-KNAPPARNA === */
+/* Allmän styling för Swipers standardknappar */
+.swiper-button-next,
+.swiper-button-prev {
+    background-color: rgba(26, 26, 26, 0.7); /* Mörk, halvgenomskinlig bakgrund */
+    color: var(--accent); /* Pilen får accent-färg */
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    flex-shrink: 0;
-    z-index: 10;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    border: 1px solid rgba(242, 103, 34, 0.3);
+    transition: background-color 0.3s ease;
 }
 
-.nav-btn:hover:not(.disabled) {
-    background: rgba(242, 103, 34, 0.2);
-    border-color: var(--accent);
-    transform: translateY(-50%) scale(1.1);
+/* Gör knapparna lite mörkare vid hover */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
-.nav-btn.disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
+/* Justera storleken på själva pil-ikonen */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 1.2rem;
+    font-weight: 900;
 }
 
-.prev-btn {
-    left: 20px;
-}
 
-.next-btn {
-    right: 20px;
-}
-
-/* Dots pagination */
+/* Dots pagination (din kod var redan bra här) */
 .courses-dots {
     display: flex;
     justify-content: center;
@@ -234,55 +177,22 @@
     transform: scale(1.3);
 }
 
-/* Animations */
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
-.slide-down {
-    animation: slideDown 0.3s ease;
-}
-
-/* Responsive design */
-@media (max-width: 1024px), (max-width: 768px), (max-width: 480px) {
+/* === RESPONSIV DESIGN === */
+@media (max-width: 1024px) {
     .courses-section {
-        padding: 30px 10px;
+        padding: 40px 10px;
     }
 
     .courses-title {
-        font-size: 1.8rem;
+        font-size: 2rem;
         margin-bottom: 30px;
     }
 
-    .courses-track {
-        width: calc(100% * var(--slides));
-    }
-
-    .course-slide {
-        flex: 0 0 calc(100% / var(--slides));
-        padding: 0 5px;
-    }
-
-    .nav-btn {
-        display: none !important;
-        width: 45px;
-        height: 45px;
-        font-size: 20px;
-    }
-
-    .prev-btn {
-        left: 10px;
-    }
-
-    .next-btn {
-        right: 10px;
+    /* KORREKT REGEL: Gömmer Swipers knappar på mindre skärmar */
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: none;
     }
 
     .course-content {

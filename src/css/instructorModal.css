@@ -1,21 +1,13 @@
-﻿/* Fil: instructorModal.css (Komplett och uppdaterad version) */
+﻿/* Fil: instructorModal.css (Slutgiltig och korrekt version) */
 
-/* Grundläggande stil för hela modal-fönstret.
-   VIKTIGT: Ingen overflow här! */
 .instructor-modal {
-    width: 90%;
+    /* Dessa regler skriver över de generella från Modal.css */
+    width: 95vw;
     max-width: 550px;
-    max-height: 85vh; /* Fönstret kan max vara 85% av skärmens höjd */
-    background-color: #1a1a1a;
-    color: white;
-    border-radius: 12px;
-    /* Använd flexbox för att positionera innehållet */
-    display: flex;
 }
 
-/* Huvud-containern inuti modalen.
-   Detta blir en flex-kolumn som fyller utrymmet. */
-.instructor-modal-content {
+/* Specifika stilar för innehållet inuti just denna modal-typ */
+.instructor-modal .instructor-modal-content {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -23,106 +15,51 @@
     padding: 1.5rem;
 }
 
-.modal-title {
+.instructor-modal .modal-title {
     font-size: 1.6rem;
     color: var(--color-accent, #f26722);
     text-align: center;
-    flex-shrink: 0; /* Hindra titeln från att krympa */
+    flex-shrink: 0;
 }
 
-/* HUVUDFIXEN: Detta block blir scrollbart */
-.modal-scrollable-content {
-    flex-grow: 1; /* Tillåt detta block att ta upp allt ledigt utrymme */
-    overflow-y: auto; /* Lägg till scrollbar ENDAST om innehållet är för högt */
+.instructor-modal .modal-scrollable-content {
+    flex-grow: 1;
+    overflow-y: auto;
     margin: 1rem 0;
-    padding: 0 1rem; /* Padding på sidorna för att scrollbaren inte ska ligga klistrad */
-
-    /* Snyggare scrollbar för webkit-baserade webbläsare (Chrome, Safari) */
+    padding: 0;
     scrollbar-width: thin;
     scrollbar-color: #555 #333;
 }
-.modal-scrollable-content::-webkit-scrollbar {
-    width: 8px;
-}
-.modal-scrollable-content::-webkit-scrollbar-track {
-    background: #333;
-}
-.modal-scrollable-content::-webkit-scrollbar-thumb {
-    background-color: #555;
-    border-radius: 4px;
-}
+.instructor-modal .modal-scrollable-content::-webkit-scrollbar { width: 8px; }
+.instructor-modal .modal-scrollable-content::-webkit-scrollbar-track { background: #333; }
+.instructor-modal .modal-scrollable-content::-webkit-scrollbar-thumb { background-color: #555; border-radius: 4px; }
 
-/* Beskrivningen inuti det scrollbara området */
-.modal-description {
-    font-size: 1rem;
-    color: #e5e5e5;
-    text-align: left;
-    line-height: 1.7;
-}
+.instructor-modal .modal-description { font-size: 1rem; color: #e5e5e5; text-align: left; line-height: 1.7; }
+.instructor-modal .modal-description p { margin-bottom: 1rem; }
+.instructor-modal .modal-section { margin-top: 1.5rem; }
+.instructor-modal .modal-highlight { font-weight: 600; color: var(--color-accent-hover, #ffa36c); display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+.instructor-modal .modal-section ul { padding-left: 1.5rem; text-align: left; margin-top: 0.5rem; list-style-type: disc; }
+.instructor-modal .modal-section li { margin-bottom: 0.5rem; }
+.instructor-modal .social-links { display: flex; gap: 1.5rem; justify-content: center; margin-top: auto; padding-top: 1rem; border-top: 1px solid #333; flex-shrink: 0; }
+.instructor-modal .social-links a { color: var(--color-accent, #f26722); font-weight: bold; text-decoration: none; transition: color 0.3s; }
+.instructor-modal .social-links a:hover { color: #ffa36c; }
 
-.modal-description p {
-    margin-bottom: 1rem;
-}
-
-/* Sektionerna för listor (Favorit, Nivåer, etc.) */
-.modal-section {
-    margin-top: 1.5rem;
-}
-
-.modal-highlight {
-    font-weight: 600;
-    color: var(--color-accent-hover, #ffa36c);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.modal-section ul {
-    padding-left: 1.5rem;
-    text-align: left;
-    margin-top: 0.5rem;
-    list-style-type: disc; /* Tydligare punktlista */
-}
-
-.modal-section li {
-    margin-bottom: 0.5rem;
-}
-
-/* Se till att sociala länkar stannar i botten */
-.social-links {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    margin-top: auto; /* Detta knuffar ner länkarna */
-    padding-top: 1rem;
-    border-top: 1px solid #333;
-    flex-shrink: 0; /* Hindra från att krympa */
-}
-
-.social-links a {
-    color: var(--color-accent, #f26722);
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.social-links a:hover {
-    color: #ffa36c;
-}
 
 /* === DESKTOP-ANPASSNINGAR === */
 @media (min-width: 768px) {
     .instructor-modal {
-        padding: 2rem;
         max-width: 650px;
     }
 
-    .modal-title {
+    .instructor-modal .instructor-modal-content {
+        padding: 2rem;
+    }
+
+    .instructor-modal .modal-title {
         font-size: 2rem;
     }
 
-    .modal-description {
+    .instructor-modal .modal-description {
         font-size: 1.1rem;
     }
 }

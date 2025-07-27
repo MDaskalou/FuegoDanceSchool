@@ -1,28 +1,28 @@
-﻿/* Fil: contact.css (Komplett och slutgiltig version) */
+﻿/* Fil: contact.css (Med aspect-ratio-fix för kartan) */
 
 /* ================================== */
-/* MOBIL-FÖRST (Allt i en kolumn)     */
+/* MOBIL-FÖRST                        */
 /* ================================== */
 
 .contact-section {
     padding: 4rem 1rem;
     min-height: 100vh;
-    display: flex; /* Används för att centrera innehållet på sidan */
+    display: flex;
     align-items: center;
 }
 
 .contact-wrapper {
     display: flex;
-    flex-direction: column; /* Allt ligger i en kolumn på mobilen */
+    flex-direction: column;
     gap: 40px;
     width: 100%;
-    max-width: 1200px; /* En bra standard-maxbredd för innehåll */
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .contact-form-container,
 .contact-map {
-    width: 100%; /* Fyller hela bredden på mobilen */
+    width: 100%;
 }
 
 .contact-subtitle {
@@ -31,14 +31,77 @@
     margin-bottom: 2rem;
 }
 
+/* === VIKTIG ÄNDRING HÄR === */
 .contact-map {
-    min-height: 350px;
+    position: relative; /* Nödvändig för att kunna positionera iframen inuti */
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+
+    /* Sätter ett fast bildförhållande. Höjden blir nu 10/16-delar av bredden. */
+    /* Du kan justera detta, t.ex. till 4 / 3 för en mer kvadratisk karta. */
+    aspect-ratio: 16 / 10;
 }
 
-/* Styling för formulärfälten */
+/* === VIKTIG ÄNDRING HÄR === */
+.contact-map iframe {
+    position: absolute; /* Lägg iframen över hela containern */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* ... (resten av din CSS för kontaktinfo och formulär är oförändrad och korrekt) ... */
+.contact-details {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1rem;
+}
+
+.contact-info-item i {
+    color: var(--color-accent, #f26722);
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+}
+
+.contact-info-item a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-info-item a:hover {
+    color: var(--color-accent, #f26722);
+}
+
+.contact-socials {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.contact-socials a {
+    color: #ccc;
+    font-size: 1.8rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.contact-socials a:hover {
+    color: var(--color-accent, #f26722);
+    transform: scale(1.1);
+}
+
 .contact-form input,
 .contact-form textarea {
     width: 100%;
@@ -62,8 +125,7 @@
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-    color: white;
-    opacity: 1;
+    color: #888;
 }
 
 .contact-form textarea {
@@ -71,25 +133,24 @@
     min-height: 120px;
 }
 
-
 /* ================================== */
 /* DESKTOP-ANPASSNINGAR               */
 /* ================================== */
 @media (min-width: 1024px) {
 
     .contact-wrapper {
-        flex-direction: row; /* Lägg elementen i rad */
-        align-items: center; /* Centrera dem vertikalt */
+        flex-direction: row;
+        align-items: center;
         gap: 60px;
     }
 
-    /* Båda kolumnerna får nu lika mycket utrymme */
     .contact-map,
     .contact-form-container {
-        flex: 1; /* Detta betyder "dela på utrymmet lika" */
+        flex: 1;
     }
 
-    .contact-map {
-        height: 600px;
-    }
+    /* Vi tar bort den fasta höjden här så att aspect-ratio gäller även på desktop */
+    /* .contact-map {
+        height: 650px;
+    } */
 }
