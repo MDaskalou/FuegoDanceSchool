@@ -2,66 +2,112 @@
 import React from "react";
 import ModalComponent from "./ModalComponent";
 import "../css/eventModal.css";
-import { useTranslation } from "react-i18next"; // <-- NY: Importera useTranslation här
+import { useTranslation } from "react-i18next";
 
-export default function EventModal({ isOpen, onClose, event }) { // <-- TA BORT: t från propsen
-
-
+export default function EventModal({ isOpen, onClose, event }) {
     const { t } = useTranslation("eventTranslation");
-
     if (!isOpen || !event) return null;
 
-    // <-- NY: Anropa useTranslation internt i EventModal
+    // Helpers: hämta som array/sträng oavsett källa (string eller array i i18n)
+    const tRaw = (key, opts = {}) => t(key, { returnObjects: true, ...opts });
 
-    // Hämta de översatta strängarna
-    const title = t(`event_${event.id}_title`, { ns: 'eventTranslation' });
-    const date = t(`event_${event.id}_date`, { ns: 'eventTranslation' });
-    const time = t(`event_${event.id}_time`, { ns: 'eventTranslation' });
-    const location = t(`event_${event.id}_location`, { ns: 'eventTranslation' });
-    const level = t(`event_${event.id}_level`, { ns: 'eventTranslation' });
-    const bring = t(`event_${event.id}_bring`, { ns: 'eventTranslation' });
-    const fullDescription = t(`event_${event.id}_description`, { ns: 'eventTranslation' });
+    const normalizeArray = (val) => {
+        if (Array.isArray(val)) return val;
+        if (typeof val === "string") {
+            // Om sträng kan innehålla radbrytningar -> sprid ut
+            return val.split(/\r?\n/);
+        }
+        return [];
+    };
 
-    const levelLabel = t('eventLevelLabel', { ns: 'eventTranslation', defaultValue: 'Nivå:' });
-    const bringLabel = t('eventBringLabel', { ns: 'eventTranslation', defaultValue: 'Ta med:' });
-    const readMoreAndBookLabel = t('readMoreAndBookButton', { ns: 'eventTranslation', defaultValue: 'Läs mer & boka' });
+    const tArray = (key) => normalizeArray(tRaw(key, { defaultValue: "" }));
+
+    const tString = (key) => {
+        const v = tRaw(key, { defaultValue: "" });
+        if (Array.isArray(v)) return v.join(" ");
+        if (typeof v === "string") return v;
+        return "";
+    };
+
+    // Hjälpfunktion: visa inte "event_xxx_key" om översättning saknas
+    const clean = (s) =>
+        typeof s === "string" && s.startsWith("event_") ? "" : s;
+
+    const base = `event_${event.id}`;
+
+    const title = clean(tString(`${base}_title`));
+    const date = clean(tString(`${base}_date`));
+    const time = clean(tString(`${base}_time`));
+    const location = clean(tString(`${base}_location`));
+    const levelText = clean(tString(`${base}_level`));
+    const bringText = clean(tString(`${base}_bring`));
+    const descriptionLines = tArray(`${base}_description`);
+
+    const levelLabel = t("eventLevelLabel", { defaultValue: "Nivå:" });
+    const bringLabel = t("eventBringLabel", { defaultValue: "Ta med:" });
+    const readMoreAndBookLabel = t("readMoreAndBookButton", {
+        defaultValue: "Läs mer & boka",
+    });
 
     return (
         <ModalComponent isOpen={isOpen} onClose={onClose} className="event-modal">
             <div className="modal-body">
-
                 <div className="modal-left">
-                    <img src={event.image} alt={title} className="modal-image" />
+                    <img src={event.image} alt={title || "Event image"} className="modal-image" />
                 </div>
 
                 <div className="modal-info">
-                    <h2 className="modal-title">{title}</h2>
+                    {title && <h2 className="modal-title">{title}</h2>}
 
                     <ul className="event-quick-info">
-                        <li><span>📅</span> {date}</li>
-                        <li><span>⏰</span> {time}</li>
-                        <li><span>📍</span> {location}</li>
-                        {event.level && <li><span>📈</span> {levelLabel} {level}</li>}
-                        {event.bring && <li><span>🥿</span> {bringLabel} {bring}</li>}
+                        {date && (
+                            <li>
+                                <span>📅</span> {date}
+                            </li>
+                        )}
+                        {time && (
+                            <li>
+                                <span>⏰</span> {time}
+                            </li>
+                        )}
+                        {location && (
+                            <li>
+                                <span>📍</span> {location}
+                            </li>
+                        )}
+                        {levelText && (
+                            <li>
+                                <span>📈</span> {levelLabel} {levelText}
+                            </li>
+                        )}
+                        {bringText && (
+                            <li>
+                                <span>🥿</span> {bringLabel} {bringText}
+                            </li>
+                        )}
                     </ul>
 
-                    <p className="modal-description">
-                        {fullDescription.split('\n').map((line, index) => (
-                            <React.Fragment key={index}>
-                                {line}
-                                <br />
-                            </React.Fragment>
-                        ))}
-                    </p>
+                    {/* Beskrivning: hantera både array och string (med \n) */}
+                    <div className="modal-description">
+                        {descriptionLines.length === 0 ? (
+                            <p />
+                        ) : (
+                            descriptionLines.map((line, i) =>
+                                line === "" ? <br key={i} /> : <p key={i}>{line}</p>
+                            )
+                        )}
+                    </div>
 
-                    <a
-                        href={event.link}
-                        className="btn btn-small"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        {readMoreAndBookLabel}
-                    </a>
+                    {event.link && (
+                        <a
+                            href={event.link}
+                            className="btn btn-small"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            {readMoreAndBookLabel}
+                        </a>
+                    )}
                 </div>
             </div>
         </ModalComponent>

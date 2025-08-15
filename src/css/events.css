@@ -1,99 +1,106 @@
-﻿/* src/css/events.css */
-
-.events-section {
-    padding: 60px 20px;
-    background: linear-gradient(to right, #1f1f1f, #3a1f1d);
-    text-align: center;
+﻿/* ============ SECTION ============ */
+.events-section{
+    padding:60px 16px;
+    background:linear-gradient(to right,#1f1f1f,#3a1f1d);
+    text-align:center;
 }
 
-.main-title {
-    font-size: 2rem;
-    color: white;
-    margin-bottom: 30px;
-    font-family: 'Playfair Display', serif;
+/* rubriken renderas av SectionTitle, men låt den få luft */
+.events-section .section-title{ margin-bottom:28px; }
+
+/* ============ GRID (mobile-first) ============ */
+.events-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:28px;
+    max-width:1200px;
+    margin:0 auto;
 }
 
-.events-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    align-items: center;
+/* ============ CARD ============ */
+.card-event{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:14px;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+    padding:18px;
+    text-align:left;
+    color:#fff;
+    backdrop-filter:blur(3px);
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 
-.card-event {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.15);
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    text-align: left;
-    width: 100%;
-    max-width: 350px;
-    box-sizing: border-box;
-    backdrop-filter: blur(3px);
-    color: white;
+.card-event:hover{
+    transform:translateY(-2px);
+    box-shadow:0 16px 40px rgba(0,0,0,.35);
+    border-color:rgba(255,255,255,.18);
 }
 
-.card-event img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 15px;
+.card-event img{
+    width:100%;
+    height:auto;
+    border-radius:10px;
+    margin-bottom:12px;
+    display:block;
 }
 
-.event-meta {
-    font-size: 0.95rem;
-    color: #ccc;
-    margin-bottom: 6px;
-    font-weight: 500;
+.event-meta{
+    font-size:.95rem;
+    color:#d8d8d8;
+    margin-bottom:6px;
+    font-weight:500;
 }
 
-.event-description {
-    font-size: 1rem;
-    margin: 12px 0;
-    color: #eee;
-    line-height: 1.6;
+.card-event h3{
+    margin:6px 0 6px;
+    font-size:1.25rem;
+    line-height:1.25;
 }
 
-.card-event .btn {
-    display: inline-block;
-    background-color: #f26722;
-    color: white;
-    padding: 12px 26px;
-    border-radius: 30px;
-    font-size: 1rem;
-    font-weight: 600;
-    text-align: center;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease, transform 0.2s ease;
+.event-description{
+    font-size:1rem;
+    margin:10px 0 14px;
+    color:#eee;
+    line-height:1.55;
 }
 
-.card-event .btn:hover {
-    background-color: #d45200;
-    transform: scale(1.05);
+/* CTA */
+.card-event .btn{
+    display:inline-block;
+    background:#f26722;
+    color:#fff;
+    padding:12px 24px;
+    border-radius:28px;
+    font-size:1rem;
+    font-weight:700;
+    border:none;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(0,0,0,.3);
+    transition:background .2s ease, transform .12s ease;
 }
+.card-event .btn:hover{ background:#d45200; transform:translateY(-1px); }
 
-@media (min-width: 768px) {
-    .events-grid {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 40px;
+/* ============ TABLET ============ */
+@media (min-width:768px){
+    .events-section{ padding:80px 40px; }
+    .events-grid{
+        grid-template-columns:repeat(2, minmax(320px, 1fr));
+        gap:36px;
     }
+}
 
-    .card-event {
-        max-width: 300px;
+/* ============ DESKTOP ============ */
+@media (min-width:1024px){
+    .events-section{ padding:96px 48px; }
+    .events-grid{
+        grid-template-columns:repeat(3, minmax(320px, 1fr));
+        gap:40px;
     }
+    .card-event{ padding:20px; }
+    .card-event h3{ font-size:1.35rem; }
+}
 
-    .events-section {
-        padding: 80px 60px;
-    }
-
-    .events-title {
-        font-size: 2.5rem;
-        margin-bottom: 40px;
-    }
+/* XL – centrera och begränsa maxbredd snyggt */
+@media (min-width:1280px){
+    .events-grid{ max-width:1160px; }
 }
