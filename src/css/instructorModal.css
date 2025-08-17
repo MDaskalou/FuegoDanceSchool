@@ -3,7 +3,11 @@
 .instructor-modal {
     /* Dessa regler skriver över de generella från Modal.css */
     width: 95vw;
-    max-width: 550px;
+    max-width: 650px;
+    max-height: 88dvh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden;
 }
 
 /* Specifika stilar för innehållet inuti just denna modal-typ */
@@ -12,7 +16,6 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    padding: 1.5rem;
 }
 
 .instructor-modal .modal-title {
@@ -23,7 +26,8 @@
 }
 
 .instructor-modal .modal-scrollable-content {
-    flex-grow: 1;
+    flex: 1 1 auto;
+    min-height: 0;
     overflow-y: auto;
     margin: 1rem 0;
     padding: 0;
@@ -44,11 +48,21 @@
 .instructor-modal .social-links a { color: var(--color-accent, #f26722); font-weight: bold; text-decoration: none; transition: color 0.3s; }
 .instructor-modal .social-links a:hover { color: #ffa36c; }
 
+.instructor-modal > .modal-content,
+.instructor-modal > .modal-window,
+.instructor-modal > div{
+    display: flex;
+    flex-direction: column;
+    min-height: 0;                  /* <— nyckeln för flex + overflow */
+    max-height: 100%;
+}
+
 
 /* === DESKTOP-ANPASSNINGAR === */
 @media (min-width: 768px) {
     .instructor-modal {
         max-width: 650px;
+        max-height: 90dvh;
     }
 
     .instructor-modal .instructor-modal-content {

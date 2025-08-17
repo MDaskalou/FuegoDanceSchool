@@ -1,306 +1,168 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Great+Vibes&display=swap');
 
-*, *::before, *::after {
-    box-sizing: border-box;
-}
+/* Sektioner tar höjd för fast navbar */
+#heroreel, #schedule, #courses, #prices, #events { scroll-margin-top: 80px; }
 
-body {
-    max-width: 100vw;
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-    font-family: 'Playfair Display', serif;
-    background-color: #1a1a1a;
+/* Reset & no sideways scroll */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body{
+    max-width:100vw; overflow-x:hidden; margin:0; padding:0;
+    font-family:'Playfair Display', serif;
+    background-color:#1a1a1a;
 }
-html {
-    scroll-behavior: smooth;
-}
-
 
 /* === NAVBAR BAS === */
-.navbar {
-    height: 80px;
-    background: linear-gradient(to right, #1f1f1f, #3a1f1d);
-    color: white;
-    padding: 0 16px;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.navbar{
+    height:80px;
+    background:linear-gradient(to right,#1f1f1f,#3a1f1d);
+    color:#fff; padding:0 16px; width:100%;
+    position:fixed; top:0; left:0; z-index:1000;
+    display:flex; align-items:center; justify-content:space-between;
+
+    /* Auto-hide + polish */
+    transition:transform .28s ease, background .25s ease, box-shadow .25s ease;
+    will-change:transform;
+}
+.navbar--hidden{ transform:translateY(-100%); }
+
+/* (Valfritt) ge svag skugga när sidan scrollats lite.
+   Lägg klass .navbar--scrolled via JS om du vill. */
+.navbar--scrolled{
+    background:linear-gradient(to right,#1b1b1b,#311a18);
+    box-shadow:0 6px 24px rgba(0,0,0,.35);
 }
 
 /* === LOGO === */
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+.logo-container{ display:flex; align-items:center; gap:10px; cursor:pointer; }
+.logo-img{ height:60px; width:auto; border-radius:50%; filter:drop-shadow(0 0 4px #f26722); }
+.logo-heading-stacked{ font-size:1.5rem; line-height:1.1; }
+.logo-text-serif{ font-weight:700; color:#f26722; font-family:'Playfair Display',serif; }
+.handwrite-text{ font-family:'Great Vibes',cursive; font-size:1.4rem; color:#fff; margin-left:6px; }
 
-.logo-img {
-    height: 60px;
-    width: auto;
-    border-radius: 50%;
-    filter: drop-shadow(0 0 4px #f26722);
+/* === SPRÅKKNAPP === */
+.lang-switcher-btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:26px; height:26px; border-radius:50%;
+    background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.2);
+    font-size:.62rem; font-weight:700; text-transform:uppercase;
+    color:#fff; line-height:1; padding:0; cursor:pointer;
+    transition:transform .12s ease, opacity .12s ease, background .2s ease, border-color .2s ease;
 }
-
-.logo-heading-stacked {
-    font-size: 1.5rem;
-    line-height: 1.1;
-}
-
-.logo-text-serif {
-    font-weight: 700;
-    color: #f26722;
-    font-family: 'Playfair Display', serif;
-}
-
-.handwrite-text {
-    font-family: 'Great Vibes', cursive;
-    font-size: 1.4rem;
-    color: white;
-    margin-left: 6px;
-}
-
-/* === LANGUAGE SWITCHER (höger justerad) === */
-.language-switcher {
-    position: absolute;
-    right: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.flag-icon {
-    width: 26px;
-    height: 26px;
-    cursor: pointer;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    transition: transform 0.2s ease;
-}
-
-.flag-icon:hover {
-    transform: scale(1.1);
-}
+.lang-switcher-btn:hover{ background:rgba(255,255,255,.2); }
+.lang-switcher-btn:active{ transform:scale(.94); opacity:.9; }
+.lang-switcher-btn:focus{ outline:none; border-color:#ff6b00; }
 
 /* === MENU TOGGLE === */
-.menu-toggle {
-    font-size: 2rem;
-    color: white;
-    background: none;
-    border: none;
-    z-index: 1001;
+.menu-toggle{
+    font-size:2rem; color:#fff; background:none; border:none; z-index:1001;
+    transition:transform .12s ease, opacity .12s ease;
 }
+.menu-toggle:active{ transform:scale(.94); opacity:.9; }
 
 /* === NAV LINKS (mobilmeny) === */
-/* ALL KOD HÄR ÄR UPPDATERAD */
+.nav-wrapper{ position:relative; }
+.nav-links{
+    display:none; position:fixed; top:0; left:0; width:100vw; height:100vh;
+    background:rgba(0,0,0,.95); backdrop-filter:blur(8px);
+    flex-direction:column; justify-content:center; align-items:center;
+    z-index:999; padding-top:80px; animation:fadeSlideUp .4s ease-out forwards;
+}
+.nav-links.open{ display:flex; }
 
-.nav-wrapper {
-    position: relative;
+.nav-links ul{
+    list-style:none; padding:0; margin:0; gap:16px;
+    display:flex; flex-direction:column; align-items:center; width:100%;
+}
+.nav-links ul li{ width:auto; display:flex; justify-content:center; }
+
+.nav-link{
+    background:none; border:none;
+    font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:400;
+    color:#e0e0e0; text-decoration:none; padding:12px 20px;
+    display:flex; align-items:center; gap:15px; width:auto; cursor:pointer;
+    transition:color .3s ease, transform .2s ease;
+}
+.nav-link:hover{ color:#f26722; transform:translateX(8px); background-color:transparent; }
+.nav-link.active{ color:#f26722; font-weight:700; }
+.nav-link .icon{ font-size:1.6rem; vertical-align:middle; }
+
+/* CTA (Kurser) */
+.nav-link-cta{
+    background-color:#f26722; color:#fff !important; border-radius:30px; padding:12px 24px;
+    transition:transform .2s ease, box-shadow .3s ease, background-color .3s ease;
+}
+.nav-link-cta:hover{
+    color:#fff !important; transform:scale(1.05) translateX(0);
+    box-shadow:0 6px 15px rgba(242,103,34,.4);
+}
+.nav-link-cta.active{ color:#fff !important; }
+
+/* Flag emoji (om du använder den någonstans) */
+.flag-emoji{
+    font-size:26px; cursor:pointer; transition:transform .2s ease;
+    display:inline-block; padding:2px; border-radius:50%; line-height:1;
+}
+.flag-emoji:hover{ transform:scale(1.1); }
+
+/* Nav öppningsanimation */
+@keyframes fadeSlideUp{
+    from{ opacity:0; transform:translateY(10px); }
+    to{ opacity:1; transform:translateY(0); }
 }
 
-.nav-links {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(8px);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-    padding-top: 80px; /* lite utrymme från toppen */
-    animation: fadeSlideUp 0.4s ease-out forwards;
-}
+/* === DESKTOP === */
+@media (min-width:768px){
+    .menu-toggle{ display:none; }
+    .navbar{ padding:0 40px; }
 
-.nav-links.open {
-    display: flex;
-}
-
-.nav-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    gap: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-.nav-links ul li {
-    width: auto;
-    display: flex;
-    justify-content: center;
-}
-
-.nav-link {
-    background: none;
-    border: none;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    font-weight: 400;
-    color: #e0e0e0;
-    text-decoration: none;
-    padding: 12px 20px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    width: auto;
-    cursor: pointer;
-    transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.nav-link:hover {
-    color: #f26722;
-    transform: translateX(8px);
-    background-color: transparent;
-}
-
-.nav-link.active {
-    color: #f26722;
-    font-weight: 700;
-}
-
-.nav-link .icon {
-    font-size: 1.6rem;
-    vertical-align: middle;
-}
-
-/* Valfri CTA-knapp för "Kurser" */
-.nav-link-cta {
-    background-color: #f26722;
-    color: white !important; /* Säkerställ att texten är vit */
-    border-radius: 30px;
-    padding: 12px 24px;
-}
-
-.nav-link-cta:hover {
-    color: white !important; /* Behåll vit text */
-    transform: scale(1.05) translateX(0); /* Zooma istället för att flytta */
-}
-
-.nav-link-cta.active {
-    color: white !important;
-}
-
-/* === Flag ikon === */
-
-.flag-emoji {
-    font-size: 26px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    display: inline-block;
-    padding: 2px;
-    border-radius: 50%;
-    line-height: 1;
-}
-
-.flag-emoji:hover {
-    transform: scale(1.1);
-}
-/* === ANIMATION === */
-@keyframes fadeSlideUp {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
+    .nav-wrapper{ display:flex; flex:1; justify-content:center; }
+    .nav-links{
+        display:flex !important; position:static; height:auto; width:auto;
+        flex-direction:row; align-items:center; background:none; backdrop-filter:none;
+        padding:0; animation:none;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .nav-links ul{
+        flex-direction:row; align-items:center; gap:28px; padding:0; margin:0;
+    }
+    .nav-links ul li{ width:auto; }
+
+    /* Textlänk – desktop */
+    .nav-link{
+        font-size:1.1rem; font-weight:500; color:var(--color-secondary,#a0a0a0);
+        padding:8px 4px; border-radius:0;
+        transition:color .3s ease, transform .2s ease;
+        position:relative; /* för underline-effekt */
+    }
+    .nav-link:hover{ color:var(--color-primary,#fff); transform:translateY(-2px); background:none; box-shadow:none; }
+    .nav-link.active{ color:var(--color-accent,#f26722); font-weight:700; background:none; }
+
+    /* Slide-underline på hover */
+    .nav-link::after{
+        content:""; position:absolute; left:0; right:0; bottom:-4px; height:2px;
+        background: currentColor; transform:scaleX(0); transform-origin:left;
+        transition:transform .25s ease;
+    }
+    .nav-link:hover::after{ transform:scaleX(1); }
+
+    /* CTA – desktop */
+    .nav-link-cta{
+        background:var(--color-accent,#f26722); color:#fff !important; font-weight:700;
+        padding:12px 24px; border-radius:50px;
+    }
+    .nav-link-cta:hover{
+        background:var(--color-accent-hover,#ffaf4d); color:#fff !important;
+        transform:translateY(-2px) scale(1.03);
+        box-shadow:0 6px 15px rgba(242,103,34,.4);
+    }
+
+    .lang-switcher-btn{
+        margin-left:16px;
     }
 }
 
-@media (min-width: 768px) {
-    .menu-toggle {
-        display: none;
-    }
-
-    .navbar {
-        padding: 0 40px;
-    }
-
-    .nav-wrapper {
-        display: flex;
-        flex: 1;
-        justify-content: center;
-    }
-
-    .nav-links {
-        display: flex !important;
-        position: static;
-        height: auto;
-        width: auto;
-        flex-direction: row;
-        align-items: center;
-        background: none;
-        backdrop-filter: none;
-        padding: 0;
-        animation: none;
-    }
-
-    .nav-links ul {
-        flex-direction: row;
-        align-items: center; /* Centrera på höjden */
-        gap: 28px; /* Lite större gap för ett luftigare intryck */
-        padding: 0;
-    }
-
-    .nav-links ul li {
-        width: auto;
-    }
-
-    /* Standardlänken - nu en ren textlänk */
-    .nav-link {
-        font-size: 1.1rem;
-        font-weight: 500; /* Något tunnare fontvikt */
-        color: var(--color-secondary, #a0a0a0); /* Gråare färg för inaktiva länkar */
-        background: none; /* Ingen bakgrund! */
-        padding: 8px 4px; /* Minimal padding */
-        border-radius: 0;
-        border: none;
-        transition: color 0.3s ease, transform 0.2s ease;
-    }
-
-    /* Hover-effekt för textlänkar */
-    .nav-link:hover {
-        color: var(--color-primary, white); /* Blir vit vid hover */
-        transform: translateY(-2px); /* Liten lyft-effekt */
-        background: none;
-        box-shadow: none;
-    }
-
-    /* Stil för den aktiva sidan */
-    .nav-link.active {
-        color: var(--color-accent, #f26722); /* Orange text */
-        font-weight: 700; /* Fetare text */
-        background: none;
-    }
-
-    /* Stil för vår Call-to-Action knapp (Kurser) */
-    .nav-link-cta {
-        background: var(--color-accent, #f26722);
-        color: white !important; /* Säkerställ vit text */
-        font-weight: 700;
-        padding: 12px 24px;
-        border-radius: 50px; /* Mer rundad för en modern känsla */
-        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    }
-
-    /* Hover-effekt för CTA-knappen */
-    .nav-link-cta:hover {
-        background-color: var(--color-accent-hover, #ffaf4d);
-        color: white !important;
-        transform: translateY(-2px) scale(1.03);
-        box-shadow: 0 6px 15px rgba(242, 103, 34, 0.4);
-    }
+/* Tillgänglighet: reduced motion */
+@media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
 }

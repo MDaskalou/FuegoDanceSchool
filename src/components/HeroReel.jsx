@@ -1,102 +1,201 @@
 // src/components/HeroReel.jsx
-import React, { useRef, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import React, { useRef, useEffect, useState, useCallback } from "react";
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, EffectFade, Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade, Navigation } from "swiper/modules";
 
-import 'swiper/css';
-import 'swiper/css/effect-fade';
-import 'swiper/css/navigation';
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
 
-import '../css/heroReel.css';
-import heroReelData from '../Data/heroReelData';
-import Button from './UI/Button/Button';
-import FAQ from './FAQ';
+import "../css/heroReel.css";
+import heroReelData from "../Data/heroReelData";
+import Button from "./UI/Button/Button";
+import FAQ from "./FAQ";
+
+/* --- helper: wait until a <video> can play without calling .load() --- */
+function waitUntilReady(video, signal) {
+    if (!video) return Promise.resolve();
+    if (video.readyState >= 2) return Promise.resolve();
+    return new Promise((resolve, reject) => {
+        const onReady = () => cleanup(resolve);
+        const onAbort = () =>
+            cleanup(() => reject(new DOMException("aborted", "AbortError")));
+        const cleanup = (fn) => {
+            video.removeEventListener("loadeddata", onReady);
+            video.removeEventListener("canplay", onReady);
+            signal?.removeEventListener?.("abort", onAbort);
+            fn();
+        };
+        video.addEventListener("loadeddata", onReady, { once: true });
+        video.addEventListener("canplay", onReady, { once: true });
+        if (signal) signal.addEventListener("abort", onAbort, { once: true });
+    });
+}
 
 export default function HeroReel() {
     const [showFAQ, setShowFAQ] = useState(false);
-    const navigate = useNavigate();
-    const { t } = useTranslation('heroReelsTranslation');
+    const { t } = useTranslation("heroReelsTranslation");
 
     const videoRefs = useRef({});
     const swiperRef = useRef(null);
 
     const getRefs = (id) => {
         if (!videoRefs.current[id]) {
-            videoRefs.current[id] = { bg: null, fg: null, wrap: null, driftTimer: null };
+            videoRefs.current[id] = {
+                bg: null,
+                fg: null,
+                wrap: null,
+                driftTimer: null,
+                offResize: null,
+                controller: null,
+            };
         }
         return videoRefs.current[id];
     };
 
-    const setOverlayEdges = (id) => {
+    const setOverlayEdges = useCallback((id) => {
         const { fg, wrap } = getRefs(id);
         if (!fg || !wrap) return;
-
         const w = wrap.getBoundingClientRect().width;
         const fgw = fg.getBoundingClientRect().width;
         if (!w || !fgw) return;
-
-        // procentuellt avstånd från varje kant till framvideons kant
         const edgePct = Math.max(0, Math.min(50, ((w - fgw) / 2 / w) * 100));
-        wrap.style.setProperty('--fgEdge', `${edgePct}%`);
-    };
+        wrap.style.setProperty("--fgEdge", `${edgePct}%`);
+    }, []);
 
-    const startSlideVideos = (index) => {
-        const slide = heroReelData[index];
-        if (!slide) return;
-        const { bg, fg, wrap } = getRefs(slide.id);
-        if (!bg || !fg) return;
+    const pauseAllExcept = useCallback((keepId) => {
+        Object.entries(videoRefs.current).forEach(([id, r]) => {
+            if (id === String(keepId)) return;
+            try { r.bg?.pause?.(); } catch {}
+            try { r.fg?.pause?.(); } catch {}
+        });
+    }, []);
 
-        try { bg.currentTime = 0; fg.currentTime = 0; } catch {}
-        if (fg.readyState < 2) fg.load();
-        if (bg.readyState < 2) bg.load();
+    const startSlideVideos = useCallback(
+        async (index) => {
+            const slide = heroReelData[index];
+            if (!slide) return;
 
-        const playBoth = () => {
+            const refs = getRefs(slide.id);
+            const { bg, fg } = refs;
+            if (!bg || !fg) return;
+
+            // stop others & abort pending
+            pauseAllExcept(slide.id);
+            refs.controller?.abort?.();
+            const controller = new AbortController();
+            refs.controller = controller;
+
+            try { bg.pause(); fg.pause(); } catch {}
+            try { bg.currentTime = 0; fg.currentTime = 0; } catch {}
+
             try {
-                fg.currentTime = bg.currentTime || 0;
-                const p1 = bg.play?.(); if (p1?.catch) p1.catch(()=>{});
-                const p2 = fg.play?.(); if (p2?.catch) p2.catch(()=>{});
-                // räkna ut overlay-kanter när video fått layout
-                requestAnimationFrame(() => setOverlayEdges(slide.id));
-            } catch {}
-        };
-
-        if (bg.readyState >= 2) playBoth(); else bg.oncanplay = () => { bg.oncanplay = null; playBoth(); };
-
-        clearInterval(getRefs(slide.id).driftTimer);
-        videoRefs.current[slide.id].driftTimer = setInterval(() => {
-            if (!bg.paused && !fg.paused) {
-                const drift = Math.abs((bg.currentTime||0) - (fg.currentTime||0));
-                if (drift > 0.15) { try { fg.currentTime = bg.currentTime; } catch {} }
+                await Promise.all([
+                    waitUntilReady(bg, controller.signal),
+                    waitUntilReady(fg, controller.signal),
+                ]);
+            } catch {
+                return;
             }
-        }, 2000);
 
-        // uppdatera gradient när fönstret ändras
-        const onResize = () => setOverlayEdges(slide.id);
-        window.addEventListener('resize', onResize, { passive: true });
-        // spara bort för städning
-        getRefs(slide.id).offResize = onResize;
-    };
+            // sync and play (ignore autoplay errors silently)
+            try { fg.currentTime = bg.currentTime || 0; } catch {}
+            const p1 = bg.play?.();
+            const p2 = fg.play?.();
+            p1?.catch?.(() => {});
+            p2?.catch?.(() => {});
 
+            // compute overlay edges after layout tick
+            requestAnimationFrame(() => setOverlayEdges(slide.id));
+
+            // drift correction
+            clearInterval(refs.driftTimer);
+            refs.driftTimer = setInterval(() => {
+                if (!bg.paused && !fg.paused) {
+                    const drift = Math.abs((bg.currentTime || 0) - (fg.currentTime || 0));
+                    if (drift > 0.2) {
+                        try { fg.currentTime = bg.currentTime; } catch {}
+                    }
+                }
+            }, 2000);
+
+            // resize listener (one per slide)
+            if (refs.offResize) window.removeEventListener("resize", refs.offResize);
+            const onResize = () => setOverlayEdges(slide.id);
+            window.addEventListener("resize", onResize, { passive: true });
+            refs.offResize = onResize;
+        },
+        [pauseAllExcept, setOverlayEdges]
+    );
+
+    // cleanup on unmount
     useEffect(() => {
+        const refsSnapshot = videoRefs.current;
         return () => {
-            Object.values(videoRefs.current).forEach(({ driftTimer, offResize }) => {
-                if (driftTimer) clearInterval(driftTimer);
-                if (offResize) window.removeEventListener('resize', offResize);
-            });
+            Object.values(refsSnapshot).forEach(
+                ({ driftTimer, offResize, controller }) => {
+                    if (driftTimer) clearInterval(driftTimer);
+                    if (offResize) window.removeEventListener("resize", offResize);
+                    controller?.abort?.();
+                }
+            );
         };
     }, []);
 
-    const handleInit = (swiper) => {
-        swiperRef.current = swiper;
-        startSlideVideos(swiper.realIndex || 0);
-    };
+    // fade-in content once visible
+    useEffect(() => {
+        const root = document.querySelector(".hero-reel-container");
+        if (!root) return;
+        const io = new IntersectionObserver(
+            ([e]) => {
+                if (e.isIntersecting) {
+                    root.classList.add("ready");
+                    io.disconnect();
+                }
+            },
+            { threshold: 0.2 }
+        );
+        io.observe(root);
+        return () => io.disconnect();
+    }, []);
 
-    const handleSlideChange = (swiper) => {
-        startSlideVideos(swiper.realIndex || 0);
-    };
+    // pause videos when tab hidden / resume when visible
+    useEffect(() => {
+        const onVis = () => {
+            if (document.hidden) {
+                // pausa allt
+                Object.values(videoRefs.current).forEach(({ bg, fg }) => {
+                    try { bg?.pause?.(); } catch {}
+                    try { fg?.pause?.(); } catch {}
+                });
+                return;
+            }
+            // fliken synlig: starta ENDAST aktuell slide
+            const idx = swiperRef.current?.realIndex ?? 0;
+            startSlideVideos(idx);
+        };
+
+        document.addEventListener("visibilitychange", onVis, { passive: true });
+        return () => document.removeEventListener("visibilitychange", onVis);
+    }, [startSlideVideos]);
+
+    const handleInit = useCallback(
+        (swiper) => {
+            swiperRef.current = swiper;
+            startSlideVideos(swiper.realIndex || 0);
+        },
+        [startSlideVideos]
+    );
+
+    const handleSlideChange = useCallback(
+        (swiper) => {
+            startSlideVideos(swiper.realIndex || 0);
+        },
+        [startSlideVideos]
+    );
 
     return (
         <div id="heroreel" className="hero-reel-container">
@@ -136,39 +235,70 @@ export default function HeroReel() {
                                 ref={(el) => { getRefs(slide.id).fg = el; }}
                             />
 
-                            {/* gradienten använder --fgEdge */}
+                            {/* vignette overlay (uses --fgEdge) */}
                             <div className="slide-overlay" />
 
                             <div className="slide-text-content">
-                                <h1 className="slide-title">{t('title')}</h1>
-                                <p className="hero-quote">{t('quote')}</p>
-                                <p className="slide-subtitle">{t('subtitle')}</p>
+                                <h1 className="slide-title reveal">{t("title")}</h1>
+                                <p className="hero-quote reveal">{t("quote")}</p>
+                                <p className="slide-subtitle reveal">{t("subtitle")}</p>
 
-                                <div className="hero-buttons-mobile">
-                                    <Button onClick={() => window.open('https://app.coursely.se/activities/FuegoDance')}>
-                                        {t('coursesButton')}
+                                <div className="hero-buttons-mobile reveal">
+                                    <Button
+                                        onClick={() =>
+                                            window.open(
+                                                "https://app.coursely.se/activities/FuegoDance",
+                                                "_blank"
+                                            )
+                                        }
+                                    >
+                                        {t("coursesButton")}
                                     </Button>
+
                                     <div className="hero-secondary-actions">
-                                        <a href="/open-house-signup" onClick={(e) => { e.preventDefault(); navigate('/open-house-signup'); }}>
-                                            {t('openHouseButton')}
-                                        </a>
-                                        <span>|</span>
-                                        <a href="#" onClick={(e) => { e.preventDefault(); setShowFAQ(true); }}>
-                                            {t('faqButton')}
-                                        </a>
+                                        <Link to="/open-house-signup" className="hero-secondary-action">
+                                            {t("openHouseButton")}
+                                        </Link>
+
+                                        <span aria-hidden="true">|</span>
+
+                                        <button
+                                            type="button"
+                                            className="hero-secondary-action hero-linklike"
+                                            onClick={() => setShowFAQ(true)}
+                                            aria-haspopup="dialog"
+                                            aria-controls="faq-modal"
+                                        >
+                                            {t("faqButton")}
+                                        </button>
                                     </div>
                                 </div>
 
-                                <div className="hero-buttons-desktop">
-                                    <a href="/open-house-signup" className="hero-secondary-action" onClick={(e) => { e.preventDefault(); navigate('/open-house-signup'); }}>
-                                        {t('openHouseButton')}
-                                    </a>
-                                    <Button onClick={() => window.open('https://app.coursely.se/activities/FuegoDance')}>
-                                        {t('coursesButton')}
+                                <div className="hero-buttons-desktop reveal">
+                                    <Link to="/open-house-signup" className="hero-secondary-action">
+                                        {t("openHouseButton")}
+                                    </Link>
+
+                                    <Button
+                                        onClick={() =>
+                                            window.open(
+                                                "https://app.coursely.se/activities/FuegoDance",
+                                                "_blank"
+                                            )
+                                        }
+                                    >
+                                        {t("coursesButton")}
                                     </Button>
-                                    <a href="#" className="hero-secondary-action" onClick={(e) => { e.preventDefault(); setShowFAQ(true); }}>
-                                        {t('faqButton')}
-                                    </a>
+
+                                    <button
+                                        type="button"
+                                        className="hero-secondary-action hero-linklike"
+                                        onClick={() => setShowFAQ(true)}
+                                        aria-haspopup="dialog"
+                                        aria-controls="faq-modal"
+                                    >
+                                        {t("faqButton")}
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -176,7 +306,9 @@ export default function HeroReel() {
                 ))}
             </Swiper>
 
-            <div className="scroll-indicator"><div className="arrow" /></div>
+            <div className="scroll-indicator">
+                <div className="arrow" />
+            </div>
             <FAQ visible={showFAQ} onClose={() => setShowFAQ(false)} />
         </div>
     );

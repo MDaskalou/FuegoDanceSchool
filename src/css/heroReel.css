@@ -48,6 +48,8 @@
     object-fit: cover;
     filter: blur(30px) brightness(.6);
     transform: translate(-50%, -50%) scale(1.2); /* skala upp mer */
+    animation: kb 18s ease-in-out infinite alternate;
+
 }
 .hero-bg-overlay {
     position: absolute;
@@ -61,34 +63,39 @@
     width:auto; height:100%;
     z-index:2;
 }
-
-/* -------- Overlay (kanter mörkare, mitten lättare) -------- */
-/*
-.slide-overlay{
-    position:absolute; inset:0; z-index:3; pointer-events:none;
-    background: linear-gradient(
-            to right,
-            rgba(0,0,0,.65) 0%,
-            rgba(0,0,0,.65) var(--fgEdge,22%),
-            rgba(0,0,0,.22) calc(var(--fgEdge,22%) + 2%),
-            rgba(0,0,0,.14) calc(50% - 10%),
-            rgba(0,0,0,.14) calc(50% + 10%),
-            rgba(0,0,0,.22) calc(100% - var(--fgEdge,22%) - 2%),
-            rgba(0,0,0,.65) calc(100% - var(--fgEdge,22%)),
-            rgba(0,0,0,.65) 100%
-    );
+@keyframes kb{
+    from{ transform: translate(-50%,-50%) scale(1.18); }
+    to  { transform: translate(-49%,-51%) scale(1.24); }
+}
+@media (prefers-reduced-motion: reduce){
+    .hero-video-bg{ animation: none !important; }
 }
 
- */
+/* Utgångsläge */
+.hero-reel-container .reveal{ opacity:0; transform:translateY(10px); }
+.hero-reel-container.ready .reveal{
+    opacity:1; transform:translateY(0);
+    transition: opacity .6s ease, transform .6s ease;
+}
+.hero-reel-container.ready .reveal:nth-child(1){ transition-delay:.05s; }
+.hero-reel-container.ready .reveal:nth-child(2){ transition-delay:.12s; }
+.hero-reel-container.ready .reveal:nth-child(3){ transition-delay:.18s; }
+.hero-reel-container.ready .reveal:nth-child(4){ transition-delay:.24s; }
+
 
 /* -------- Text & CTA (mobile-first) -------- */
 .slide-text-content{
-    position:absolute; top:48%; left:50%; transform:translate(-50%,-48%);
+    position:absolute; top:48%; left:50%;
+    transform:translate(-50%,-48%);
     z-index:4;
-    display:flex; flex-direction:column; align-items:center; text-align:center;
+    display:flex; flex-direction:column;
+    align-items:center;
+    text-align:center;
     gap:.35rem;
     width:min(88vw, 420px);
     color:#fff;
+    padding-inline: 16px;
+    box-sizing: border-box;
 }
 
 .slide-title{
@@ -99,11 +106,10 @@
     line-height:1.08;
     margin:0 0 .2rem;
     font-size:clamp(1.6rem, 7vw, 2.4rem);
-    color: #FFFFFF;
-    white-space: nowrap; /* <-- tvingar en rad */
-    text-shadow: 0 4px 12px rgba(0,0,0,0.75);
-
-
+    color:#fff;
+    text-shadow:0 4px 12px rgba(0,0,0,.75);
+    text-wrap:balance;
+    word-break:normal;
 }
 
 .hero-quote{
@@ -133,20 +139,33 @@
 
 /* Sekundära “pill”-länkar */
 .hero-secondary-actions{
-    display:flex; gap:.6rem; justify-content:center; align-items:center; width:100%;
+    display:flex;
+    gap:.6rem;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    flex-wrap:wrap;
+    margin-top:.6rem;
 }
 .hero-secondary-actions span{ display:none; }   /* inget | på mobil */
 .hero-secondary-actions a,
 .hero-secondary-action{
-    flex:1 1 0;
-    display:inline-flex; justify-content:center; align-items:center;
-    padding:.8rem 1rem; border-radius:999px;
-    background:var(--pillBg); border:1px solid var(--pillBorder);
-    color:#fff; font-weight:700; text-decoration:none; white-space:nowrap;
+    flex:1 1 48%;
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    padding:.8rem 1rem;
+    border-radius:999px;
+    background:var(--pillBg);
+    border:1px solid var(--pillBorder);
+    color:#fff;
+    font-weight:700;
+    text-decoration:none;
+    white-space:normal;
     backdrop-filter: blur(2px);
     box-shadow:0 6px 20px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.06);
     transition:background .2s ease, transform .08s ease;
-    min-width:0;
+    min-width:140px;
 }
 .hero-secondary-actions a:hover,
 .hero-secondary-action:hover{ background:var(--pillBgHover); transform:translateY(-1px); }
@@ -163,45 +182,37 @@
     60%{ transform:translateY(-6px) rotate(45deg); }
 }
 
-/* ============ BREAKPOINT: Tablet (>=600px) ============ */
-@media (min-width:600px){
-    .hero-reel-container{
-        margin-top:72px;
-        height:calc(100vh - 72px);
-    }
-    .slide-text-content{
-        width:min(78vw, 560px);
-        top:50%; transform:translate(-50%,-50%);
-        gap:.5rem; }
-    .slide-title{
-        font-size: clamp(2.2rem, 4vw + 0.6rem, 4rem);
-            letter-spacing:.045em;
-        line-height:1.06;
-        margin-bottom:.25rem;
-    }
-    .hero-quote{
-        font-size:clamp(1rem, 2vw, 1.25rem);
-    }
-    .slide-subtitle{
-        font-size:clamp(1rem, 2vw, 1.25rem);
-        margin-bottom:.8rem;
-    }
-    .hero-secondary-actions span{
-        display:inline;
-        color:rgba(255,255,255,.6);
-        margin:0 .25rem; }
-}
 
 /* ============ BREAKPOINT: Desktop (>=1024px) ============ */
-@media (min-width:1024px){
-    .hero-reel-container{ margin-top:80px; height:calc(100vh - 80px); }
-    .slide-text-content{ width:min(900px, 70vw); gap:.7rem; }
-    .slide-title{ font-size:clamp(2.6rem, 6vw + 1rem, 6.2rem); letter-spacing:.06em; margin-bottom:.35rem; }
-    .hero-quote{ font-size:clamp(1.1rem, 1.3vw + .4rem, 1.55rem); }
-    .slide-subtitle{ font-size:clamp(1.1rem, 1.2vw + .35rem, 1.45rem); margin-bottom:.9rem; }
+@media (min-width:720px){
+    .hero-reel-container{
+        margin-top:80px;
+        height:calc(100vh - 80px);
+    }
+    .slide-text-content{
+        width:auto;
+        max-width:96vw;
+        padding-inline: 24px;
+    }
+    .slide-title{
+        white-space: nowrap;
+        letter-spacing: .04em;
+        line-height: 1.05;
+        font-size: clamp(2.2rem, 5vw, 4.5rem); /* mindre titel */
+    }
+    .hero-quote{
+        font-size:clamp(1.1rem, 1.3vw + .4rem, 1.55rem); }
+    .slide-subtitle{
+        font-size:clamp(1.1rem, 1.2vw + .35rem, 1.45rem);
+        margin-bottom:.9rem;
+    }
 
     /* Desktop: visa horisontell knapprad */
     .hero-buttons-mobile{ display:none; }
     .hero-buttons-desktop{ display:flex; gap:1rem; }
-    .hero-secondary-action{ padding:.9rem 1.4rem; }
+    .hero-secondary-action{
+        padding:.9rem 1.4rem;
+        flex-wrap:nowrap;
+        margin-top:0;
+    }
 }

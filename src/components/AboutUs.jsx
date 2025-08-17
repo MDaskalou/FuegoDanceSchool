@@ -39,23 +39,52 @@ function About() {
                 <div className="about-text-container">
                     <SectionTitle color="white">{t("aboutTitle")}</SectionTitle>
                     <div className="about-description">
-                        {t('aboutText', { returnObjects: true }).map((paragraph, index) => {
-                            // Om paragrafen slutar med ':', styla den som en underrubrik
-                            if (paragraph.endsWith(':')) {
-                                return <p key={index} className="about-subheading">{paragraph}</p>;
-                            }
-                            // Om paragrafen är en listpunkt (identifierad genom att den följer en rubrik)
-                            // Detta är en förenklad logik. Förutsätter att listpunkter inte slutar på ':'.
-                            const previousParagraph = t('aboutText', { returnObjects: true })[index - 1] || '';
-                            if (previousParagraph.endsWith(':') || paragraph.startsWith('•')) {
-                                // Vi tar bort eventuellt • som kan finnas kvar och trimmar
-                                const text = paragraph.replace('•', '').trim();
-                                return <p key={index} className="about-list-item">{text}</p>;
-                            }
-                            // Annars, rendera som en vanlig paragraf
-                            return <p key={index}>{paragraph}</p>;
-                        })}
+                        {(() => {
+                            const raw = t("aboutText", { returnObjects: true });
+
+                            const sections = [];
+                            let current = { title: null, items: [], mode: "text" }; // första: ren text
+
+                            raw.forEach((p) => {
+                                if (p.endsWith(":")) {
+                                    // ny rubrik -> spara föregående sektion
+                                    if (current.items.length) sections.push(current);
+                                    current = { title: p.replace(/:$/, ""), items: [], mode: "bullets" };
+                                } else {
+                                    current.items.push(p.replace(/^•\s*/, "").trim());
+                                }
+                            });
+                            if (current.items.length) sections.push(current);
+
+                            return (
+                                <>
+                                    {/* Sektion 1: Intro (utan titel i kortet) */}
+                                    {sections[0] && sections[0].mode === "text" && (
+                                        <div className="about-card">
+                                            {sections[0].items.map((p, i) => (
+                                                <p key={`intro-${i}`}>{p}</p>
+                                            ))}
+                                        </div>
+                                    )}
+
+                                    {/* Resterande sektioner: rubrik + bullets i ett kort */}
+                                    {sections.slice(1).map((sec, idx) => (
+                                        <div key={`sec-${idx}`}>
+                                            <p className="about-subheading">{sec.title}:</p>
+                                            <div className="about-card">
+                                                <ul className="about-list">
+                                                    {sec.items.map((item, i) => (
+                                                        <li key={`li-${idx}-${i}`}>{item}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </>
+                            );
+                        })()}
                     </div>
+
                     <div className="about-cta">
                         <Button onClick={() => navigate('/instructors')}>
                             {t("meetInstructorsButton")}
