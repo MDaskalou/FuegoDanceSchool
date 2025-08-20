@@ -52,9 +52,15 @@
   "instructor_karin_name": "Karin Andersson",
   "instructor_karin_role": "Instruktör",
   "instructor_karin_title": "Safe Dance Scene",
-  "instructor_karin_description": [
-    "Mer information om Karin kommer snart."
-  ],
+  "instructor_karin_description":
+    [
+      "Karin har dansat bachata från och till i många år och har även erfarenhet av jazz, dancehall, salsa och kizomba.",
+      "Hon har varit med på Fuegos resa ända från starten och har känt Mikael i flera år, vilket gör att Fuego känns som ett andra hem för henne.",
+      "För Karin handlar dans om glädje – det ska vara roligt, och hon vill att man ska lämna klassen med en positiv känsla i kroppen.",
+      "Hon tycker om att sätta upp små, konkreta mål för att utvecklas, både tekniskt och mentalt.",
+      "Det kan vara allt från att jobba med kroppskontroll till att stärka självförtroendet på dansgolvet.",
+      "Utöver dansen är Karin utbildad studie- och yrkesvägledare och brinner för att lyssna, coacha och stötta andra i deras utveckling, både i dansen och i livet."
+    ],
   "instructor_karin_certificates": [],
   "instructor_karin_levels": [
     "Nivå 4",
@@ -92,9 +98,17 @@
   "instructor_jennifer_name": "Jennifer Tornstierna",
   "instructor_jennifer_role": "Instruktör",
   "instructor_jennifer_title": "Event Cordinator",
-  "instructor_jennifer_description": [
-    "Mer information om Jennifer kommer snart."
+  "instructor_jennifer_description":[
+    "Jennifer hittade till SBK-scenen i samband med sin flytt till Göteborg 2018, då hon började dansa salsa.",
+    "Efter deltagande på några socialer öppnades dörren för bachatan, och sedan dess har hon aldrig sett tillbaka.",
+    "Förutom bachata har Jennifer dansat sedan hon var 6 år gammal, allt från balett och jazz till bugg, hiphop och feminine vibe.",
+    "Det var dock först med bachatan som Jennifer verkligen fastnade.",
+    "“Det är speciellt att ha hittat något där man kan vara så närvarande i nuet att omvärlden känns avlägsen.”",
+    "Som instruktör beskriver Jennifer sig själv som strikt med glimten i ögat.",
+    "“Träning och klasser ska vara en mix av utmanande, lärorika och roliga.",
+    "När man lämnar klassen ska man ha mersmak och känna sig glad.”"
   ],
+
   "instructor_jennifer_certificates": [],
   "instructor_jennifer_levels": [
     "Nivå 2",
