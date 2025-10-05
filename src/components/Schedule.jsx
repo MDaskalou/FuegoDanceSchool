@@ -1,7 +1,7 @@
 // Fil: Schedule.js (KORREKT VERSION)
 
 import "../css/schedule.css"; // Denna import är korrekt och viktig!
-import scheduleImg from "../img/Schedule/Schema.jpg";
+import scheduleImg from "../img/Schedule/WinterCourse2025.png";
 import SectionTitle from "./UI/SectionTitle";
 import { useTranslation } from "react-i18next";
 import React from "react";

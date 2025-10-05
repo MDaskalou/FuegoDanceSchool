@@ -1,218 +1,300 @@
-﻿/* ============ Variabler (mobile-first) ============ */
-:root{
-    /* JS får gärna sätta --fgEdge per slide; fallback finns här */
-    --fgEdge: 22%;
-    --bgScale: 1.06;
+﻿/* src/css/heroReel.css - MOBILE FIRST - Elegant & Luxurious Theme */
 
-    --titleFont: "Playfair Display", Georgia, serif;
-    --bodyFont: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+/* --- Variabler för enkel anpassning --- */
+:root {
+    --font-serif: 'Georgia', 'Times New Roman', serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
-    --pillBg: rgba(36,20,12,.55);
-    --pillBgHover: rgba(36,20,12,.75);
-    --pillBorder: rgba(255,255,255,.08);
-    --textShadow: 0 3px 18px rgba(0,0,0,.55);
+    --color-primary: #E87A3E; /* En klarare orange, som på bilden */
+    --color-primary-hover: #F08F5A;
+    /* ÄNDRING: Transparent svart för sekundära knappar */
+    --color-secondary-bg: rgba(0, 0, 0, 0.8);
+    --color-secondary-bg-hover: rgba(0, 0, 0, 0.6);
+    --color-text: #FFFFFF; /* Helt vit text */
 }
 
-/* ============ Layout (MOBIL som grund) ============ */
-.hero-reel-container{
-    margin-top: 64px;                    /* lägre navbar på mobil? justera vid behov */
-    height: calc(100vh - 64px);
+/* --- 1. Grundläggande Container-styling (Oförändrad) --- */
+.hero-reel-container {
+    height: 100vh;
     width: 100%;
     position: relative;
     overflow: hidden;
-    background: transparent;
-    font-family: var(--bodyFont);
+    background-color: #000;
 }
+.hero-reel-container.ready { opacity: 1; }
 
+/* --- 2. Swiper & Slide-styling (Oförändrad) --- */
 .hero-reel-container .swiper,
 .hero-reel-container .swiper-wrapper,
-.hero-reel-container .swiper-slide{ height: 100%; }
-
-.slide-content{
-    position: relative;
-    width: 100%;
+.hero-reel-container .swiper-slide {
     height: 100%;
+    width: 100%;
+}
+.slide-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-text);
 }
 
-/* -------- Videolager -------- */
+/* --- 3. Video-effekt (Oförändrad, fungerar bra på mobil) --- */
 .hero-video-bg,
-.hero-video-fg{
-    position:absolute; inset:0;
-    top:50%; left:50%; transform:translate(-50%,-50%);
-    width:100%; height:100%;
-    object-position:center;
-    pointer-events:none;
+.hero-video-fg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
 }
 
 .hero-video-bg {
-    object-fit: cover;
-    filter: blur(30px) brightness(.6);
-    transform: translate(-50%, -50%) scale(1.2); /* skala upp mer */
-    animation: kb 18s ease-in-out infinite alternate;
-
+    filter: blur(18px) brightness(0.7);
 }
-.hero-bg-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.45); /* jämn mörkning */
+.hero-video-fg {
     z-index: 2;
 }
 
-.hero-video-fg{
-    object-fit:contain;                  /* stående video syns helt */
-    width:auto; height:100%;
-    z-index:2;
-}
-@keyframes kb{
-    from{ transform: translate(-50%,-50%) scale(1.18); }
-    to  { transform: translate(-49%,-51%) scale(1.24); }
-}
-@media (prefers-reduced-motion: reduce){
-    .hero-video-bg{ animation: none !important; }
-}
-
-/* Utgångsläge */
-.hero-reel-container .reveal{ opacity:0; transform:translateY(10px); }
-.hero-reel-container.ready .reveal{
-    opacity:1; transform:translateY(0);
-    transition: opacity .6s ease, transform .6s ease;
-}
-.hero-reel-container.ready .reveal:nth-child(1){ transition-delay:.05s; }
-.hero-reel-container.ready .reveal:nth-child(2){ transition-delay:.12s; }
-.hero-reel-container.ready .reveal:nth-child(3){ transition-delay:.18s; }
-.hero-reel-container.ready .reveal:nth-child(4){ transition-delay:.24s; }
+/* --- 4. Overlay & Textinnehåll --- */
+.slide-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%; width: 100%;
+    z-index: 5;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 90%);
+    transform: translateZ(0);
+    displey: none;
 
 
-/* -------- Text & CTA (mobile-first) -------- */
-.slide-text-content{
-    position:absolute; top:48%; left:50%;
-    transform:translate(-50%,-48%);
-    z-index:4;
-    display:flex; flex-direction:column;
-    align-items:center;
-    text-align:center;
-    gap:.35rem;
-    width:min(88vw, 420px);
-    color:#fff;
-    padding-inline: 16px;
-    box-sizing: border-box;
 }
 
-.slide-title{
-    font-family:var(--titleFont);
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:.03em;
-    line-height:1.08;
-    margin:0 0 .2rem;
-    font-size:clamp(1.6rem, 7vw, 2.4rem);
-    color:#fff;
-    text-shadow:0 4px 12px rgba(0,0,0,.75);
-    text-wrap:balance;
-    word-break:normal;
+.slide-text-content {
+    position: relative;
+    z-index: 4;
+    text-align: center;
+    padding: 3rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 90vw;
 }
 
-.hero-quote{
-    font-style:italic;
-    color:#f2f2f2; text-shadow:var(--textShadow); opacity:.95;
-    font-size:clamp(.95rem, 3.4vw, 1.1rem);
-    margin:.1rem 0 .15rem;
-}
-.slide-subtitle{
-    color:#fff; text-shadow:var(--textShadow); opacity:.95; font-weight:600;
-    font-size:clamp(.95rem, 3.5vw, 1.1rem);
-    margin:.1rem 0 .6rem;
-}
-
-/* Knappar: kolumn (CTA fullbredd, två piller bredvid varann) */
-.hero-buttons-mobile,
-.hero-buttons-desktop{ display:flex; align-items:center; gap:.6rem; }
-.hero-buttons-desktop{ display:none; }         /* visas först på större skärm */
-
-.hero-buttons-mobile{ width:100%; flex-direction:column; align-items:stretch; }
-
-.hero-buttons-mobile > button,
-.hero-buttons-mobile .btn,
-.hero-buttons-mobile .Button{
-    width:100%; justify-content:center;
+/* MOBILE-FIRST ÄNDRING: Justerade clamp-värden för att starta mindre och passa bättre på smala skärmar. */
+.slide-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 9vw, 4rem);
+    font-weight: 700;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    color: var(--color-text);
+    line-height: 1.1; /* Förbättrar läsbarheten på flera rader */
 }
 
-/* Sekundära “pill”-länkar */
-.hero-secondary-actions{
-    display:flex;
-    gap:.6rem;
-    justify-content:center;
-    align-items:center;
-    width:100%;
-    flex-wrap:wrap;
-    margin-top:.6rem;
-}
-.hero-secondary-actions span{ display:none; }   /* inget | på mobil */
-.hero-secondary-actions a,
-.hero-secondary-action{
-    flex:1 1 48%;
-    display:inline-flex;
-    justify-content:center;
-    align-items:center;
-    padding:.8rem 1rem;
-    border-radius:999px;
-    background:var(--pillBg);
-    border:1px solid var(--pillBorder);
-    color:#fff;
-    font-weight:700;
-    text-decoration:none;
-    white-space:normal;
-    backdrop-filter: blur(2px);
-    box-shadow:0 6px 20px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.06);
-    transition:background .2s ease, transform .08s ease;
-    min-width:140px;
-}
-.hero-secondary-actions a:hover,
-.hero-secondary-action:hover{ background:var(--pillBgHover); transform:translateY(-1px); }
-
-/* Scroll-indikator */
-.scroll-indicator{ position:absolute; bottom:12px; left:50%; transform:translateX(-50%); z-index:4; }
-.scroll-indicator .arrow{
-    width:20px; height:20px; border:2px solid #fff; border-top:none; border-left:none;
-    transform:rotate(45deg); animation:arrow-bounce 2s infinite;
-}
-@keyframes arrow-bounce{
-    0%,20%,50%,80%,100%{ transform:translateY(0) rotate(45deg); }
-    40%{ transform:translateY(-10px) rotate(45deg); }
-    60%{ transform:translateY(-6px) rotate(45deg); }
+.hero-quote {
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 4vw, 1.3rem);
+    font-style: italic;
+    font-weight: 400;
+    opacity: 0.9;
+    margin: 0;
 }
 
+.slide-subtitle {
+    font-family: var(--font-sans);
+    font-size: clamp(0.9rem, 3.5vw, 1.1rem); /* Anpassad för mobil */
+    font-weight: 600;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
-/* ============ BREAKPOINT: Desktop (>=1024px) ============ */
-@media (min-width:720px){
-    .hero-reel-container{
-        margin-top:80px;
-        height:calc(100vh - 80px);
+/* --- 5. Animationer (Oförändrade) --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+.hero-reel-container.ready .reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+.hero-reel-container.ready .hero-quote.reveal { transition-delay: 0.3s; }
+.hero-reel-container.ready .slide-subtitle.reveal { transition-delay: 0.5s; }
+.hero-reel-container.ready .hero-buttons.reveal { transition-delay: 0.7s; }
+
+/* --- 6. Knappar och länkar --- */
+.hero-buttons {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column; /* Huvudknapp ovanför sekundära */
+    align-items: center;
+    gap: 1.25rem;
+    width: 100%;
+}
+
+.hero-buttons > button {
+    font-family: var(--font-sans);
+    background-color: #f26a1b;
+    color: var(--color-text);
+    border: none;
+    padding: 0.5rem 3rem; /* ÄNDRING: Mer padding för större knapp */
+    width: 100%;
+    max-width: 300px; /* ÄNDRING: Något mindre maxbredd för huvudknappen */
+    font-size: 1.1rem; /* ÄNDRING: Större text */
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.4s ease, transform 0.4s ease;
+    border-radius: 9999px; /* ÄNDRING: Helt rundade hörn */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtil skugga */
+}
+
+.hero-buttons > button:hover {
+    background-color: var(--color-primary-hover);
+    transform: scale(1.02); /* En mer subtil hover-effekt för touch-enheter (syns vid "tryck") */
+}
+
+.hero-secondary-actions {
+    display: flex;
+    flex-direction: row; /* Sida vid sida */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+}
+/* Tar bort den visuella avdelaren "|" som inte behövs i en vertikal layout */
+.hero-secondary-actions > span[aria-hidden="true"] {
+    display: none;
+}
+.hero-secondary-action {
+    background-color: var(--color-secondary-bg); /* Transparent svart */
+    color: var(--color-text);
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtil vit kant */
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.8rem 1.5rem;
+    border-radius: 9999px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    white-space: nowrap;
+}
+.hero-secondary-action:hover {
+    background-color: var(--color-secondary-bg-hover);
+    transform: scale(1.05);
+    color: var(--color-text);
+}
+
+/* Tar bort hover-effekten med understrykning för ett renare mobilt gränssnitt */
+.hero-secondary-action::after { content: none; }
+
+
+/* --- 7. Scroll-indikator (Något högre upp från kanten) --- */
+.scroll-indicator {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    width: 40px; height: 40px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+.scroll-indicator:hover { opacity: 1; } /* Hover är mindre relevant, men skadar inte */
+
+.scroll-indicator .arrow {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 16px; height: 16px;
+    border-bottom: 2px solid var(--color-text);
+    border-right: 2px solid var(--color-text);
+    animation: bounce 2.5s infinite ease-in-out;
+}
+@keyframes bounce {
+    0%, 100% { transform: translate(-50%, -70%) rotate(45deg); }
+    50% { transform: translate(-50%, -40%) rotate(45deg); }
+}
+
+/* --- 8. Swiper Navigation --- */
+/* MOBILE-FIRST ÄNDRING: Göm navigeringspilarna som standard.
+   Svep är den primära interaktionen på mobil. */
+.swiper-button-next,
+.swiper-button-prev {
+    display: none;
+}
+
+/* =============================================== */
+/* DESKTOP & SURFPLATTA (min-width: 768px)      */
+/* =============================================== */
+@media (min-width: 768px) {
+
+    /* Lägg till denna nya regel inuti ditt @media-block */
+
+    .hero-video-bg {
+        /*
+            Denna metod tvingar videon att vara 10% högre och 10% bredare
+            än skärmen. Därefter centrerar vi den perfekt med top, left
+            och transform. Detta garanterar att alla suddiga kanter
+            hamnar långt utanför den synliga ytan.
+        */
+        width: 120%;
+        height: 120%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
     }
-    .slide-text-content{
-        width:auto;
-        max-width:96vw;
-        padding-inline: 24px;
-    }
-    .slide-title{
-        white-space: nowrap;
-        letter-spacing: .04em;
-        line-height: 1.05;
-        font-size: clamp(2.2rem, 5vw, 4.5rem); /* mindre titel */
-    }
-    .hero-quote{
-        font-size:clamp(1.1rem, 1.3vw + .4rem, 1.55rem); }
-    .slide-subtitle{
-        font-size:clamp(1.1rem, 1.2vw + .35rem, 1.45rem);
-        margin-bottom:.9rem;
+
+    /* 1. KORRIGERAD LÖSNING för det inzoomade videoproblemet */
+    .hero-video-fg {
+
+        height: 100%;
+        width: auto;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
-    /* Desktop: visa horisontell knapprad */
-    .hero-buttons-mobile{ display:none; }
-    .hero-buttons-desktop{ display:flex; gap:1rem; }
-    .hero-secondary-action{
-        padding:.9rem 1.4rem;
-        flex-wrap:nowrap;
-        margin-top:0;
+    /* 2. Justera text- och knapplayouten för bredare skärmar */
+    .slide-text-content {
+        /* Ge texten en maxbredd för att undvika att den blir för lång och svårläst */
+        max-width: 800px;
+    }
+
+    .slide-title {
+        /* Något större text på desktop */
+        font-size: clamp(3rem, 5vw, 5rem);
+    }
+
+    .hero-quote, .slide-subtitle {
+        /* Även underrubrikerna kan vara lite större */
+        font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+    }
+
+    /* Justera knapparnas storlek och layout */
+    .hero-buttons > button {
+        max-width: 350px; /* Huvudknappen kan vara lite bredare */
+    }
+
+    .hero-secondary-actions {
+        gap: 1rem; /* Lite mer utrymme mellan de sekundära knapparna */
+    }
+
+    /* 3. Visa navigeringspilarna för Swiper igen */
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: flex; /* Ändra från 'none' till 'flex' för att visa dem */
+    }
+
+    .scroll-indicator {
+        /* Scroll-pilen är mindre viktig på desktop, vi kan tona ner den lite */
+        opacity: 0.5;
     }
 }

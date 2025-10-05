@@ -1,5 +1,5 @@
 ﻿{
-  "signupTitle": "Föranmäl dig till öppet hus",
+  "signupTitle": "Föranmäl dig till Vinterkurserna",
   "labelName": "Namn *",
   "labelEmail": "E-post *",
   "labelInterestedCourses": "Vilka kurser är du intresserad av?",
@@ -11,7 +11,8 @@
     "Nivå 4",
     "Nivå 4 Teknik",
     "Styling Class",
-    "Role Rotation"
+    "Role Rotation",
+    "Footwork"
   ],
   "labelRole": "Förare eller Följare *",
   "roleOptions": [
@@ -35,9 +36,9 @@
   "infoBookButton": "Boka en plats",
 
   "modalTitle": "Tack för din anmälan!",
-  "modalSuccessMessage": "Vi har tagit emot din föranmälan till vårt öppet hus. Vad kul att du vill komma!",
+  "modalSuccessMessage": "Vi har tagit emot din föranmälan till vinterkurserna. Vad kul att du vill komma!",
   "eventDetailsTitle": "Information om dagen:",
-  "date": "Datum: Öppet hus Vecka 35",
+  "date": "Datum: Vinterkurserna startar Vecka 44",
   "time": "Tid: 18:00 - 21:00",
   "location": "Plats: Doktor Westrings gata 14D, Göteborg",
   "whatToWear": "Klädsel: Bekväma kläder och inneskor.",

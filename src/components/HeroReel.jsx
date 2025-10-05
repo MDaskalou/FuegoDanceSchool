@@ -83,7 +83,6 @@ export default function HeroReel() {
             const { bg, fg } = refs;
             if (!bg || !fg) return;
 
-            // stop others & abort pending
             pauseAllExcept(slide.id);
             refs.controller?.abort?.();
             const controller = new AbortController();
@@ -101,17 +100,14 @@ export default function HeroReel() {
                 return;
             }
 
-            // sync and play (ignore autoplay errors silently)
             try { fg.currentTime = bg.currentTime || 0; } catch {}
             const p1 = bg.play?.();
             const p2 = fg.play?.();
             p1?.catch?.(() => {});
             p2?.catch?.(() => {});
 
-            // compute overlay edges after layout tick
             requestAnimationFrame(() => setOverlayEdges(slide.id));
 
-            // drift correction
             clearInterval(refs.driftTimer);
             refs.driftTimer = setInterval(() => {
                 if (!bg.paused && !fg.paused) {
@@ -122,7 +118,6 @@ export default function HeroReel() {
                 }
             }, 2000);
 
-            // resize listener (one per slide)
             if (refs.offResize) window.removeEventListener("resize", refs.offResize);
             const onResize = () => setOverlayEdges(slide.id);
             window.addEventListener("resize", onResize, { passive: true });
@@ -166,14 +161,12 @@ export default function HeroReel() {
     useEffect(() => {
         const onVis = () => {
             if (document.hidden) {
-                // pausa allt
                 Object.values(videoRefs.current).forEach(({ bg, fg }) => {
                     try { bg?.pause?.(); } catch {}
                     try { fg?.pause?.(); } catch {}
                 });
                 return;
             }
-            // fliken synlig: starta ENDAST aktuell slide
             const idx = swiperRef.current?.realIndex ?? 0;
             startSlideVideos(idx);
         };
@@ -182,20 +175,15 @@ export default function HeroReel() {
         return () => document.removeEventListener("visibilitychange", onVis);
     }, [startSlideVideos]);
 
-    const handleInit = useCallback(
-        (swiper) => {
-            swiperRef.current = swiper;
-            startSlideVideos(swiper.realIndex || 0);
-        },
-        [startSlideVideos]
-    );
+    const handleInit = useCallback((swiper) => {
+        swiperRef.current = swiper;
+        // markera initial aktiva slide för CSS (duplicate-active hanteras av Swiper)
+        startSlideVideos(swiper.realIndex || 0);
+    }, [startSlideVideos]);
 
-    const handleSlideChange = useCallback(
-        (swiper) => {
-            startSlideVideos(swiper.realIndex || 0);
-        },
-        [startSlideVideos]
-    );
+    const handleSlideChange = useCallback((swiper) => {
+        startSlideVideos(swiper.realIndex || 0);
+    }, [startSlideVideos]);
 
     return (
         <div id="heroreel" className="hero-reel-container">
@@ -205,6 +193,7 @@ export default function HeroReel() {
                 slidesPerView={1}
                 loop
                 effect="fade"
+                fadeEffect={{ crossFade: true }}
                 autoplay={{ delay: 7000, disableOnInteraction: false }}
                 navigation
                 onInit={handleInit}
@@ -238,12 +227,13 @@ export default function HeroReel() {
                             {/* vignette overlay (uses --fgEdge) */}
                             <div className="slide-overlay" />
 
+                            {/* TEXT & KNAPPAR */}
                             <div className="slide-text-content">
                                 <h1 className="slide-title reveal">{t("title")}</h1>
                                 <p className="hero-quote reveal">{t("quote")}</p>
                                 <p className="slide-subtitle reveal">{t("subtitle")}</p>
 
-                                <div className="hero-buttons-mobile reveal">
+                                <div className="hero-buttons reveal">
                                     <Button
                                         onClick={() =>
                                             window.open(
@@ -273,42 +263,15 @@ export default function HeroReel() {
                                         </button>
                                     </div>
                                 </div>
-
-                                <div className="hero-buttons-desktop reveal">
-                                    <Link to="/open-house-signup" className="hero-secondary-action">
-                                        {t("openHouseButton")}
-                                    </Link>
-
-                                    <Button
-                                        onClick={() =>
-                                            window.open(
-                                                "https://app.coursely.se/activities/FuegoDance",
-                                                "_blank"
-                                            )
-                                        }
-                                    >
-                                        {t("coursesButton")}
-                                    </Button>
-
-                                    <button
-                                        type="button"
-                                        className="hero-secondary-action hero-linklike"
-                                        onClick={() => setShowFAQ(true)}
-                                        aria-haspopup="dialog"
-                                        aria-controls="faq-modal"
-                                    >
-                                        {t("faqButton")}
-                                    </button>
-                                </div>
                             </div>
                         </div>
                     </SwiperSlide>
                 ))}
             </Swiper>
 
-            <div className="scroll-indicator">
+            <a href="#next-section" className="scroll-indicator" aria-label="Scrolla ner">
                 <div className="arrow" />
-            </div>
+            </a>
             <FAQ visible={showFAQ} onClose={() => setShowFAQ(false)} />
         </div>
     );

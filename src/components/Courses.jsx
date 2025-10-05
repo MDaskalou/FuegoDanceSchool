@@ -18,14 +18,14 @@ function Courses() {
 
     // Steg 2: Definiera den statiska datan som inte finns i JSON (bilder, länkar)
     const staticCourseData = [
-        { id: 1, image: FuegoLogo, bookingLink: "https://app.coursely.se/activity/c1d98c14-b59a-49c5-b142-4d9e3bcb24c7" },
-        { id: 2, image: FuegoLogo, bookingLink: "https://app.coursely.se/activity/82c07f97-2f8f-464d-90f2-2bdff41ceaca" },
-        { id: 3, image: FuegoLogo, bookingLink: "https://app.coursely.se/activity/d6b72b97-ae4e-49ee-9341-f29ee5426be6" },
-        { id: 4, image: FuegoLogo, bookingLink: "https://app.coursely.se/activity/3ae37bf7-fcba-42de-9778-2ac4eac90ee2" },
-        { id: 5, image: FuegoLogo, bookingLink: "https://app.coursely.se/activity/084d24d0-bae3-4147-aa85-aebc9c7e5af3" },
-        { id: 6, image: FuegoLogo, bookingLink: "https://app.coursely.se/activity/78df274b-dce7-4379-aad5-30bc8caed991" },
-        { id: 7, image: FuegoLogo, bookingLink: "https://app.coursely.se/activity/047792c6-6ccb-4f3b-b3d6-e4c2124e20c7" },
-        { id: 8, image: FuegoLogo, bookingLink: "https://app.coursely.se/activity/02fe6e70-afa7-47cc-a3d4-ba97bb7cc344" },
+        { id: 1, image: FuegoLogo, bookingLink: "https://app.coursely.se/activity/6c4214f7-b06e-48e4-8209-d15df18e4aa5" },
+        { id: 2, image: FuegoLogo, bookingLink: "https://app.coursely.se/activity/8e6b6d42-0cba-43d3-bddc-19bc563d01f8" },
+        { id: 3, image: FuegoLogo, bookingLink: "https://app.coursely.se/activity/6a191d7f-1c52-406b-8847-bb74fb062565" },
+        { id: 4, image: FuegoLogo, bookingLink: "https://app.coursely.se/activity/1f048e02-e1df-4a73-906b-730b5d337b34" },
+        { id: 5, image: FuegoLogo, bookingLink: "https://app.coursely.se/activity/d17ca7b7-61f8-4e44-a712-821aabc380d6" },
+        { id: 6, image: FuegoLogo, bookingLink: "https://app.coursely.se/activity/78a7bab8-47bd-49e6-84bb-ef291a9e4b8a" },
+        { id: 7, image: FuegoLogo, bookingLink: "https://app.coursely.se/activity/9a72708d-8d74-4edc-bce7-37a19a99854b" },
+        { id: 8, image: FuegoLogo, bookingLink: "https://app.coursely.se/activity/d2676cd6-7923-4ea0-be51-b48aa2022c6a" },
         { id: 9, image: FuegoLogo, bookingLink: "https://app.coursely.se/activity/79e846fb-badc-490f-a730-68265f1be8c5" },
         { id: 10, image: FuegoLogo, bookingLink: "https://app.coursely.se/activity/79e846fb-badc-490f-a730-68265f1be8c5" }
     ];

@@ -1,5 +1,5 @@
 ﻿{
-  "signupTitle": "Pre-register for our Open House",
+  "signupTitle": "Pre-register for Winter Courses",
   "labelName": "Name *",
   "labelEmail": "Email *",
   "labelInterestedCourses": "Which courses are you interested in?",
@@ -11,7 +11,8 @@
     "Level 4",
     "Level 4 Technique",
     "Styling Class",
-    "Role Rotation"
+    "Role Rotation",
+    "Footwork"
   ],
   "labelRole": "Leader or Follower *",
   "roleOptions": [
@@ -37,7 +38,7 @@
   "modalTitle": "Thank you for your registration!",
   "modalSuccessMessage": "We have received your pre-registration for our open house. We're excited to see you!",
   "eventDetailsTitle": "Information about the event:",
-  "date": "Date: Open House Week 35",
+  "date": "Date: Winter courses start Week 44",
   "time": "Time: 18:00 - 21:00",
   "location": "Location: Doktor Westrings gata 14D, Gothenburg",
   "whatToWear": "Dress code: Comfortable clothes and indoor shoes.",
