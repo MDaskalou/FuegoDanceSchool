@@ -1,12 +1,10 @@
 ﻿{
-
   "eventsMainTitle": "Kommande Event",
   "noEventsAvailable": "Inga event tillgängliga just nu.",
   "readMoreButton": "Läs mer",
   "eventLevelLabel": "Nivå:",
   "eventBringLabel": "Ta med:",
   "readMoreAndBookButton": "Läs mer & boka",
-
   "event_1_title": "8-timmars Bootcamp med Jorge & Azahara",
   "event_1_date": "8-9 November 2025",
   "event_1_time": "11:00–16:00",
@@ -35,26 +33,37 @@
     "",
     "Platserna är begränsade – säkra din plats nu!"
   ],
-
-  "event_2_title": "Bachata Role Rotation Workshop",
-  "event_2_date": "23 augusti 2025",
-  "event_2_time": "12:00–15:00",
+  "event_2_title": "Fuego Night",
+  "event_2_date": "8:e November 2025",
+  "event_2_time": "20:00–02:00",
   "event_2_location": "Fuego Dance School",
-  "event_2_shortDescription": "Byt roller och lyft din bachata – lär dig både föra och följa!",
+  "event_2_shortDescription": "Workshop + Fest – Känn värmen och dansa hela natten!",
   "event_2_description": [
-    "Upptäck hur mycket roligare bachata blir när du lär dig både att föra och följa!",
-    "I denna energifyllda workshop guidar Nora & Sisco dig steg för steg genom tekniker som gör roterande roller smidiga, musikaliska och lekfulla.",
-    "🎟 Nivå: Öppen – grundläggande bachata-steg är allt du behöver",
-    "👟 Ta med: Inomhusskor, en vattenflaska och ett öppet sinne",
-    "Platserna är begränsade – boka din plats idag!",
-    "Dans mer jämlikt, dans mer kreativt – vi ses på dansgolvet!"
+    "Gör dig redo för ännu en oförglömlig kväll på Fuego Dance School! Vi samlar för en kväll fylld av rytm, gemenskap och ren dansglädje.",
+    "💃 Workshop (20:00–21:00) – Tomas & Shay håller en energifylld Bachata Fusion-workshop! Lär dig nya tekniker, förbättra din connection och lägg till lite extra krydda i din socialdans.",
+    "🎉 Fest (21:00–02:00) – Efter workshopen börjar den riktiga festen! Dansa natten lång till den bästa bachata- och salsamusiken, med fantastisk stämning och passionerade dansare.",
+    "📅 Datum: 23 augusti 2025",
+    "⏰ Tid: 20:00 – 02:00",
+    "📍 Plats: Fuego Dance School – Södra Allégatan 4 14D, Göteborg",
+    "🎶 Musik: Bachata och lite Salsa med DJ Base",
+    "💰 Förköp: 150 kr | I dörren: 180 kr",
+    "🍹 Ta med egna drycker och ditt bästa humör!"
   ],
 
-
-  "event_3_title": "Warsaw Bachata Festival",
-  "event_3_date": "5–7 juli 2025",
-  "event_3_time": "Heldagar",
-  "event_3_location": "Warszawa, Polen",
-  "event_3_shortDescription": "Vi åker tillsammans! En fantastisk resa med workshops och socials i världsklass.",
-  "event_3_description": "Warsaw Bachata Festival"
+  "event_3_title": "Bachata Nybörjarworkshop",
+  "event_3_date": "1 november 2025",
+  "event_3_time": "12:00–15:00",
+  "event_3_location": "Fuego Dance School",
+  "event_3_shortDescription": "3-timmars intensivkurs för nybörjare – lär dig grunderna och börja din bachataresa!",
+  "event_3_description": [
+    "Redo att börja dansa bachata? Häng med på vår 3-timmars nybörjarworkshop och lär dig grunderna i en rolig och välkomnande miljö!",
+    "Vi går igenom grundsteg, rytm, connection och enkla snurrar så att du känner dig trygg på dansgolvet.",
+    "Ingen partner eller tidigare erfarenhet behövs – alla är välkomna!",
+    "📅 Datum: 1 november 2025",
+    "⏰ Tid: 12:00 – 15:00",
+    "📍 Plats: Fuego Dance School – Doktor Westrings Gata 14D, Göteborg",
+    "🎶 Nivå: Nybörjare",
+    "💰 Pris: 199 kr",
+    "👟 Ta med inneskor, vattenflaska och ett leende!"
+  ]
 }

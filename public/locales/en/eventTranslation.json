@@ -35,28 +35,39 @@
 
 
 
-  "event_2_title": "Bachata Role Rotation Workshop",
+  "event_2_title": "Fuego Night",
   "event_2_date": "23 August 2025",
-  "event_2_time": "12:00–15:00",
+  "event_2_time": "20:00–02:00",
   "event_2_location": "Fuego Dance School",
-  "event_2_shortDescription": "Switch roles and elevate your bachata – learn both leading and following!",
+  "event_2_shortDescription": "Workshop + Party – Feel the heat and dance all night!",
   "event_2_description": [
-    "Discover how much more fun bachata becomes when you learn both leading and following!",
-    "In this high-energy workshop, Nora & Sisco guide you step by step through techniques that make role rotation smooth, musical, and playful.",
+    "Get ready for another unforgettable night at Fuego Dance School! We’re bringing the community together for a night full of rhythm, connection, and pure fun.",
+    "💃 Workshop (20:00–21:00) – Join Tomas & Shay for an exciting Bachata Fusion workshop! Learn new techniques, improve your connection, and add some extra spice to your social dancing.",
+    "🎉 Party (21:00–02:00) – After the workshop, the real fiesta begins! Dance the night away to the best Bachata and Salsa music, surrounded by great vibes and passionate dancers.",
     "📅 Date: 23 August 2025",
-    "⏰ Time: 12:00 – 15:00",
-    "📍 Venue: Fuego Dance School",
-    "🎟 Level: Open – basic bachata steps are all you need",
-    "👟 Bring: Indoor shoes, a water bottle, and an open mind",
-    "Spaces are limited—book your spot today!",
-    "Dance more equally, dance more creatively—see you on the floor!"
+    "⏰ Time: 20:00 – 02:00",
+    "📍 Venue: Fuego Dance School – Södra Allégatan 4 14D, Gothenburg",
+    "🎶 Music: Bachata And some Salsa With Dj Base",
+    "💰 Pre-sale: 150 SEK | At the door: 180 SEK",
+    "🍹 Bring your own drinks & your best energy!"
   ],
 
 
-  "event_3_title": "Warsaw Bachata Festival",
-  "event_3_date": "July 5–7, 2025",
-  "event_3_time": "Full days",
-  "event_3_location": "Warsaw, Poland",
-  "event_3_shortDescription": "We're going together! A fantastic trip with world-class workshops and socials.",
-  "event_3_description": "Warsaw Bachata Festival"
+  "event_3_title": "Bachata Beginner Workshop",
+  "event_3_date": "1 November 2025",
+  "event_3_time": "12:00–15:00",
+  "event_3_location": "Fuego Dance School",
+  "event_3_shortDescription": "3-hour intensive for complete beginners – learn the fundamentals and start your bachata journey!",
+  "event_3_description": [
+    "Ready to start dancing bachata? Join our 3-hour beginner workshop and learn the fundamentals in a fun, welcoming environment!",
+    "We’ll cover the basic steps, rhythm, connection, and simple turns so you can feel confident on the dance floor.",
+    "No partner or experience needed – everyone is welcome!",
+    "📅 Date: 1 November 2025",
+    "⏰ Time: 12:00 – 15:00",
+    "📍 Venue: Fuego Dance School – Doktor Westrings Gata 14D, Gothenburg",
+    "🎶 Level: Absolute beginners",
+    "💰 Price: 199 SEK",
+    "👟 Bring: Indoor shoes, a water bottle, and a smile!",
+  ]
+
 }
