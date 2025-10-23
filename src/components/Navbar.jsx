@@ -59,10 +59,6 @@ function Navbar() {
 
     const handleLanguageChange = (lng) => i18n.changeLanguage(lng);
 
-    const getNavbarHeight = () => {
-        const el = navRef.current || document.querySelector(".navbar");
-        return el ? el.offsetHeight : 70;
-    };
 
     // src/components/Navbar.jsx
 
