@@ -64,37 +64,59 @@ function Navbar() {
         return el ? el.offsetHeight : 70;
     };
 
+    // src/components/Navbar.jsx
+
     const smoothScrollTo = (sectionId) => {
         setIsMenuOpen(false);
 
         const doScroll = () => {
             const el = document.getElementById(sectionId);
-            if (!el) return;
-            const navH = getNavbarHeight();
-            const y = el.getBoundingClientRect().top + window.scrollY - (navH + 8);
-            window.scrollTo({ top: y, behavior: "smooth" });
+            if (el) {
+                // Denna metod respekterar automatiskt 'scroll-margin-top: 80px'
+                // som du redan har i din CSS. Ingen manuell beräkning behövs.
+                el.scrollIntoView({ behavior: "smooth" });
+            } else {
+                // Bra att ha för felsökning om en ID är felstavad
+                console.warn("Kunde inte hitta element att scrolla till:", sectionId);
+            }
         };
 
         if (location.pathname === "/") {
-            // På startsidan: scrolla direkt efter en frame (för att vara säker på layout)
-            requestAnimationFrame(doScroll);
+            // Om vi REDAN är på startsidan, scrolla efter en kort fördröjning
+            // för att garantera att allt hunnit renderas (t.ex. lazy-loading).
+            setTimeout(doScroll, 50); // 50ms räcker oftast
         } else {
-            // Navigera hem och scrolla när startsidan laddats
+            // Om vi är på en ANNAN sida, navigera hem och skicka med ID:t.
+            // Vår useEffect (nedan) kommer att ta över.
             navigate("/", { state: { scrollTo: sectionId } });
         }
     };
+
+    /* Om startsidan öppnas med state.scrollTo, utför scroll */
+    // src/components/Navbar.jsx
 
     /* Om startsidan öppnas med state.scrollTo, utför scroll */
     useEffect(() => {
         const { state } = location;
         if (state?.scrollTo) {
             const id = state.scrollTo;
-            // nollställ state så det inte triggar igen på back/forward
+
+            // Nollställ state direkt så det inte triggas igen
             navigate(location.pathname, { replace: true, state: {} });
-            setTimeout(() => smoothScrollTo(id), 120);
+
+            // Vänta 150ms för att ge React tid att byta sida och
+            // rendera alla homepage-komponenter.
+            setTimeout(() => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.scrollIntoView({ behavior: "smooth" });
+                } else {
+                    console.warn("Kunde inte hitta element (efter nav):", id);
+                }
+            }, 150); // En lite längre fördröjning för sidbyte
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [location, navigate]); // FIX: Lyssna efter ändringar i 'location'!
 
     return (
         <nav
