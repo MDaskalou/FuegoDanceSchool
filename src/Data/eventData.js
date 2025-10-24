@@ -35,7 +35,7 @@ const events = [
         bringKey: "events.event3.bring",
         shortDescriptionKey: "events.event3.shortDescription",
         descriptionKey: "events.event3.description",
-        image: require("../img/Events/A3 Poster_Beginners intensive course (Facebook-inlägg).png"),
+        image: require("../img/Events/BeginnerWorkshop.png"),
         link: "https://app.coursely.se/activity/d9828201-9684-49bc-a383-e3b8a004803a"
     }
 ];
